@@ -34,3 +34,4 @@ dbt/.user.yml
 __pycache__/
 .DS_Store
 terraform/.build/
+.pytest_cache/

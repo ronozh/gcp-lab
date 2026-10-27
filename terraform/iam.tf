@@ -11,9 +11,15 @@ resource "google_project_iam_member" "spark_worker" {
   member  = "serviceAccount:${google_service_account.spark.email}"
 }
 
-# Create and update Iceberg tables in the bronze dataset (BigQuery metastore catalog).
+# Create and update Iceberg tables (BigQuery metastore catalog): bronze.*, and gold.sales_features.
 resource "google_bigquery_dataset_iam_member" "spark_bronze" {
   dataset_id = google_bigquery_dataset.layer["bronze"].dataset_id
+  role       = "roles/bigquery.dataEditor"
+  member     = "serviceAccount:${google_service_account.spark.email}"
+}
+
+resource "google_bigquery_dataset_iam_member" "spark_gold" {
+  dataset_id = google_bigquery_dataset.layer["gold"].dataset_id
   role       = "roles/bigquery.dataEditor"
   member     = "serviceAccount:${google_service_account.spark.email}"
 }
