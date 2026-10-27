@@ -15,14 +15,14 @@ def spark():
     s.stop()
 
 
-def test_default_name_explicit_name_and_seq_chaining(spark):
+def test_default_name_explicit_name_and_stage_chaining(spark):
     t = Transform()
 
-    @t.register(seq=2, col_name="doubled_total")    # registered first, runs second
+    @t.register(stage=2, col_name="doubled_total")  # registered first, runs in stage 2
     def double_it():
         return F.col("total") * 2
 
-    @t.register(seq=1)
+    @t.register()                                   # stage 1 by default
     def total():
         return F.col("a") + F.col("b")
 
@@ -34,19 +34,12 @@ def test_default_name_explicit_name_and_seq_chaining(spark):
 def test_window_rule(spark):
     t = Transform()
 
-    @t.register(seq=1)
+    @t.register()
     def group_sum():
         return F.sum("v").over(Window.partitionBy("g"))
 
     rows = t.run(spark.createDataFrame([("x", 1), ("x", 2), ("y", 5)], "g string, v int"), keep=["g"]).collect()
     assert sorted((r.g, r.group_sum) for r in rows) == [("x", 3), ("x", 3), ("y", 5)]
-
-
-def test_duplicate_seq_rejected():
-    t = Transform()
-    t.register(seq=1)(lambda: F.lit(1))
-    with pytest.raises(ValueError, match="seq 1 already used"):
-        t.register(seq=1, col_name="other")(lambda: F.lit(2))
 
 
 def test_sales_features_rules(spark):
