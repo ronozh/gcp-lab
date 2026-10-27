@@ -23,7 +23,7 @@ def is_completed():
 @transform.register(seq=1)
 def margin_pct():
     """Margin as a share of net amount (null when net is 0)."""
-    return F.round(F.col("margin_amount") / F.nullif(F.col("net_amount"), F.lit(0)), 4)
+    return F.when(F.col("net_amount") != 0, F.round(F.col("margin_amount") / F.col("net_amount"), 4))
 
 
 @transform.register(seq=1)
