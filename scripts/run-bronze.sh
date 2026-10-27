@@ -5,8 +5,11 @@
 set -euo pipefail
 root=$(cd "$(dirname "$0")/.." && pwd)
 source "$root/bootstrap/.env"
-feed=${1:?usage: run-bronze.sh <feed> [incremental|full_refresh]}
-mode=${2:-incremental}
+usage() { echo "usage: run-bronze.sh <feed> [incremental|full_refresh]" >&2; exit 2; }
+feed=${1:-}; mode=${2:-incremental}
+# Check here: a typo inside the batch costs ~3 min and the only quota slot.
+[ -n "$feed" ] && [ -f "$root/spark/bronze/config/$feed.py" ] || usage
+case $mode in incremental|full_refresh) ;; *) usage ;; esac
 
 if [ "${LOCAL:-}" = 1 ]; then
   tmp=$(mktemp -d)
@@ -15,7 +18,7 @@ if [ "${LOCAL:-}" = 1 ]; then
 else
   job="gs://${PROJECT_ID}-code/spark/bronze_ingest.py"; py_files="gs://${PROJECT_ID}-code/spark/bronze.zip"   # deployed by CI
 fi
-batch="bronze-${feed}-$(date +%Y%m%d-%H%M%S)"
+batch="bronze-${feed//_/-}-$(date +%Y%m%d-%H%M%S)"   # batch ids: [a-z0-9-]
 
 props=(
   # Smallest footprint: 4-core driver + 2 x 4-core executors = 12 vCPU (the free-trial quota).

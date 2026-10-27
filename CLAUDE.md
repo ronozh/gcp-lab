@@ -16,4 +16,4 @@ A medallion lakehouse on GCP, built from code. Sibling of `../snowflake-lab` (sa
 GCS landing → Serverless Spark (PySpark) → bronze Iceberg → dbt + BigQuery → silver views → gold Iceberg. Terraform applied by GitHub Actions (Workload Identity Federation, no keys). Region `australia-southeast1`.
 
 ## Layers
-landing = GCS files (versioned) · bronze = Iceberg, typed with provenance, 1:1 per file, append-only, incremental by file name · silver = views over the latest file · gold = business tables.
+landing = GCS files (versioned) · bronze = Iceberg, typed + `_meta_*` provenance; incremental (append new files, matched by path) or full_refresh (replace) · silver = views over the latest file · gold = business tables.

@@ -1,10 +1,10 @@
 from pyspark.sql.types import (DoubleType, IntegerType, StringType, StructField, StructType,
-                               TimestampType)
+                               TimestampNTZType)
 
 # Column order = CSV header order.
 SCHEMA = StructType([
     StructField("transaction_id", StringType()),
-    StructField("event_ts", TimestampType()),
+    StructField("event_ts", TimestampNTZType()),   # local time, no zone in the file -> BigQuery DATETIME
     StructField("customer_id", IntegerType()),
     StructField("product_id", IntegerType()),
     StructField("campaign_id", IntegerType()),

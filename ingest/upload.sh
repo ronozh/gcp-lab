@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Upload sample files for a date range to the landing bucket:
 #   gs://<project-id>-landing/ecommerce/<feed>/<yyyy-mm-dd>/<file>.csv + .ctrl
-# The .csv goes first, then the .ctrl ("file complete" marker).
+# Upload .ctrl last (after its .csv).
 # Usage: ingest/upload.sh <from yyyy-mm-dd> [to yyyy-mm-dd]
 set -euo pipefail
 from=$1; to=${2:-$1}

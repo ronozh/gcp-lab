@@ -28,7 +28,7 @@ class FeedConfig:
     null_value: str = ""
     date_format: str = "yyyy-MM-dd"
     timestamp_format: str = "yyyy-MM-dd HH:mm:ss"
-    mode: str = "FAILFAST"                      # a malformed row fails the job (no silent nulls)
+    parse_mode: str = "FAILFAST"                # a malformed row fails the job (no silent nulls)
 
     @classmethod
     def from_dict(cls, values: dict) -> "FeedConfig":
@@ -43,5 +43,5 @@ class FeedConfig:
             "header": self.header, "sep": self.delimiter, "encoding": self.encoding,
             "quote": self.quote, "escape": self.escape, "nullValue": self.null_value,
             "dateFormat": self.date_format, "timestampFormat": self.timestamp_format,
-            "mode": self.mode,
+            "timestampNTZFormat": self.timestamp_format, "mode": self.parse_mode,
         }

@@ -55,15 +55,15 @@ spark/
 1. **Pick files:**
    - `incremental`: landing files whose path isn't in bronze `_meta_file_path` yet;
    - `full_refresh`: all landing files.
-2. **Read** with the feed's CSV options and schema (`FAILFAST`: a malformed row fails the job).
-3. **Validate** rows per file = `record_count` in its `.ctrl`. If any file fails, the job fails and **nothing is written**.
+2. **Read** with the feed's CSV options and schema (`parse_mode=FAILFAST`). A malformed value fails the write: there's no commit, so the table is unchanged, though stray data files may remain.
+3. **Validate** rows per file = `record_count` in its `.ctrl` (a missing `.ctrl` is an error too). If any file fails, the job fails and **nothing is written**.
 4. **Add `_meta_*` columns:**
 
    | Column | From |
    |---|---|
    | `_meta_file_path` | landing path (no bucket, so no project ID in the data) |
    | `_meta_file_name`, `_meta_file_size`, `_meta_file_modified_ts` | Spark's hidden `_metadata` struct |
-   | `_meta_record_number` | 1..n per file, in read order (best effort; Spark has no CSV line numbers; exact for small files) |
+   | `_meta_record_number` | 1..n per file, in read order. Spark has no CSV line numbers; exact when a file is read as one split (< 128 MB) |
    | `_meta_business_date` | the date folder in the path (also the partition column) |
    | `_meta_processed_ts`, `_meta_batch_id`, `_meta_load_mode` | this run |
 5. **Write:**
@@ -97,9 +97,16 @@ gcloud storage ls gs://$PROJECT_ID-lake/iceberg/bronze.db/transaction/metadata/ 
 ```
 
 ## Try it
-- **Idempotency:** run `scripts/run-bronze.sh transaction` twice. The second run prints `0 files to load`.
+- **Idempotency:** run `scripts/run-bronze.sh transaction` twice. The second run logs `files_to_load=0` and `nothing to do`.
 - **Full refresh:** run it with `full_refresh`, then query `_meta_load_mode`: every row says `full_refresh`, and the count is unchanged.
-- **Bad file:** edit a `.ctrl` count, upload a new day, run. The batch fails, and bronze is unchanged.
+- **Bad file:** fake a day 9 whose `.ctrl` count is wrong. The batch fails, and bronze is unchanged.
+  ```bash
+  L=gs://$PROJECT_ID-landing/ecommerce/transaction
+  gcloud storage cp $L/2026-01-08/transaction_20260108235959.csv $L/2026-01-09/transaction_20260109235959.csv
+  printf 'file_name,record_count\ntransaction_20260109235959.csv,1\n' | gcloud storage cp - $L/2026-01-09/transaction_20260109235959.ctrl
+  scripts/run-bronze.sh transaction          # ERROR bronze: ... rows 1695 != ctrl 1
+  gcloud storage rm -r $L/2026-01-09/        # clean up
+  ```
 - **Logs:** Console → Dataproc → Serverless → Batches → your batch → Output.
 
 ## Logs (Cloud Logging ≈ CloudWatch Logs)
@@ -113,7 +120,9 @@ The job logs with Python `logging`: logger `bronze`, to stdout. Serverless Spark
 |---|---|
 | Console → Dataproc → Serverless → Batches → *batch* → **Output** | Full driver output for one batch |
 | Console → **Logs Explorer** | Query: `resource.type="cloud_dataproc_batch" "bronze:"` |
-| CLI | `gcloud logging read 'resource.type="cloud_dataproc_batch" AND resource.labels.batch_id="<batch>" AND "bronze:"' --order=asc --format='value(textPayload)'` |
+| CLI | `gcloud logging read 'resource.type="cloud_dataproc_batch" AND resource.labels.batch_id="<batch>" AND "bronze:"' --order=asc --format='value(jsonPayload.message)'` |
+
+Search for text such as `validation failed`. Python log levels are **not** mapped to Cloud Logging severity, so `severity>=ERROR` finds nothing.
 
 ## Why a batch takes ~3 minutes for 3 MB
 - **~75 s:** Google provisions the VMs.
@@ -124,7 +133,13 @@ Serverless suits scheduled jobs, not a tight dev loop.
 
 ## Gotchas
 - **Quota:** a new batch fails with `CPUS_ALL_REGIONS … available 0` until the previous one has released its machines.
+- **Timestamps:** the files have local times with no zone, so `event_ts` is `TimestampNTZType` → Iceberg `timestamp` → BigQuery **DATETIME** (as snowflake-lab's TIMESTAMP_NTZ). A plain `TimestampType` would treat them as UTC.
+- **Empty file:** a 0-row file passes validation but adds no rows, so it is re-read on every incremental run (logged as a warning).
 - **Reserved names:** BigQuery rejects columns starting `_FILE_`, `_TABLE_` or `_PARTITION`; `_meta_file_name` is fine because it starts with `_meta`.
 - **Catalog keys:** the runtime's bundled catalog reads `gcp_project` / `gcp_location`. Upstream Iceberg docs say `gcp.bigquery.project-id`, which doesn't work here.
 - **No extra jars:** adding upstream Iceberg jars is unnecessary, and the `_2.12` ones are the wrong Scala version for runtime 2.3.
-- **Changing partition columns:** `createOrReplace` fails if the old partition column no longer exists. Drop the table (`bq rm`) and its files, then reload.
+- **Schema changes `full_refresh` can't do:** changing a column's **type** (BigQuery: `Field … has changed type`) or removing a **partition column**. Drop and reload instead:
+  ```bash
+  bq rm -f -t bronze.<feed> && gcloud storage rm -r gs://$PROJECT_ID-lake/iceberg/bronze.db/<feed>
+  scripts/run-bronze.sh <feed>               # first load creates the table
+  ```
