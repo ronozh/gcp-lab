@@ -7,8 +7,6 @@ CSV ─▶ GCS landing ─PySpark (Serverless Spark)─▶ bronze ─dbt + BigQu
 Terraform ◀─ GitHub Actions (Workload Identity Federation, no keys)
 ```
 
-**Learn how it works:** [docs/](docs/README.md)
-
 ## Security (public repo)
 - No keys, state, tfvars or project-specific config in git. Local config is in gitignored `.env` / `*.tfvars` / `backend.hcl`; CI gets it from `dev` environment secrets.
 - CI logs in to GCP via WIF, restricted to this repo on `main`.
