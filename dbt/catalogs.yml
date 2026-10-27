@@ -1,0 +1,11 @@
+# Where BigQuery writes Iceberg files for models with +catalog_name: lake_iceberg.
+# BigQuery writes them through the project's default connection (`lake`, set by Terraform).
+catalogs:
+  - name: lake_iceberg
+    active_write_integration: biglake
+    write_integrations:
+      - name: biglake
+        catalog_type: biglake_metastore
+        external_volume: "gs://{{ env_var('PROJECT_ID') }}-lake"
+        table_format: iceberg
+        file_format: parquet

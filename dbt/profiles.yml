@@ -1,0 +1,11 @@
+# Local runs use your own Google login (Application Default Credentials). No keys.
+gcp_lab:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('PROJECT_ID') }}"
+      location: "{{ env_var('REGION') }}"
+      dataset: dbt_default          # only used if a model has no +schema
+      threads: 4

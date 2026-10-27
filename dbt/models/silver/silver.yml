@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: campaign
+    columns:
+      - name: campaign_id
+        data_tests: [unique, not_null]
+  - name: customer
+    columns:
+      - name: customer_id
+        data_tests: [unique, not_null]
+  - name: product
+    columns:
+      - name: product_id
+        data_tests: [unique, not_null]
+  - name: transaction
+    columns:
+      - name: transaction_id
+        data_tests: [unique, not_null]

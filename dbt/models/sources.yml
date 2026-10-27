@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: Iceberg tables written by Spark (read-only for BigQuery).
+    schema: bronze
+    tables:
+      - name: campaign
+      - name: customer
+      - name: product
+      - name: transaction

@@ -13,7 +13,7 @@ A medallion lakehouse on GCP, built from code. Sibling of `../snowflake-lab` (sa
 - Log each error and its fix in `gotcha.md` (gitignored).
 
 ## Stack
-GCS landing → Serverless Spark (PySpark) → bronze Iceberg → dbt + BigQuery → silver views → gold Iceberg. Terraform applied by GitHub Actions (Workload Identity Federation, no keys). Region `australia-southeast1`.
+GCS landing → Serverless Spark (PySpark) → bronze Iceberg → dbt + BigQuery → silver tables → gold Iceberg. Terraform applied by GitHub Actions (Workload Identity Federation, no keys). Region `australia-southeast1`.
 
 ## Layers
-landing = GCS files (versioned) · bronze = Iceberg, typed + `_meta_*` provenance; incremental (append new files, matched by path) or full_refresh (replace) · silver = views over the latest file · gold = business tables.
+landing = GCS files (versioned) · bronze = Iceberg, typed + `_meta_*` provenance; incremental (append new files, matched by path) or full_refresh (replace) · silver = native BigQuery tables (latest file per entity/day) · gold = `fct_sales`, BigQuery-managed Iceberg.

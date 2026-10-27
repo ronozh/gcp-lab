@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: Transactions + customer, product, campaign details. BigQuery-managed Iceberg table.
+    columns:
+      - name: transaction_id
+        data_tests: [unique, not_null]
+      - name: customer_id
+        data_tests:
+          - relationships: {arguments: {to: ref('customer'), field: customer_id}}
+      - name: product_id
+        data_tests:
+          - relationships: {arguments: {to: ref('product'), field: product_id}}
