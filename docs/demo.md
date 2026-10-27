@@ -59,7 +59,7 @@ scripts/run-dbt.sh build
 scripts/test-spark.sh -s
 ```
 ```bash
-scripts/run-gold.sh
+scripts/run-spark-declarative.sh
 ```
 The first command is optional: 5 s locally, it runs the tests and prints the rule lineage table. The second reads `gold.fct_sales`, applies the 8 registered rules and writes `gold.sales_features`.
 
@@ -157,5 +157,5 @@ gcloud storage ls gs://$PROJECT_ID-lake/iceberg/*/
 gcloud storage rm "gs://$PROJECT_ID-landing/ecommerce/transaction/2026-01-08/*"
 ```
 ```bash
-scripts/run-bronze.sh transaction full_refresh && scripts/run-dbt.sh build && scripts/run-gold.sh
+scripts/run-bronze.sh transaction full_refresh && scripts/run-dbt.sh build && scripts/run-spark-declarative.sh
 ```

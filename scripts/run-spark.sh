@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Low-level helper: submit a PySpark entry file to Serverless Spark and wait. Use run-bronze.sh / run-gold.sh.
+# Low-level helper: submit a PySpark entry file to Serverless Spark and wait. Use run-bronze.sh / run-spark-declarative.sh.
 # Usage: scripts/run-spark.sh <entry.py> [job args...]      (--batch-id is added automatically)
 #   LOCAL=1 ...   run your local code (dev loop, no push needed); default: the code CI deployed
 set -euo pipefail

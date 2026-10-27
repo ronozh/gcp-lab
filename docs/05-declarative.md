@@ -50,13 +50,13 @@ gold.fct_sales (BigQuery/dbt, Iceberg) ──Spark reads exported metadata──
 
 ```bash
 scripts/test-spark.sh -s          # local tests + prints lineage (~5 s; needs Java 17 + uv)
-scripts/run-gold.sh               # Serverless Spark: writes gold.sales_features (~3 min)
+scripts/run-spark-declarative.sh               # Serverless Spark: writes gold.sales_features (~3 min)
 bq query --nouse_legacy_sql \
   'SELECT spend_band, COUNT(*) n, COUNTIF(is_first_order) first_orders FROM gold.sales_features GROUP BY 1'
 ```
 
 ## Try it
-Add a rule to `sales_features.py`, e.g. `is_weekend` = `F.dayofweek("order_date").isin(1, 7)` (stage 1, no argument needed), run `scripts/test-spark.sh`, then `scripts/run-gold.sh`. No other code changes.
+Add a rule to `sales_features.py`, e.g. `is_weekend` = `F.dayofweek("order_date").isin(1, 7)` (stage 1, no argument needed), run `scripts/test-spark.sh`, then `scripts/run-spark-declarative.sh`. No other code changes.
 
 ## Gotchas
 - Dataproc runs Spark **3.5.3**; a newer local 3.5.x can have extra functions. `F.nullif` worked locally but failed on Dataproc, so keep rules to well-established functions.

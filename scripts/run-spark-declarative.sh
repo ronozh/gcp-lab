@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Gold features: gold.fct_sales -> declarative rules -> gold.sales_features (Serverless Spark).
+# Declarative business rules (Serverless Spark): gold.fct_sales -> registered rules -> gold.sales_features.
 # Run after scripts/run-dbt.sh build (it reads fct_sales' exported Iceberg metadata).
-# Usage: scripts/run-gold.sh        LOCAL=1 scripts/run-gold.sh   # run your local code
+# Usage: scripts/run-spark-declarative.sh        LOCAL=1 scripts/run-spark-declarative.sh   # run your local code
 set -euo pipefail
 root=$(cd "$(dirname "$0")/.." && pwd)
 source "$root/bootstrap/.env"
