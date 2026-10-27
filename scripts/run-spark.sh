@@ -32,6 +32,17 @@ props=(
   spark.sql.catalog.lake.warehouse=gs://${PROJECT_ID}-lake/iceberg
 )
 
+# The trial quota (12 vCPU) fits one batch: wait while another batch is active or still holds vCPUs.
+busy() {
+  local active cpus
+  active=$(gcloud dataproc batches list --project="$PROJECT_ID" --region="$REGION" --limit=10 --format=json |
+    jq '[.[] | select(.state == "PENDING" or .state == "RUNNING")] | length')
+  cpus=$(gcloud compute project-info describe --project="$PROJECT_ID" --format=json |
+    jq '.quotas[] | select(.metric == "CPUS_ALL_REGIONS") | .usage | floor')
+  [ "$active" -gt 0 ] || [ "$cpus" -gt 0 ]
+}
+while busy; do echo "waiting: another batch is using the vCPU quota (one batch at a time on the trial)..."; sleep 20; done
+
 gcloud dataproc batches submit pyspark "$job" \
   --project="$PROJECT_ID" --region="$REGION" --batch="$batch" \
   --version=2.3 \

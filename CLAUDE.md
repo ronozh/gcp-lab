@@ -9,6 +9,7 @@ A medallion lakehouse on GCP, built from code. Sibling of `../snowflake-lab` (sa
 - Responses: very concise.
 - Work through `plan/README.md` one phase at a time: build → verify against done-when → update `docs/` → independent code + doc review (agent) → fix agreed issues → commit.
 - The user is **new to GCP** (strong on AWS/Snowflake). `docs/` is a top deliverable: for every step, a very clear, concise doc building a mental model (GCP concept ≈ AWS equivalent), with the commands and how to verify and try it. Update it with every change.
+- Docs command blocks: **commands only**, copy-paste ready (no expected output or result comments inside). Put expected results in text below the block.
 - Public repo: no secrets, keys, state, tfvars, or project/billing IDs in git.
 - Log each error and its fix in `gotcha.md` (gitignored).
 
