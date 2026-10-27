@@ -12,6 +12,7 @@ tags=$(gcloud data-catalog taxonomies policy-tags list --taxonomy="$tax" --locat
   --format='csv[no-heading](displayName,name)')
 export PII_HIGH_TAG=$(grep '^high,' <<<"$tags" | cut -d, -f2)
 export PII_MEDIUM_TAG=$(grep '^medium,' <<<"$tags" | cut -d, -f2)
+: "${PII_HIGH_TAG:?policy tag high not found}" "${PII_MEDIUM_TAG:?policy tag medium not found}"
 cd "$root/dbt"
 [ -d .venv ] || uv venv .venv --python 3.13 -q        # needs uv: brew install uv
 uv pip install -q -p .venv -r requirements.txt          # no-op unless requirements.txt changed

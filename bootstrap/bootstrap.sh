@@ -34,7 +34,7 @@ gcloud iam service-accounts describe "$CI_SA" >/dev/null 2>&1 ||
 for role in \
   roles/storage.admin roles/bigquery.admin roles/iam.serviceAccountAdmin \
   roles/resourcemanager.projectIamAdmin roles/serviceusage.serviceUsageAdmin \
-  roles/datacatalog.categoryAdmin roles/bigquerydatapolicy.admin; do
+  roles/datacatalog.categoryAdmin; do
   # A new SA can take a few seconds to become visible to IAM: retry, then fail loudly.
   for i in 1 2 3 4 5; do
     gcloud projects add-iam-policy-binding "$PROJECT_ID" --member="serviceAccount:$CI_SA" \

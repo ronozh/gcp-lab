@@ -2,6 +2,8 @@
 
 **What this phase does:** on `gold.fct_sales`, PII columns can be read only by a privileged identity, and one analyst sees only NSW rows. You test it by **impersonating** test identities.
 
+**Only gold is governed.** bronze and silver hold the same PII untagged, protected only by dataset IAM (the test identities have no access to them).
+
 ## Mental model
 
 ```
@@ -15,7 +17,7 @@
 | GCP | Lake Formation ≈ | Note |
 |---|---|---|
 | **Taxonomy** `pii` + **policy tags** `high`, `medium` | LF-tag `pii` with values | Created by Terraform; attached to columns by dbt |
-| **Fine-grained reader** role on a tag | LF-tag grant (SELECT on tagged columns) | Without it, selecting the column fails, **even for the project owner** |
+| **Fine-grained reader** role on a tag | LF-tag grant (SELECT on tagged columns) | Without it, selecting the column fails, **even for the project owner** (a guardrail: the owner can grant it to themselves; see Try it) |
 | **Row access policy** (`FILTER USING …`, `GRANT TO …`) | Data filter (row filter) | Once a table has *any* policy, a user in **no** policy sees **0 rows** |
 | Data masking policy (hash / NULL) | Cell-level masking | **Not used:** needs a GCP **Organization**, which a personal gmail project has none of |
 | IAM on dataset (`bigquery.dataViewer` on `gold`) | Table/database grant | Test identities can read `gold` only, not `silver` or buckets |
@@ -37,7 +39,7 @@ Analysts query PII-free columns normally: `SELECT * EXCEPT (customer_email, cust
 |---|---|
 | Taxonomy, policy tags, test SAs, IAM (tag reader, dataset viewer, job user, you may impersonate them) | `terraform/governance.tf` |
 | Tags on columns | `dbt/models/gold/gold.yml` (`policy_tags`) + `+persist_docs: {columns: true}` |
-| Row access policies | `dbt/dbt_project.yml` gold `+post-hook` |
+| Row access policies | `dbt/models/gold/gold.yml` → `fct_sales` `post_hook` |
 | Tag IDs (contain the project id, so not in git) | looked up by `scripts/run-dbt.sh` → `PII_HIGH_TAG`, `PII_MEDIUM_TAG` |
 
 ## Commands
@@ -65,11 +67,12 @@ gcloud data-catalog taxonomies list --location=$REGION                          
 Console: BigQuery → `gold.fct_sales` → **Schema** (policy tag icon) · BigQuery → **Policy tags** (taxonomy, who can read).
 
 ## Try it
-- **Grant yourself PII:** give your user `roles/datacatalog.categoryFineGrainedReader` on tag `high` (Console → Policy tags → `high` → Add principal). Your email query then works; names still fail (`medium`).
-- **Remove a grantee:** take `lab-analyst` out of `all_rows` in `dbt_project.yml`, then build and test. It now sees **0 rows**, not an error.
+- **Grant yourself PII:** Console → BigQuery → Policy tags → `pii` → `high` → Add principal → you, role **Fine-Grained Reader** (`roles/datacatalog.categoryFineGrainedReader`). After ~1 minute, `bq query --nouse_legacy_sql 'SELECT customer_email FROM gold.fct_sales LIMIT 1'` works, but `SELECT customer_first_name …` still fails (tag `medium`). Remove the grant afterwards (Remove principal).
+- **Remove a grantee:** take `lab-analyst` out of `all_rows` in `gold.yml`, then build and run the test script. It now sees **0 rows**, not an error.
 
 ## Gotchas
 - **Rebuild window:** each dbt build is `CREATE OR REPLACE`, so for a few seconds the table has no tags or policies, until `persist_docs` and the post-hooks re-apply them. That's fine for a lab, not for production (use incremental models or swap tables).
-- **BigQuery-only:** the Iceberg Parquet files in `gs://<project-id>-lake/iceberg/gold/` hold clear PII. Anyone with bucket access bypasses all of this, just as Lake Formation doesn't protect raw S3. The test identities have no bucket access.
+- **BigQuery-only:** the Iceberg Parquet files in `gs://<project-id>-lake/iceberg/gold/` hold clear PII. Anyone who can read them (you, the CI SA, `spark-runner`), or any engine reading the exported Iceberg metadata, bypasses all of this, just as Lake Formation doesn't protect raw S3. The test identities have no bucket access.
+- **Failed build = open PII:** tags are applied *after* the table is replaced. If a gold build fails midway, rebuild, then run `scripts/test-governance.sh`.
 - **No masking:** data policies (`SHA256`, `ALWAYS_NULL`) need an Organization. So we deny the column instead of masking it.
-- **dbt tests:** no tests on tagged columns, because you, the dbt runner, have no fine-grained reader role.
+- **dbt tests:** no tests on tagged columns, because you, the dbt runner, have no fine-grained reader role. The dbt runner must be in `all_rows`; otherwise tests see 0 rows and pass silently.
