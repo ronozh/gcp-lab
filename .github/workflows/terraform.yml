@@ -1,0 +1,80 @@
+name: terraform
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "terraform/**"
+      - "spark/**"
+      - "scripts/ci/**"
+      - ".github/workflows/terraform.yml"
+  workflow_dispatch:
+# No pull_request trigger: solo repo, so fork PRs trigger nothing.
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: terraform
+  cancel-in-progress: false
+
+env:
+  TF_VERSION: "1.15.8"
+  TF_IN_AUTOMATION: "true"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+      - name: fmt
+        run: terraform fmt -check -recursive terraform
+      - name: validate
+        run: |
+          terraform -chdir=terraform init -backend=false -input=false >/dev/null
+          terraform -chdir=terraform validate -no-color
+
+  dev:
+    needs: validate
+    runs-on: ubuntu-latest
+    environment: dev
+    permissions:
+      contents: read
+      id-token: write # GitHub OIDC token -> GCP Workload Identity Federation
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Write config from secrets
+        env:
+          TF_STATE_BUCKET: ${{ secrets.TF_STATE_BUCKET }}
+          TFVARS: ${{ secrets.TFVARS }}
+        run: |
+          grep -oE '[[:alnum:]._%+-]+@[[:alnum:].-]+' <<<"$TFVARS" | while read -r e; do echo "::add-mask::$e"; done
+          printf 'bucket = "%s"\n' "$TF_STATE_BUCKET" > terraform/backend.hcl
+          printf '%s\n' "$TFVARS" > terraform/terraform.tfvars
+
+      # Exchanges the GitHub OIDC token for short-lived credentials of the CI service account. No keys.
+      - uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
+          service_account: ${{ secrets.GCP_CI_SA }}
+
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+
+      - name: terraform plan + apply
+        run: scripts/ci/tf-apply.sh

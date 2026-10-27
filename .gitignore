@@ -1,0 +1,35 @@
+# Local-only
+plan/
+gotcha.md
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+backend.hcl
+crash.log
+
+# Secrets / keys / local config
+*.json.key
+*-key.json
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/.user.yml
+
+# Python / OS
+.venv/
+__pycache__/
+.DS_Store
