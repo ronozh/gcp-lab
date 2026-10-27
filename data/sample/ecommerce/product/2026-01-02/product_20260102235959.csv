@@ -1,0 +1,401 @@
+product_id,sku,brand,category,subcategory,product_name,unit_price,unit_cost,weight_kg,launch_date,is_available,snapshot_date
+1,SKU-00001,Harrowfield,Pet,Aquatic,Harrowfield Aquatic,367.54,272.05,3.315,2025-08-05,True,2026-01-02
+2,SKU-00002,Eastgate,Grocery,Baking,Eastgate Baking,292.97,126.42,16.292,2025-09-20,True,2026-01-02
+3,SKU-00003,Dovetail,Sports,Swimming,Dovetail Swimming,142.91,77.99,4.411,2025-10-16,True,2026-01-02
+4,SKU-00004,Thistle,Toys,Games,Thistle Games,238.89,172.72,0.791,2025-11-06,True,2026-01-02
+5,SKU-00005,Lantern,Toys,Outdoor Play,Lantern Outdoor Play,69.17,48.26,10.294,2025-10-27,True,2026-01-02
+6,SKU-00006,Stonecrop,Apparel,Footwear,Stonecrop Footwear,45.92,33.82,4.097,2025-07-20,True,2026-01-02
+7,SKU-00007,Pinegrove,Outdoors,Fishing,Pinegrove Fishing,75.68,42.79,8.095,2025-09-08,True,2026-01-02
+8,SKU-00008,Dovetail,Home,Bedding,Dovetail Bedding,65.06,29.43,4.217,2025-07-23,True,2026-01-02
+9,SKU-00009,Stonecrop,Home,Storage,Stonecrop Storage,470.11,214.65,6.474,2025-03-24,True,2026-01-02
+10,SKU-00010,Thistle,Beauty,Fragrance,Thistle Fragrance,246.81,139.27,7.244,2025-12-03,True,2026-01-02
+11,SKU-00011,Quarry,Pet,Dog,Quarry Dog,383.38,230.87,0.807,2025-03-07,True,2026-01-02
+12,SKU-00012,Umberton,Beauty,Haircare,Umberton Haircare,22.05,16.18,7.502,2025-05-06,True,2026-01-02
+13,SKU-00013,Vantage,Books,Reference,Vantage Reference,39.93,31.05,0.464,2025-07-24,True,2026-01-02
+14,SKU-00014,Meridian,Beauty,Cosmetics,Meridian Cosmetics,60.5,36.5,5.655,2025-01-11,True,2026-01-02
+15,SKU-00015,Stonecrop,Toys,Building Sets,Stonecrop Building Sets,42.26,18.74,13.611,2025-12-14,True,2026-01-02
+16,SKU-00016,Cindershop,Grocery,Coffee,Cindershop Coffee,185.65,67.71,13.459,2025-06-14,True,2026-01-02
+17,SKU-00017,Umberton,Apparel,T-Shirts,Umberton T-Shirts,15.98,12.32,3.31,2025-04-21,True,2026-01-02
+18,SKU-00018,Yarrow,Beauty,Cosmetics,Yarrow Cosmetics,23.51,10.69,1.888,2025-06-14,True,2026-01-02
+19,SKU-00019,Harrowfield,Toys,Games,Harrowfield Games,170.44,126.31,0.684,2025-06-22,True,2026-01-02
+20,SKU-00020,Bellweather,Books,Reference,Bellweather Reference,230.82,128.98,0.681,2025-06-09,True,2026-01-02
+21,SKU-00021,Aurora,Outdoors,Fishing,Aurora Fishing,7.53,5.56,15.266,2025-07-12,False,2026-01-02
+22,SKU-00022,Quarry,Apparel,T-Shirts,Quarry T-Shirts,239.15,141.03,1.081,2025-09-05,True,2026-01-02
+23,SKU-00023,Meridian,Beauty,Cosmetics,Meridian Cosmetics,371.29,240.22,12.421,2025-11-13,True,2026-01-02
+24,SKU-00024,Ironbark,Electronics,Headphones,Ironbark Headphones,201.95,77.39,3.577,2025-05-20,True,2026-01-02
+25,SKU-00025,Meridian,Outdoors,Hiking,Meridian Hiking,279.71,213.59,13.0,2025-11-26,True,2026-01-02
+26,SKU-00026,Lantern,Home,Cookware,Lantern Cookware,76.06,28.87,1.702,2025-03-29,True,2026-01-02
+27,SKU-00027,Redgum,Grocery,Coffee,Redgum Coffee,172.81,116.75,5.982,2025-05-05,True,2026-01-02
+28,SKU-00028,Stonecrop,Sports,Team Sports,Stonecrop Team Sports,154.87,112.5,11.047,2025-06-01,True,2026-01-02
+29,SKU-00029,Meridian,Pet,Cat,Meridian Cat,157.08,114.81,8.329,2025-02-07,True,2026-01-02
+30,SKU-00030,Oakhaven,Sports,Yoga,Oakhaven Yoga,170.45,127.12,0.825,2025-10-14,True,2026-01-02
+31,SKU-00031,Juniper,Grocery,Snacks,Juniper Snacks,125.26,43.94,10.134,2025-10-14,True,2026-01-02
+32,SKU-00032,Wildacre,Sports,Swimming,Wildacre Swimming,107.59,39.39,19.439,2025-06-28,True,2026-01-02
+33,SKU-00033,Pinegrove,Toys,Plush,Pinegrove Plush,120.22,59.38,18.076,2025-12-04,True,2026-01-02
+34,SKU-00034,Wildacre,Grocery,Baking,Wildacre Baking,250.91,140.28,4.162,2025-01-22,True,2026-01-02
+35,SKU-00035,Thistle,Outdoors,Fishing,Thistle Fishing,123.44,76.69,0.241,2025-12-10,True,2026-01-02
+36,SKU-00036,Glasshouse,Pet,Cat,Glasshouse Cat,95.33,67.51,3.719,2025-04-30,True,2026-01-02
+37,SKU-00037,Wildacre,Beauty,Cosmetics,Wildacre Cosmetics,5.1,1.86,16.09,2025-04-16,True,2026-01-02
+38,SKU-00038,Kestrel,Home,Furniture,Kestrel Furniture,426.51,271.0,8.336,2025-11-18,True,2026-01-02
+39,SKU-00039,Stonecrop,Apparel,Jackets,Stonecrop Jackets,153.21,59.61,11.454,2025-02-09,True,2026-01-02
+40,SKU-00040,Juniper,Books,Childrens,Juniper Childrens,274.1,156.29,3.512,2025-09-22,False,2026-01-02
+41,SKU-00041,Dovetail,Apparel,Jackets,Dovetail Jackets,241.85,106.29,5.352,2025-03-22,True,2026-01-02
+42,SKU-00042,Thistle,Grocery,Baking,Thistle Baking,64.61,39.72,11.874,2025-11-30,True,2026-01-02
+43,SKU-00043,Cindershop,Apparel,Jackets,Cindershop Jackets,211.3,164.39,19.633,2025-02-04,True,2026-01-02
+44,SKU-00044,Pinegrove,Beauty,Fragrance,Pinegrove Fragrance,236.02,141.49,5.44,2025-06-07,True,2026-01-02
+45,SKU-00045,Yarrow,Sports,Swimming,Yarrow Swimming,127.42,77.89,3.357,2025-06-29,True,2026-01-02
+46,SKU-00046,Cindershop,Sports,Team Sports,Cindershop Team Sports,182.51,84.92,16.148,2025-10-06,True,2026-01-02
+47,SKU-00047,Redgum,Sports,Yoga,Redgum Yoga,383.34,271.98,3.357,2025-02-18,True,2026-01-02
+48,SKU-00048,Lantern,Grocery,Coffee,Lantern Coffee,196.8,70.47,0.476,2025-05-19,True,2026-01-02
+49,SKU-00049,Dovetail,Beauty,Skincare,Dovetail Skincare,135.54,49.26,4.947,2025-02-22,False,2026-01-02
+50,SKU-00050,Dovetail,Grocery,Snacks,Dovetail Snacks,145.4,62.87,5.327,2025-06-01,True,2026-01-02
+51,SKU-00051,Aurora,Beauty,Haircare,Aurora Haircare,162.3,85.52,1.429,2025-09-03,True,2026-01-02
+52,SKU-00052,Zephyr,Grocery,Beverages,Zephyr Beverages,213.42,159.81,3.625,2025-10-18,True,2026-01-02
+53,SKU-00053,Bellweather,Toys,Outdoor Play,Bellweather Outdoor Play,33.81,14.85,21.817,2025-10-20,True,2026-01-02
+54,SKU-00054,Oakhaven,Toys,Outdoor Play,Oakhaven Outdoor Play,80.17,60.5,12.234,2025-08-14,True,2026-01-02
+55,SKU-00055,Aurora,Grocery,Coffee,Aurora Coffee,51.38,24.77,9.259,2025-02-02,True,2026-01-02
+56,SKU-00056,Oakhaven,Apparel,Jackets,Oakhaven Jackets,221.91,135.65,1.624,2025-01-01,True,2026-01-02
+57,SKU-00057,Dovetail,Toys,Building Sets,Dovetail Building Sets,7.38,2.62,2.282,2025-09-18,True,2026-01-02
+58,SKU-00058,Stonecrop,Toys,Outdoor Play,Stonecrop Outdoor Play,93.1,56.49,2.679,2025-05-16,True,2026-01-02
+59,SKU-00059,Kestrel,Pet,Small Animal,Kestrel Small Animal,66.9,33.14,0.524,2025-08-30,True,2026-01-02
+60,SKU-00060,Bellweather,Grocery,Beverages,Bellweather Beverages,77.58,46.86,14.026,2025-02-07,True,2026-01-02
+61,SKU-00061,Zephyr,Electronics,Headphones,Zephyr Headphones,47.35,19.48,1.322,2025-01-21,True,2026-01-02
+62,SKU-00062,Wildacre,Sports,Strength,Wildacre Strength,46.07,33.25,8.767,2025-05-15,True,2026-01-02
+63,SKU-00063,Ironbark,Grocery,Beverages,Ironbark Beverages,137.14,59.24,3.286,2025-07-19,True,2026-01-02
+64,SKU-00064,Cindershop,Electronics,Headphones,Cindershop Headphones,148.54,87.49,12.561,2025-08-29,True,2026-01-02
+65,SKU-00065,Cindershop,Home,Bedding,Cindershop Bedding,253.83,167.53,0.347,2025-10-30,True,2026-01-02
+66,SKU-00066,Harrowfield,Home,Bedding,Harrowfield Bedding,157.5,63.74,0.121,2025-11-27,True,2026-01-02
+67,SKU-00067,Meridian,Outdoors,Camping,Meridian Camping,164.66,66.92,7.201,2025-12-16,True,2026-01-02
+68,SKU-00068,Vantage,Outdoors,Hiking,Vantage Hiking,197.74,154.22,9.836,2025-06-29,True,2026-01-02
+69,SKU-00069,Pinegrove,Pet,Cat,Pinegrove Cat,53.62,37.17,7.72,2025-06-05,True,2026-01-02
+70,SKU-00070,Bellweather,Books,Childrens,Bellweather Childrens,291.11,188.06,4.08,2025-09-14,True,2026-01-02
+71,SKU-00071,Lantern,Home,Furniture,Lantern Furniture,451.62,218.09,12.277,2025-11-08,True,2026-01-02
+72,SKU-00072,Quarry,Outdoors,Fishing,Quarry Fishing,333.42,149.31,0.1,2025-08-24,True,2026-01-02
+73,SKU-00073,Thistle,Outdoors,Hiking,Thistle Hiking,97.62,68.56,14.86,2025-07-08,True,2026-01-02
+74,SKU-00074,Northwind,Outdoors,Hiking,Northwind Hiking,161.48,101.89,2.814,2025-06-22,True,2026-01-02
+75,SKU-00075,Zephyr,Electronics,Smart Home,Zephyr Smart Home,200.92,131.5,4.528,2025-06-03,True,2026-01-02
+76,SKU-00076,Eastgate,Electronics,Cameras,Eastgate Cameras,153.93,70.84,0.689,2025-08-27,True,2026-01-02
+77,SKU-00077,Dovetail,Outdoors,Camping,Dovetail Camping,288.19,141.16,4.947,2025-09-06,True,2026-01-02
+78,SKU-00078,Quarry,Books,Graphic Novels,Quarry Graphic Novels,128.52,52.69,3.225,2025-05-08,True,2026-01-02
+79,SKU-00079,Quarry,Toys,Puzzles,Quarry Puzzles,139.3,69.25,14.118,2025-09-20,True,2026-01-02
+80,SKU-00080,Stonecrop,Outdoors,Cycling,Stonecrop Cycling,279.86,155.8,13.336,2025-12-11,True,2026-01-02
+81,SKU-00081,Ironbark,Home,Cookware,Ironbark Cookware,133.11,71.55,3.439,2025-02-15,True,2026-01-02
+82,SKU-00082,Meridian,Grocery,Coffee,Meridian Coffee,269.27,177.26,21.882,2025-05-09,True,2026-01-02
+83,SKU-00083,Northwind,Pet,Aquatic,Northwind Aquatic,271.39,135.83,9.492,2025-04-17,True,2026-01-02
+84,SKU-00084,Ironbark,Grocery,Coffee,Ironbark Coffee,131.95,75.26,0.653,2025-11-04,True,2026-01-02
+85,SKU-00085,Pinegrove,Sports,Yoga,Pinegrove Yoga,173.56,99.76,1.25,2025-05-21,True,2026-01-02
+86,SKU-00086,Stonecrop,Books,Reference,Stonecrop Reference,176.95,129.01,17.602,2025-07-10,True,2026-01-02
+87,SKU-00087,Wildacre,Electronics,Cameras,Wildacre Cameras,137.75,85.09,6.439,2025-08-02,True,2026-01-02
+88,SKU-00088,Northwind,Electronics,Cameras,Northwind Cameras,104.05,41.24,10.729,2025-11-07,True,2026-01-02
+89,SKU-00089,Zephyr,Sports,Swimming,Zephyr Swimming,131.64,95.41,5.999,2025-07-10,True,2026-01-02
+90,SKU-00090,Yarrow,Outdoors,Fishing,Yarrow Fishing,65.94,42.23,17.786,2025-06-15,True,2026-01-02
+91,SKU-00091,Meridian,Sports,Yoga,Meridian Yoga,229.04,125.54,15.828,2025-01-16,True,2026-01-02
+92,SKU-00092,Dovetail,Toys,Building Sets,Dovetail Building Sets,320.57,208.92,13.16,2025-05-26,False,2026-01-02
+93,SKU-00093,Glasshouse,Toys,Puzzles,Glasshouse Puzzles,325.04,177.67,3.125,2025-12-22,True,2026-01-02
+94,SKU-00094,Lantern,Apparel,Footwear,Lantern Footwear,241.78,108.32,11.201,2025-01-16,False,2026-01-02
+95,SKU-00095,Vantage,Grocery,Baking,Vantage Baking,125.86,97.81,4.578,2025-09-20,True,2026-01-02
+96,SKU-00096,Wildacre,Outdoors,Hiking,Wildacre Hiking,143.85,89.79,9.968,2025-03-26,True,2026-01-02
+97,SKU-00097,Northwind,Home,Storage,Northwind Storage,261.47,109.45,8.854,2025-02-13,True,2026-01-02
+98,SKU-00098,Aurora,Electronics,Laptops,Aurora Laptops,129.89,79.62,10.228,2025-01-16,True,2026-01-02
+99,SKU-00099,Ironbark,Beauty,Fragrance,Ironbark Fragrance,8.03,4.15,3.775,2025-07-26,True,2026-01-02
+100,SKU-00100,Zephyr,Sports,Swimming,Zephyr Swimming,429.39,290.83,1.858,2025-01-01,True,2026-01-02
+101,SKU-00101,Thistle,Beauty,Skincare,Thistle Skincare,352.61,157.72,20.579,2025-01-21,True,2026-01-02
+102,SKU-00102,Vantage,Apparel,Footwear,Vantage Footwear,276.02,213.86,5.008,2025-05-21,True,2026-01-02
+103,SKU-00103,Lantern,Beauty,Fragrance,Lantern Fragrance,34.27,18.76,4.417,2025-06-08,True,2026-01-02
+104,SKU-00104,Glasshouse,Outdoors,Hiking,Glasshouse Hiking,41.5,30.94,8.678,2025-07-12,True,2026-01-02
+105,SKU-00105,Quarry,Electronics,Wearables,Quarry Wearables,142.92,89.61,7.41,2025-05-12,True,2026-01-02
+106,SKU-00106,Thistle,Home,Cookware,Thistle Cookware,313.2,199.1,10.234,2025-04-30,True,2026-01-02
+107,SKU-00107,Ironbark,Apparel,Knitwear,Ironbark Knitwear,391.82,298.53,17.065,2025-09-21,True,2026-01-02
+108,SKU-00108,Meridian,Pet,Cat,Meridian Cat,13.12,5.5,13.294,2025-06-16,True,2026-01-02
+109,SKU-00109,Pinegrove,Pet,Small Animal,Pinegrove Small Animal,156.65,98.49,6.343,2025-02-10,True,2026-01-02
+110,SKU-00110,Glasshouse,Home,Lighting,Glasshouse Lighting,30.96,17.81,18.857,2025-07-31,True,2026-01-02
+111,SKU-00111,Wildacre,Apparel,Knitwear,Wildacre Knitwear,130.14,98.41,17.37,2025-04-05,True,2026-01-02
+112,SKU-00112,Umberton,Toys,Games,Umberton Games,121.28,51.75,7.252,2025-10-22,True,2026-01-02
+113,SKU-00113,Harrowfield,Home,Cookware,Harrowfield Cookware,424.44,152.08,19.879,2025-11-20,True,2026-01-02
+114,SKU-00114,Dovetail,Books,Childrens,Dovetail Childrens,311.7,127.05,5.28,2025-03-08,True,2026-01-02
+115,SKU-00115,Umberton,Home,Lighting,Umberton Lighting,166.75,108.87,8.906,2025-03-13,True,2026-01-02
+116,SKU-00116,Zephyr,Home,Furniture,Zephyr Furniture,265.13,138.42,5.846,2025-05-04,True,2026-01-02
+117,SKU-00117,Thistle,Books,Reference,Thistle Reference,17.41,7.32,12.278,2025-01-15,True,2026-01-02
+118,SKU-00118,Pinegrove,Apparel,Knitwear,Pinegrove Knitwear,63.49,25.23,18.872,2025-06-02,True,2026-01-02
+119,SKU-00119,Quarry,Outdoors,Camping,Quarry Camping,26.62,12.14,4.363,2025-04-30,True,2026-01-02
+120,SKU-00120,Glasshouse,Pet,Aquatic,Glasshouse Aquatic,231.92,128.02,3.471,2025-11-12,True,2026-01-02
+121,SKU-00121,Harrowfield,Toys,Games,Harrowfield Games,18.5,12.03,4.922,2025-07-18,True,2026-01-02
+122,SKU-00122,Oakhaven,Home,Bedding,Oakhaven Bedding,163.85,114.55,8.119,2025-03-19,True,2026-01-02
+123,SKU-00123,Oakhaven,Home,Lighting,Oakhaven Lighting,63.81,42.91,5.694,2025-03-19,False,2026-01-02
+124,SKU-00124,Aurora,Books,Reference,Aurora Reference,396.85,254.98,9.073,2025-09-27,True,2026-01-02
+125,SKU-00125,Vantage,Outdoors,Fishing,Vantage Fishing,196.62,94.85,5.717,2025-06-01,True,2026-01-02
+126,SKU-00126,Quarry,Sports,Running,Quarry Running,63.01,42.43,1.19,2025-07-23,True,2026-01-02
+127,SKU-00127,Pinegrove,Apparel,Knitwear,Pinegrove Knitwear,45.1,29.41,17.638,2025-02-04,True,2026-01-02
+128,SKU-00128,Thistle,Electronics,Wearables,Thistle Wearables,189.27,110.21,12.154,2025-11-11,True,2026-01-02
+129,SKU-00129,Meridian,Outdoors,Climbing,Meridian Climbing,266.79,109.41,7.104,2025-02-25,True,2026-01-02
+130,SKU-00130,Wildacre,Grocery,Coffee,Wildacre Coffee,18.48,10.08,7.35,2025-08-01,True,2026-01-02
+131,SKU-00131,Northwind,Books,Reference,Northwind Reference,93.36,56.38,6.642,2025-12-24,True,2026-01-02
+132,SKU-00132,Pinegrove,Electronics,Headphones,Pinegrove Headphones,109.21,38.28,7.806,2025-01-24,True,2026-01-02
+133,SKU-00133,Fernlight,Toys,Puzzles,Fernlight Puzzles,22.32,9.12,6.353,2025-02-03,True,2026-01-02
+134,SKU-00134,Kestrel,Apparel,T-Shirts,Kestrel T-Shirts,151.77,62.1,5.875,2025-10-06,True,2026-01-02
+135,SKU-00135,Redgum,Beauty,Haircare,Redgum Haircare,141.91,90.68,9.006,2025-01-25,True,2026-01-02
+136,SKU-00136,Yarrow,Books,Childrens,Yarrow Childrens,12.1,8.71,2.861,2025-02-09,True,2026-01-02
+137,SKU-00137,Umberton,Pet,Cat,Umberton Cat,230.43,174.09,14.972,2025-11-05,True,2026-01-02
+138,SKU-00138,Bellweather,Apparel,Knitwear,Bellweather Knitwear,132.98,57.54,10.419,2025-06-29,True,2026-01-02
+139,SKU-00139,Quarry,Toys,Plush,Quarry Plush,93.98,72.88,10.758,2025-11-09,True,2026-01-02
+140,SKU-00140,Umberton,Home,Furniture,Umberton Furniture,98.88,53.29,8.498,2025-06-21,True,2026-01-02
+141,SKU-00141,Quarry,Beauty,Fragrance,Quarry Fragrance,435.0,273.57,11.497,2025-08-12,False,2026-01-02
+142,SKU-00142,Glasshouse,Books,Fiction,Glasshouse Fiction,424.43,299.05,8.348,2025-06-12,True,2026-01-02
+143,SKU-00143,Quarry,Sports,Team Sports,Quarry Team Sports,166.42,116.53,4.788,2025-12-24,True,2026-01-02
+144,SKU-00144,Umberton,Apparel,Jackets,Umberton Jackets,19.12,6.9,3.284,2025-03-14,True,2026-01-02
+145,SKU-00145,Harrowfield,Beauty,Fragrance,Harrowfield Fragrance,333.84,132.73,6.286,2025-07-30,True,2026-01-02
+146,SKU-00146,Ironbark,Home,Bedding,Ironbark Bedding,182.6,76.84,8.434,2025-12-29,True,2026-01-02
+147,SKU-00147,Fernlight,Electronics,Laptops,Fernlight Laptops,287.02,186.05,17.696,2025-07-05,True,2026-01-02
+148,SKU-00148,Fernlight,Sports,Running,Fernlight Running,64.17,49.35,19.663,2025-01-29,True,2026-01-02
+149,SKU-00149,Dovetail,Beauty,Skincare,Dovetail Skincare,221.16,142.36,14.52,2025-04-18,True,2026-01-02
+150,SKU-00150,Bellweather,Beauty,Skincare,Bellweather Skincare,205.86,111.18,0.705,2025-12-01,True,2026-01-02
+151,SKU-00151,Juniper,Home,Bedding,Juniper Bedding,36.21,16.06,0.769,2025-12-12,True,2026-01-02
+152,SKU-00152,Juniper,Sports,Running,Juniper Running,18.61,8.27,6.753,2025-05-05,True,2026-01-02
+153,SKU-00153,Harrowfield,Toys,Building Sets,Harrowfield Building Sets,133.15,94.62,2.275,2025-02-05,True,2026-01-02
+154,SKU-00154,Quarry,Pet,Aquatic,Quarry Aquatic,128.25,56.51,8.411,2025-10-24,True,2026-01-02
+155,SKU-00155,Aurora,Outdoors,Camping,Aurora Camping,402.98,307.8,8.325,2025-11-10,True,2026-01-02
+156,SKU-00156,Zephyr,Sports,Running,Zephyr Running,179.48,110.08,4.317,2025-11-24,True,2026-01-02
+157,SKU-00157,Yarrow,Home,Bedding,Yarrow Bedding,63.5,40.09,1.54,2025-01-12,True,2026-01-02
+158,SKU-00158,Eastgate,Books,Childrens,Eastgate Childrens,101.24,48.34,1.341,2025-09-23,True,2026-01-02
+159,SKU-00159,Aurora,Toys,Outdoor Play,Aurora Outdoor Play,232.46,120.67,7.349,2025-06-30,True,2026-01-02
+160,SKU-00160,Wildacre,Sports,Swimming,Wildacre Swimming,132.52,86.58,2.375,2025-01-07,True,2026-01-02
+161,SKU-00161,Dovetail,Toys,Puzzles,Dovetail Puzzles,57.23,33.31,0.444,2025-08-21,True,2026-01-02
+162,SKU-00162,Fernlight,Books,Fiction,Fernlight Fiction,102.25,40.84,11.92,2025-09-08,True,2026-01-02
+163,SKU-00163,Fernlight,Toys,Outdoor Play,Fernlight Outdoor Play,280.84,142.19,7.105,2025-09-25,True,2026-01-02
+164,SKU-00164,Thistle,Home,Furniture,Thistle Furniture,219.94,105.48,12.033,2025-12-07,True,2026-01-02
+165,SKU-00165,Thistle,Toys,Plush,Thistle Plush,198.75,72.56,11.529,2025-10-26,True,2026-01-02
+166,SKU-00166,Zephyr,Home,Cookware,Zephyr Cookware,414.85,167.06,6.385,2025-03-27,True,2026-01-02
+167,SKU-00167,Quarry,Electronics,Headphones,Quarry Headphones,176.55,75.21,19.141,2025-04-23,True,2026-01-02
+168,SKU-00168,Stonecrop,Grocery,Baking,Stonecrop Baking,356.7,253.22,19.56,2025-10-03,True,2026-01-02
+169,SKU-00169,Stonecrop,Grocery,Coffee,Stonecrop Coffee,175.58,82.15,7.119,2025-03-25,True,2026-01-02
+170,SKU-00170,Vantage,Grocery,Coffee,Vantage Coffee,68.81,27.57,5.25,2025-07-03,True,2026-01-02
+171,SKU-00171,Ironbark,Electronics,Laptops,Ironbark Laptops,126.82,54.58,2.725,2025-12-22,True,2026-01-02
+172,SKU-00172,Ironbark,Toys,Plush,Ironbark Plush,191.33,75.08,5.823,2025-10-09,True,2026-01-02
+173,SKU-00173,Dovetail,Home,Storage,Dovetail Storage,67.53,28.1,10.701,2025-09-01,True,2026-01-02
+174,SKU-00174,Fernlight,Grocery,Beverages,Fernlight Beverages,56.31,22.6,1.356,2025-09-28,True,2026-01-02
+175,SKU-00175,Thistle,Pet,Aquatic,Thistle Aquatic,176.68,90.48,15.111,2025-02-10,True,2026-01-02
+176,SKU-00176,Glasshouse,Beauty,Cosmetics,Glasshouse Cosmetics,19.37,14.31,10.188,2025-03-23,True,2026-01-02
+177,SKU-00177,Yarrow,Beauty,Fragrance,Yarrow Fragrance,287.87,144.14,2.443,2025-03-17,True,2026-01-02
+178,SKU-00178,Eastgate,Books,Non-Fiction,Eastgate Non-Fiction,354.14,201.79,10.057,2025-10-26,True,2026-01-02
+179,SKU-00179,Cindershop,Sports,Team Sports,Cindershop Team Sports,197.14,84.55,19.737,2025-04-23,True,2026-01-02
+180,SKU-00180,Juniper,Beauty,Cosmetics,Juniper Cosmetics,233.35,116.35,7.839,2025-02-16,True,2026-01-02
+181,SKU-00181,Ironbark,Beauty,Fragrance,Ironbark Fragrance,219.32,157.3,0.935,2025-05-26,True,2026-01-02
+182,SKU-00182,Aurora,Electronics,Cameras,Aurora Cameras,185.56,117.63,10.531,2025-04-29,True,2026-01-02
+183,SKU-00183,Pinegrove,Home,Cookware,Pinegrove Cookware,56.96,21.65,6.251,2025-07-28,True,2026-01-02
+184,SKU-00184,Lantern,Sports,Yoga,Lantern Yoga,24.72,17.45,18.916,2025-11-04,True,2026-01-02
+185,SKU-00185,Zephyr,Grocery,Beverages,Zephyr Beverages,182.91,71.26,3.579,2025-07-16,True,2026-01-02
+186,SKU-00186,Bellweather,Sports,Strength,Bellweather Strength,294.97,120.02,6.7,2025-08-15,True,2026-01-02
+187,SKU-00187,Thistle,Home,Lighting,Thistle Lighting,18.28,11.11,11.203,2025-06-22,True,2026-01-02
+188,SKU-00188,Zephyr,Apparel,Jackets,Zephyr Jackets,141.88,98.58,17.972,2025-02-11,True,2026-01-02
+189,SKU-00189,Dovetail,Books,Childrens,Dovetail Childrens,209.27,158.1,4.323,2025-06-15,True,2026-01-02
+190,SKU-00190,Meridian,Toys,Games,Meridian Games,91.92,61.15,4.785,2025-08-13,True,2026-01-02
+191,SKU-00191,Thistle,Grocery,Snacks,Thistle Snacks,265.41,112.45,1.39,2025-05-15,True,2026-01-02
+192,SKU-00192,Meridian,Apparel,Footwear,Meridian Footwear,486.02,347.84,5.171,2025-02-18,True,2026-01-02
+193,SKU-00193,Aurora,Toys,Plush,Aurora Plush,368.81,195.25,0.636,2025-08-15,True,2026-01-02
+194,SKU-00194,Wildacre,Electronics,Laptops,Wildacre Laptops,45.96,33.9,17.854,2025-02-08,True,2026-01-02
+195,SKU-00195,Stonecrop,Sports,Running,Stonecrop Running,142.11,62.0,11.241,2025-07-01,True,2026-01-02
+196,SKU-00196,Ironbark,Sports,Team Sports,Ironbark Team Sports,113.34,80.83,16.867,2025-07-15,True,2026-01-02
+197,SKU-00197,Pinegrove,Beauty,Skincare,Pinegrove Skincare,161.84,90.95,11.324,2025-06-02,True,2026-01-02
+198,SKU-00198,Kestrel,Electronics,Laptops,Kestrel Laptops,311.79,188.7,1.082,2025-10-18,True,2026-01-02
+199,SKU-00199,Ironbark,Home,Storage,Ironbark Storage,405.48,228.61,11.073,2025-07-20,True,2026-01-02
+200,SKU-00200,Redgum,Pet,Aquatic,Redgum Aquatic,8.47,4.01,0.828,2025-06-11,True,2026-01-02
+201,SKU-00201,Pinegrove,Sports,Team Sports,Pinegrove Team Sports,105.57,80.82,1.836,2025-11-04,True,2026-01-02
+202,SKU-00202,Thistle,Outdoors,Camping,Thistle Camping,257.36,101.79,2.383,2025-08-12,True,2026-01-02
+203,SKU-00203,Kestrel,Beauty,Fragrance,Kestrel Fragrance,5.97,4.17,2.976,2025-08-20,True,2026-01-02
+204,SKU-00204,Glasshouse,Outdoors,Climbing,Glasshouse Climbing,256.41,190.36,8.325,2025-08-08,True,2026-01-02
+205,SKU-00205,Ironbark,Pet,Aquatic,Ironbark Aquatic,200.88,145.96,15.804,2025-01-22,True,2026-01-02
+206,SKU-00206,Oakhaven,Books,Graphic Novels,Oakhaven Graphic Novels,211.48,126.89,1.448,2025-08-20,True,2026-01-02
+207,SKU-00207,Northwind,Beauty,Skincare,Northwind Skincare,174.77,73.18,5.086,2025-12-26,True,2026-01-02
+208,SKU-00208,Oakhaven,Grocery,Coffee,Oakhaven Coffee,165.3,68.58,6.478,2025-11-18,True,2026-01-02
+209,SKU-00209,Pinegrove,Electronics,Smart Home,Pinegrove Smart Home,16.17,12.13,13.237,2025-12-28,True,2026-01-02
+210,SKU-00210,Aurora,Electronics,Smart Home,Aurora Smart Home,210.36,163.77,0.426,2025-05-31,True,2026-01-02
+211,SKU-00211,Wildacre,Beauty,Skincare,Wildacre Skincare,125.27,94.18,10.828,2025-04-21,True,2026-01-02
+212,SKU-00212,Yarrow,Beauty,Fragrance,Yarrow Fragrance,172.34,98.73,15.447,2025-02-22,True,2026-01-02
+213,SKU-00213,Ironbark,Sports,Swimming,Ironbark Swimming,89.64,56.55,10.864,2025-05-30,True,2026-01-02
+214,SKU-00214,Oakhaven,Grocery,Beverages,Oakhaven Beverages,133.32,71.17,6.133,2025-04-14,True,2026-01-02
+215,SKU-00215,Lantern,Books,Fiction,Lantern Fiction,8.88,3.58,12.482,2025-06-06,True,2026-01-02
+216,SKU-00216,Kestrel,Sports,Team Sports,Kestrel Team Sports,6.49,3.62,11.526,2025-02-22,True,2026-01-02
+217,SKU-00217,Northwind,Home,Bedding,Northwind Bedding,105.58,80.07,2.084,2025-08-29,True,2026-01-02
+218,SKU-00218,Wildacre,Beauty,Fragrance,Wildacre Fragrance,150.35,81.79,8.056,2025-08-22,True,2026-01-02
+219,SKU-00219,Umberton,Outdoors,Cycling,Umberton Cycling,272.06,178.44,6.028,2025-11-04,False,2026-01-02
+220,SKU-00220,Wildacre,Home,Cookware,Wildacre Cookware,80.96,29.21,8.319,2025-08-21,True,2026-01-02
+221,SKU-00221,Cindershop,Books,Graphic Novels,Cindershop Graphic Novels,157.27,79.8,16.289,2025-03-23,True,2026-01-02
+222,SKU-00222,Dovetail,Books,Graphic Novels,Dovetail Graphic Novels,32.17,11.42,3.264,2025-07-23,True,2026-01-02
+223,SKU-00223,Bellweather,Grocery,Beverages,Bellweather Beverages,140.86,54.16,17.379,2025-02-16,True,2026-01-02
+224,SKU-00224,Glasshouse,Electronics,Cameras,Glasshouse Cameras,135.38,94.24,9.442,2025-03-08,True,2026-01-02
+225,SKU-00225,Oakhaven,Grocery,Beverages,Oakhaven Beverages,310.73,232.58,12.416,2025-11-25,True,2026-01-02
+226,SKU-00226,Eastgate,Pet,Aquatic,Eastgate Aquatic,224.08,91.6,6.026,2025-04-13,True,2026-01-02
+227,SKU-00227,Redgum,Home,Cookware,Redgum Cookware,46.57,24.42,10.557,2025-06-09,True,2026-01-02
+228,SKU-00228,Zephyr,Beauty,Skincare,Zephyr Skincare,85.54,59.94,13.973,2025-12-22,True,2026-01-02
+229,SKU-00229,Cindershop,Outdoors,Fishing,Cindershop Fishing,23.31,18.16,14.727,2025-09-03,True,2026-01-02
+230,SKU-00230,Dovetail,Toys,Puzzles,Dovetail Puzzles,249.03,160.65,17.718,2025-09-09,True,2026-01-02
+231,SKU-00231,Eastgate,Beauty,Cosmetics,Eastgate Cosmetics,114.93,83.66,19.23,2025-02-25,True,2026-01-02
+232,SKU-00232,Bellweather,Home,Cookware,Bellweather Cookware,159.76,96.34,16.571,2025-02-07,True,2026-01-02
+233,SKU-00233,Kestrel,Pet,Aquatic,Kestrel Aquatic,320.43,123.08,3.991,2025-12-03,True,2026-01-02
+234,SKU-00234,Umberton,Apparel,Knitwear,Umberton Knitwear,153.86,117.69,20.024,2025-04-25,True,2026-01-02
+235,SKU-00235,Dovetail,Books,Reference,Dovetail Reference,18.79,8.45,0.299,2025-04-26,True,2026-01-02
+236,SKU-00236,Thistle,Home,Furniture,Thistle Furniture,7.93,6.02,8.046,2025-12-19,True,2026-01-02
+237,SKU-00237,Northwind,Electronics,Wearables,Northwind Wearables,5.09,3.29,11.257,2025-06-24,True,2026-01-02
+238,SKU-00238,Quarry,Home,Bedding,Quarry Bedding,356.39,213.37,4.149,2025-02-18,True,2026-01-02
+239,SKU-00239,Ironbark,Outdoors,Fishing,Ironbark Fishing,33.36,20.5,1.267,2025-09-27,True,2026-01-02
+240,SKU-00240,Zephyr,Toys,Puzzles,Zephyr Puzzles,296.5,109.26,6.318,2025-10-12,True,2026-01-02
+241,SKU-00241,Ironbark,Electronics,Cameras,Ironbark Cameras,242.09,167.24,10.347,2025-08-30,True,2026-01-02
+242,SKU-00242,Glasshouse,Toys,Plush,Glasshouse Plush,149.29,73.33,18.558,2025-03-18,True,2026-01-02
+243,SKU-00243,Fernlight,Home,Lighting,Fernlight Lighting,6.18,2.24,10.571,2025-07-27,True,2026-01-02
+244,SKU-00244,Wildacre,Beauty,Cosmetics,Wildacre Cosmetics,141.72,92.91,17.269,2025-11-24,True,2026-01-02
+245,SKU-00245,Zephyr,Grocery,Snacks,Zephyr Snacks,349.8,233.63,21.709,2025-05-21,True,2026-01-02
+246,SKU-00246,Oakhaven,Books,Fiction,Oakhaven Fiction,334.95,216.34,0.775,2025-07-20,True,2026-01-02
+247,SKU-00247,Zephyr,Electronics,Cameras,Zephyr Cameras,32.77,14.35,9.439,2025-02-03,True,2026-01-02
+248,SKU-00248,Zephyr,Beauty,Haircare,Zephyr Haircare,58.0,41.73,1.805,2025-09-22,True,2026-01-02
+249,SKU-00249,Redgum,Toys,Outdoor Play,Redgum Outdoor Play,96.17,46.26,4.843,2025-07-14,True,2026-01-02
+250,SKU-00250,Vantage,Books,Graphic Novels,Vantage Graphic Novels,231.82,122.47,4.26,2025-03-15,True,2026-01-02
+251,SKU-00251,Oakhaven,Sports,Team Sports,Oakhaven Team Sports,245.15,169.74,11.137,2025-04-01,True,2026-01-02
+252,SKU-00252,Quarry,Pet,Dog,Quarry Dog,12.21,8.71,7.82,2025-12-14,True,2026-01-02
+253,SKU-00253,Redgum,Home,Lighting,Redgum Lighting,39.46,26.36,9.953,2025-11-02,True,2026-01-02
+254,SKU-00254,Yarrow,Electronics,Smart Home,Yarrow Smart Home,151.84,54.33,0.128,2025-09-30,True,2026-01-02
+255,SKU-00255,Fernlight,Toys,Outdoor Play,Fernlight Outdoor Play,109.46,69.18,3.918,2025-06-15,True,2026-01-02
+256,SKU-00256,Aurora,Books,Reference,Aurora Reference,65.44,43.78,0.232,2025-05-29,True,2026-01-02
+257,SKU-00257,Redgum,Beauty,Fragrance,Redgum Fragrance,452.64,204.1,6.959,2025-01-08,True,2026-01-02
+258,SKU-00258,Meridian,Apparel,T-Shirts,Meridian T-Shirts,5.4,4.07,10.6,2025-02-21,True,2026-01-02
+259,SKU-00259,Northwind,Sports,Swimming,Northwind Swimming,243.76,167.05,5.609,2025-10-10,True,2026-01-02
+260,SKU-00260,Pinegrove,Home,Cookware,Pinegrove Cookware,168.41,124.86,9.774,2025-10-27,True,2026-01-02
+261,SKU-00261,Ironbark,Toys,Outdoor Play,Ironbark Outdoor Play,222.59,120.24,19.001,2025-03-15,True,2026-01-02
+262,SKU-00262,Umberton,Apparel,Jackets,Umberton Jackets,30.32,15.63,4.248,2025-05-12,True,2026-01-02
+263,SKU-00263,Lantern,Outdoors,Fishing,Lantern Fishing,194.7,69.51,8.139,2025-10-04,True,2026-01-02
+264,SKU-00264,Juniper,Electronics,Headphones,Juniper Headphones,82.43,34.18,2.344,2025-03-18,True,2026-01-02
+265,SKU-00265,Glasshouse,Outdoors,Fishing,Glasshouse Fishing,217.01,151.39,6.631,2025-12-19,True,2026-01-02
+266,SKU-00266,Umberton,Home,Lighting,Umberton Lighting,87.68,41.95,5.683,2025-09-20,True,2026-01-02
+267,SKU-00267,Meridian,Electronics,Cameras,Meridian Cameras,13.67,9.81,7.905,2025-11-03,True,2026-01-02
+268,SKU-00268,Yarrow,Home,Lighting,Yarrow Lighting,13.69,9.27,8.514,2025-11-26,True,2026-01-02
+269,SKU-00269,Zephyr,Books,Non-Fiction,Zephyr Non-Fiction,129.92,57.09,13.153,2025-10-24,True,2026-01-02
+270,SKU-00270,Ironbark,Sports,Strength,Ironbark Strength,347.43,172.19,7.749,2025-05-25,True,2026-01-02
+271,SKU-00271,Wildacre,Books,Childrens,Wildacre Childrens,132.74,79.27,0.403,2025-11-22,True,2026-01-02
+272,SKU-00272,Dovetail,Home,Lighting,Dovetail Lighting,48.63,25.3,0.586,2025-11-17,True,2026-01-02
+273,SKU-00273,Thistle,Grocery,Beverages,Thistle Beverages,15.74,11.24,0.696,2025-09-06,True,2026-01-02
+274,SKU-00274,Wildacre,Sports,Team Sports,Wildacre Team Sports,157.3,88.45,19.189,2025-09-11,True,2026-01-02
+275,SKU-00275,Bellweather,Pet,Cat,Bellweather Cat,116.41,50.22,8.293,2025-09-27,True,2026-01-02
+276,SKU-00276,Wildacre,Grocery,Coffee,Wildacre Coffee,260.47,124.27,6.332,2025-08-12,True,2026-01-02
+277,SKU-00277,Kestrel,Outdoors,Cycling,Kestrel Cycling,470.57,189.97,4.054,2025-11-05,True,2026-01-02
+278,SKU-00278,Dovetail,Sports,Swimming,Dovetail Swimming,60.0,45.1,0.732,2025-10-27,True,2026-01-02
+279,SKU-00279,Harrowfield,Books,Reference,Harrowfield Reference,202.1,80.17,0.933,2025-09-27,True,2026-01-02
+280,SKU-00280,Bellweather,Home,Lighting,Bellweather Lighting,235.41,129.45,4.991,2025-07-12,True,2026-01-02
+281,SKU-00281,Thistle,Electronics,Cameras,Thistle Cameras,206.68,92.2,12.143,2025-05-11,True,2026-01-02
+282,SKU-00282,Zephyr,Apparel,Jackets,Zephyr Jackets,11.8,8.78,0.122,2025-02-28,True,2026-01-02
+283,SKU-00283,Kestrel,Outdoors,Climbing,Kestrel Climbing,155.88,105.7,0.829,2025-01-27,True,2026-01-02
+284,SKU-00284,Eastgate,Home,Storage,Eastgate Storage,359.21,205.04,2.485,2025-06-16,True,2026-01-02
+285,SKU-00285,Wildacre,Toys,Puzzles,Wildacre Puzzles,333.53,259.05,9.813,2025-03-11,True,2026-01-02
+286,SKU-00286,Redgum,Grocery,Beverages,Redgum Beverages,226.6,96.42,6.707,2025-07-19,True,2026-01-02
+287,SKU-00287,Pinegrove,Outdoors,Fishing,Pinegrove Fishing,67.92,35.4,8.703,2025-03-30,True,2026-01-02
+288,SKU-00288,Pinegrove,Beauty,Fragrance,Pinegrove Fragrance,349.87,265.76,2.144,2025-11-03,True,2026-01-02
+289,SKU-00289,Umberton,Toys,Plush,Umberton Plush,135.78,64.29,5.329,2025-08-05,True,2026-01-02
+290,SKU-00290,Umberton,Sports,Running,Umberton Running,37.46,23.23,2.833,2025-10-28,True,2026-01-02
+291,SKU-00291,Fernlight,Books,Graphic Novels,Fernlight Graphic Novels,348.41,145.57,9.649,2025-10-10,True,2026-01-02
+292,SKU-00292,Ironbark,Pet,Cat,Ironbark Cat,313.29,237.82,6.324,2025-11-23,True,2026-01-02
+293,SKU-00293,Quarry,Home,Storage,Quarry Storage,100.6,74.23,0.53,2025-09-13,True,2026-01-02
+294,SKU-00294,Meridian,Apparel,Accessories,Meridian Accessories,25.75,16.01,8.047,2025-08-17,True,2026-01-02
+295,SKU-00295,Oakhaven,Sports,Strength,Oakhaven Strength,125.3,93.62,4.66,2025-03-02,True,2026-01-02
+296,SKU-00296,Cindershop,Beauty,Skincare,Cindershop Skincare,305.06,151.58,10.68,2025-04-07,True,2026-01-02
+297,SKU-00297,Quarry,Apparel,T-Shirts,Quarry T-Shirts,258.89,188.19,0.13,2025-08-19,True,2026-01-02
+298,SKU-00298,Stonecrop,Grocery,Baking,Stonecrop Baking,71.48,35.14,14.844,2025-03-21,True,2026-01-02
+299,SKU-00299,Vantage,Books,Non-Fiction,Vantage Non-Fiction,256.41,147.41,5.917,2025-05-03,True,2026-01-02
+300,SKU-00300,Oakhaven,Books,Reference,Oakhaven Reference,134.02,50.66,1.773,2025-11-28,True,2026-01-02
+301,SKU-00301,Eastgate,Sports,Yoga,Eastgate Yoga,288.28,108.1,12.83,2025-11-03,True,2026-01-02
+302,SKU-00302,Quarry,Sports,Team Sports,Quarry Team Sports,47.96,26.56,4.195,2025-12-11,True,2026-01-02
+303,SKU-00303,Vantage,Grocery,Snacks,Vantage Snacks,5.2,2.83,15.89,2025-01-24,True,2026-01-02
+304,SKU-00304,Bellweather,Pet,Dog,Bellweather Dog,87.75,49.18,4.314,2025-01-13,True,2026-01-02
+305,SKU-00305,Meridian,Outdoors,Cycling,Meridian Cycling,51.53,22.19,8.051,2025-07-31,True,2026-01-02
+306,SKU-00306,Cindershop,Outdoors,Camping,Cindershop Camping,201.0,135.59,8.98,2025-08-22,True,2026-01-02
+307,SKU-00307,Wildacre,Grocery,Snacks,Wildacre Snacks,349.28,266.61,1.172,2025-03-03,True,2026-01-02
+308,SKU-00308,Aurora,Toys,Building Sets,Aurora Building Sets,227.37,123.17,15.839,2025-03-12,True,2026-01-02
+309,SKU-00309,Harrowfield,Books,Graphic Novels,Harrowfield Graphic Novels,197.72,125.53,15.764,2025-10-11,False,2026-01-02
+310,SKU-00310,Pinegrove,Outdoors,Climbing,Pinegrove Climbing,109.6,62.46,15.093,2025-05-01,True,2026-01-02
+311,SKU-00311,Fernlight,Pet,Small Animal,Fernlight Small Animal,265.88,206.32,7.656,2025-08-30,True,2026-01-02
+312,SKU-00312,Northwind,Home,Bedding,Northwind Bedding,142.79,97.05,14.833,2025-11-12,True,2026-01-02
+313,SKU-00313,Meridian,Sports,Swimming,Meridian Swimming,364.12,204.74,5.726,2025-01-07,True,2026-01-02
+314,SKU-00314,Lantern,Books,Non-Fiction,Lantern Non-Fiction,218.05,92.26,0.277,2025-03-03,True,2026-01-02
+315,SKU-00315,Meridian,Toys,Plush,Meridian Plush,85.51,53.68,11.98,2025-12-20,True,2026-01-02
+316,SKU-00316,Thistle,Home,Lighting,Thistle Lighting,109.37,70.04,6.872,2025-01-16,True,2026-01-02
+317,SKU-00317,Bellweather,Apparel,Footwear,Bellweather Footwear,25.27,14.13,14.054,2025-12-04,True,2026-01-02
+318,SKU-00318,Fernlight,Sports,Strength,Fernlight Strength,104.56,45.81,4.234,2025-11-16,True,2026-01-02
+319,SKU-00319,Kestrel,Beauty,Skincare,Kestrel Skincare,134.18,49.74,8.581,2025-01-17,True,2026-01-02
+320,SKU-00320,Stonecrop,Pet,Small Animal,Stonecrop Small Animal,5.35,2.75,3.073,2025-08-19,True,2026-01-02
+321,SKU-00321,Cindershop,Outdoors,Cycling,Cindershop Cycling,76.65,55.72,8.242,2025-06-02,False,2026-01-02
+322,SKU-00322,Kestrel,Outdoors,Fishing,Kestrel Fishing,98.42,48.71,0.519,2025-12-24,True,2026-01-02
+323,SKU-00323,Eastgate,Grocery,Coffee,Eastgate Coffee,154.89,83.84,2.178,2025-10-16,True,2026-01-02
+324,SKU-00324,Glasshouse,Grocery,Coffee,Glasshouse Coffee,79.51,55.68,9.707,2025-06-26,True,2026-01-02
+325,SKU-00325,Bellweather,Apparel,T-Shirts,Bellweather T-Shirts,185.03,90.35,1.241,2025-09-24,True,2026-01-02
+326,SKU-00326,Thistle,Beauty,Skincare,Thistle Skincare,183.44,105.75,8.481,2025-05-20,True,2026-01-02
+327,SKU-00327,Pinegrove,Electronics,Cameras,Pinegrove Cameras,27.46,12.97,5.133,2025-06-15,True,2026-01-02
+328,SKU-00328,Aurora,Pet,Small Animal,Aurora Small Animal,33.71,19.15,0.103,2025-04-27,True,2026-01-02
+329,SKU-00329,Umberton,Pet,Cat,Umberton Cat,58.04,30.71,3.395,2025-02-20,True,2026-01-02
+330,SKU-00330,Glasshouse,Beauty,Haircare,Glasshouse Haircare,125.71,91.59,3.123,2025-06-05,True,2026-01-02
+331,SKU-00331,Juniper,Grocery,Snacks,Juniper Snacks,188.98,138.35,2.04,2025-03-08,True,2026-01-02
+332,SKU-00332,Ironbark,Apparel,Footwear,Ironbark Footwear,436.24,255.68,9.544,2025-05-25,True,2026-01-02
+333,SKU-00333,Zephyr,Toys,Puzzles,Zephyr Puzzles,41.88,25.97,4.875,2025-10-16,True,2026-01-02
+334,SKU-00334,Thistle,Pet,Small Animal,Thistle Small Animal,100.25,73.46,2.445,2025-12-18,True,2026-01-02
+335,SKU-00335,Eastgate,Grocery,Pantry,Eastgate Pantry,104.68,44.41,7.34,2025-03-25,False,2026-01-02
+336,SKU-00336,Vantage,Toys,Games,Vantage Games,250.44,165.04,11.709,2025-11-18,True,2026-01-02
+337,SKU-00337,Lantern,Grocery,Baking,Lantern Baking,146.92,72.71,12.834,2025-03-26,True,2026-01-02
+338,SKU-00338,Fernlight,Home,Storage,Fernlight Storage,454.19,219.15,8.268,2025-02-17,True,2026-01-02
+339,SKU-00339,Redgum,Home,Lighting,Redgum Lighting,232.73,135.01,6.123,2025-08-04,True,2026-01-02
+340,SKU-00340,Lantern,Sports,Yoga,Lantern Yoga,69.61,35.79,9.5,2025-08-26,True,2026-01-02
+341,SKU-00341,Dovetail,Books,Reference,Dovetail Reference,329.88,115.66,4.355,2025-04-29,True,2026-01-02
+342,SKU-00342,Eastgate,Beauty,Haircare,Eastgate Haircare,119.39,87.78,6.795,2025-03-14,True,2026-01-02
+343,SKU-00343,Pinegrove,Books,Non-Fiction,Pinegrove Non-Fiction,32.63,13.17,2.767,2025-06-24,True,2026-01-02
+344,SKU-00344,Northwind,Electronics,Laptops,Northwind Laptops,24.55,10.75,12.688,2025-04-08,True,2026-01-02
+345,SKU-00345,Thistle,Sports,Team Sports,Thistle Team Sports,301.49,218.7,1.096,2025-11-17,True,2026-01-02
+346,SKU-00346,Lantern,Books,Non-Fiction,Lantern Non-Fiction,337.76,248.46,23.051,2025-11-22,True,2026-01-02
+347,SKU-00347,Redgum,Home,Lighting,Redgum Lighting,71.51,38.02,0.451,2025-05-16,True,2026-01-02
+348,SKU-00348,Lantern,Beauty,Skincare,Lantern Skincare,367.68,171.93,1.97,2025-09-29,True,2026-01-02
+349,SKU-00349,Quarry,Grocery,Baking,Quarry Baking,65.04,45.3,11.479,2025-08-25,True,2026-01-02
+350,SKU-00350,Quarry,Grocery,Baking,Quarry Baking,78.73,28.3,13.006,2025-06-19,True,2026-01-02
+351,SKU-00351,Stonecrop,Apparel,Jackets,Stonecrop Jackets,410.9,255.25,18.543,2025-04-25,True,2026-01-02
+352,SKU-00352,Oakhaven,Grocery,Baking,Oakhaven Baking,241.96,137.89,7.35,2025-07-04,True,2026-01-02
+353,SKU-00353,Umberton,Grocery,Coffee,Umberton Coffee,53.63,27.2,7.367,2025-08-17,True,2026-01-02
+354,SKU-00354,Stonecrop,Home,Lighting,Stonecrop Lighting,128.43,85.15,6.739,2025-01-07,True,2026-01-02
+355,SKU-00355,Aurora,Grocery,Pantry,Aurora Pantry,211.06,93.04,8.685,2025-12-27,True,2026-01-02
+356,SKU-00356,Cindershop,Pet,Dog,Cindershop Dog,35.78,19.54,9.311,2025-05-11,True,2026-01-02
+357,SKU-00357,Umberton,Electronics,Smart Home,Umberton Smart Home,49.08,20.39,0.122,2025-09-04,True,2026-01-02
+358,SKU-00358,Stonecrop,Toys,Plush,Stonecrop Plush,15.86,5.64,8.424,2025-02-15,True,2026-01-02
+359,SKU-00359,Redgum,Pet,Dog,Redgum Dog,421.42,180.37,6.82,2025-09-24,True,2026-01-02
+360,SKU-00360,Zephyr,Pet,Small Animal,Zephyr Small Animal,22.41,17.01,7.737,2025-04-07,True,2026-01-02
+361,SKU-00361,Kestrel,Sports,Swimming,Kestrel Swimming,172.83,61.35,4.549,2025-05-04,True,2026-01-02
+362,SKU-00362,Vantage,Books,Reference,Vantage Reference,10.4,7.12,11.002,2025-12-29,True,2026-01-02
+363,SKU-00363,Bellweather,Toys,Plush,Bellweather Plush,161.87,102.03,7.357,2025-07-03,True,2026-01-02
+364,SKU-00364,Zephyr,Beauty,Haircare,Zephyr Haircare,126.27,67.13,10.452,2025-08-12,True,2026-01-02
+365,SKU-00365,Stonecrop,Outdoors,Fishing,Stonecrop Fishing,229.11,163.97,5.867,2025-08-14,True,2026-01-02
+366,SKU-00366,Fernlight,Beauty,Haircare,Fernlight Haircare,212.32,146.95,6.808,2025-08-16,True,2026-01-02
+367,SKU-00367,Thistle,Pet,Dog,Thistle Dog,204.17,110.74,10.276,2025-05-10,False,2026-01-02
+368,SKU-00368,Northwind,Outdoors,Fishing,Northwind Fishing,77.62,57.72,12.369,2025-04-30,True,2026-01-02
+369,SKU-00369,Wildacre,Home,Lighting,Wildacre Lighting,254.39,165.86,8.624,2025-03-03,True,2026-01-02
+370,SKU-00370,Vantage,Pet,Dog,Vantage Dog,292.21,138.01,7.17,2025-10-21,True,2026-01-02
+371,SKU-00371,Meridian,Pet,Cat,Meridian Cat,279.28,128.3,13.688,2025-10-15,True,2026-01-02
+372,SKU-00372,Juniper,Apparel,Accessories,Juniper Accessories,321.9,183.97,17.723,2025-08-14,True,2026-01-02
+373,SKU-00373,Meridian,Electronics,Laptops,Meridian Laptops,423.09,155.74,4.136,2025-12-04,True,2026-01-02
+374,SKU-00374,Yarrow,Sports,Running,Yarrow Running,37.72,26.89,9.61,2025-07-06,True,2026-01-02
+375,SKU-00375,Redgum,Beauty,Fragrance,Redgum Fragrance,239.04,121.65,0.93,2025-07-09,True,2026-01-02
+376,SKU-00376,Vantage,Grocery,Snacks,Vantage Snacks,227.27,124.66,8.353,2025-04-01,True,2026-01-02
+377,SKU-00377,Redgum,Pet,Dog,Redgum Dog,34.75,17.44,6.726,2025-11-06,True,2026-01-02
+378,SKU-00378,Stonecrop,Home,Cookware,Stonecrop Cookware,355.29,228.27,0.249,2025-06-29,True,2026-01-02
+379,SKU-00379,Pinegrove,Sports,Strength,Pinegrove Strength,115.88,59.08,19.913,2025-02-16,True,2026-01-02
+380,SKU-00380,Thistle,Toys,Outdoor Play,Thistle Outdoor Play,148.6,57.32,2.798,2025-05-13,True,2026-01-02
+381,SKU-00381,Yarrow,Beauty,Fragrance,Yarrow Fragrance,12.14,8.81,0.88,2025-07-06,True,2026-01-02
+382,SKU-00382,Juniper,Toys,Building Sets,Juniper Building Sets,323.22,178.9,7.308,2025-01-02,False,2026-01-02
+383,SKU-00383,Umberton,Electronics,Laptops,Umberton Laptops,227.62,101.34,18.171,2025-07-11,True,2026-01-02
+384,SKU-00384,Vantage,Grocery,Snacks,Vantage Snacks,25.19,17.92,0.434,2025-12-27,True,2026-01-02
+385,SKU-00385,Eastgate,Electronics,Cameras,Eastgate Cameras,111.79,81.72,21.538,2025-08-27,True,2026-01-02
+386,SKU-00386,Umberton,Grocery,Beverages,Umberton Beverages,284.12,120.27,12.838,2025-03-29,True,2026-01-02
+387,SKU-00387,Harrowfield,Sports,Swimming,Harrowfield Swimming,113.54,61.9,6.673,2025-05-25,True,2026-01-02
+388,SKU-00388,Cindershop,Electronics,Laptops,Cindershop Laptops,178.72,91.5,0.805,2025-09-07,True,2026-01-02
+389,SKU-00389,Stonecrop,Grocery,Beverages,Stonecrop Beverages,275.99,150.66,21.725,2025-10-08,True,2026-01-02
+390,SKU-00390,Meridian,Home,Storage,Meridian Storage,368.36,241.5,3.34,2025-06-05,True,2026-01-02
+391,SKU-00391,Juniper,Home,Furniture,Juniper Furniture,294.69,110.36,16.594,2025-03-17,True,2026-01-02
+392,SKU-00392,Eastgate,Home,Furniture,Eastgate Furniture,197.73,138.04,1.965,2025-04-13,True,2026-01-02
+393,SKU-00393,Yarrow,Books,Childrens,Yarrow Childrens,18.4,11.45,4.915,2025-05-01,True,2026-01-02
+394,SKU-00394,Dovetail,Outdoors,Cycling,Dovetail Cycling,26.27,10.02,12.371,2025-12-08,True,2026-01-02
+395,SKU-00395,Zephyr,Outdoors,Hiking,Zephyr Hiking,259.59,188.33,8.892,2025-07-20,True,2026-01-02
+396,SKU-00396,Quarry,Sports,Team Sports,Quarry Team Sports,358.76,209.23,8.166,2025-12-12,True,2026-01-02
+397,SKU-00397,Pinegrove,Apparel,Accessories,Pinegrove Accessories,183.67,101.88,1.899,2025-08-27,True,2026-01-02
+398,SKU-00398,Oakhaven,Beauty,Haircare,Oakhaven Haircare,94.81,37.08,5.256,2025-09-25,True,2026-01-02
+399,SKU-00399,Northwind,Books,Graphic Novels,Northwind Graphic Novels,108.85,55.74,1.938,2025-04-26,True,2026-01-02
+400,SKU-00400,Redgum,Pet,Small Animal,Redgum Small Animal,83.09,58.62,14.359,2025-01-18,True,2026-01-02

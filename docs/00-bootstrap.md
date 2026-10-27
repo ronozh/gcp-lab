@@ -45,9 +45,10 @@ scripts/github-setup.sh                     # GitHub side: hardening, env `dev`,
 
 | Thing | Name | Why |
 |---|---|---|
-| APIs | iam, sts, iamcredentials, storage, serviceusage, cloudresourcemanager, billingbudgets | Needed by WIF and Terraform |
+| APIs | iam, sts, iamcredentials, storage, serviceusage, cloudresourcemanager, billingbudgets, compute | Needed by WIF, Terraform and the network |
+| Network | `default` subnet: Private Google Access **on** | Spark workers have no public IP; PGA lets them reach Google APIs (≈ VPC endpoints). Done here, not in Terraform: auto-mode subnets can't be deleted, so `destroy` would fail |
 | Bucket | `gs://<project-id>-tfstate` (versioned) | Terraform state (≈ S3 backend). Locking is built in |
-| SA | `gcp-lab-ci@…` | The identity CI runs as. Roles: storage, BigQuery, IAM, network admin, … (near-owner; fine for a lab) |
+| SA | `gcp-lab-ci@…` | The identity CI runs as. Roles: storage, BigQuery, IAM, … (near-owner; fine for a lab) |
 | WIF | pool `github`, provider `github` | Trusts GitHub's OIDC tokens (condition above) |
 | Budget | `gcp-lab`, 30 AUD, 50/90/100% | Emails billing account admins/users. Counts cost **before** trial credits, so alerts are real |
 | GitHub | env `dev` (main only), 5 secrets, actions allowlist + SHA pins | Public repo safety |

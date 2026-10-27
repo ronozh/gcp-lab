@@ -21,7 +21,7 @@ resource "google_storage_bucket" "lake" {
   force_destroy               = true
 }
 
-# code: PySpark job files (phase 2) and Spark staging files.
+# code: PySpark job files (deployed by CI) and Spark staging files (--deps-bucket).
 resource "google_storage_bucket" "code" {
   name                        = "${var.project_id}-code"
   location                    = var.region

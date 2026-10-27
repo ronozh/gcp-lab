@@ -1,0 +1,1201 @@
+customer_id,first_name,last_name,email,tier,credit_limit,state,city,postal_code,signup_date,marketing_opt_in,is_active,snapshot_date
+1001,Dmitri,Pinto,dmitri.pinto1001@webmail.example,platinum,4500.0,ACT,Tuggeranong,2600,2025-08-12,False,True,2026-01-03
+1002,Keanu,Gauthier,keanu.gauthier1002@fastmail.example,bronze,13250.0,QLD,Brisbane,4870,2025-09-13,False,True,2026-01-03
+1003,Camila,Chen,camila.chen1003@outlook.example,silver,5750.0,WA,Geraldton,6430,2025-01-24,False,True,2026-01-03
+1004,Kenji,Krishnan,kenji.krishnan1004@gmail.example,bronze,11000.0,VIC,Melbourne,3220,2024-09-23,False,True,2026-01-03
+1005,Mateo,Sinclair,mateo.sinclair1005@yahoo.example,bronze,500.0,SA,Adelaide,5063,2024-03-28,False,True,2026-01-03
+1006,Diego,Bakker,diego.bakker1006@fastmail.example,bronze,5000.0,NSW,Wagga Wagga,2450,2025-09-28,False,True,2026-01-03
+1007,Emeka,Moreau,emeka.moreau1007@posteo.example,bronze,11000.0,SA,Murray Bridge,5000,2024-06-18,True,True,2026-01-03
+1008,Lars,Petrov,lars.petrov1008@outlook.example,silver,6500.0,TAS,Devonport,7320,2024-02-25,True,True,2026-01-03
+1009,Elodie,Thornton,elodie.thornton1009@outlook.example,bronze,4500.0,VIC,Ballarat,3220,2024-07-09,True,True,2026-01-03
+1010,Sasha,Marchetti,sasha.marchetti1010@webmail.example,bronze,7000.0,WA,Broome,6530,2024-04-07,True,True,2026-01-03
+1011,Mateo,Nakamura,mateo.nakamura1011@yahoo.example,silver,1500.0,WA,Albany,6060,2024-08-19,True,True,2026-01-03
+1012,Antonio,Clarke,antonio.clarke1012@webmail.example,bronze,6750.0,QLD,Townsville,4217,2024-09-15,True,True,2026-01-03
+1013,Leo,Garcia,leo.garcia1013@outlook.example,bronze,3250.0,NSW,Newcastle,2650,2025-05-22,False,True,2026-01-03
+1014,Marcus,Jaganathan,marcus.jaganathan1014@yahoo.example,silver,1750.0,TAS,Launceston,7000,2025-05-09,True,True,2026-01-03
+1015,Nadia,Kapoor,nadia.kapoor1015@mailbox.example,bronze,13750.0,WA,Broome,6230,2025-06-20,False,True,2026-01-03
+1016,Leilani,Fennimore,leilani.fennimore1016@fastmail.example,bronze,9500.0,QLD,Brisbane,4350,2025-09-14,True,True,2026-01-03
+1017,Carlos,Coelho,carlos.coelho1017@gmail.example,gold,3250.0,NT,Alice Springs,0800,2025-11-19,True,True,2026-01-03
+1018,Mohan,Petrov,mohan.petrov1018@posteo.example,bronze,17750.0,WA,Albany,6000,2025-09-14,True,True,2026-01-03
+1019,Rafael,Kovacs,rafael.kovacs1019@posteo.example,silver,12250.0,VIC,Mildura,3550,2025-07-20,False,True,2026-01-03
+1020,Wren,Dubois,wren.dubois1020@fastmail.example,bronze,16000.0,VIC,Bendigo,3500,2025-08-28,False,True,2026-01-03
+1021,Hana,Hoffman,hana.hoffman1021@gmail.example,bronze,1750.0,TAS,Devonport,7000,2024-12-14,False,True,2026-01-03
+1022,Zara,Yamamoto,zara.yamamoto1022@gmail.example,bronze,8750.0,WA,Kalgoorlie,6230,2024-08-12,True,True,2026-01-03
+1023,Talia,Boateng,talia.boateng1023@yahoo.example,bronze,10250.0,SA,Murray Bridge,5600,2024-07-29,True,True,2026-01-03
+1024,Felipe,Khan,felipe.khan1024@gmx.example,bronze,7750.0,TAS,Devonport,7320,2025-03-01,True,True,2026-01-03
+1025,Genevieve,Costa,genevieve.costa1025@yahoo.example,gold,3500.0,TAS,Devonport,7250,2025-02-05,True,True,2026-01-03
+1026,Camila,Lundgren,camila.lundgren1026@gmail.example,bronze,16750.0,WA,Broome,6530,2024-07-13,True,True,2026-01-03
+1027,Maeve,Sandoval,maeve.sandoval1027@mailbox.example,gold,13000.0,SA,Mount Gambier,5700,2024-04-28,False,True,2026-01-03
+1028,Esther,Sandoval,esther.sandoval1028@webmail.example,bronze,6500.0,NT,Palmerston,0810,2025-01-25,False,True,2026-01-03
+1029,Rafael,McAllister,rafael.mcallister1029@gmail.example,bronze,3750.0,SA,Port Augusta,5290,2025-12-28,True,True,2026-01-03
+1030,Katarina,Lindqvist,katarina.lindqvist1030@yahoo.example,bronze,2750.0,WA,Geraldton,6430,2024-02-04,False,True,2026-01-03
+1031,Ebele,Chakraborty,ebele.chakraborty1031@webmail.example,bronze,6000.0,SA,Mount Gambier,5600,2024-05-10,True,True,2026-01-03
+1032,Lucia,Hasegawa,lucia.hasegawa1032@mailbox.example,silver,10000.0,WA,Perth,6430,2024-02-18,True,True,2026-01-03
+1033,Mira,Dabrowski,mira.dabrowski1033@yahoo.example,silver,11000.0,QLD,Townsville,4870,2024-02-17,True,True,2026-01-03
+1034,Emeka,Silva,emeka.silva1034@outlook.example,silver,7500.0,SA,Whyalla,5600,2024-10-16,True,True,2026-01-03
+1035,Mahdi,Tanaka,mahdi.tanaka1035@inbox.example,silver,2750.0,NT,Katherine,0850,2024-07-07,True,True,2026-01-03
+1036,Juno,Navarro,juno.navarro1036@yahoo.example,silver,19250.0,WA,Broome,6000,2025-01-26,False,True,2026-01-03
+1037,Dmitri,Davies,dmitri.davies1037@yahoo.example,silver,11750.0,NT,Palmerston,0870,2024-11-05,True,True,2026-01-03
+1038,Giulia,Ahmadi,giulia.ahmadi1038@proton.example,gold,10750.0,WA,Fremantle,6430,2024-01-25,False,True,2026-01-03
+1039,Arjun,Leclerc,arjun.leclerc1039@outlook.example,gold,15500.0,WA,Perth,6230,2024-04-01,False,True,2026-01-03
+1040,Yusuf,Laurent,yusuf.laurent1040@posteo.example,gold,3750.0,QLD,Toowoomba,4051,2025-09-22,True,True,2026-01-03
+1041,Thandiwe,Tanaka,thandiwe.tanaka1041@outlook.example,gold,6000.0,WA,Albany,6060,2024-08-15,False,True,2026-01-03
+1042,Uma,Nkemelu,uma.nkemelu1042@posteo.example,bronze,4250.0,SA,Adelaide,5000,2024-03-05,True,True,2026-01-03
+1043,Felipe,Halloran,felipe.halloran1043@gmail.example,silver,18250.0,VIC,Shepparton,3050,2024-12-03,False,True,2026-01-03
+1044,Andrea,Reyes,andrea.reyes1044@webmail.example,bronze,5250.0,NT,Darwin,0810,2024-11-14,True,True,2026-01-03
+1045,Jasmin,Karlsson,jasmin.karlsson1045@mailbox.example,bronze,4750.0,QLD,Townsville,4700,2024-09-20,False,True,2026-01-03
+1046,Olamide,Brennan,olamide.brennan1046@gmail.example,bronze,9500.0,SA,Adelaide,5600,2024-10-04,True,True,2026-01-03
+1047,Mateo,Stanton,mateo.stanton1047@posteo.example,bronze,17750.0,SA,Murray Bridge,5063,2025-03-11,True,True,2026-01-03
+1048,Antonio,Esposito,antonio.esposito1048@fastmail.example,bronze,22250.0,NT,Alice Springs,0870,2024-07-23,False,True,2026-01-03
+1049,Bianca,Grimaldi,bianca.grimaldi1049@webmail.example,bronze,16000.0,TAS,Burnie,7310,2025-09-12,True,True,2026-01-03
+1050,Hassan,Yamamoto,hassan.yamamoto1050@proton.example,gold,750.0,ACT,Tuggeranong,2611,2024-09-05,False,True,2026-01-03
+1051,Jia,Chen,jia.chen1051@posteo.example,platinum,14000.0,QLD,Cairns,4051,2024-01-29,False,True,2026-01-03
+1052,Aaliyah,Dimitriou,aaliyah.dimitriou1052@posteo.example,bronze,1000.0,NSW,Dubbo,2650,2025-10-12,True,True,2026-01-03
+1053,Emeka,Gauthier,emeka.gauthier1053@webmail.example,silver,5000.0,ACT,Canberra,2900,2024-09-05,False,True,2026-01-03
+1054,Marcus,Kimura,marcus.kimura1054@inbox.example,bronze,500.0,NSW,Orange,2300,2024-06-15,True,True,2026-01-03
+1055,Amara,Esposito,amara.esposito1055@outlook.example,gold,750.0,ACT,Canberra,2900,2025-09-28,True,True,2026-01-03
+1056,Emeka,Ricci,emeka.ricci1056@gmail.example,silver,2500.0,VIC,Ballarat,3220,2024-01-23,False,True,2026-01-03
+1057,Rosa,Chowdhury,rosa.chowdhury1057@gmx.example,gold,4250.0,NSW,Dubbo,2500,2024-11-17,True,True,2026-01-03
+1058,Yusuf,Adeyemi,yusuf.adeyemi1058@fastmail.example,gold,5250.0,ACT,Tuggeranong,2611,2024-10-19,False,True,2026-01-03
+1059,Saoirse,Boateng,saoirse.boateng1059@proton.example,gold,10750.0,WA,Albany,6000,2024-04-09,True,True,2026-01-03
+1060,Selin,Jarvis,selin.jarvis1060@inbox.example,silver,10500.0,NT,Palmerston,0800,2024-06-01,True,True,2026-01-03
+1061,Xiulan,Wachowski,xiulan.wachowski1061@fastmail.example,bronze,5500.0,NT,Katherine,0850,2025-11-15,False,False,2026-01-03
+1062,Sunil,Rasmussen,sunil.rasmussen1062@webmail.example,bronze,1750.0,TAS,Launceston,7320,2025-04-12,False,True,2026-01-03
+1063,Petra,Mbeki,petra.mbeki1063@outlook.example,gold,14250.0,NT,Darwin,0810,2025-08-04,True,True,2026-01-03
+1064,Oliver,Stanton,oliver.stanton1064@gmail.example,silver,10500.0,NT,Darwin,0870,2025-11-10,True,True,2026-01-03
+1065,Katarina,Pereira,katarina.pereira1065@proton.example,platinum,12750.0,ACT,Canberra,2611,2025-08-25,True,True,2026-01-03
+1066,Kofi,Quintero,kofi.quintero1066@fastmail.example,bronze,7250.0,VIC,Mildura,3050,2025-05-12,True,True,2026-01-03
+1067,Laila,Macpherson,laila.macpherson1067@gmx.example,silver,14500.0,NSW,Sydney,2150,2024-09-09,True,True,2026-01-03
+1068,Cheng,Thornton,cheng.thornton1068@inbox.example,silver,14500.0,SA,Whyalla,5290,2025-09-18,True,True,2026-01-03
+1069,Sina,Dubois,sina.dubois1069@proton.example,bronze,4500.0,SA,Port Augusta,5290,2024-08-06,False,True,2026-01-03
+1070,Ida,Rahman,ida.rahman1070@proton.example,silver,2500.0,ACT,Gungahlin,2600,2025-02-19,False,True,2026-01-03
+1071,Joachim,Vance,joachim.vance1071@yahoo.example,silver,9000.0,QLD,Cairns,4051,2025-06-29,True,True,2026-01-03
+1072,Ophelia,Takahashi,ophelia.takahashi1072@webmail.example,gold,13750.0,NT,Katherine,0810,2024-03-31,False,True,2026-01-03
+1073,Fatima,Takahashi,fatima.takahashi1073@mailbox.example,silver,7250.0,ACT,Canberra,2617,2024-11-24,True,True,2026-01-03
+1074,Ahmed,Gauthier,ahmed.gauthier1074@outlook.example,bronze,9000.0,WA,Broome,6430,2024-03-20,False,True,2026-01-03
+1075,Sina,Takahashi,sina.takahashi1075@gmx.example,bronze,6500.0,ACT,Gungahlin,2611,2024-09-09,False,True,2026-01-03
+1076,Aroha,Pahlavi,aroha.pahlavi1076@fastmail.example,silver,20500.0,VIC,Warrnambool,3121,2024-11-25,False,True,2026-01-03
+1077,Alice,Fontaine,alice.fontaine1077@posteo.example,gold,3250.0,SA,Mount Gambier,5290,2025-10-25,False,True,2026-01-03
+1078,Juno,Moreau,juno.moreau1078@posteo.example,bronze,18500.0,NSW,Wollongong,2830,2024-09-02,True,True,2026-01-03
+1079,Priya,Farrell,priya.farrell1079@gmail.example,bronze,9250.0,QLD,Gold Coast,4000,2024-11-08,True,True,2026-01-03
+1080,Keanu,Trevelyan,keanu.trevelyan1080@proton.example,silver,3750.0,TAS,Launceston,7250,2025-10-29,True,True,2026-01-03
+1081,Hassan,Cabrera,hassan.cabrera1081@gmail.example,silver,19750.0,NSW,Coffs Harbour,2650,2025-05-04,True,True,2026-01-03
+1082,Ophelia,Donnelly,ophelia.donnelly1082@gmail.example,bronze,5500.0,WA,Geraldton,6160,2025-06-10,True,True,2026-01-03
+1083,Katarina,Coelho,katarina.coelho1083@outlook.example,silver,5000.0,NT,Darwin,0810,2025-03-25,True,True,2026-01-03
+1084,Emeka,Khan,emeka.khan1084@inbox.example,silver,2250.0,TAS,Devonport,7000,2024-12-12,True,True,2026-01-03
+1085,Adrian,Varga,adrian.varga1085@gmail.example,bronze,12750.0,TAS,Hobart,7310,2025-02-16,True,True,2026-01-03
+1086,Petra,Rahman,petra.rahman1086@gmail.example,silver,7000.0,TAS,Burnie,7320,2024-11-16,True,True,2026-01-03
+1087,Jasmin,Nguyen,jasmin.nguyen1087@webmail.example,bronze,11750.0,WA,Broome,6230,2024-12-23,True,True,2026-01-03
+1088,Katarina,Boateng,katarina.boateng1088@fastmail.example,bronze,14750.0,SA,Port Augusta,5600,2025-08-10,True,True,2026-01-03
+1089,Quentin,Fennimore,quentin.fennimore1089@inbox.example,bronze,750.0,QLD,Brisbane,4810,2025-11-05,True,True,2026-01-03
+1090,Emeka,Mendoza,emeka.mendoza1090@outlook.example,silver,4250.0,ACT,Tuggeranong,2900,2024-10-02,False,True,2026-01-03
+1091,Maeve,Karlsson,maeve.karlsson1091@fastmail.example,bronze,4250.0,VIC,Mildura,3220,2025-07-12,False,True,2026-01-03
+1092,Rina,Bianchi,rina.bianchi1092@inbox.example,gold,16250.0,VIC,Melbourne,3050,2025-09-09,True,False,2026-01-03
+1093,Caitlin,Chen,caitlin.chen1093@webmail.example,bronze,16250.0,ACT,Canberra,2600,2025-08-03,False,True,2026-01-03
+1094,Elodie,Gallagher,elodie.gallagher1094@inbox.example,silver,9500.0,TAS,Devonport,7320,2024-10-25,True,True,2026-01-03
+1095,Esther,Clarke,esther.clarke1095@outlook.example,silver,19250.0,NT,Katherine,0870,2025-09-15,True,True,2026-01-03
+1096,Sunil,Clarke,sunil.clarke1096@proton.example,bronze,2000.0,VIC,Geelong,3500,2024-12-14,True,True,2026-01-03
+1097,Javier,Holloway,javier.holloway1097@proton.example,bronze,7000.0,QLD,Rockhampton,4051,2024-03-17,True,True,2026-01-03
+1098,Rohan,Suzuki,rohan.suzuki1098@gmail.example,bronze,1750.0,WA,Perth,6430,2025-01-04,True,True,2026-01-03
+1099,Aroha,Sinclair,aroha.sinclair1099@outlook.example,bronze,3250.0,VIC,Bendigo,3630,2025-07-13,False,True,2026-01-03
+1100,Genevieve,Nakamura,genevieve.nakamura1100@gmail.example,bronze,7250.0,SA,Whyalla,5063,2025-06-11,True,True,2026-01-03
+1101,Omar,Hendricks,omar.hendricks1101@gmx.example,silver,3250.0,TAS,Burnie,7250,2025-03-19,True,False,2026-01-03
+1102,Camila,Wojcik,camila.wojcik1102@proton.example,bronze,7750.0,WA,Fremantle,6160,2024-05-20,True,True,2026-01-03
+1103,Ivan,Rossi,ivan.rossi1103@proton.example,bronze,7500.0,ACT,Gungahlin,2611,2025-06-02,True,True,2026-01-03
+1104,Tamar,Kalani,tamar.kalani1104@mailbox.example,bronze,7750.0,WA,Perth,6160,2025-02-26,False,True,2026-01-03
+1105,Priya,Lindqvist,priya.lindqvist1105@yahoo.example,bronze,6250.0,QLD,Rockhampton,4000,2024-10-22,False,True,2026-01-03
+1106,Giulia,Dabrowski,giulia.dabrowski1106@mailbox.example,silver,14250.0,QLD,Gold Coast,4350,2025-09-25,True,True,2026-01-03
+1107,Darius,Rasmussen,darius.rasmussen1107@webmail.example,bronze,15250.0,VIC,Ballarat,3500,2025-06-26,True,True,2026-01-03
+1108,Viktor,Farrell,viktor.farrell1108@posteo.example,silver,2250.0,NSW,Orange,2450,2024-05-10,True,True,2026-01-03
+1109,Rohan,Pinto,rohan.pinto1109@proton.example,bronze,1250.0,ACT,Belconnen,2617,2024-12-13,True,True,2026-01-03
+1110,Felipe,Sinclair,felipe.sinclair1110@fastmail.example,bronze,4000.0,NSW,Newcastle,2300,2025-04-05,False,True,2026-01-03
+1111,Sofia,Whitaker,sofia.whitaker1111@outlook.example,bronze,12250.0,VIC,Geelong,3630,2024-03-31,True,True,2026-01-03
+1112,Aditi,Stanton,aditi.stanton1112@webmail.example,gold,15500.0,ACT,Belconnen,2600,2025-09-28,False,True,2026-01-03
+1113,Dmitri,Petrov,dmitri.petrov1113@mailbox.example,bronze,12250.0,VIC,Ballarat,3050,2024-02-22,True,True,2026-01-03
+1114,Ludwig,Dalgleish,ludwig.dalgleish1114@outlook.example,bronze,12000.0,SA,Murray Bridge,5063,2024-12-08,True,True,2026-01-03
+1115,Nuala,Brennan,nuala.brennan1115@proton.example,bronze,13500.0,WA,Fremantle,6230,2024-03-22,False,True,2026-01-03
+1116,Soren,Bennett,soren.bennett1116@fastmail.example,platinum,6750.0,NT,Alice Springs,0870,2024-02-09,True,True,2026-01-03
+1117,Ludwig,McAllister,ludwig.mcallister1117@webmail.example,gold,3000.0,ACT,Tuggeranong,2600,2025-02-18,False,True,2026-01-03
+1118,Zofia,Lombardi,zofia.lombardi1118@yahoo.example,bronze,18000.0,NT,Katherine,0810,2024-10-16,True,True,2026-01-03
+1119,Jonas,Nguyen,jonas.nguyen1119@webmail.example,bronze,1000.0,ACT,Canberra,2900,2024-11-21,True,True,2026-01-03
+1120,Blake,Mahmood,blake.mahmood1120@gmail.example,silver,1250.0,ACT,Belconnen,2900,2025-02-02,True,True,2026-01-03
+1121,Soren,Hendricks,soren.hendricks1121@posteo.example,bronze,20750.0,SA,Mount Gambier,5063,2025-03-01,False,True,2026-01-03
+1122,Manon,Hoffman,manon.hoffman1122@gmx.example,gold,4250.0,SA,Port Augusta,5600,2025-12-22,False,True,2026-01-03
+1123,Omar,Dubois,omar.dubois1123@inbox.example,silver,8750.0,TAS,Hobart,7310,2024-03-12,True,True,2026-01-03
+1124,Antonio,Ivanov,antonio.ivanov1124@posteo.example,silver,9500.0,TAS,Devonport,7250,2025-04-12,False,True,2026-01-03
+1125,Giulia,Fennimore,giulia.fennimore1125@posteo.example,bronze,13500.0,QLD,Brisbane,4000,2025-11-28,True,True,2026-01-03
+1126,Priya,Adeyemi,priya.adeyemi1126@webmail.example,bronze,16750.0,WA,Broome,6725,2024-04-19,False,True,2026-01-03
+1127,Isabela,Gruber,isabela.gruber1127@yahoo.example,bronze,18750.0,QLD,Gold Coast,4350,2025-08-11,True,True,2026-01-03
+1128,Micheline,Barros,micheline.barros1128@inbox.example,bronze,7500.0,TAS,Hobart,7320,2024-10-11,True,True,2026-01-03
+1129,Esther,Sharma,esther.sharma1129@webmail.example,bronze,1500.0,NT,Darwin,0810,2025-04-29,True,True,2026-01-03
+1130,Anders,Duarte,anders.duarte1130@inbox.example,bronze,10500.0,QLD,Rockhampton,4870,2024-12-15,True,True,2026-01-03
+1131,Bruno,Mahmood,bruno.mahmood1131@inbox.example,silver,11250.0,ACT,Gungahlin,2600,2024-03-04,True,True,2026-01-03
+1132,Genevieve,Sullivan,genevieve.sullivan1132@inbox.example,silver,19500.0,NSW,Dubbo,2060,2024-03-08,True,True,2026-01-03
+1133,Daniela,Jansen,daniela.jansen1133@inbox.example,gold,2000.0,ACT,Tuggeranong,2611,2025-09-20,False,True,2026-01-03
+1134,Kofi,Dabrowski,kofi.dabrowski1134@posteo.example,platinum,10750.0,TAS,Burnie,7320,2024-05-07,True,True,2026-01-03
+1135,Andrea,Barros,andrea.barros1135@gmail.example,silver,14250.0,TAS,Devonport,7310,2024-11-24,False,True,2026-01-03
+1136,Reza,Adeyemi,reza.adeyemi1136@mailbox.example,bronze,16000.0,NSW,Dubbo,2830,2025-05-08,True,True,2026-01-03
+1137,Caitlin,Pinto,caitlin.pinto1137@outlook.example,bronze,5750.0,TAS,Burnie,7250,2024-12-20,False,True,2026-01-03
+1138,Sina,Adeyemi,sina.adeyemi1138@inbox.example,silver,4750.0,NSW,Sydney,2150,2024-08-02,False,True,2026-01-03
+1139,Javier,Oyelaran,javier.oyelaran1139@proton.example,bronze,750.0,NT,Katherine,0810,2024-06-25,True,True,2026-01-03
+1140,Chloe,Petrov,chloe.petrov1140@gmx.example,bronze,8000.0,NSW,Coffs Harbour,2000,2025-04-26,False,True,2026-01-03
+1141,Reza,Stanton,reza.stanton1141@fastmail.example,gold,4500.0,QLD,Gold Coast,4051,2024-02-26,True,True,2026-01-03
+1142,Elias,Rahman,elias.rahman1142@inbox.example,bronze,4500.0,ACT,Canberra,2600,2025-11-04,True,True,2026-01-03
+1143,Mateo,Barros,mateo.barros1143@gmx.example,bronze,750.0,ACT,Tuggeranong,2600,2025-10-16,False,True,2026-01-03
+1144,Imani,Laurent,imani.laurent1144@proton.example,silver,10500.0,VIC,Mildura,3000,2024-10-24,True,True,2026-01-03
+1145,Dmitri,Dimitriou,dmitri.dimitriou1145@gmail.example,platinum,11000.0,ACT,Canberra,2617,2025-05-09,True,True,2026-01-03
+1146,Thandiwe,Adeyemi,thandiwe.adeyemi1146@mailbox.example,silver,20000.0,VIC,Warrnambool,3500,2024-07-04,True,True,2026-01-03
+1147,Theo,Ramirez,theo.ramirez1147@proton.example,bronze,9500.0,NT,Palmerston,0800,2024-01-18,False,True,2026-01-03
+1148,Aditi,Kaminski,aditi.kaminski1148@gmail.example,platinum,7250.0,NSW,Coffs Harbour,2500,2025-08-28,True,False,2026-01-03
+1149,Jonas,Hoffman,jonas.hoffman1149@inbox.example,bronze,6500.0,WA,Bunbury,6530,2024-04-10,True,True,2026-01-03
+1150,Kenji,Chowdhury,kenji.chowdhury1150@inbox.example,bronze,6000.0,QLD,Toowoomba,4350,2025-04-11,False,True,2026-01-03
+1151,Micheline,Leclerc,micheline.leclerc1151@gmail.example,silver,1750.0,NT,Alice Springs,0850,2025-08-02,True,True,2026-01-03
+1152,Nuala,Costa,nuala.costa1152@yahoo.example,silver,19500.0,NSW,Wagga Wagga,2300,2025-09-10,True,True,2026-01-03
+1153,Zeke,Boateng,zeke.boateng1153@mailbox.example,silver,17000.0,TAS,Hobart,7310,2025-04-09,False,True,2026-01-03
+1154,Grace,Bergstrom,grace.bergstrom1154@fastmail.example,bronze,8000.0,NT,Darwin,0870,2025-11-18,True,False,2026-01-03
+1155,Sasha,Vance,sasha.vance1155@posteo.example,gold,8000.0,SA,Port Augusta,5600,2024-11-25,False,True,2026-01-03
+1156,Esther,Vasquez,esther.vasquez1156@yahoo.example,bronze,3000.0,QLD,Gold Coast,4217,2025-09-18,False,True,2026-01-03
+1157,Gabriel,Mbeki,gabriel.mbeki1157@inbox.example,silver,2000.0,NSW,Sydney,2000,2024-08-05,False,True,2026-01-03
+1158,Arjun,Vance,arjun.vance1158@mailbox.example,silver,10750.0,VIC,Mildura,3350,2025-03-30,True,True,2026-01-03
+1159,Zofia,Kimura,zofia.kimura1159@gmail.example,gold,18000.0,WA,Albany,6000,2024-10-14,True,True,2026-01-03
+1160,Saoirse,Holloway,saoirse.holloway1160@fastmail.example,bronze,16750.0,VIC,Geelong,3050,2025-06-06,True,True,2026-01-03
+1161,Tadeo,Lombardi,tadeo.lombardi1161@webmail.example,silver,4750.0,QLD,Rockhampton,4700,2024-02-22,True,True,2026-01-03
+1162,Petra,Varga,petra.varga1162@fastmail.example,bronze,9500.0,ACT,Belconnen,2617,2024-06-12,False,True,2026-01-03
+1163,Zofia,Rahman,zofia.rahman1163@proton.example,bronze,3250.0,NSW,Newcastle,2500,2025-08-04,False,True,2026-01-03
+1164,Ravi,Cabrera,ravi.cabrera1164@gmail.example,bronze,3500.0,SA,Port Augusta,5000,2025-11-21,False,True,2026-01-03
+1165,Paloma,Sasaki,paloma.sasaki1165@yahoo.example,bronze,7250.0,WA,Perth,6530,2024-11-26,False,True,2026-01-03
+1166,Arjun,Novak,arjun.novak1166@posteo.example,bronze,5500.0,TAS,Burnie,7320,2025-01-16,True,True,2026-01-03
+1167,Theo,Martins,theo.martins1167@gmx.example,bronze,3250.0,SA,Adelaide,5700,2024-01-02,False,True,2026-01-03
+1168,Sunil,Mendoza,sunil.mendoza1168@gmx.example,silver,9500.0,NT,Alice Springs,0810,2024-01-12,True,True,2026-01-03
+1169,Mateo,Navarro,mateo.navarro1169@yahoo.example,bronze,2500.0,NSW,Coffs Harbour,2450,2025-09-15,True,True,2026-01-03
+1170,Anika,Petrov,anika.petrov1170@mailbox.example,silver,1000.0,NT,Darwin,0810,2025-04-30,True,True,2026-01-03
+1171,Daniela,Wojcik,daniela.wojcik1171@fastmail.example,bronze,12000.0,QLD,Rockhampton,4217,2025-11-29,True,True,2026-01-03
+1172,Nuala,Donnelly,nuala.donnelly1172@posteo.example,bronze,9750.0,SA,Whyalla,5600,2025-10-21,True,True,2026-01-03
+1173,Tariq,Zielinski,tariq.zielinski1173@proton.example,gold,12000.0,SA,Murray Bridge,5290,2024-08-04,True,True,2026-01-03
+1174,Malia,Malik,malia.malik1174@yahoo.example,silver,5750.0,SA,Murray Bridge,5063,2025-06-06,True,True,2026-01-03
+1175,Ewan,Grimaldi,ewan.grimaldi1175@fastmail.example,platinum,7000.0,NT,Darwin,0800,2024-03-08,True,True,2026-01-03
+1176,Ochieng,Sandoval,ochieng.sandoval1176@mailbox.example,bronze,500.0,NSW,Coffs Harbour,2650,2025-05-28,False,True,2026-01-03
+1177,Adrian,Cavanagh,adrian.cavanagh1177@mailbox.example,bronze,2500.0,ACT,Belconnen,2611,2025-03-27,True,True,2026-01-03
+1178,Rosa,Gallagher,rosa.gallagher1178@yahoo.example,bronze,11250.0,ACT,Belconnen,2617,2025-07-31,True,True,2026-01-03
+1179,Nadia,Kaminski,nadia.kaminski1179@mailbox.example,gold,18250.0,QLD,Townsville,4350,2025-03-15,False,True,2026-01-03
+1180,Fatima,Fitzgerald,fatima.fitzgerald1180@gmail.example,bronze,2000.0,SA,Murray Bridge,5063,2024-02-01,True,True,2026-01-03
+1181,Adrian,Bianchi,adrian.bianchi1181@mailbox.example,bronze,3000.0,VIC,Shepparton,3121,2024-03-07,False,True,2026-01-03
+1182,Elias,Alvarez,elias.alvarez1182@webmail.example,bronze,5250.0,TAS,Hobart,7320,2024-02-17,False,True,2026-01-03
+1183,Rhys,Beauchamp,rhys.beauchamp1183@yahoo.example,bronze,22250.0,TAS,Launceston,7250,2024-01-03,False,True,2026-01-03
+1184,Laila,Bergstrom,laila.bergstrom1184@gmx.example,gold,7500.0,NSW,Albury,2000,2025-09-01,False,True,2026-01-03
+1185,Rina,Varga,rina.varga1185@gmail.example,gold,12000.0,WA,Bunbury,6430,2024-02-24,True,True,2026-01-03
+1186,Emiko,Oyelaran,emiko.oyelaran1186@webmail.example,bronze,3250.0,QLD,Rockhampton,4350,2024-02-06,True,True,2026-01-03
+1187,Pedro,Dalgleish,pedro.dalgleish1187@outlook.example,gold,1250.0,QLD,Mackay,4810,2025-10-24,False,True,2026-01-03
+1188,Zofia,Nakamura,zofia.nakamura1188@webmail.example,bronze,11750.0,VIC,Ballarat,3350,2025-06-30,True,True,2026-01-03
+1189,Ruben,Torres,ruben.torres1189@outlook.example,gold,6750.0,NSW,Dubbo,2300,2025-09-04,True,True,2026-01-03
+1190,Ingrid,Papadopoulos,ingrid.papadopoulos1190@yahoo.example,bronze,6000.0,SA,Port Augusta,5290,2024-03-21,False,True,2026-01-03
+1191,Emeka,Marchetti,emeka.marchetti1191@outlook.example,gold,8000.0,WA,Bunbury,6430,2024-03-01,False,True,2026-01-03
+1192,Anders,Ibrahim,anders.ibrahim1192@yahoo.example,bronze,7750.0,TAS,Burnie,7320,2024-10-24,True,True,2026-01-03
+1193,Kenji,Donnelly,kenji.donnelly1193@outlook.example,bronze,2750.0,NT,Katherine,0850,2025-03-07,False,True,2026-01-03
+1194,Petra,Fairweather,petra.fairweather1194@inbox.example,bronze,10750.0,WA,Fremantle,6725,2025-11-09,True,True,2026-01-03
+1195,Thandiwe,Lundgren,thandiwe.lundgren1195@gmx.example,bronze,9500.0,QLD,Brisbane,4051,2024-03-17,True,True,2026-01-03
+1196,Rafael,Santos,rafael.santos1196@outlook.example,bronze,6750.0,WA,Kalgoorlie,6430,2024-02-09,False,True,2026-01-03
+1197,Thandiwe,Kaminski,thandiwe.kaminski1197@gmail.example,bronze,3750.0,VIC,Melbourne,3350,2025-10-29,False,True,2026-01-03
+1198,Ewan,Vance,ewan.vance1198@proton.example,bronze,2500.0,NSW,Albury,2150,2024-05-12,True,True,2026-01-03
+1199,Aditi,Mbeki,aditi.mbeki1199@outlook.example,bronze,1000.0,ACT,Canberra,2600,2025-03-28,False,True,2026-01-03
+1200,Carlos,Brennan,carlos.brennan1200@proton.example,silver,500.0,NT,Alice Springs,0800,2024-12-07,True,True,2026-01-03
+1201,Kalinda,Walsh,kalinda.walsh1201@posteo.example,bronze,4500.0,SA,Port Augusta,5290,2025-09-02,True,True,2026-01-03
+1202,Kalinda,Vasquez,kalinda.vasquez1202@posteo.example,bronze,5750.0,NSW,Newcastle,2450,2024-04-21,True,True,2026-01-03
+1203,Aditi,Sinclair,aditi.sinclair1203@webmail.example,bronze,10750.0,ACT,Belconnen,2611,2024-06-24,True,True,2026-01-03
+1204,Mei,Hamilton,mei.hamilton1204@outlook.example,bronze,9500.0,TAS,Launceston,7320,2025-09-28,False,True,2026-01-03
+1205,Tamar,Suzuki,tamar.suzuki1205@inbox.example,silver,15000.0,TAS,Devonport,7320,2024-05-08,False,True,2026-01-03
+1206,Arjun,Macpherson,arjun.macpherson1206@gmx.example,silver,5750.0,TAS,Launceston,7320,2025-01-21,True,True,2026-01-03
+1207,Diego,Delacroix,diego.delacroix1207@gmail.example,platinum,8000.0,VIC,Bendigo,3000,2024-05-24,False,True,2026-01-03
+1208,Emeka,Mikkelsen,emeka.mikkelsen1208@outlook.example,bronze,15500.0,TAS,Launceston,7310,2024-01-20,False,True,2026-01-03
+1209,Rohan,Sandoval,rohan.sandoval1209@outlook.example,bronze,17750.0,TAS,Devonport,7320,2024-12-15,True,True,2026-01-03
+1210,Kofi,Petrov,kofi.petrov1210@inbox.example,gold,4500.0,TAS,Devonport,7250,2024-02-15,False,True,2026-01-03
+1211,Jonas,Villanueva,jonas.villanueva1211@gmail.example,bronze,8750.0,SA,Whyalla,5063,2025-11-14,False,True,2026-01-03
+1212,Mahdi,Whitaker,mahdi.whitaker1212@gmx.example,bronze,2500.0,VIC,Mildura,3500,2025-09-20,False,True,2026-01-03
+1213,Yara,Aoki,yara.aoki1213@proton.example,silver,4250.0,ACT,Canberra,2900,2024-02-22,True,True,2026-01-03
+1214,Adrian,Ricci,adrian.ricci1214@webmail.example,bronze,750.0,QLD,Townsville,4000,2024-06-04,True,True,2026-01-03
+1215,Hina,Novak,hina.novak1215@gmail.example,bronze,11250.0,QLD,Cairns,4810,2024-04-14,False,True,2026-01-03
+1216,Cormac,Schneider,cormac.schneider1216@outlook.example,silver,8000.0,QLD,Cairns,4000,2024-03-27,True,True,2026-01-03
+1217,Soren,Karlsson,soren.karlsson1217@inbox.example,silver,10250.0,ACT,Canberra,2617,2025-10-18,True,True,2026-01-03
+1218,Ingrid,Gilmore,ingrid.gilmore1218@proton.example,gold,4500.0,WA,Bunbury,6160,2024-04-16,True,True,2026-01-03
+1219,Ingrid,Kaczmarek,ingrid.kaczmarek1219@yahoo.example,bronze,9250.0,QLD,Townsville,4051,2024-11-17,True,True,2026-01-03
+1220,Zeke,Fairweather,zeke.fairweather1220@inbox.example,silver,4750.0,QLD,Brisbane,4870,2025-03-18,True,True,2026-01-03
+1221,Nadia,Whitaker,nadia.whitaker1221@posteo.example,bronze,17500.0,SA,Mount Gambier,5290,2025-07-12,True,True,2026-01-03
+1222,Rina,Krishnan,rina.krishnan1222@webmail.example,silver,750.0,ACT,Canberra,2600,2025-12-17,True,True,2026-01-03
+1223,Jae,Tanaka,jae.tanaka1223@mailbox.example,bronze,6250.0,NSW,Albury,2650,2024-06-19,False,True,2026-01-03
+1224,Kalinda,Mbeki,kalinda.mbeki1224@yahoo.example,bronze,6500.0,QLD,Cairns,4051,2025-07-01,True,True,2026-01-03
+1225,Omar,Hamilton,omar.hamilton1225@gmail.example,gold,6000.0,NT,Katherine,0810,2024-05-24,True,True,2026-01-03
+1226,Soren,Holloway,soren.holloway1226@posteo.example,gold,7500.0,TAS,Hobart,7000,2024-01-14,True,True,2026-01-03
+1227,Tariq,Zhang,tariq.zhang1227@posteo.example,bronze,750.0,SA,Murray Bridge,5290,2025-09-29,False,True,2026-01-03
+1228,Cormac,Keating,cormac.keating1228@outlook.example,bronze,1000.0,WA,Bunbury,6000,2025-08-22,False,True,2026-01-03
+1229,Bianca,Petrov,bianca.petrov1229@outlook.example,bronze,14750.0,QLD,Townsville,4810,2025-01-15,True,True,2026-01-03
+1230,Yusuf,Whitaker,yusuf.whitaker1230@gmx.example,bronze,5250.0,NSW,Dubbo,2650,2025-09-08,False,True,2026-01-03
+1231,Alice,Pinto,alice.pinto1231@posteo.example,gold,7750.0,WA,Fremantle,6160,2025-11-26,True,True,2026-01-03
+1232,Reza,Pereira,reza.pereira1232@fastmail.example,silver,2000.0,ACT,Belconnen,2611,2024-06-14,False,True,2026-01-03
+1233,Nadia,Torres,nadia.torres1233@posteo.example,gold,12250.0,QLD,Rockhampton,4870,2024-04-25,True,True,2026-01-03
+1234,Thandiwe,Rossi,thandiwe.rossi1234@inbox.example,bronze,10750.0,TAS,Devonport,7310,2025-12-05,False,True,2026-01-03
+1235,Finn,Hoffman,finn.hoffman1235@webmail.example,bronze,500.0,NSW,Wollongong,2150,2024-04-21,True,True,2026-01-03
+1236,Ewan,Sasaki,ewan.sasaki1236@gmail.example,bronze,8500.0,TAS,Devonport,7250,2024-08-13,False,True,2026-01-03
+1237,Ruben,Keating,ruben.keating1237@gmail.example,bronze,15000.0,SA,Adelaide,5000,2024-06-26,False,True,2026-01-03
+1238,Gabriel,Laurent,gabriel.laurent1238@proton.example,silver,16250.0,QLD,Toowoomba,4350,2025-04-08,True,True,2026-01-03
+1239,Sasha,Quintero,sasha.quintero1239@mailbox.example,bronze,6500.0,ACT,Belconnen,2617,2025-07-01,False,True,2026-01-03
+1240,Cormac,Quintero,cormac.quintero1240@outlook.example,gold,1750.0,ACT,Belconnen,2617,2025-07-13,False,True,2026-01-03
+1241,Imani,Fairweather,imani.fairweather1241@yahoo.example,bronze,2250.0,ACT,Tuggeranong,2600,2025-01-29,True,True,2026-01-03
+1242,Kofi,Bakker,kofi.bakker1242@proton.example,bronze,5000.0,QLD,Mackay,4700,2024-12-30,True,True,2026-01-03
+1243,Rhys,Fontaine,rhys.fontaine1243@gmx.example,bronze,5000.0,SA,Mount Gambier,5290,2025-12-31,True,True,2026-01-03
+1244,Ruben,Wachowski,ruben.wachowski1244@fastmail.example,bronze,7250.0,NSW,Wagga Wagga,2150,2025-09-16,True,True,2026-01-03
+1245,Kai,Mikkelsen,kai.mikkelsen1245@inbox.example,bronze,9750.0,NSW,Orange,2500,2025-05-22,True,True,2026-01-03
+1246,Darius,Halloran,darius.halloran1246@outlook.example,bronze,2000.0,QLD,Brisbane,4700,2024-10-16,True,True,2026-01-03
+1247,Zainab,Sokolov,zainab.sokolov1247@outlook.example,bronze,18250.0,WA,Fremantle,6160,2025-09-10,True,True,2026-01-03
+1248,Kenji,Bergstrom,kenji.bergstrom1248@gmail.example,bronze,10250.0,VIC,Shepparton,3050,2024-06-30,True,True,2026-01-03
+1249,Bruno,Sinclair,bruno.sinclair1249@yahoo.example,silver,11000.0,WA,Kalgoorlie,6430,2025-05-18,True,True,2026-01-03
+1250,Aditi,Dalgleish,aditi.dalgleish1250@outlook.example,bronze,8500.0,TAS,Launceston,7250,2025-07-23,False,True,2026-01-03
+1251,Quentin,Laurent,quentin.laurent1251@webmail.example,bronze,6250.0,NT,Alice Springs,0870,2025-09-09,True,False,2026-01-03
+1252,Micheline,Rasmussen,micheline.rasmussen1252@outlook.example,gold,6750.0,QLD,Mackay,4810,2025-05-01,False,True,2026-01-03
+1253,Thandiwe,Boateng,thandiwe.boateng1253@mailbox.example,bronze,4750.0,TAS,Launceston,7310,2024-11-03,True,True,2026-01-03
+1254,Harriet,Fujimoto,harriet.fujimoto1254@gmail.example,gold,20500.0,TAS,Devonport,7320,2024-04-26,False,True,2026-01-03
+1255,Quentin,Sasaki,quentin.sasaki1255@webmail.example,bronze,5000.0,VIC,Mildura,3350,2025-11-20,True,True,2026-01-03
+1256,Leo,Pereira,leo.pereira1256@proton.example,platinum,3750.0,NSW,Wollongong,2830,2024-10-07,True,True,2026-01-03
+1257,Ida,Hoffman,ida.hoffman1257@posteo.example,silver,750.0,VIC,Shepparton,3050,2024-10-09,True,True,2026-01-03
+1258,Alice,Quintero,alice.quintero1258@gmail.example,bronze,5750.0,TAS,Burnie,7310,2025-09-05,True,True,2026-01-03
+1259,Sofia,Gallagher,sofia.gallagher1259@fastmail.example,platinum,3750.0,SA,Murray Bridge,5290,2025-09-18,True,True,2026-01-03
+1260,Ludwig,Pinto,ludwig.pinto1260@inbox.example,silver,17750.0,VIC,Mildura,3000,2024-04-01,True,True,2026-01-03
+1261,Mei,Karlsson,mei.karlsson1261@gmail.example,bronze,5750.0,WA,Broome,6530,2025-04-17,False,True,2026-01-03
+1262,Khalid,Martins,khalid.martins1262@posteo.example,bronze,12500.0,NSW,Wollongong,2650,2025-06-26,True,True,2026-01-03
+1263,Lachlan,Boateng,lachlan.boateng1263@gmail.example,bronze,8750.0,QLD,Rockhampton,4350,2024-08-27,True,True,2026-01-03
+1264,Rohan,Sasaki,rohan.sasaki1264@mailbox.example,silver,5000.0,NT,Alice Springs,0810,2024-10-18,True,True,2026-01-03
+1265,Uma,Ghosh,uma.ghosh1265@webmail.example,platinum,3500.0,WA,Broome,6530,2025-11-09,False,True,2026-01-03
+1266,Chloe,Ramirez,chloe.ramirez1266@fastmail.example,bronze,3750.0,TAS,Hobart,7320,2024-08-30,False,True,2026-01-03
+1267,Soren,Fairweather,soren.fairweather1267@proton.example,bronze,4250.0,WA,Bunbury,6430,2025-02-05,True,True,2026-01-03
+1268,Katarina,Ahmadi,katarina.ahmadi1268@inbox.example,bronze,8250.0,SA,Port Augusta,5000,2024-10-09,True,True,2026-01-03
+1269,Mira,Gilmore,mira.gilmore1269@posteo.example,silver,18750.0,ACT,Tuggeranong,2617,2024-09-01,True,False,2026-01-03
+1270,Yara,Hoffman,yara.hoffman1270@inbox.example,gold,14250.0,NT,Katherine,0850,2025-06-29,True,True,2026-01-03
+1271,Diego,Trevelyan,diego.trevelyan1271@proton.example,bronze,2500.0,NT,Alice Springs,0870,2025-12-31,True,True,2026-01-03
+1272,Ophelia,Khan,ophelia.khan1272@mailbox.example,silver,11500.0,NT,Darwin,0800,2025-10-31,False,True,2026-01-03
+1273,Thandiwe,Pereira,thandiwe.pereira1273@gmail.example,platinum,8500.0,NT,Palmerston,0800,2025-02-05,False,True,2026-01-03
+1274,Oliver,Reyes,oliver.reyes1274@gmail.example,bronze,11500.0,NSW,Newcastle,2060,2024-09-23,True,True,2026-01-03
+1275,Cormac,Cavanagh,cormac.cavanagh1275@gmail.example,silver,13000.0,NSW,Newcastle,2830,2025-12-31,True,True,2026-01-03
+1276,Theo,Oyelaran,theo.oyelaran1276@fastmail.example,platinum,10000.0,QLD,Gold Coast,4700,2024-02-28,True,True,2026-01-03
+1277,Felipe,Sasaki,felipe.sasaki1277@outlook.example,silver,8500.0,WA,Fremantle,6230,2025-02-13,False,True,2026-01-03
+1278,Mira,Gilmore,mira.gilmore1278@mailbox.example,gold,19750.0,TAS,Devonport,7320,2024-09-16,True,True,2026-01-03
+1279,Saoirse,Coelho,saoirse.coelho1279@gmail.example,bronze,10500.0,ACT,Tuggeranong,2900,2025-12-31,True,True,2026-01-03
+1280,Ingrid,Mikkelsen,ingrid.mikkelsen1280@proton.example,bronze,5000.0,QLD,Brisbane,4700,2024-03-06,False,True,2026-01-03
+1281,Genevieve,Andersen,genevieve.andersen1281@proton.example,silver,14750.0,WA,Geraldton,6000,2024-04-21,True,True,2026-01-03
+1282,Kalinda,Rahman,kalinda.rahman1282@inbox.example,silver,22750.0,WA,Fremantle,6530,2025-10-10,True,True,2026-01-03
+1283,Sasha,Santos,sasha.santos1283@proton.example,bronze,18500.0,QLD,Rockhampton,4810,2025-07-24,True,True,2026-01-03
+1284,Ibrahim,Khan,ibrahim.khan1284@outlook.example,bronze,14250.0,WA,Broome,6725,2024-05-29,False,True,2026-01-03
+1285,Andrea,Novak,andrea.novak1285@webmail.example,silver,2250.0,SA,Murray Bridge,5063,2025-04-22,False,True,2026-01-03
+1286,Esther,Zhang,esther.zhang1286@fastmail.example,bronze,13750.0,VIC,Melbourne,3350,2024-02-12,True,True,2026-01-03
+1287,Adrian,Jarvis,adrian.jarvis1287@mailbox.example,bronze,13000.0,NSW,Orange,2010,2024-05-02,True,True,2026-01-03
+1288,Adrian,Navarro,adrian.navarro1288@outlook.example,silver,2250.0,ACT,Tuggeranong,2600,2024-04-27,False,True,2026-01-03
+1289,Alejandro,Walsh,alejandro.walsh1289@mailbox.example,bronze,1500.0,VIC,Warrnambool,3350,2025-03-24,True,True,2026-01-03
+1290,Anika,Schneider,anika.schneider1290@inbox.example,silver,19250.0,TAS,Launceston,7250,2025-12-09,False,True,2026-01-03
+1291,Astrid,Park,astrid.park1291@inbox.example,gold,22750.0,NSW,Dubbo,2300,2024-11-25,False,True,2026-01-03
+1292,Rosa,Lundgren,rosa.lundgren1292@yahoo.example,bronze,2500.0,WA,Fremantle,6430,2025-05-03,False,True,2026-01-03
+1293,Thandiwe,Boateng,thandiwe.boateng1293@proton.example,gold,16750.0,SA,Mount Gambier,5000,2025-01-21,True,True,2026-01-03
+1294,Rhys,Kimura,rhys.kimura1294@outlook.example,silver,18250.0,NSW,Orange,2500,2024-10-15,True,True,2026-01-03
+1295,Joachim,Torres,joachim.torres1295@outlook.example,bronze,3750.0,SA,Murray Bridge,5600,2024-05-30,True,True,2026-01-03
+1296,Arjun,Vasquez,arjun.vasquez1296@inbox.example,silver,2250.0,NT,Darwin,0800,2025-10-10,False,True,2026-01-03
+1297,Ingrid,Sokolov,ingrid.sokolov1297@mailbox.example,platinum,13500.0,VIC,Warrnambool,3000,2025-03-14,True,True,2026-01-03
+1298,Rohan,Sokolov,rohan.sokolov1298@mailbox.example,silver,3500.0,NT,Darwin,0800,2025-02-07,True,True,2026-01-03
+1299,Rohan,Sinclair,rohan.sinclair1299@posteo.example,gold,17250.0,WA,Albany,6230,2024-04-06,True,True,2026-01-03
+1300,Ebele,Lombardi,ebele.lombardi1300@mailbox.example,silver,2000.0,WA,Geraldton,6160,2024-05-20,True,True,2026-01-03
+1301,Anders,Marchetti,anders.marchetti1301@fastmail.example,bronze,4500.0,TAS,Devonport,7310,2024-11-20,True,True,2026-01-03
+1302,Micheline,Andersen,micheline.andersen1302@outlook.example,bronze,5250.0,WA,Fremantle,6725,2025-12-17,True,True,2026-01-03
+1303,Ivan,Zielinski,ivan.zielinski1303@posteo.example,bronze,18500.0,ACT,Canberra,2600,2025-10-10,True,True,2026-01-03
+1304,Adrian,Novak,adrian.novak1304@yahoo.example,bronze,750.0,QLD,Brisbane,4217,2025-12-25,True,True,2026-01-03
+1305,Mohan,Silva,mohan.silva1305@webmail.example,bronze,3250.0,QLD,Townsville,4810,2025-10-22,True,True,2026-01-03
+1306,Jacinta,Kovacs,jacinta.kovacs1306@outlook.example,bronze,10250.0,WA,Bunbury,6160,2024-08-07,False,True,2026-01-03
+1307,Chloe,Fujimoto,chloe.fujimoto1307@gmail.example,bronze,2750.0,TAS,Devonport,7320,2025-12-01,True,True,2026-01-03
+1308,Astrid,Mikkelsen,astrid.mikkelsen1308@outlook.example,bronze,5250.0,SA,Port Augusta,5063,2024-04-10,True,True,2026-01-03
+1309,Lars,Navarro,lars.navarro1309@gmx.example,platinum,22500.0,TAS,Burnie,7250,2024-12-06,False,True,2026-01-03
+1310,Hassan,Krishnan,hassan.krishnan1310@proton.example,bronze,4000.0,VIC,Melbourne,3350,2024-11-26,True,True,2026-01-03
+1311,Malia,Yilmaz,malia.yilmaz1311@gmx.example,silver,1000.0,SA,Port Augusta,5700,2024-12-14,True,True,2026-01-03
+1312,Kai,Oyelaran,kai.oyelaran1312@webmail.example,bronze,3000.0,NT,Katherine,0870,2025-05-08,True,True,2026-01-03
+1313,Thandiwe,Kapoor,thandiwe.kapoor1313@mailbox.example,silver,6250.0,VIC,Geelong,3350,2025-11-08,False,True,2026-01-03
+1314,Micheline,Boateng,micheline.boateng1314@proton.example,gold,8000.0,WA,Perth,6160,2025-02-22,True,True,2026-01-03
+1315,Caitlin,Gilmore,caitlin.gilmore1315@gmx.example,platinum,12000.0,WA,Bunbury,6530,2024-05-09,True,True,2026-01-03
+1316,Sina,Krishnan,sina.krishnan1316@fastmail.example,silver,14750.0,ACT,Belconnen,2617,2025-04-29,True,True,2026-01-03
+1317,Josephine,Stanton,josephine.stanton1317@fastmail.example,bronze,4000.0,TAS,Burnie,7250,2024-11-09,True,True,2026-01-03
+1318,Zainab,Ramirez,zainab.ramirez1318@outlook.example,bronze,13500.0,VIC,Ballarat,3500,2024-04-02,True,False,2026-01-03
+1319,Mateo,Walsh,mateo.walsh1319@gmx.example,bronze,7500.0,VIC,Melbourne,3350,2025-03-08,False,True,2026-01-03
+1320,Micheline,Suzuki,micheline.suzuki1320@mailbox.example,bronze,11500.0,NSW,Wagga Wagga,2500,2024-01-05,True,True,2026-01-03
+1321,Rosa,Cabrera,rosa.cabrera1321@posteo.example,silver,7750.0,VIC,Geelong,3500,2025-12-17,True,True,2026-01-03
+1322,Diego,Pinto,diego.pinto1322@proton.example,silver,18500.0,ACT,Gungahlin,2900,2024-10-07,True,True,2026-01-03
+1323,Yusuf,Takahashi,yusuf.takahashi1323@gmx.example,platinum,1500.0,SA,Whyalla,5063,2024-02-04,False,True,2026-01-03
+1324,Pedro,Navarro,pedro.navarro1324@yahoo.example,gold,5000.0,TAS,Hobart,7310,2025-05-15,True,True,2026-01-03
+1325,Talia,Pahlavi,talia.pahlavi1325@mailbox.example,bronze,7750.0,ACT,Belconnen,2617,2025-04-05,True,True,2026-01-03
+1326,Ahmed,Mikkelsen,ahmed.mikkelsen1326@inbox.example,bronze,7750.0,NT,Palmerston,0800,2024-02-01,False,True,2026-01-03
+1327,Anika,Kaur,anika.kaur1327@mailbox.example,bronze,15500.0,NT,Katherine,0870,2024-06-23,False,True,2026-01-03
+1328,Mei,Grimaldi,mei.grimaldi1328@outlook.example,silver,11000.0,WA,Bunbury,6530,2024-06-26,False,True,2026-01-03
+1329,Ochieng,Kaczmarek,ochieng.kaczmarek1329@fastmail.example,bronze,18000.0,SA,Adelaide,5600,2025-12-25,False,True,2026-01-03
+1330,Blake,Villanueva,blake.villanueva1330@fastmail.example,bronze,4000.0,TAS,Burnie,7310,2025-05-30,True,True,2026-01-03
+1331,Elodie,Silva,elodie.silva1331@proton.example,bronze,4750.0,VIC,Mildura,3000,2025-11-16,True,True,2026-01-03
+1332,Rosa,Novak,rosa.novak1332@posteo.example,gold,1000.0,NT,Palmerston,0850,2025-07-02,True,True,2026-01-03
+1333,Jia,Donnelly,jia.donnelly1333@fastmail.example,bronze,5750.0,NSW,Sydney,2010,2024-08-21,True,True,2026-01-03
+1334,Reza,Boateng,reza.boateng1334@proton.example,silver,12750.0,SA,Port Augusta,5600,2024-02-26,False,True,2026-01-03
+1335,Dechen,Tanaka,dechen.tanaka1335@gmail.example,silver,7250.0,NT,Palmerston,0850,2025-06-22,False,True,2026-01-03
+1336,Ravi,Boateng,ravi.boateng1336@mailbox.example,bronze,3500.0,NT,Palmerston,0870,2025-05-01,True,True,2026-01-03
+1337,Quentin,Park,quentin.park1337@gmx.example,silver,6750.0,WA,Broome,6160,2024-11-10,False,True,2026-01-03
+1338,Imani,Walsh,imani.walsh1338@posteo.example,bronze,12500.0,NSW,Orange,2150,2025-04-13,True,True,2026-01-03
+1339,Bianca,Silva,bianca.silva1339@inbox.example,bronze,1000.0,QLD,Toowoomba,4810,2025-12-23,True,True,2026-01-03
+1340,Javier,Ivanov,javier.ivanov1340@inbox.example,silver,9000.0,ACT,Canberra,2617,2025-04-25,True,False,2026-01-03
+1341,Camila,Barros,camila.barros1341@fastmail.example,bronze,6750.0,ACT,Canberra,2600,2025-09-06,False,True,2026-01-03
+1342,Darius,Ricci,darius.ricci1342@gmail.example,bronze,13250.0,NT,Palmerston,0850,2025-01-31,False,True,2026-01-03
+1343,Soren,Novak,soren.novak1343@proton.example,bronze,18500.0,SA,Whyalla,5290,2024-05-23,True,True,2026-01-03
+1344,Amelia,Sharma,amelia.sharma1344@fastmail.example,silver,2000.0,NSW,Newcastle,2060,2024-06-16,True,True,2026-01-03
+1345,Ida,Trevelyan,ida.trevelyan1345@webmail.example,gold,4500.0,VIC,Shepparton,3121,2025-02-27,False,True,2026-01-03
+1346,Rohan,Dabrowski,rohan.dabrowski1346@proton.example,bronze,1750.0,WA,Bunbury,6725,2024-05-19,False,True,2026-01-03
+1347,Jia,Whitaker,jia.whitaker1347@posteo.example,bronze,11750.0,WA,Albany,6060,2025-02-12,False,True,2026-01-03
+1348,Ludwig,Malik,ludwig.malik1348@mailbox.example,bronze,16750.0,TAS,Launceston,7250,2024-10-31,True,True,2026-01-03
+1349,Finn,Fujimoto,finn.fujimoto1349@proton.example,bronze,3250.0,VIC,Warrnambool,3220,2025-03-11,True,True,2026-01-03
+1350,Clara,Adeyemi,clara.adeyemi1350@fastmail.example,silver,5000.0,VIC,Melbourne,3550,2025-10-13,False,True,2026-01-03
+1351,Esther,Park,esther.park1351@posteo.example,bronze,8750.0,ACT,Canberra,2900,2024-07-18,True,True,2026-01-03
+1352,Aaliyah,Lindqvist,aaliyah.lindqvist1352@gmail.example,bronze,11750.0,ACT,Gungahlin,2617,2025-08-02,False,False,2026-01-03
+1353,Selin,Sinclair,selin.sinclair1353@outlook.example,bronze,10250.0,NSW,Dubbo,2150,2025-05-04,False,True,2026-01-03
+1354,Ophelia,Pinto,ophelia.pinto1354@fastmail.example,silver,4500.0,TAS,Launceston,7000,2025-12-06,False,True,2026-01-03
+1355,Lars,Gauthier,lars.gauthier1355@inbox.example,silver,2000.0,VIC,Geelong,3220,2025-08-30,False,True,2026-01-03
+1356,Emiko,Suzuki,emiko.suzuki1356@mailbox.example,silver,1250.0,NSW,Sydney,2060,2025-08-12,True,True,2026-01-03
+1357,Ophelia,Dabrowski,ophelia.dabrowski1357@gmx.example,silver,19500.0,ACT,Belconnen,2617,2025-02-22,False,True,2026-01-03
+1358,Xiulan,Gruber,xiulan.gruber1358@mailbox.example,bronze,4000.0,NSW,Orange,2650,2025-06-13,False,True,2026-01-03
+1359,Astrid,Gauthier,astrid.gauthier1359@proton.example,bronze,12000.0,NT,Darwin,0870,2025-06-23,True,True,2026-01-03
+1360,Mei,Mbeki,mei.mbeki1360@posteo.example,bronze,5250.0,ACT,Tuggeranong,2900,2025-03-08,False,True,2026-01-03
+1361,Eleni,Marchetti,eleni.marchetti1361@gmail.example,bronze,6750.0,NSW,Orange,2500,2024-07-29,False,True,2026-01-03
+1362,Elodie,Delacroix,elodie.delacroix1362@gmail.example,bronze,9000.0,NSW,Sydney,2300,2024-11-19,False,True,2026-01-03
+1363,Laila,Fairweather,laila.fairweather1363@gmx.example,silver,6500.0,TAS,Launceston,7310,2024-09-16,True,True,2026-01-03
+1364,Mei,Kimura,mei.kimura1364@fastmail.example,silver,6750.0,WA,Bunbury,6230,2025-02-28,False,True,2026-01-03
+1365,Adrian,Sandoval,adrian.sandoval1365@gmx.example,bronze,2500.0,WA,Bunbury,6430,2024-12-14,True,True,2026-01-03
+1366,Rohan,Ramirez,rohan.ramirez1366@gmx.example,gold,11500.0,TAS,Launceston,7000,2025-03-30,False,True,2026-01-03
+1367,Rohan,Torres,rohan.torres1367@yahoo.example,gold,13000.0,QLD,Cairns,4810,2024-11-28,False,True,2026-01-03
+1368,Rina,Bennett,rina.bennett1368@fastmail.example,gold,3750.0,SA,Port Augusta,5290,2025-09-11,False,True,2026-01-03
+1369,Rosa,Fontaine,rosa.fontaine1369@gmail.example,platinum,15000.0,VIC,Bendigo,3630,2025-03-10,False,True,2026-01-03
+1370,Isabela,Ghosh,isabela.ghosh1370@proton.example,bronze,9000.0,VIC,Bendigo,3050,2024-02-01,True,True,2026-01-03
+1371,Omar,Donnelly,omar.donnelly1371@fastmail.example,bronze,22250.0,NT,Darwin,0850,2025-09-16,False,True,2026-01-03
+1372,Mahdi,Ibrahim,mahdi.ibrahim1372@gmail.example,bronze,6250.0,VIC,Ballarat,3550,2024-08-27,True,True,2026-01-03
+1373,Nadia,Macpherson,nadia.macpherson1373@mailbox.example,bronze,12500.0,WA,Fremantle,6725,2024-12-06,True,True,2026-01-03
+1374,Malia,Bergstrom,malia.bergstrom1374@gmail.example,silver,1500.0,NT,Darwin,0800,2025-12-24,True,True,2026-01-03
+1375,Ibrahim,Malik,ibrahim.malik1375@gmail.example,bronze,1000.0,ACT,Tuggeranong,2900,2025-11-28,True,True,2026-01-03
+1376,Ingrid,Fujimoto,ingrid.fujimoto1376@posteo.example,bronze,13500.0,TAS,Burnie,7320,2025-06-21,True,True,2026-01-03
+1377,Jonas,Lombardi,jonas.lombardi1377@fastmail.example,bronze,1250.0,NT,Alice Springs,0850,2025-05-23,False,True,2026-01-03
+1378,Cormac,Ghosh,cormac.ghosh1378@inbox.example,bronze,7750.0,WA,Albany,6725,2024-05-11,False,True,2026-01-03
+1379,Uma,Dubois,uma.dubois1379@webmail.example,bronze,2750.0,WA,Kalgoorlie,6160,2024-03-17,True,True,2026-01-03
+1380,Nuala,Reyes,nuala.reyes1380@mailbox.example,silver,1000.0,TAS,Hobart,7320,2024-08-06,True,True,2026-01-03
+1381,Khalid,Fujimoto,khalid.fujimoto1381@inbox.example,bronze,19250.0,NT,Alice Springs,0800,2025-06-01,True,True,2026-01-03
+1382,Emeka,Dimitriou,emeka.dimitriou1382@inbox.example,silver,12250.0,VIC,Geelong,3121,2024-05-21,True,True,2026-01-03
+1383,Chloe,Gilmore,chloe.gilmore1383@webmail.example,bronze,4750.0,NSW,Coffs Harbour,2150,2025-11-18,True,True,2026-01-03
+1384,Alice,Boateng,alice.boateng1384@yahoo.example,silver,15500.0,SA,Murray Bridge,5063,2024-01-03,True,True,2026-01-03
+1385,Rina,Pahlavi,rina.pahlavi1385@outlook.example,gold,17750.0,SA,Adelaide,5290,2024-05-06,False,True,2026-01-03
+1386,Rosa,Ibrahim,rosa.ibrahim1386@webmail.example,bronze,2250.0,NT,Darwin,0850,2025-12-28,False,True,2026-01-03
+1387,Esther,Bergstrom,esther.bergstrom1387@gmail.example,silver,3250.0,NSW,Albury,2300,2024-07-04,False,True,2026-01-03
+1388,Lian,Papadopoulos,lian.papadopoulos1388@yahoo.example,silver,8250.0,WA,Kalgoorlie,6060,2024-04-25,True,True,2026-01-03
+1389,Jae,Clarke,jae.clarke1389@yahoo.example,silver,4750.0,NT,Alice Springs,0810,2025-01-24,True,True,2026-01-03
+1390,Ida,Suzuki,ida.suzuki1390@proton.example,gold,2750.0,ACT,Belconnen,2611,2024-10-26,True,True,2026-01-03
+1391,Mahdi,Torres,mahdi.torres1391@mailbox.example,bronze,3500.0,WA,Broome,6530,2025-04-04,True,True,2026-01-03
+1392,Cheng,Zielinski,cheng.zielinski1392@posteo.example,silver,16500.0,NSW,Orange,2060,2024-01-27,True,True,2026-01-03
+1393,Rhys,Farrell,rhys.farrell1393@gmail.example,bronze,9750.0,TAS,Hobart,7310,2024-08-26,True,True,2026-01-03
+1394,Esther,Krishnan,esther.krishnan1394@inbox.example,bronze,3250.0,TAS,Hobart,7000,2024-11-29,True,True,2026-01-03
+1395,Aditi,Kalani,aditi.kalani1395@gmail.example,bronze,3500.0,SA,Port Augusta,5063,2025-06-05,True,True,2026-01-03
+1396,Wren,Reyes,wren.reyes1396@webmail.example,bronze,3500.0,QLD,Cairns,4700,2025-05-18,True,True,2026-01-03
+1397,Aaliyah,Rafferty,aaliyah.rafferty1397@webmail.example,platinum,3000.0,NT,Darwin,0800,2024-01-20,True,True,2026-01-03
+1398,Lachlan,Oyelaran,lachlan.oyelaran1398@yahoo.example,bronze,14500.0,NSW,Newcastle,2000,2025-03-20,True,False,2026-01-03
+1399,Aroha,Bergstrom,aroha.bergstrom1399@posteo.example,gold,3750.0,NT,Alice Springs,0810,2024-11-16,True,True,2026-01-03
+1400,Talia,Stanton,talia.stanton1400@inbox.example,platinum,19250.0,ACT,Tuggeranong,2617,2025-08-11,False,True,2026-01-03
+1401,Malia,Clarke,malia.clarke1401@posteo.example,silver,19000.0,NT,Palmerston,0870,2025-03-02,False,True,2026-01-03
+1402,Jacinta,Jarvis,jacinta.jarvis1402@inbox.example,bronze,7000.0,SA,Adelaide,5700,2025-03-10,True,True,2026-01-03
+1403,Imani,Krishnan,imani.krishnan1403@outlook.example,bronze,2500.0,ACT,Belconnen,2600,2024-05-16,False,True,2026-01-03
+1404,Daniela,Kaczmarek,daniela.kaczmarek1404@mailbox.example,silver,4500.0,VIC,Melbourne,3220,2025-04-26,True,True,2026-01-03
+1405,Leo,Sasaki,leo.sasaki1405@yahoo.example,bronze,21500.0,NT,Palmerston,0850,2025-08-19,False,True,2026-01-03
+1406,Rina,Nakamura,rina.nakamura1406@gmail.example,bronze,3250.0,SA,Adelaide,5290,2025-10-04,False,True,2026-01-03
+1407,Joachim,Baptiste,joachim.baptiste1407@gmx.example,silver,8500.0,ACT,Gungahlin,2600,2025-07-07,True,True,2026-01-03
+1408,Theo,Park,theo.park1408@inbox.example,bronze,13750.0,WA,Kalgoorlie,6725,2025-05-16,True,True,2026-01-03
+1409,Hassan,Coelho,hassan.coelho1409@gmx.example,silver,16000.0,VIC,Mildura,3500,2025-08-19,True,True,2026-01-03
+1410,Priya,Fontaine,priya.fontaine1410@yahoo.example,gold,13500.0,ACT,Belconnen,2900,2025-12-28,True,True,2026-01-03
+1411,Mateo,Mendoza,mateo.mendoza1411@gmx.example,platinum,14500.0,ACT,Canberra,2617,2025-01-10,True,True,2026-01-03
+1412,Clara,Garcia,clara.garcia1412@gmail.example,silver,2000.0,NT,Darwin,0800,2024-07-29,True,True,2026-01-03
+1413,Ludwig,Boateng,ludwig.boateng1413@gmail.example,platinum,20500.0,NT,Darwin,0850,2024-01-11,False,True,2026-01-03
+1414,Hamish,Ibrahim,hamish.ibrahim1414@mailbox.example,platinum,13250.0,ACT,Tuggeranong,2617,2025-02-09,True,True,2026-01-03
+1415,Zofia,Fairweather,zofia.fairweather1415@proton.example,silver,2500.0,QLD,Mackay,4700,2024-05-26,True,True,2026-01-03
+1416,Ravi,Gauthier,ravi.gauthier1416@proton.example,silver,11250.0,WA,Albany,6000,2024-04-25,True,True,2026-01-03
+1417,Noor,Malik,noor.malik1417@outlook.example,bronze,5500.0,NT,Katherine,0810,2025-05-09,True,True,2026-01-03
+1418,Xiulan,Clarke,xiulan.clarke1418@yahoo.example,silver,6750.0,NT,Katherine,0810,2024-12-03,True,True,2026-01-03
+1419,Noor,Dimitriou,noor.dimitriou1419@inbox.example,bronze,14250.0,WA,Broome,6725,2024-01-31,True,True,2026-01-03
+1420,Aditi,Donnelly,aditi.donnelly1420@webmail.example,silver,500.0,SA,Murray Bridge,5000,2025-07-08,True,True,2026-01-03
+1421,Jacinta,Esposito,jacinta.esposito1421@yahoo.example,bronze,3500.0,TAS,Hobart,7000,2024-02-24,True,True,2026-01-03
+1422,Kofi,Dabrowski,kofi.dabrowski1422@outlook.example,bronze,20750.0,SA,Mount Gambier,5600,2025-07-28,True,True,2026-01-03
+1423,Tadeo,Rasmussen,tadeo.rasmussen1423@inbox.example,bronze,3750.0,QLD,Rockhampton,4870,2025-11-02,True,True,2026-01-03
+1424,Ravi,Coelho,ravi.coelho1424@gmx.example,silver,19500.0,ACT,Gungahlin,2600,2025-09-03,True,True,2026-01-03
+1425,Hina,Papadopoulos,hina.papadopoulos1425@proton.example,bronze,1500.0,WA,Geraldton,6530,2024-10-23,True,True,2026-01-03
+1426,Malia,Bakker,malia.bakker1426@webmail.example,gold,1750.0,ACT,Belconnen,2617,2024-12-25,True,True,2026-01-03
+1427,Omar,Malik,omar.malik1427@gmx.example,bronze,18750.0,NSW,Albury,2150,2024-06-23,False,True,2026-01-03
+1428,Aroha,Arnold,aroha.arnold1428@webmail.example,platinum,6500.0,QLD,Gold Coast,4000,2024-05-24,True,True,2026-01-03
+1429,Jonas,Gruber,jonas.gruber1429@outlook.example,bronze,2250.0,NSW,Orange,2830,2024-12-17,True,True,2026-01-03
+1430,Reza,Varga,reza.varga1430@posteo.example,bronze,12500.0,WA,Kalgoorlie,6060,2025-10-27,True,True,2026-01-03
+1431,Mei,Halloran,mei.halloran1431@mailbox.example,bronze,12000.0,QLD,Townsville,4870,2024-09-10,True,True,2026-01-03
+1432,Joachim,Chen,joachim.chen1432@fastmail.example,gold,20000.0,NT,Palmerston,0850,2025-04-30,True,True,2026-01-03
+1433,Isabela,Gilmore,isabela.gilmore1433@inbox.example,bronze,2750.0,VIC,Ballarat,3121,2025-03-17,False,True,2026-01-03
+1434,Pedro,Kaur,pedro.kaur1434@mailbox.example,silver,8000.0,TAS,Burnie,7000,2024-05-21,False,True,2026-01-03
+1435,Yusuf,Rossi,yusuf.rossi1435@gmx.example,gold,17000.0,SA,Mount Gambier,5700,2024-05-27,True,True,2026-01-03
+1436,Javier,Mbeki,javier.mbeki1436@outlook.example,bronze,1250.0,QLD,Cairns,4350,2024-08-05,True,True,2026-01-03
+1437,Rosa,Reyes,rosa.reyes1437@mailbox.example,bronze,6250.0,WA,Albany,6430,2024-03-19,True,True,2026-01-03
+1438,Astrid,Pinto,astrid.pinto1438@outlook.example,gold,10750.0,QLD,Toowoomba,4000,2024-03-23,True,True,2026-01-03
+1439,Jae,Eriksen,jae.eriksen1439@webmail.example,bronze,2750.0,VIC,Ballarat,3050,2025-02-22,True,True,2026-01-03
+1440,Bianca,Bergstrom,bianca.bergstrom1440@outlook.example,silver,10250.0,WA,Bunbury,6060,2024-10-20,True,True,2026-01-03
+1441,Laila,Moreau,laila.moreau1441@webmail.example,bronze,4500.0,ACT,Canberra,2617,2025-04-08,True,True,2026-01-03
+1442,Alejandro,Ramirez,alejandro.ramirez1442@gmx.example,bronze,4250.0,ACT,Tuggeranong,2611,2025-06-04,False,True,2026-01-03
+1443,Joachim,Wachowski,joachim.wachowski1443@mailbox.example,gold,5000.0,WA,Kalgoorlie,6000,2025-11-12,True,True,2026-01-03
+1444,Uma,Gruber,uma.gruber1444@inbox.example,gold,12750.0,NSW,Newcastle,2650,2025-05-28,True,True,2026-01-03
+1445,Paloma,Macpherson,paloma.macpherson1445@inbox.example,gold,20250.0,NSW,Newcastle,2300,2024-03-08,True,True,2026-01-03
+1446,Quentin,Dabrowski,quentin.dabrowski1446@proton.example,bronze,11250.0,VIC,Mildura,3121,2025-06-24,True,True,2026-01-03
+1447,Cheng,Moreau,cheng.moreau1447@proton.example,bronze,3250.0,QLD,Toowoomba,4870,2024-10-05,True,True,2026-01-03
+1448,Diego,Ghosh,diego.ghosh1448@proton.example,silver,4000.0,QLD,Brisbane,4810,2024-11-16,False,True,2026-01-03
+1449,Sina,Mendoza,sina.mendoza1449@proton.example,bronze,11750.0,ACT,Belconnen,2900,2024-12-15,False,True,2026-01-03
+1450,Soren,Sokolov,soren.sokolov1450@outlook.example,gold,12000.0,VIC,Ballarat,3550,2024-10-18,True,True,2026-01-03
+1451,Jamal,Rossi,jamal.rossi1451@fastmail.example,bronze,17750.0,VIC,Melbourne,3050,2024-10-18,False,True,2026-01-03
+1452,Juno,Ridgeway,juno.ridgeway1452@posteo.example,gold,750.0,SA,Whyalla,5600,2024-04-25,True,True,2026-01-03
+1453,Jae,Ahmadi,jae.ahmadi1453@fastmail.example,bronze,3250.0,WA,Albany,6000,2025-04-19,True,True,2026-01-03
+1454,Cormac,Oyelaran,cormac.oyelaran1454@outlook.example,silver,8250.0,SA,Murray Bridge,5000,2024-07-27,False,True,2026-01-03
+1455,Yusuf,Takahashi,yusuf.takahashi1455@inbox.example,bronze,14500.0,TAS,Hobart,7000,2024-09-03,False,True,2026-01-03
+1456,Gabriel,Gallagher,gabriel.gallagher1456@fastmail.example,silver,24500.0,VIC,Bendigo,3500,2026-01-01,True,True,2026-01-03
+1457,Ivan,Schneider,ivan.schneider1457@fastmail.example,gold,9500.0,WA,Perth,6430,2025-03-30,False,True,2026-01-03
+1458,Katarina,Delacroix,katarina.delacroix1458@proton.example,silver,5500.0,TAS,Hobart,7250,2024-10-16,True,True,2026-01-03
+1459,Sina,Reyes,sina.reyes1459@webmail.example,gold,9000.0,VIC,Ballarat,3500,2025-09-26,True,True,2026-01-03
+1460,Rohan,Trevelyan,rohan.trevelyan1460@yahoo.example,platinum,14250.0,ACT,Gungahlin,2900,2024-08-02,False,True,2026-01-03
+1461,Rina,Schneider,rina.schneider1461@mailbox.example,silver,3250.0,VIC,Ballarat,3050,2025-04-19,True,True,2026-01-03
+1462,Kiara,Eriksen,kiara.eriksen1462@inbox.example,bronze,14250.0,QLD,Toowoomba,4350,2025-11-08,True,True,2026-01-03
+1463,Harriet,Ahmadi,harriet.ahmadi1463@fastmail.example,silver,5750.0,VIC,Geelong,3550,2024-06-15,True,True,2026-01-03
+1464,Ravi,Bakker,ravi.bakker1464@outlook.example,bronze,24000.0,WA,Perth,6430,2024-01-26,True,True,2026-01-03
+1465,Marcus,Jarvis,marcus.jarvis1465@fastmail.example,bronze,12000.0,NSW,Orange,2450,2025-04-24,True,True,2026-01-03
+1466,Mei,Cabrera,mei.cabrera1466@gmx.example,bronze,7750.0,QLD,Mackay,4000,2025-08-30,True,True,2026-01-03
+1467,Camila,Hamilton,camila.hamilton1467@posteo.example,bronze,7250.0,WA,Broome,6530,2025-12-22,True,True,2026-01-03
+1468,Isabela,Villanueva,isabela.villanueva1468@proton.example,bronze,4500.0,NSW,Albury,2450,2025-08-25,False,True,2026-01-03
+1469,Mohan,Fairweather,mohan.fairweather1469@outlook.example,bronze,2000.0,QLD,Rockhampton,4700,2025-07-03,False,True,2026-01-03
+1470,Cormac,Dimitriou,cormac.dimitriou1470@mailbox.example,bronze,11250.0,ACT,Tuggeranong,2600,2024-02-08,True,True,2026-01-03
+1471,Darius,Esposito,darius.esposito1471@yahoo.example,bronze,19000.0,SA,Port Augusta,5700,2025-06-20,True,False,2026-01-03
+1472,Lucia,Gruber,lucia.gruber1472@outlook.example,silver,8250.0,WA,Broome,6230,2024-09-20,False,True,2026-01-03
+1473,Lachlan,Dabrowski,lachlan.dabrowski1473@gmx.example,bronze,3500.0,QLD,Brisbane,4051,2024-01-29,True,True,2026-01-03
+1474,Pedro,Gruber,pedro.gruber1474@posteo.example,silver,12750.0,NSW,Wollongong,2010,2024-10-28,False,True,2026-01-03
+1475,Ludwig,Hendricks,ludwig.hendricks1475@posteo.example,bronze,16250.0,TAS,Burnie,7250,2025-04-20,True,True,2026-01-03
+1476,Khalid,Park,khalid.park1476@outlook.example,bronze,13500.0,NT,Darwin,0850,2024-10-05,True,True,2026-01-03
+1477,Ahmed,Schneider,ahmed.schneider1477@gmail.example,bronze,1250.0,VIC,Shepparton,3050,2025-07-16,True,True,2026-01-03
+1478,Wren,Coelho,wren.coelho1478@fastmail.example,bronze,14000.0,QLD,Rockhampton,4000,2025-12-10,True,True,2026-01-03
+1479,Aisha,Aoki,aisha.aoki1479@inbox.example,gold,12000.0,SA,Murray Bridge,5063,2025-01-03,False,True,2026-01-03
+1480,Ebele,Fitzgerald,ebele.fitzgerald1480@mailbox.example,silver,500.0,ACT,Canberra,2600,2025-09-19,False,True,2026-01-03
+1481,Priya,Rahman,priya.rahman1481@yahoo.example,bronze,10000.0,VIC,Melbourne,3630,2025-10-31,False,True,2026-01-03
+1482,Jae,Ricci,jae.ricci1482@yahoo.example,bronze,9250.0,SA,Mount Gambier,5600,2025-10-10,False,True,2026-01-03
+1483,Khalid,Halloran,khalid.halloran1483@mailbox.example,bronze,4750.0,ACT,Tuggeranong,2617,2025-06-30,True,True,2026-01-03
+1484,Leilani,Arnold,leilani.arnold1484@posteo.example,bronze,9500.0,VIC,Shepparton,3350,2025-02-09,True,True,2026-01-03
+1485,Ravi,Moreau,ravi.moreau1485@posteo.example,bronze,12500.0,QLD,Brisbane,4000,2024-02-24,True,True,2026-01-03
+1486,Khalid,Sokolov,khalid.sokolov1486@posteo.example,bronze,6000.0,NT,Palmerston,0810,2025-07-20,True,True,2026-01-03
+1487,Sina,Duarte,sina.duarte1487@mailbox.example,silver,1500.0,TAS,Hobart,7250,2025-06-26,True,True,2026-01-03
+1488,Ochieng,Ahmadi,ochieng.ahmadi1488@outlook.example,bronze,13000.0,NSW,Dubbo,2000,2024-03-11,False,True,2026-01-03
+1489,Omar,Kovacs,omar.kovacs1489@inbox.example,bronze,6500.0,VIC,Warrnambool,3550,2025-09-12,False,True,2026-01-03
+1490,Rohan,Cavanagh,rohan.cavanagh1490@outlook.example,bronze,5000.0,SA,Mount Gambier,5000,2024-10-31,False,True,2026-01-03
+1491,Cormac,Mikkelsen,cormac.mikkelsen1491@gmx.example,platinum,12750.0,TAS,Burnie,7310,2025-06-12,True,True,2026-01-03
+1492,Fatima,Barros,fatima.barros1492@yahoo.example,silver,7000.0,NSW,Orange,2060,2025-05-29,True,True,2026-01-03
+1493,Mira,Fujimoto,mira.fujimoto1493@proton.example,gold,13500.0,SA,Adelaide,5600,2024-12-19,True,True,2026-01-03
+1494,Astrid,Santos,astrid.santos1494@webmail.example,bronze,2000.0,NSW,Wagga Wagga,2830,2025-09-23,False,True,2026-01-03
+1495,Ibrahim,Fitzgerald,ibrahim.fitzgerald1495@mailbox.example,bronze,6250.0,SA,Whyalla,5600,2025-05-30,False,True,2026-01-03
+1496,Joachim,Navarro,joachim.navarro1496@outlook.example,bronze,3000.0,QLD,Rockhampton,4000,2024-12-15,False,True,2026-01-03
+1497,Isabela,Nguyen,isabela.nguyen1497@posteo.example,bronze,1500.0,ACT,Belconnen,2611,2024-04-13,False,True,2026-01-03
+1498,Alejandro,Ahmadi,alejandro.ahmadi1498@posteo.example,silver,8500.0,SA,Murray Bridge,5000,2025-12-10,True,True,2026-01-03
+1499,Cormac,Bergstrom,cormac.bergstrom1499@yahoo.example,bronze,2750.0,ACT,Tuggeranong,2617,2024-12-14,False,True,2026-01-03
+1500,Rafael,Quintero,rafael.quintero1500@gmx.example,bronze,6250.0,QLD,Gold Coast,4700,2024-03-16,False,True,2026-01-03
+1501,Uma,Walsh,uma.walsh1501@yahoo.example,silver,10750.0,VIC,Ballarat,3220,2025-04-28,False,True,2026-01-03
+1502,Sina,Papadopoulos,sina.papadopoulos1502@fastmail.example,silver,7750.0,ACT,Gungahlin,2611,2024-08-12,True,True,2026-01-03
+1503,Joachim,Lundgren,joachim.lundgren1503@inbox.example,bronze,4750.0,NT,Katherine,0810,2024-04-14,True,True,2026-01-03
+1504,Ramona,Papadopoulos,ramona.papadopoulos1504@outlook.example,bronze,1000.0,NT,Katherine,0850,2025-09-22,True,True,2026-01-03
+1505,Joachim,Andersen,joachim.andersen1505@outlook.example,bronze,14750.0,NSW,Wollongong,2010,2025-02-01,False,True,2026-01-03
+1506,Tamar,Coelho,tamar.coelho1506@outlook.example,bronze,7750.0,ACT,Tuggeranong,2611,2025-08-26,False,True,2026-01-03
+1507,Finn,Stanton,finn.stanton1507@outlook.example,bronze,21250.0,SA,Whyalla,5290,2024-01-12,True,True,2026-01-03
+1508,Leo,Reyes,leo.reyes1508@proton.example,silver,14000.0,WA,Perth,6430,2025-09-24,True,True,2026-01-03
+1509,Javier,Dabrowski,javier.dabrowski1509@mailbox.example,bronze,13500.0,SA,Mount Gambier,5063,2025-03-14,False,True,2026-01-03
+1510,Isabela,Quintero,isabela.quintero1510@posteo.example,bronze,7750.0,TAS,Devonport,7250,2024-01-07,True,True,2026-01-03
+1511,Talia,Laurent,talia.laurent1511@gmx.example,bronze,17000.0,NT,Alice Springs,0810,2025-09-07,True,True,2026-01-03
+1512,Ebele,Sullivan,ebele.sullivan1512@fastmail.example,bronze,1500.0,ACT,Tuggeranong,2600,2024-07-23,True,True,2026-01-03
+1513,Maeve,Tahir,maeve.tahir1513@gmail.example,bronze,8750.0,QLD,Cairns,4700,2024-06-07,True,True,2026-01-03
+1514,Talia,Hamilton,talia.hamilton1514@proton.example,bronze,8500.0,VIC,Ballarat,3000,2025-04-28,True,True,2026-01-03
+1515,Tane,Andersen,tane.andersen1515@webmail.example,silver,7500.0,ACT,Gungahlin,2611,2024-06-06,True,True,2026-01-03
+1516,Tamar,Moreau,tamar.moreau1516@posteo.example,bronze,1250.0,NT,Alice Springs,0850,2025-12-25,False,True,2026-01-03
+1517,Bianca,Fairweather,bianca.fairweather1517@yahoo.example,gold,10750.0,ACT,Gungahlin,2617,2024-06-22,True,True,2026-01-03
+1518,Valentina,Dalgleish,valentina.dalgleish1518@gmail.example,bronze,16750.0,WA,Albany,6430,2025-05-01,False,True,2026-01-03
+1519,Anika,Ramirez,anika.ramirez1519@outlook.example,gold,12000.0,TAS,Burnie,7320,2024-10-23,True,True,2026-01-03
+1520,Sasha,Kimura,sasha.kimura1520@fastmail.example,silver,3750.0,NSW,Albury,2450,2024-05-02,True,True,2026-01-03
+1521,Isabela,Farrell,isabela.farrell1521@proton.example,platinum,9250.0,NT,Darwin,0810,2024-10-04,False,True,2026-01-03
+1522,Ahmed,Ramirez,ahmed.ramirez1522@webmail.example,bronze,17500.0,NSW,Sydney,2300,2025-02-21,True,True,2026-01-03
+1523,Daniela,McAllister,daniela.mcallister1523@outlook.example,silver,7500.0,WA,Albany,6000,2025-12-12,True,True,2026-01-03
+1524,Petra,Mbeki,petra.mbeki1524@posteo.example,bronze,14000.0,NT,Alice Springs,0800,2025-09-17,False,True,2026-01-03
+1525,Amara,Keating,amara.keating1525@posteo.example,silver,5250.0,VIC,Mildura,3121,2025-07-30,True,True,2026-01-03
+1526,Oliver,Tahir,oliver.tahir1526@outlook.example,platinum,9000.0,QLD,Rockhampton,4700,2024-11-15,False,True,2026-01-03
+1527,Hamish,Kirkpatrick,hamish.kirkpatrick1527@posteo.example,gold,13500.0,NT,Darwin,0870,2025-10-10,True,True,2026-01-03
+1528,Sunil,Park,sunil.park1528@webmail.example,bronze,7000.0,WA,Perth,6160,2025-07-23,False,True,2026-01-03
+1529,Sina,Esposito,sina.esposito1529@posteo.example,silver,16250.0,QLD,Toowoomba,4217,2024-02-08,False,True,2026-01-03
+1530,Valentina,Davies,valentina.davies1530@yahoo.example,gold,2750.0,QLD,Townsville,4000,2024-11-30,True,True,2026-01-03
+1531,Selin,Bakker,selin.bakker1531@posteo.example,bronze,11000.0,NT,Darwin,0850,2024-03-27,False,True,2026-01-03
+1532,Darius,Kovacs,darius.kovacs1532@gmx.example,bronze,1750.0,NSW,Albury,2450,2025-12-17,False,True,2026-01-03
+1533,Anders,Zielinski,anders.zielinski1533@gmx.example,bronze,16500.0,ACT,Canberra,2900,2024-03-13,True,True,2026-01-03
+1534,Clara,Kalani,clara.kalani1534@mailbox.example,gold,9000.0,TAS,Devonport,7310,2024-04-04,False,True,2026-01-03
+1535,Ochieng,Marchetti,ochieng.marchetti1535@inbox.example,bronze,2500.0,VIC,Warrnambool,3000,2025-10-06,False,True,2026-01-03
+1536,Hassan,Chen,hassan.chen1536@outlook.example,bronze,11500.0,QLD,Brisbane,4217,2024-06-01,False,True,2026-01-03
+1537,Aisha,Pinto,aisha.pinto1537@proton.example,bronze,1500.0,TAS,Burnie,7250,2024-04-19,False,True,2026-01-03
+1538,Saoirse,Barros,saoirse.barros1538@mailbox.example,bronze,7000.0,NSW,Sydney,2500,2025-07-04,False,True,2026-01-03
+1539,Zofia,Donnelly,zofia.donnelly1539@yahoo.example,bronze,15500.0,VIC,Warrnambool,3220,2024-09-16,True,True,2026-01-03
+1540,Zofia,Alvarez,zofia.alvarez1540@fastmail.example,bronze,5750.0,TAS,Devonport,7320,2024-01-03,True,True,2026-01-03
+1541,Josephine,Duarte,josephine.duarte1541@webmail.example,silver,10000.0,TAS,Devonport,7250,2025-11-25,True,True,2026-01-03
+1542,Olamide,Tanaka,olamide.tanaka1542@proton.example,bronze,11500.0,TAS,Devonport,7250,2024-04-11,True,True,2026-01-03
+1543,Javier,Cavanagh,javier.cavanagh1543@yahoo.example,silver,14750.0,VIC,Mildura,3500,2024-08-17,True,True,2026-01-03
+1544,Diego,Diallo,diego.diallo1544@proton.example,bronze,7500.0,NT,Alice Springs,0810,2024-09-25,False,True,2026-01-03
+1545,Gabriel,Tahir,gabriel.tahir1545@inbox.example,silver,10000.0,VIC,Shepparton,3550,2025-08-20,True,True,2026-01-03
+1546,Camila,Jansen,camila.jansen1546@fastmail.example,bronze,12750.0,VIC,Geelong,3121,2025-12-25,False,True,2026-01-03
+1547,Isabela,Stanton,isabela.stanton1547@mailbox.example,bronze,19250.0,TAS,Hobart,7310,2024-10-30,True,True,2026-01-03
+1548,Imani,Gruber,imani.gruber1548@gmx.example,bronze,21750.0,NSW,Orange,2300,2024-10-23,True,True,2026-01-03
+1549,Josephine,Torres,josephine.torres1549@webmail.example,gold,12750.0,NSW,Newcastle,2060,2024-04-12,True,True,2026-01-03
+1550,Selin,Kimura,selin.kimura1550@yahoo.example,gold,1750.0,NT,Alice Springs,0850,2024-03-26,True,True,2026-01-03
+1551,Daniela,Bakker,daniela.bakker1551@outlook.example,bronze,4500.0,NSW,Dubbo,2300,2025-12-23,False,True,2026-01-03
+1552,Emiko,Leclerc,emiko.leclerc1552@mailbox.example,silver,4000.0,NT,Palmerston,0850,2025-10-12,True,True,2026-01-03
+1553,Mateo,Torres,mateo.torres1553@inbox.example,bronze,16000.0,VIC,Shepparton,3000,2024-05-29,False,True,2026-01-03
+1554,Andrea,Suzuki,andrea.suzuki1554@outlook.example,gold,500.0,ACT,Tuggeranong,2617,2025-02-12,True,True,2026-01-03
+1555,Finn,Holloway,finn.holloway1555@posteo.example,bronze,11750.0,SA,Port Augusta,5063,2024-12-10,True,True,2026-01-03
+1556,Josephine,Gilmore,josephine.gilmore1556@outlook.example,bronze,3000.0,WA,Broome,6000,2024-11-12,True,True,2026-01-03
+1557,Tamar,Reyes,tamar.reyes1557@mailbox.example,gold,15250.0,SA,Whyalla,5063,2025-09-30,True,True,2026-01-03
+1558,Joachim,Esposito,joachim.esposito1558@posteo.example,gold,4750.0,QLD,Brisbane,4810,2025-01-07,True,True,2026-01-03
+1559,Aditi,Pereira,aditi.pereira1559@gmail.example,bronze,2250.0,WA,Bunbury,6530,2024-06-23,True,True,2026-01-03
+1560,Nikolai,Costa,nikolai.costa1560@proton.example,bronze,2250.0,WA,Kalgoorlie,6000,2024-06-15,True,True,2026-01-03
+1561,Astrid,Varga,astrid.varga1561@outlook.example,bronze,20750.0,WA,Bunbury,6530,2024-09-01,True,True,2026-01-03
+1562,Imani,Baptiste,imani.baptiste1562@webmail.example,silver,750.0,QLD,Townsville,4000,2024-04-30,True,True,2026-01-03
+1563,Lars,Walsh,lars.walsh1563@gmail.example,bronze,11500.0,NSW,Sydney,2010,2024-02-19,False,True,2026-01-03
+1564,Zeke,Donnelly,zeke.donnelly1564@yahoo.example,bronze,19000.0,QLD,Toowoomba,4051,2024-08-12,True,True,2026-01-03
+1565,Mei,Bakker,mei.bakker1565@yahoo.example,bronze,8500.0,ACT,Belconnen,2617,2024-05-14,True,True,2026-01-03
+1566,Ida,Diallo,ida.diallo1566@webmail.example,gold,15250.0,SA,Whyalla,5600,2025-04-16,True,True,2026-01-03
+1567,Mateo,Thornton,mateo.thornton1567@mailbox.example,bronze,20000.0,ACT,Belconnen,2900,2025-06-22,False,True,2026-01-03
+1568,Diego,Varga,diego.varga1568@fastmail.example,silver,2000.0,NSW,Orange,2150,2024-04-17,True,True,2026-01-03
+1569,Darius,Ridgeway,darius.ridgeway1569@gmail.example,silver,11500.0,TAS,Launceston,7000,2024-10-30,True,True,2026-01-03
+1570,Laila,Gilmore,laila.gilmore1570@gmx.example,bronze,6250.0,QLD,Townsville,4000,2025-02-15,True,True,2026-01-03
+1571,Sunil,Vance,sunil.vance1571@outlook.example,silver,7250.0,TAS,Hobart,7250,2024-08-27,False,True,2026-01-03
+1572,Emiko,Bennett,emiko.bennett1572@proton.example,silver,18500.0,NT,Katherine,0850,2024-12-19,True,True,2026-01-03
+1573,Jasmin,Bennett,jasmin.bennett1573@webmail.example,bronze,9000.0,SA,Adelaide,5290,2025-08-19,True,True,2026-01-03
+1574,Kofi,Wojcik,kofi.wojcik1574@webmail.example,silver,1250.0,ACT,Belconnen,2611,2024-04-05,True,True,2026-01-03
+1575,Emeka,Zhang,emeka.zhang1575@mailbox.example,silver,10750.0,SA,Murray Bridge,5063,2025-08-21,False,True,2026-01-03
+1576,Omar,Fujimoto,omar.fujimoto1576@posteo.example,silver,23500.0,VIC,Warrnambool,3121,2024-04-17,True,True,2026-01-03
+1577,Bruno,Eriksen,bruno.eriksen1577@gmail.example,gold,1000.0,ACT,Tuggeranong,2600,2025-12-07,False,True,2026-01-03
+1578,Amelia,Kalani,amelia.kalani1578@proton.example,bronze,4750.0,SA,Port Augusta,5290,2025-07-26,True,True,2026-01-03
+1579,Darius,Yamamoto,darius.yamamoto1579@posteo.example,bronze,12500.0,ACT,Gungahlin,2600,2024-03-17,True,True,2026-01-03
+1580,Ravi,Sasaki,ravi.sasaki1580@gmail.example,bronze,8750.0,VIC,Melbourne,3500,2024-06-23,False,True,2026-01-03
+1581,Ivan,Boateng,ivan.boateng1581@gmx.example,silver,17500.0,TAS,Burnie,7320,2025-09-30,True,True,2026-01-03
+1582,Dmitri,Laurent,dmitri.laurent1582@proton.example,bronze,13250.0,NT,Alice Springs,0810,2024-03-04,False,True,2026-01-03
+1583,Carlos,Garcia,carlos.garcia1583@posteo.example,silver,16750.0,QLD,Mackay,4870,2024-10-21,True,True,2026-01-03
+1584,Wren,Fairweather,wren.fairweather1584@proton.example,silver,7750.0,NT,Palmerston,0870,2025-07-24,True,True,2026-01-03
+1585,Ramona,Villanueva,ramona.villanueva1585@yahoo.example,bronze,11000.0,VIC,Warrnambool,3121,2025-07-19,False,True,2026-01-03
+1586,Zeke,Abbott,zeke.abbott1586@gmx.example,bronze,13500.0,TAS,Launceston,7320,2025-03-11,True,True,2026-01-03
+1587,Freya,Duarte,freya.duarte1587@proton.example,bronze,1500.0,ACT,Gungahlin,2900,2024-10-06,True,True,2026-01-03
+1588,Tamar,Davies,tamar.davies1588@mailbox.example,silver,15000.0,NSW,Wollongong,2830,2025-01-14,False,True,2026-01-03
+1589,Yusuf,Zhang,yusuf.zhang1589@yahoo.example,bronze,21750.0,TAS,Hobart,7000,2024-12-25,True,True,2026-01-03
+1590,Bruno,Zhang,bruno.zhang1590@gmx.example,bronze,5250.0,WA,Perth,6725,2025-12-16,False,True,2026-01-03
+1591,Ida,Ibrahim,ida.ibrahim1591@gmail.example,bronze,17000.0,VIC,Geelong,3630,2025-08-22,False,True,2026-01-03
+1592,Zeke,Suzuki,zeke.suzuki1592@posteo.example,silver,11750.0,SA,Mount Gambier,5063,2024-10-14,False,True,2026-01-03
+1593,Tariq,Hasegawa,tariq.hasegawa1593@mailbox.example,bronze,4000.0,VIC,Bendigo,3550,2025-10-26,True,True,2026-01-03
+1594,Felipe,Bonnet,felipe.bonnet1594@yahoo.example,bronze,4500.0,TAS,Hobart,7250,2025-01-26,False,True,2026-01-03
+1595,Ibrahim,Bakker,ibrahim.bakker1595@inbox.example,bronze,14500.0,QLD,Gold Coast,4810,2024-11-26,True,True,2026-01-03
+1596,Viktor,Rasmussen,viktor.rasmussen1596@proton.example,bronze,1000.0,SA,Adelaide,5000,2025-03-23,False,True,2026-01-03
+1597,Dmitri,Delacroix,dmitri.delacroix1597@webmail.example,bronze,500.0,SA,Murray Bridge,5600,2024-10-20,True,True,2026-01-03
+1598,Jacinta,Torres,jacinta.torres1598@yahoo.example,silver,22250.0,NT,Alice Springs,0870,2025-08-06,True,True,2026-01-03
+1599,Rhys,Mahmood,rhys.mahmood1599@fastmail.example,bronze,2500.0,VIC,Melbourne,3630,2025-09-07,False,True,2026-01-03
+1600,Thandiwe,Park,thandiwe.park1600@fastmail.example,silver,15500.0,NT,Katherine,0870,2024-12-03,False,True,2026-01-03
+1601,Jia,Macpherson,jia.macpherson1601@yahoo.example,silver,1750.0,SA,Whyalla,5063,2025-04-29,False,True,2026-01-03
+1602,Ophelia,Fontaine,ophelia.fontaine1602@outlook.example,bronze,4250.0,ACT,Canberra,2611,2025-02-19,False,True,2026-01-03
+1603,Hamish,Walsh,hamish.walsh1603@outlook.example,bronze,9250.0,VIC,Warrnambool,3550,2024-02-06,True,True,2026-01-03
+1604,Malia,Martins,malia.martins1604@gmail.example,bronze,12750.0,TAS,Burnie,7310,2024-07-03,True,True,2026-01-03
+1605,Dechen,Gilmore,dechen.gilmore1605@inbox.example,silver,10000.0,WA,Geraldton,6160,2025-04-27,False,True,2026-01-03
+1606,Ludwig,Villanueva,ludwig.villanueva1606@webmail.example,gold,4000.0,QLD,Townsville,4810,2024-09-02,True,True,2026-01-03
+1607,Diego,Sokolov,diego.sokolov1607@webmail.example,silver,4750.0,ACT,Canberra,2617,2024-05-29,True,True,2026-01-03
+1608,Lian,Jansen,lian.jansen1608@outlook.example,silver,9000.0,ACT,Tuggeranong,2600,2024-02-24,True,True,2026-01-03
+1609,Javier,Reyes,javier.reyes1609@outlook.example,bronze,8250.0,SA,Port Augusta,5600,2024-07-12,True,True,2026-01-03
+1610,Hana,Sinclair,hana.sinclair1610@gmail.example,bronze,14750.0,ACT,Tuggeranong,2600,2025-10-23,True,True,2026-01-03
+1611,Rina,Ivanov,rina.ivanov1611@outlook.example,bronze,7750.0,NSW,Sydney,2300,2025-06-15,False,True,2026-01-03
+1612,Tadeo,McAllister,tadeo.mcallister1612@gmx.example,silver,2000.0,SA,Murray Bridge,5290,2025-04-19,True,True,2026-01-03
+1613,Bruno,Sullivan,bruno.sullivan1613@mailbox.example,bronze,19750.0,TAS,Burnie,7250,2024-11-07,False,True,2026-01-03
+1614,Aroha,Dabrowski,aroha.dabrowski1614@fastmail.example,bronze,8500.0,VIC,Warrnambool,3550,2025-01-17,True,True,2026-01-03
+1615,Ahmed,Zielinski,ahmed.zielinski1615@yahoo.example,silver,1000.0,VIC,Geelong,3220,2024-09-04,True,True,2026-01-03
+1616,Aroha,Malik,aroha.malik1616@yahoo.example,silver,1500.0,QLD,Toowoomba,4217,2025-04-07,False,True,2026-01-03
+1617,Dechen,Cabrera,dechen.cabrera1617@webmail.example,silver,6500.0,SA,Murray Bridge,5000,2024-03-06,True,True,2026-01-03
+1618,Tamar,Yilmaz,tamar.yilmaz1618@posteo.example,silver,5250.0,VIC,Melbourne,3220,2025-07-09,True,True,2026-01-03
+1619,Tamar,Bonnet,tamar.bonnet1619@outlook.example,silver,5500.0,NSW,Wagga Wagga,2450,2025-11-20,True,True,2026-01-03
+1620,Pedro,Ricci,pedro.ricci1620@inbox.example,platinum,13000.0,QLD,Gold Coast,4700,2024-06-20,False,True,2026-01-03
+1621,Finn,Bennett,finn.bennett1621@fastmail.example,platinum,11000.0,TAS,Devonport,7320,2024-02-08,True,True,2026-01-03
+1622,Sasha,Sasaki,sasha.sasaki1622@inbox.example,silver,7250.0,QLD,Cairns,4870,2024-07-05,True,True,2026-01-03
+1623,Yusuf,Malik,yusuf.malik1623@fastmail.example,gold,750.0,QLD,Mackay,4810,2024-10-28,True,True,2026-01-03
+1624,Gabriel,Sharma,gabriel.sharma1624@gmail.example,bronze,2000.0,NT,Katherine,0810,2025-02-20,True,True,2026-01-03
+1625,Rohan,Marchetti,rohan.marchetti1625@gmx.example,bronze,10500.0,TAS,Launceston,7320,2024-08-20,True,True,2026-01-03
+1626,Anders,Rafferty,anders.rafferty1626@fastmail.example,bronze,6250.0,NSW,Dubbo,2300,2024-07-19,False,True,2026-01-03
+1627,Kalinda,Hasegawa,kalinda.hasegawa1627@fastmail.example,gold,16750.0,TAS,Launceston,7320,2025-10-19,True,True,2026-01-03
+1628,Rhys,Laurent,rhys.laurent1628@webmail.example,silver,20000.0,NSW,Albury,2450,2024-09-09,True,True,2026-01-03
+1629,Katarina,Gruber,katarina.gruber1629@webmail.example,bronze,8250.0,NT,Darwin,0850,2024-03-04,False,True,2026-01-03
+1630,Rina,Mendoza,rina.mendoza1630@inbox.example,gold,5250.0,VIC,Ballarat,3500,2025-08-28,False,True,2026-01-03
+1631,Manon,Quintero,manon.quintero1631@posteo.example,silver,1750.0,TAS,Burnie,7250,2024-09-15,False,True,2026-01-03
+1632,Maeve,Abbott,maeve.abbott1632@inbox.example,silver,14250.0,VIC,Bendigo,3550,2024-11-24,True,True,2026-01-03
+1633,Noor,Fujimoto,noor.fujimoto1633@mailbox.example,bronze,9000.0,WA,Albany,6160,2024-08-22,False,True,2026-01-03
+1634,Ruben,Costa,ruben.costa1634@webmail.example,bronze,3250.0,NT,Darwin,0810,2025-01-01,False,True,2026-01-03
+1635,Andrea,Hamilton,andrea.hamilton1635@outlook.example,gold,1750.0,QLD,Gold Coast,4810,2024-01-11,False,True,2026-01-03
+1636,Nuala,Kaminski,nuala.kaminski1636@gmail.example,gold,12250.0,NT,Palmerston,0810,2025-05-01,True,True,2026-01-03
+1637,Uma,Brennan,uma.brennan1637@proton.example,silver,6000.0,VIC,Geelong,3000,2025-09-20,False,True,2026-01-03
+1638,Katarina,Nkemelu,katarina.nkemelu1638@proton.example,bronze,12250.0,NT,Alice Springs,0850,2024-02-15,False,True,2026-01-03
+1639,Kiara,Kovacs,kiara.kovacs1639@fastmail.example,silver,18250.0,SA,Mount Gambier,5700,2025-06-11,True,True,2026-01-03
+1640,Rohan,Thornton,rohan.thornton1640@fastmail.example,bronze,20000.0,QLD,Townsville,4000,2024-03-01,True,True,2026-01-03
+1641,Kalinda,Sharma,kalinda.sharma1641@outlook.example,bronze,3750.0,WA,Broome,6060,2024-03-10,True,True,2026-01-03
+1642,Sunil,Dubois,sunil.dubois1642@gmx.example,silver,10250.0,VIC,Warrnambool,3550,2025-04-23,True,True,2026-01-03
+1643,Lars,Aoki,lars.aoki1643@gmail.example,silver,3750.0,WA,Geraldton,6160,2024-01-31,True,True,2026-01-03
+1644,Tobias,Chowdhury,tobias.chowdhury1644@inbox.example,silver,16000.0,QLD,Cairns,4051,2024-08-07,True,True,2026-01-03
+1645,Tobias,Vasquez,tobias.vasquez1645@webmail.example,platinum,1250.0,WA,Kalgoorlie,6160,2024-05-22,True,True,2026-01-03
+1646,Ivan,Chen,ivan.chen1646@outlook.example,silver,7250.0,QLD,Rockhampton,4217,2025-04-23,False,True,2026-01-03
+1647,Juno,Wickramasinghe,juno.wickramasinghe1647@posteo.example,silver,8000.0,ACT,Canberra,2900,2025-06-05,False,True,2026-01-03
+1648,Ravi,Wickramasinghe,ravi.wickramasinghe1648@fastmail.example,platinum,3000.0,TAS,Hobart,7250,2025-08-01,False,True,2026-01-03
+1649,Grace,Tanaka,grace.tanaka1649@gmx.example,gold,12750.0,QLD,Brisbane,4810,2024-04-11,False,True,2026-01-03
+1650,Leilani,Lindqvist,leilani.lindqvist1650@proton.example,platinum,3000.0,SA,Murray Bridge,5600,2024-07-21,False,True,2026-01-03
+1651,Aditi,Zhang,aditi.zhang1651@gmail.example,bronze,8250.0,QLD,Toowoomba,4810,2025-08-14,False,True,2026-01-03
+1652,Mohan,Silva,mohan.silva1652@webmail.example,bronze,3000.0,VIC,Bendigo,3000,2025-07-12,False,True,2026-01-03
+1653,Mateo,Cavanagh,mateo.cavanagh1653@inbox.example,bronze,8750.0,NSW,Wollongong,2500,2025-11-04,False,True,2026-01-03
+1654,Diego,Silva,diego.silva1654@webmail.example,platinum,6250.0,WA,Albany,6530,2024-10-27,True,True,2026-01-03
+1655,Aaliyah,Navarro,aaliyah.navarro1655@mailbox.example,gold,7750.0,VIC,Geelong,3050,2025-09-02,True,True,2026-01-03
+1656,Tane,Bonnet,tane.bonnet1656@mailbox.example,bronze,9000.0,NT,Darwin,0800,2024-02-08,False,True,2026-01-03
+1657,Ruben,Jansen,ruben.jansen1657@proton.example,bronze,18750.0,NT,Palmerston,0870,2025-07-02,False,True,2026-01-03
+1658,Lachlan,Wickramasinghe,lachlan.wickramasinghe1658@inbox.example,bronze,7750.0,NSW,Albury,2300,2024-08-13,False,True,2026-01-03
+1659,Blake,Sinclair,blake.sinclair1659@gmail.example,platinum,10250.0,NT,Palmerston,0870,2025-08-04,True,True,2026-01-03
+1660,Priya,Tahir,priya.tahir1660@inbox.example,bronze,2000.0,SA,Mount Gambier,5063,2024-01-09,False,True,2026-01-03
+1661,Priya,Tahir,priya.tahir1661@fastmail.example,bronze,4750.0,NT,Palmerston,0870,2025-01-30,False,True,2026-01-03
+1662,Clara,Moreau,clara.moreau1662@posteo.example,bronze,4000.0,QLD,Mackay,4217,2025-03-17,True,True,2026-01-03
+1663,Tamar,Krishnan,tamar.krishnan1663@gmail.example,silver,15000.0,NT,Palmerston,0870,2025-10-31,True,True,2026-01-03
+1664,Ramona,Pereira,ramona.pereira1664@yahoo.example,bronze,3500.0,VIC,Shepparton,3121,2024-07-08,True,True,2026-01-03
+1665,Zofia,Mendoza,zofia.mendoza1665@mailbox.example,silver,2250.0,ACT,Gungahlin,2611,2025-09-26,True,True,2026-01-03
+1666,Mira,Ramirez,mira.ramirez1666@webmail.example,platinum,17250.0,WA,Bunbury,6160,2024-05-18,True,True,2026-01-03
+1667,Leo,Lundgren,leo.lundgren1667@gmx.example,silver,7500.0,ACT,Tuggeranong,2611,2024-04-05,True,True,2026-01-03
+1668,Darius,Yamamoto,darius.yamamoto1668@fastmail.example,gold,5500.0,VIC,Melbourne,3550,2024-06-27,False,True,2026-01-03
+1669,Xiulan,Pinto,xiulan.pinto1669@inbox.example,bronze,19750.0,VIC,Warrnambool,3500,2025-10-15,True,True,2026-01-03
+1670,Hassan,Zhang,hassan.zhang1670@yahoo.example,bronze,4750.0,ACT,Canberra,2617,2024-12-18,True,True,2026-01-03
+1671,Zeke,Petrov,zeke.petrov1671@proton.example,bronze,12250.0,NT,Darwin,0810,2025-10-31,True,True,2026-01-03
+1672,Aroha,Bennett,aroha.bennett1672@inbox.example,gold,19250.0,ACT,Belconnen,2600,2024-08-12,False,True,2026-01-03
+1673,Maeve,Papadopoulos,maeve.papadopoulos1673@outlook.example,silver,1250.0,NSW,Albury,2010,2025-12-16,True,True,2026-01-03
+1674,Ophelia,Sinclair,ophelia.sinclair1674@webmail.example,bronze,14500.0,SA,Whyalla,5600,2025-11-26,False,True,2026-01-03
+1675,Keanu,Sullivan,keanu.sullivan1675@gmx.example,bronze,6750.0,NT,Katherine,0870,2025-12-31,True,True,2026-01-03
+1676,Rina,Duarte,rina.duarte1676@yahoo.example,bronze,15500.0,VIC,Geelong,3220,2024-01-02,True,True,2026-01-03
+1677,Quentin,Andersen,quentin.andersen1677@posteo.example,bronze,1500.0,SA,Port Augusta,5063,2024-02-26,False,True,2026-01-03
+1678,Valentina,Lindqvist,valentina.lindqvist1678@posteo.example,silver,19000.0,QLD,Rockhampton,4000,2024-07-23,False,True,2026-01-03
+1679,Javier,Villanueva,javier.villanueva1679@yahoo.example,bronze,18250.0,WA,Kalgoorlie,6060,2024-07-12,False,True,2026-01-03
+1680,Thandiwe,Keating,thandiwe.keating1680@gmail.example,bronze,2750.0,WA,Perth,6430,2025-03-06,True,True,2026-01-03
+1681,Ophelia,Kapoor,ophelia.kapoor1681@yahoo.example,bronze,5500.0,WA,Kalgoorlie,6060,2024-02-01,True,True,2026-01-03
+1682,Carlos,Marchetti,carlos.marchetti1682@outlook.example,silver,7250.0,NT,Darwin,0800,2024-02-14,True,True,2026-01-03
+1683,Zainab,Ghosh,zainab.ghosh1683@proton.example,silver,12000.0,TAS,Launceston,7320,2024-11-13,True,True,2026-01-03
+1684,Marcus,Jaganathan,marcus.jaganathan1684@yahoo.example,silver,10250.0,ACT,Gungahlin,2900,2024-05-08,True,True,2026-01-03
+1685,Selin,Hoffman,selin.hoffman1685@mailbox.example,silver,5000.0,WA,Bunbury,6060,2025-09-21,True,True,2026-01-03
+1686,Eleni,Bakker,eleni.bakker1686@gmx.example,silver,3000.0,NSW,Albury,2650,2025-07-18,True,True,2026-01-03
+1687,Rina,Reyes,rina.reyes1687@webmail.example,gold,7750.0,NSW,Newcastle,2150,2025-12-09,True,True,2026-01-03
+1688,Malia,Kaminski,malia.kaminski1688@proton.example,bronze,13750.0,NSW,Wagga Wagga,2300,2024-02-03,False,True,2026-01-03
+1689,Viktor,Nakamura,viktor.nakamura1689@outlook.example,silver,16250.0,NT,Palmerston,0800,2025-09-12,True,True,2026-01-03
+1690,Freya,Gruber,freya.gruber1690@gmx.example,bronze,7750.0,NT,Palmerston,0810,2025-03-31,True,True,2026-01-03
+1691,Dechen,Davies,dechen.davies1691@gmail.example,silver,1750.0,VIC,Ballarat,3000,2024-01-13,False,True,2026-01-03
+1692,Yara,Vance,yara.vance1692@posteo.example,silver,3750.0,SA,Mount Gambier,5000,2025-10-30,False,True,2026-01-03
+1693,Finn,Petrov,finn.petrov1693@gmx.example,silver,4250.0,NT,Alice Springs,0800,2025-07-22,False,True,2026-01-03
+1694,Rohan,Wachowski,rohan.wachowski1694@gmail.example,bronze,7250.0,SA,Mount Gambier,5000,2025-09-10,False,True,2026-01-03
+1695,Emiko,Pahlavi,emiko.pahlavi1695@webmail.example,bronze,8250.0,SA,Murray Bridge,5063,2025-03-31,True,True,2026-01-03
+1696,Marcus,Lombardi,marcus.lombardi1696@gmx.example,bronze,4250.0,ACT,Canberra,2611,2024-05-29,True,True,2026-01-03
+1697,Chloe,Nakamura,chloe.nakamura1697@proton.example,bronze,11500.0,NT,Palmerston,0800,2024-06-19,True,True,2026-01-03
+1698,Olamide,Chakraborty,olamide.chakraborty1698@yahoo.example,bronze,5750.0,WA,Broome,6725,2024-08-09,True,True,2026-01-03
+1699,Yusuf,Wojcik,yusuf.wojcik1699@gmx.example,bronze,7250.0,NT,Alice Springs,0870,2025-05-09,False,True,2026-01-03
+1700,Keanu,Farrell,keanu.farrell1700@posteo.example,bronze,18000.0,NSW,Newcastle,2500,2024-03-12,False,True,2026-01-03
+1701,Grace,Keating,grace.keating1701@mailbox.example,silver,12750.0,TAS,Hobart,7000,2025-09-17,False,False,2026-01-03
+1702,Tariq,Zielinski,tariq.zielinski1702@outlook.example,silver,1500.0,SA,Adelaide,5700,2024-11-05,False,True,2026-01-03
+1703,Valentina,Duarte,valentina.duarte1703@gmail.example,bronze,10000.0,SA,Mount Gambier,5063,2025-01-14,True,True,2026-01-03
+1704,Keanu,Aoki,keanu.aoki1704@mailbox.example,gold,11000.0,VIC,Bendigo,3050,2025-04-16,True,True,2026-01-03
+1705,Noor,Nakamura,noor.nakamura1705@inbox.example,bronze,16250.0,NT,Katherine,0850,2024-02-19,True,True,2026-01-03
+1706,Aroha,McAllister,aroha.mcallister1706@mailbox.example,bronze,3250.0,SA,Mount Gambier,5000,2025-10-15,False,True,2026-01-03
+1707,Rohan,Fontaine,rohan.fontaine1707@webmail.example,bronze,5250.0,VIC,Ballarat,3121,2024-02-21,False,True,2026-01-03
+1708,Soren,Keating,soren.keating1708@inbox.example,bronze,12750.0,NT,Darwin,0870,2024-12-14,True,True,2026-01-03
+1709,Omar,Bakker,omar.bakker1709@posteo.example,bronze,750.0,TAS,Launceston,7000,2025-02-19,True,True,2026-01-03
+1710,Gabriel,Kaminski,gabriel.kaminski1710@yahoo.example,gold,16000.0,SA,Port Augusta,5700,2025-07-25,True,True,2026-01-03
+1711,Priya,Adeyemi,priya.adeyemi1711@fastmail.example,platinum,1750.0,ACT,Tuggeranong,2900,2025-06-24,False,True,2026-01-03
+1712,Jacinta,Bergstrom,jacinta.bergstrom1712@proton.example,silver,8250.0,SA,Murray Bridge,5000,2025-01-24,False,True,2026-01-03
+1713,Ruben,Lundgren,ruben.lundgren1713@gmail.example,silver,18250.0,VIC,Geelong,3500,2025-09-10,True,True,2026-01-03
+1714,Sina,Jaganathan,sina.jaganathan1714@fastmail.example,bronze,10250.0,NSW,Albury,2010,2024-03-26,False,True,2026-01-03
+1715,Grace,Andersen,grace.andersen1715@gmail.example,bronze,4250.0,ACT,Belconnen,2600,2024-10-20,True,True,2026-01-03
+1716,Mira,Eriksen,mira.eriksen1716@inbox.example,bronze,5750.0,TAS,Devonport,7320,2025-03-18,False,True,2026-01-03
+1717,Maeve,Bergstrom,maeve.bergstrom1717@inbox.example,gold,16750.0,VIC,Warrnambool,3050,2024-04-25,True,True,2026-01-03
+1718,Tane,Kirkpatrick,tane.kirkpatrick1718@webmail.example,bronze,4750.0,NT,Katherine,0800,2024-01-02,True,True,2026-01-03
+1719,Rhys,Suzuki,rhys.suzuki1719@fastmail.example,silver,13000.0,TAS,Devonport,7310,2024-04-08,False,True,2026-01-03
+1720,Tamar,Tahir,tamar.tahir1720@yahoo.example,silver,3500.0,SA,Mount Gambier,5600,2025-09-27,True,True,2026-01-03
+1721,Manon,Pahlavi,manon.pahlavi1721@webmail.example,gold,1750.0,NSW,Wagga Wagga,2010,2025-07-26,False,True,2026-01-03
+1722,Sunil,Abbott,sunil.abbott1722@gmail.example,bronze,7500.0,NSW,Wagga Wagga,2830,2024-03-17,True,True,2026-01-03
+1723,Dechen,Navarro,dechen.navarro1723@fastmail.example,silver,3500.0,QLD,Townsville,4051,2025-09-29,True,True,2026-01-03
+1724,Anders,Novak,anders.novak1724@inbox.example,gold,6500.0,WA,Broome,6160,2025-01-23,True,True,2026-01-03
+1725,Jonas,Quintero,jonas.quintero1725@outlook.example,gold,1750.0,ACT,Canberra,2600,2025-01-12,True,True,2026-01-03
+1726,Reza,Lombardi,reza.lombardi1726@proton.example,bronze,7000.0,WA,Bunbury,6160,2025-01-20,True,True,2026-01-03
+1727,Rhys,Sasaki,rhys.sasaki1727@webmail.example,bronze,2250.0,NSW,Newcastle,2500,2025-03-10,True,True,2026-01-03
+1728,Grace,Schneider,grace.schneider1728@fastmail.example,bronze,7250.0,NT,Alice Springs,0850,2024-09-26,True,True,2026-01-03
+1729,Theo,Jaganathan,theo.jaganathan1729@webmail.example,bronze,9500.0,TAS,Hobart,7000,2024-01-02,False,True,2026-01-03
+1730,Leilani,Fairweather,leilani.fairweather1730@outlook.example,silver,21500.0,NSW,Newcastle,2500,2025-04-23,True,True,2026-01-03
+1731,Soren,Lundgren,soren.lundgren1731@mailbox.example,silver,1500.0,TAS,Devonport,7310,2024-03-18,True,True,2026-01-03
+1732,Alice,Oyelaran,alice.oyelaran1732@proton.example,bronze,6250.0,SA,Adelaide,5000,2025-11-24,True,True,2026-01-03
+1733,Oliver,Santos,oliver.santos1733@webmail.example,silver,3000.0,VIC,Ballarat,3121,2025-10-06,True,True,2026-01-03
+1734,Clara,Navarro,clara.navarro1734@outlook.example,bronze,10250.0,QLD,Townsville,4350,2024-09-05,False,True,2026-01-03
+1735,Elodie,Dabrowski,elodie.dabrowski1735@webmail.example,silver,11250.0,TAS,Launceston,7000,2024-09-23,False,True,2026-01-03
+1736,Petra,Garcia,petra.garcia1736@posteo.example,silver,1000.0,NT,Katherine,0850,2025-08-13,True,True,2026-01-03
+1737,Mira,Chen,mira.chen1737@posteo.example,bronze,15250.0,QLD,Gold Coast,4350,2025-06-11,False,True,2026-01-03
+1738,Jae,Kalani,jae.kalani1738@outlook.example,bronze,1750.0,ACT,Belconnen,2900,2024-03-13,True,True,2026-01-03
+1739,Thandiwe,Wickramasinghe,thandiwe.wickramasinghe1739@webmail.example,bronze,16000.0,TAS,Hobart,7310,2025-08-03,False,True,2026-01-03
+1740,Eleni,Wachowski,eleni.wachowski1740@webmail.example,silver,6500.0,SA,Murray Bridge,5063,2024-01-29,True,True,2026-01-03
+1741,Ewan,Bianchi,ewan.bianchi1741@outlook.example,bronze,9000.0,QLD,Rockhampton,4217,2024-11-02,True,True,2026-01-03
+1742,Ophelia,Duarte,ophelia.duarte1742@inbox.example,bronze,3750.0,VIC,Bendigo,3000,2024-01-05,False,True,2026-01-03
+1743,Ebele,Novak,ebele.novak1743@outlook.example,gold,5500.0,QLD,Cairns,4810,2024-06-20,False,True,2026-01-03
+1744,Josephine,Ghosh,josephine.ghosh1744@webmail.example,silver,15750.0,ACT,Gungahlin,2600,2025-12-26,True,True,2026-01-03
+1745,Carlos,Aoki,carlos.aoki1745@gmx.example,silver,10250.0,QLD,Toowoomba,4217,2024-03-02,True,True,2026-01-03
+1746,Camila,Sasaki,camila.sasaki1746@gmail.example,bronze,1750.0,QLD,Brisbane,4870,2025-01-27,True,True,2026-01-03
+1747,Jae,Bennett,jae.bennett1747@gmx.example,bronze,16750.0,SA,Whyalla,5290,2024-07-05,True,True,2026-01-03
+1748,Gabriel,Gruber,gabriel.gruber1748@gmail.example,silver,10500.0,NSW,Wollongong,2450,2025-02-13,True,True,2026-01-03
+1749,Khalid,Donnelly,khalid.donnelly1749@outlook.example,bronze,3000.0,NT,Alice Springs,0870,2025-05-28,False,True,2026-01-03
+1750,Amelia,Bianchi,amelia.bianchi1750@fastmail.example,bronze,1250.0,NSW,Wollongong,2060,2024-09-27,True,True,2026-01-03
+1751,Jae,Abbott,jae.abbott1751@inbox.example,gold,3250.0,NT,Darwin,0850,2025-08-31,True,True,2026-01-03
+1752,Nuala,Gruber,nuala.gruber1752@posteo.example,silver,14500.0,WA,Albany,6725,2025-07-24,True,True,2026-01-03
+1753,Zainab,Ahmadi,zainab.ahmadi1753@posteo.example,silver,19000.0,TAS,Devonport,7250,2025-04-11,True,True,2026-01-03
+1754,Ahmed,Martins,ahmed.martins1754@outlook.example,bronze,12750.0,TAS,Devonport,7250,2024-03-29,True,True,2026-01-03
+1755,Javier,Kalani,javier.kalani1755@webmail.example,bronze,4000.0,VIC,Warrnambool,3630,2025-11-22,True,True,2026-01-03
+1756,Noor,Navarro,noor.navarro1756@gmail.example,gold,9750.0,NT,Katherine,0800,2024-05-30,True,True,2026-01-03
+1757,Petra,Wachowski,petra.wachowski1757@inbox.example,platinum,3000.0,NT,Alice Springs,0870,2024-03-12,True,True,2026-01-03
+1758,Xiulan,Park,xiulan.park1758@yahoo.example,bronze,11000.0,WA,Albany,6725,2024-09-26,True,True,2026-01-03
+1759,Khalid,Reyes,khalid.reyes1759@mailbox.example,bronze,5250.0,ACT,Canberra,2611,2024-04-05,True,True,2026-01-03
+1760,Ivan,Suzuki,ivan.suzuki1760@mailbox.example,bronze,14250.0,NSW,Albury,2450,2024-02-08,True,True,2026-01-03
+1761,Gabriel,Zhang,gabriel.zhang1761@outlook.example,silver,13000.0,SA,Port Augusta,5600,2025-07-14,False,True,2026-01-03
+1762,Soren,Sharma,soren.sharma1762@fastmail.example,bronze,8500.0,TAS,Launceston,7250,2025-09-08,False,True,2026-01-03
+1763,Juno,Wojcik,juno.wojcik1763@gmx.example,bronze,4250.0,ACT,Tuggeranong,2600,2025-07-10,False,True,2026-01-03
+1764,Dechen,Fontaine,dechen.fontaine1764@gmx.example,bronze,1000.0,QLD,Rockhampton,4350,2024-12-12,True,True,2026-01-03
+1765,Clara,Leclerc,clara.leclerc1765@webmail.example,bronze,5750.0,QLD,Toowoomba,4700,2025-04-26,True,True,2026-01-03
+1766,Nikolai,Walsh,nikolai.walsh1766@fastmail.example,bronze,1500.0,QLD,Cairns,4051,2025-06-11,True,True,2026-01-03
+1767,Darius,Garcia,darius.garcia1767@gmx.example,bronze,8000.0,NSW,Wollongong,2000,2025-06-04,True,True,2026-01-03
+1768,Jacinta,Boateng,jacinta.boateng1768@gmx.example,bronze,8500.0,NT,Darwin,0870,2025-02-08,False,True,2026-01-03
+1769,Cormac,Oyelaran,cormac.oyelaran1769@fastmail.example,bronze,12500.0,SA,Port Augusta,5063,2024-12-01,False,True,2026-01-03
+1770,Ahmed,Martins,ahmed.martins1770@gmail.example,silver,1000.0,TAS,Burnie,7250,2025-10-03,True,True,2026-01-03
+1771,Pedro,Gruber,pedro.gruber1771@gmail.example,bronze,1250.0,QLD,Toowoomba,4700,2024-11-06,False,True,2026-01-03
+1772,Hassan,Aoki,hassan.aoki1772@gmail.example,silver,14500.0,TAS,Devonport,7000,2024-08-03,False,True,2026-01-03
+1773,Khalid,Navarro,khalid.navarro1773@proton.example,silver,16250.0,NSW,Newcastle,2450,2024-06-19,True,True,2026-01-03
+1774,Khalid,Vance,khalid.vance1774@inbox.example,platinum,17250.0,VIC,Mildura,3121,2024-01-02,True,True,2026-01-03
+1775,Ingrid,Esposito,ingrid.esposito1775@gmail.example,silver,2000.0,TAS,Burnie,7320,2024-04-06,True,True,2026-01-03
+1776,Jamal,Schneider,jamal.schneider1776@posteo.example,bronze,4000.0,VIC,Bendigo,3121,2024-04-10,True,True,2026-01-03
+1777,Astrid,Navarro,astrid.navarro1777@posteo.example,silver,1750.0,QLD,Toowoomba,4810,2025-03-18,True,True,2026-01-03
+1778,Selin,Sokolov,selin.sokolov1778@inbox.example,silver,7000.0,WA,Kalgoorlie,6000,2024-04-11,True,True,2026-01-03
+1779,Sunil,Macpherson,sunil.macpherson1779@posteo.example,bronze,6750.0,NSW,Dubbo,2060,2024-02-26,True,True,2026-01-03
+1780,Bianca,Tahir,bianca.tahir1780@yahoo.example,silver,2500.0,WA,Fremantle,6230,2024-08-02,True,True,2026-01-03
+1781,Eleni,Moreau,eleni.moreau1781@outlook.example,platinum,10250.0,SA,Mount Gambier,5000,2025-05-18,False,True,2026-01-03
+1782,Aisha,Kaczmarek,aisha.kaczmarek1782@fastmail.example,bronze,2750.0,NSW,Sydney,2500,2025-10-16,True,True,2026-01-03
+1783,Esther,Keating,esther.keating1783@yahoo.example,bronze,750.0,NT,Darwin,0850,2025-12-04,True,True,2026-01-03
+1784,Noor,Kovacs,noor.kovacs1784@fastmail.example,silver,5500.0,SA,Murray Bridge,5290,2024-03-16,False,True,2026-01-03
+1785,Soren,Mendoza,soren.mendoza1785@yahoo.example,bronze,1000.0,VIC,Melbourne,3550,2025-12-14,True,True,2026-01-03
+1786,Aisha,Fennimore,aisha.fennimore1786@posteo.example,bronze,15000.0,ACT,Tuggeranong,2900,2025-08-21,False,True,2026-01-03
+1787,Ahmed,Kovacs,ahmed.kovacs1787@outlook.example,silver,5750.0,SA,Port Augusta,5063,2024-07-01,True,True,2026-01-03
+1788,Pedro,Varga,pedro.varga1788@webmail.example,platinum,2750.0,VIC,Melbourne,3500,2024-02-24,True,True,2026-01-03
+1789,Leo,Chakraborty,leo.chakraborty1789@webmail.example,bronze,5500.0,VIC,Bendigo,3500,2025-08-19,True,True,2026-01-03
+1790,Hamish,Zhang,hamish.zhang1790@outlook.example,bronze,6000.0,ACT,Canberra,2600,2024-03-19,False,True,2026-01-03
+1791,Micheline,Takahashi,micheline.takahashi1791@inbox.example,gold,1250.0,WA,Fremantle,6725,2025-05-25,True,True,2026-01-03
+1792,Saoirse,Dalgleish,saoirse.dalgleish1792@posteo.example,gold,18500.0,TAS,Hobart,7250,2024-08-21,False,True,2026-01-03
+1793,Amara,Thornton,amara.thornton1793@proton.example,bronze,12500.0,QLD,Rockhampton,4217,2024-06-13,True,True,2026-01-03
+1794,Esther,Halloran,esther.halloran1794@gmx.example,gold,9500.0,NSW,Newcastle,2300,2024-11-23,True,True,2026-01-03
+1795,Saoirse,Kaminski,saoirse.kaminski1795@gmail.example,silver,7750.0,SA,Murray Bridge,5600,2025-01-20,True,True,2026-01-03
+1796,Jae,Krishnan,jae.krishnan1796@proton.example,bronze,17000.0,QLD,Mackay,4051,2025-02-19,False,True,2026-01-03
+1797,Grace,Trevelyan,grace.trevelyan1797@proton.example,silver,13250.0,NT,Alice Springs,0810,2025-06-01,True,True,2026-01-03
+1798,Joachim,Sasaki,joachim.sasaki1798@gmail.example,bronze,3000.0,ACT,Gungahlin,2600,2025-11-30,False,True,2026-01-03
+1799,Emiko,Papadopoulos,emiko.papadopoulos1799@mailbox.example,silver,1500.0,ACT,Belconnen,2611,2025-07-03,False,True,2026-01-03
+1800,Amara,McAllister,amara.mcallister1800@posteo.example,bronze,6250.0,TAS,Launceston,7250,2025-04-23,True,True,2026-01-03
+1801,Zara,Whitaker,zara.whitaker1801@posteo.example,gold,13000.0,ACT,Belconnen,2600,2024-08-13,True,True,2026-01-03
+1802,Lucia,Rossi,lucia.rossi1802@fastmail.example,bronze,20250.0,TAS,Burnie,7250,2024-01-13,False,True,2026-01-03
+1803,Mateo,Reyes,mateo.reyes1803@posteo.example,bronze,1000.0,NSW,Coffs Harbour,2060,2024-03-08,False,True,2026-01-03
+1804,Harriet,Fitzgerald,harriet.fitzgerald1804@gmail.example,bronze,5000.0,SA,Mount Gambier,5063,2024-10-10,True,True,2026-01-03
+1805,Yara,Karlsson,yara.karlsson1805@gmail.example,bronze,14000.0,VIC,Shepparton,3050,2024-08-15,True,True,2026-01-03
+1806,Imani,Sasaki,imani.sasaki1806@gmx.example,silver,16250.0,TAS,Burnie,7320,2025-07-06,True,True,2026-01-03
+1807,Joachim,Ibrahim,joachim.ibrahim1807@gmail.example,silver,1750.0,ACT,Canberra,2611,2025-11-30,False,True,2026-01-03
+1808,Talia,Garcia,talia.garcia1808@posteo.example,bronze,2250.0,SA,Whyalla,5290,2025-07-08,False,True,2026-01-03
+1809,Ramona,Stanton,ramona.stanton1809@outlook.example,silver,6000.0,ACT,Tuggeranong,2611,2025-07-29,False,True,2026-01-03
+1810,Jonas,Zielinski,jonas.zielinski1810@gmx.example,bronze,7750.0,NT,Alice Springs,0870,2025-06-17,True,True,2026-01-03
+1811,Oliver,Kapoor,oliver.kapoor1811@fastmail.example,silver,1000.0,QLD,Rockhampton,4350,2024-07-09,False,True,2026-01-03
+1812,Zainab,Ricci,zainab.ricci1812@yahoo.example,silver,3500.0,NSW,Orange,2300,2025-05-18,False,True,2026-01-03
+1813,Adrian,Trevelyan,adrian.trevelyan1813@fastmail.example,silver,3000.0,VIC,Shepparton,3121,2024-03-30,True,True,2026-01-03
+1814,Jacinta,Villanueva,jacinta.villanueva1814@posteo.example,bronze,16750.0,VIC,Bendigo,3550,2025-01-23,True,True,2026-01-03
+1815,Cormac,Farrell,cormac.farrell1815@yahoo.example,silver,6500.0,WA,Broome,6725,2024-09-04,True,True,2026-01-03
+1816,Ida,Gilmore,ida.gilmore1816@proton.example,gold,3750.0,ACT,Belconnen,2900,2024-04-22,True,True,2026-01-03
+1817,Daniela,Kalani,daniela.kalani1817@gmx.example,platinum,1250.0,NSW,Sydney,2300,2024-01-21,False,True,2026-01-03
+1818,Chloe,Fontaine,chloe.fontaine1818@posteo.example,gold,8250.0,TAS,Launceston,7250,2025-05-20,True,True,2026-01-03
+1819,Mohan,Ghosh,mohan.ghosh1819@outlook.example,bronze,1750.0,VIC,Warrnambool,3121,2024-11-10,False,True,2026-01-03
+1820,Mira,Wojcik,mira.wojcik1820@webmail.example,silver,3250.0,QLD,Townsville,4350,2025-10-31,False,True,2026-01-03
+1821,Xiulan,Sasaki,xiulan.sasaki1821@gmail.example,silver,17750.0,TAS,Launceston,7250,2024-03-18,False,True,2026-01-03
+1822,Elodie,Nguyen,elodie.nguyen1822@outlook.example,bronze,3750.0,NSW,Sydney,2150,2024-12-30,True,True,2026-01-03
+1823,Ruben,Cavanagh,ruben.cavanagh1823@fastmail.example,bronze,1750.0,ACT,Gungahlin,2900,2025-05-03,True,True,2026-01-03
+1824,Jamal,Ridgeway,jamal.ridgeway1824@outlook.example,silver,5000.0,QLD,Cairns,4051,2024-05-10,True,True,2026-01-03
+1825,Mira,Adeyemi,mira.adeyemi1825@webmail.example,silver,8500.0,QLD,Cairns,4700,2025-09-12,True,True,2026-01-03
+1826,Petra,Sullivan,petra.sullivan1826@outlook.example,bronze,1500.0,ACT,Canberra,2600,2024-12-04,False,True,2026-01-03
+1827,Adrian,Kaczmarek,adrian.kaczmarek1827@fastmail.example,bronze,12250.0,ACT,Belconnen,2611,2025-05-15,True,True,2026-01-03
+1828,Cormac,Fairweather,cormac.fairweather1828@gmx.example,silver,16250.0,ACT,Gungahlin,2900,2025-05-12,False,True,2026-01-03
+1829,Omar,Kaminski,omar.kaminski1829@mailbox.example,bronze,5500.0,NSW,Albury,2650,2025-04-02,False,True,2026-01-03
+1830,Caitlin,Nguyen,caitlin.nguyen1830@outlook.example,bronze,7750.0,TAS,Launceston,7310,2024-11-04,False,True,2026-01-03
+1831,Omar,Oyelaran,omar.oyelaran1831@webmail.example,bronze,9750.0,QLD,Cairns,4350,2025-09-20,True,True,2026-01-03
+1832,Laila,Davies,laila.davies1832@yahoo.example,bronze,6000.0,NT,Alice Springs,0810,2024-12-07,True,True,2026-01-03
+1833,Rafael,Santos,rafael.santos1833@posteo.example,bronze,7500.0,TAS,Hobart,7320,2024-09-04,False,True,2026-01-03
+1834,Ebele,McAllister,ebele.mcallister1834@posteo.example,platinum,750.0,ACT,Belconnen,2900,2025-03-28,False,True,2026-01-03
+1835,Cormac,Arnold,cormac.arnold1835@mailbox.example,bronze,5500.0,ACT,Tuggeranong,2900,2025-05-18,True,True,2026-01-03
+1836,Clara,Fujimoto,clara.fujimoto1836@fastmail.example,silver,2500.0,ACT,Belconnen,2617,2025-08-12,False,True,2026-01-03
+1837,Chloe,Yamamoto,chloe.yamamoto1837@yahoo.example,bronze,4750.0,ACT,Belconnen,2611,2025-02-07,False,True,2026-01-03
+1838,Manon,McAllister,manon.mcallister1838@yahoo.example,silver,2750.0,SA,Murray Bridge,5600,2025-06-03,True,True,2026-01-03
+1839,Thandiwe,Boateng,thandiwe.boateng1839@fastmail.example,gold,8500.0,SA,Murray Bridge,5600,2025-05-19,True,True,2026-01-03
+1840,Esther,Varga,esther.varga1840@outlook.example,bronze,14000.0,NT,Alice Springs,0800,2025-01-24,True,False,2026-01-03
+1841,Saoirse,Keating,saoirse.keating1841@fastmail.example,silver,7500.0,TAS,Burnie,7320,2024-06-25,False,True,2026-01-03
+1842,Thandiwe,Chakraborty,thandiwe.chakraborty1842@posteo.example,silver,18000.0,NT,Alice Springs,0810,2025-11-04,False,True,2026-01-03
+1843,Ida,Donnelly,ida.donnelly1843@proton.example,bronze,11000.0,QLD,Mackay,4870,2025-02-18,True,True,2026-01-03
+1844,Darius,Sinclair,darius.sinclair1844@yahoo.example,gold,2000.0,NT,Alice Springs,0810,2025-03-15,False,True,2026-01-03
+1845,Jae,Reyes,jae.reyes1845@proton.example,bronze,7500.0,WA,Kalgoorlie,6230,2025-04-27,True,True,2026-01-03
+1846,Elodie,Kimura,elodie.kimura1846@webmail.example,bronze,750.0,VIC,Ballarat,3220,2024-10-02,True,True,2026-01-03
+1847,Shreya,Rahman,shreya.rahman1847@mailbox.example,bronze,13750.0,VIC,Warrnambool,3350,2024-07-10,False,True,2026-01-03
+1848,Chloe,Thornton,chloe.thornton1848@posteo.example,silver,2500.0,ACT,Belconnen,2600,2024-12-03,False,True,2026-01-03
+1849,Jamal,Boateng,jamal.boateng1849@posteo.example,silver,10750.0,WA,Bunbury,6000,2025-05-02,True,True,2026-01-03
+1850,Ingrid,Lombardi,ingrid.lombardi1850@gmail.example,bronze,12500.0,QLD,Cairns,4350,2025-07-21,True,True,2026-01-03
+1851,Marcus,Keating,marcus.keating1851@outlook.example,silver,11750.0,WA,Fremantle,6060,2024-10-04,False,True,2026-01-03
+1852,Jasmin,Farrell,jasmin.farrell1852@posteo.example,bronze,4250.0,NT,Darwin,0800,2024-01-27,True,True,2026-01-03
+1853,Reza,Grimaldi,reza.grimaldi1853@posteo.example,gold,2500.0,VIC,Ballarat,3500,2025-04-02,False,True,2026-01-03
+1854,Jia,Dubois,jia.dubois1854@proton.example,bronze,1250.0,SA,Mount Gambier,5063,2024-04-04,True,True,2026-01-03
+1855,Mei,Blackwood,mei.blackwood1855@yahoo.example,bronze,19000.0,SA,Murray Bridge,5290,2025-12-10,False,True,2026-01-03
+1856,Mira,Villanueva,mira.villanueva1856@outlook.example,gold,1750.0,QLD,Cairns,4217,2025-09-30,True,True,2026-01-03
+1857,Ida,Reyes,ida.reyes1857@proton.example,bronze,4750.0,TAS,Burnie,7000,2024-05-01,False,True,2026-01-03
+1858,Lachlan,Lindqvist,lachlan.lindqvist1858@mailbox.example,bronze,3250.0,ACT,Belconnen,2611,2024-01-29,False,True,2026-01-03
+1859,Juno,Zielinski,juno.zielinski1859@mailbox.example,silver,1750.0,WA,Albany,6530,2024-07-05,True,True,2026-01-03
+1860,Cheng,Delacroix,cheng.delacroix1860@mailbox.example,gold,1250.0,NT,Katherine,0810,2025-02-20,True,True,2026-01-03
+1861,Jae,Delacroix,jae.delacroix1861@gmail.example,silver,3500.0,WA,Bunbury,6160,2025-11-20,False,True,2026-01-03
+1862,Ochieng,Torres,ochieng.torres1862@gmail.example,silver,12250.0,WA,Geraldton,6060,2024-12-10,False,True,2026-01-03
+1863,Freya,Gilmore,freya.gilmore1863@inbox.example,bronze,3750.0,NT,Katherine,0810,2024-06-26,False,True,2026-01-03
+1864,Cormac,Chowdhury,cormac.chowdhury1864@inbox.example,bronze,3250.0,ACT,Gungahlin,2900,2025-07-11,False,True,2026-01-03
+1865,Ruben,Laurent,ruben.laurent1865@proton.example,silver,24250.0,NT,Darwin,0850,2025-06-18,True,True,2026-01-03
+1866,Quentin,Stanton,quentin.stanton1866@yahoo.example,bronze,2500.0,NT,Palmerston,0800,2024-06-21,False,True,2026-01-03
+1867,Dechen,Brennan,dechen.brennan1867@inbox.example,silver,5500.0,ACT,Tuggeranong,2611,2024-11-19,True,True,2026-01-03
+1868,Xiulan,Kirkpatrick,xiulan.kirkpatrick1868@outlook.example,platinum,8500.0,NT,Katherine,0800,2024-11-01,True,True,2026-01-03
+1869,Harriet,Dubois,harriet.dubois1869@gmail.example,silver,10750.0,NSW,Coffs Harbour,2010,2024-10-26,False,True,2026-01-03
+1870,Elodie,Chakraborty,elodie.chakraborty1870@webmail.example,gold,6250.0,WA,Fremantle,6530,2024-08-08,False,True,2026-01-03
+1871,Grace,Holloway,grace.holloway1871@gmx.example,bronze,7000.0,SA,Mount Gambier,5000,2024-07-29,True,True,2026-01-03
+1872,Emeka,Khan,emeka.khan1872@yahoo.example,bronze,8000.0,NSW,Dubbo,2150,2025-03-17,False,True,2026-01-03
+1873,Felipe,Malik,felipe.malik1873@mailbox.example,bronze,15750.0,NT,Palmerston,0800,2025-09-26,True,True,2026-01-03
+1874,Theo,Laurent,theo.laurent1874@gmx.example,silver,24000.0,QLD,Mackay,4810,2025-03-27,False,True,2026-01-03
+1875,Laila,Stanton,laila.stanton1875@gmx.example,bronze,750.0,NSW,Dubbo,2150,2025-02-17,True,True,2026-01-03
+1876,Lars,Schneider,lars.schneider1876@yahoo.example,bronze,1750.0,QLD,Cairns,4870,2024-05-19,False,True,2026-01-03
+1877,Astrid,Petrov,astrid.petrov1877@fastmail.example,silver,4000.0,ACT,Canberra,2617,2024-03-08,True,True,2026-01-03
+1878,Javier,Pereira,javier.pereira1878@gmx.example,gold,3750.0,ACT,Gungahlin,2600,2025-09-25,False,True,2026-01-03
+1879,Aaliyah,Fontaine,aaliyah.fontaine1879@posteo.example,bronze,15750.0,VIC,Mildura,3050,2025-05-02,True,True,2026-01-03
+1880,Kai,Sullivan,kai.sullivan1880@proton.example,bronze,12750.0,VIC,Warrnambool,3220,2025-04-02,True,True,2026-01-03
+1881,Juno,Chowdhury,juno.chowdhury1881@mailbox.example,silver,20750.0,ACT,Gungahlin,2611,2025-06-12,False,True,2026-01-03
+1882,Ingrid,Martins,ingrid.martins1882@outlook.example,bronze,1250.0,SA,Whyalla,5000,2024-01-20,False,True,2026-01-03
+1883,Kai,Rahman,kai.rahman1883@yahoo.example,bronze,14000.0,ACT,Tuggeranong,2617,2024-04-21,True,True,2026-01-03
+1884,Antonio,Chakraborty,antonio.chakraborty1884@yahoo.example,silver,3750.0,TAS,Burnie,7000,2024-12-13,True,True,2026-01-03
+1885,Emiko,Fontaine,emiko.fontaine1885@outlook.example,silver,4500.0,NT,Darwin,0850,2024-10-31,True,True,2026-01-03
+1886,Tane,Yilmaz,tane.yilmaz1886@fastmail.example,bronze,7000.0,WA,Kalgoorlie,6000,2024-12-14,True,True,2026-01-03
+1887,Zeke,Trevelyan,zeke.trevelyan1887@posteo.example,bronze,19500.0,ACT,Tuggeranong,2900,2025-03-21,True,True,2026-01-03
+1888,Maeve,Torres,maeve.torres1888@posteo.example,bronze,13750.0,NSW,Dubbo,2830,2024-11-04,True,True,2026-01-03
+1889,Leo,Takahashi,leo.takahashi1889@gmail.example,bronze,12500.0,WA,Broome,6230,2025-03-12,True,True,2026-01-03
+1890,Kalinda,Takahashi,kalinda.takahashi1890@gmail.example,silver,14500.0,NT,Katherine,0810,2025-05-02,True,True,2026-01-03
+1891,Rafael,Mbeki,rafael.mbeki1891@inbox.example,bronze,15500.0,NT,Palmerston,0800,2025-05-04,False,True,2026-01-03
+1892,Zara,Kapoor,zara.kapoor1892@mailbox.example,gold,4250.0,SA,Mount Gambier,5290,2024-11-01,False,True,2026-01-03
+1893,Mahdi,Reyes,mahdi.reyes1893@fastmail.example,silver,11250.0,NSW,Dubbo,2500,2024-12-15,True,True,2026-01-03
+1894,Joachim,Villanueva,joachim.villanueva1894@fastmail.example,bronze,17750.0,NT,Alice Springs,0800,2024-10-25,True,True,2026-01-03
+1895,Katarina,Laurent,katarina.laurent1895@mailbox.example,bronze,13250.0,WA,Albany,6000,2025-11-24,True,True,2026-01-03
+1896,Micheline,Kaur,micheline.kaur1896@fastmail.example,bronze,14250.0,SA,Port Augusta,5290,2025-01-10,False,True,2026-01-03
+1897,Ingrid,Suzuki,ingrid.suzuki1897@yahoo.example,gold,7000.0,ACT,Tuggeranong,2600,2025-03-20,False,True,2026-01-03
+1898,Blake,Brennan,blake.brennan1898@fastmail.example,silver,18250.0,SA,Port Augusta,5063,2025-04-05,True,True,2026-01-03
+1899,Joachim,Wojcik,joachim.wojcik1899@yahoo.example,platinum,14500.0,NSW,Orange,2010,2025-06-26,True,True,2026-01-03
+1900,Alice,Jansen,alice.jansen1900@outlook.example,gold,17000.0,WA,Broome,6160,2025-04-14,True,True,2026-01-03
+1901,Laila,Davies,laila.davies1901@gmx.example,bronze,16500.0,WA,Geraldton,6430,2024-10-17,False,True,2026-01-03
+1902,Tane,Wickramasinghe,tane.wickramasinghe1902@proton.example,silver,1000.0,ACT,Tuggeranong,2600,2025-10-30,True,True,2026-01-03
+1903,Caitlin,Blackwood,caitlin.blackwood1903@gmail.example,silver,5500.0,SA,Adelaide,5290,2025-03-23,True,True,2026-01-03
+1904,Rosa,Chen,rosa.chen1904@webmail.example,silver,6750.0,SA,Whyalla,5063,2025-08-20,True,True,2026-01-03
+1905,Zeke,Kovacs,zeke.kovacs1905@mailbox.example,silver,18750.0,TAS,Devonport,7310,2024-01-22,True,True,2026-01-03
+1906,Jamal,Abbott,jamal.abbott1906@mailbox.example,silver,1000.0,NT,Katherine,0800,2025-03-25,False,True,2026-01-03
+1907,Nikolai,Fennimore,nikolai.fennimore1907@posteo.example,silver,7750.0,QLD,Gold Coast,4217,2024-04-12,True,True,2026-01-03
+1908,Genevieve,Gauthier,genevieve.gauthier1908@proton.example,silver,8250.0,QLD,Toowoomba,4000,2024-08-01,True,True,2026-01-03
+1909,Freya,Halloran,freya.halloran1909@mailbox.example,silver,17750.0,NSW,Dubbo,2500,2024-09-13,True,True,2026-01-03
+1910,Aroha,Kimura,aroha.kimura1910@fastmail.example,silver,5500.0,VIC,Geelong,3500,2024-06-14,True,True,2026-01-03
+1911,Mira,Hendricks,mira.hendricks1911@inbox.example,gold,1250.0,VIC,Warrnambool,3050,2024-08-07,True,False,2026-01-03
+1912,Daniela,Bonnet,daniela.bonnet1912@inbox.example,silver,7250.0,NSW,Newcastle,2830,2025-10-06,False,True,2026-01-03
+1913,Antonio,Fujimoto,antonio.fujimoto1913@webmail.example,silver,11500.0,WA,Geraldton,6230,2025-03-28,True,True,2026-01-03
+1914,Dechen,Boateng,dechen.boateng1914@mailbox.example,gold,3500.0,VIC,Mildura,3500,2025-06-09,False,True,2026-01-03
+1915,Nikolai,Esposito,nikolai.esposito1915@yahoo.example,silver,1750.0,WA,Geraldton,6160,2024-08-05,True,True,2026-01-03
+1916,Aaliyah,Hasegawa,aaliyah.hasegawa1916@gmx.example,gold,2500.0,NT,Palmerston,0800,2025-02-25,False,True,2026-01-03
+1917,Oliver,Reyes,oliver.reyes1917@gmail.example,silver,10000.0,NT,Alice Springs,0810,2024-07-02,True,True,2026-01-03
+1918,Javier,Kaczmarek,javier.kaczmarek1918@inbox.example,gold,8000.0,SA,Whyalla,5000,2025-06-05,False,True,2026-01-03
+1919,Noor,Petrov,noor.petrov1919@fastmail.example,bronze,1750.0,NT,Palmerston,0800,2025-09-28,True,True,2026-01-03
+1920,Zeke,Malik,zeke.malik1920@mailbox.example,gold,2000.0,NSW,Wollongong,2830,2024-10-03,True,True,2026-01-03
+1921,Hina,Abbott,hina.abbott1921@proton.example,silver,18250.0,ACT,Canberra,2617,2025-09-24,True,True,2026-01-03
+1922,Shreya,Sandoval,shreya.sandoval1922@mailbox.example,bronze,11500.0,VIC,Melbourne,3000,2025-02-05,True,True,2026-01-03
+1923,Ewan,Malik,ewan.malik1923@posteo.example,silver,4500.0,VIC,Ballarat,3000,2024-04-25,True,True,2026-01-03
+1924,Adrian,Dabrowski,adrian.dabrowski1924@fastmail.example,bronze,2250.0,NSW,Dubbo,2000,2024-06-25,True,True,2026-01-03
+1925,Selin,Gallagher,selin.gallagher1925@gmail.example,gold,3750.0,VIC,Bendigo,3000,2024-06-22,False,True,2026-01-03
+1926,Hina,Dubois,hina.dubois1926@mailbox.example,bronze,11500.0,QLD,Townsville,4870,2024-09-30,False,True,2026-01-03
+1927,Sasha,Aoki,sasha.aoki1927@gmx.example,bronze,6000.0,VIC,Geelong,3050,2025-12-22,True,True,2026-01-03
+1928,Malia,Ridgeway,malia.ridgeway1928@outlook.example,bronze,4750.0,QLD,Townsville,4051,2025-10-01,True,True,2026-01-03
+1929,Soren,Petrov,soren.petrov1929@fastmail.example,bronze,4250.0,WA,Geraldton,6000,2025-09-16,False,True,2026-01-03
+1930,Elias,Baptiste,elias.baptiste1930@webmail.example,gold,10000.0,SA,Whyalla,5000,2025-04-03,True,True,2026-01-03
+1931,Keanu,Kaur,keanu.kaur1931@posteo.example,silver,3250.0,TAS,Hobart,7320,2024-10-31,True,True,2026-01-03
+1932,Ewan,Delacroix,ewan.delacroix1932@gmx.example,gold,13750.0,WA,Fremantle,6725,2025-06-17,True,True,2026-01-03
+1933,Bruno,McAllister,bruno.mcallister1933@yahoo.example,bronze,8500.0,NT,Alice Springs,0800,2025-05-23,True,True,2026-01-03
+1934,Tadeo,Lundgren,tadeo.lundgren1934@inbox.example,platinum,500.0,QLD,Gold Coast,4700,2025-08-29,True,True,2026-01-03
+1935,Malia,Gilmore,malia.gilmore1935@gmx.example,bronze,16000.0,QLD,Mackay,4350,2024-07-16,True,True,2026-01-03
+1936,Nikolai,Costa,nikolai.costa1936@proton.example,bronze,16000.0,TAS,Hobart,7250,2024-10-27,False,True,2026-01-03
+1937,Ravi,Stanton,ravi.stanton1937@mailbox.example,gold,2000.0,SA,Murray Bridge,5000,2025-04-17,True,True,2026-01-03
+1938,Tamar,Hamilton,tamar.hamilton1938@gmx.example,bronze,1500.0,TAS,Burnie,7000,2025-10-29,False,True,2026-01-03
+1939,Giulia,Clarke,giulia.clarke1939@inbox.example,bronze,8500.0,NSW,Dubbo,2830,2024-05-17,True,True,2026-01-03
+1940,Uma,Sinclair,uma.sinclair1940@posteo.example,bronze,3000.0,ACT,Belconnen,2617,2024-01-17,True,True,2026-01-03
+1941,Nuala,Beauchamp,nuala.beauchamp1941@gmail.example,bronze,16250.0,NSW,Newcastle,2500,2024-01-20,True,True,2026-01-03
+1942,Cheng,Park,cheng.park1942@inbox.example,bronze,19500.0,QLD,Townsville,4810,2024-12-19,True,True,2026-01-03
+1943,Pedro,Halloran,pedro.halloran1943@inbox.example,bronze,5250.0,NT,Alice Springs,0810,2024-10-30,False,True,2026-01-03
+1944,Amelia,Mendoza,amelia.mendoza1944@webmail.example,silver,7500.0,QLD,Townsville,4870,2025-08-28,True,True,2026-01-03
+1945,Emeka,Kirkpatrick,emeka.kirkpatrick1945@yahoo.example,bronze,4750.0,QLD,Rockhampton,4051,2025-01-13,False,True,2026-01-03
+1946,Talia,Pinto,talia.pinto1946@gmx.example,bronze,10250.0,NT,Katherine,0810,2025-01-09,True,True,2026-01-03
+1947,Amara,Novak,amara.novak1947@gmx.example,silver,8500.0,NSW,Wagga Wagga,2060,2024-08-12,False,True,2026-01-03
+1948,Cormac,Walsh,cormac.walsh1948@webmail.example,bronze,1500.0,VIC,Bendigo,3121,2025-01-20,True,True,2026-01-03
+1949,Anika,Eriksen,anika.eriksen1949@outlook.example,bronze,14000.0,SA,Adelaide,5000,2024-01-17,False,True,2026-01-03
+1950,Nuala,Gallagher,nuala.gallagher1950@webmail.example,bronze,15000.0,ACT,Gungahlin,2617,2024-07-15,True,True,2026-01-03
+1951,Ebele,Eriksen,ebele.eriksen1951@inbox.example,silver,17000.0,TAS,Hobart,7250,2024-06-02,True,True,2026-01-03
+1952,Harriet,Barros,harriet.barros1952@yahoo.example,bronze,6750.0,NT,Darwin,0800,2025-02-28,False,True,2026-01-03
+1953,Malia,Rafferty,malia.rafferty1953@proton.example,bronze,10500.0,NSW,Dubbo,2150,2025-12-04,True,True,2026-01-03
+1954,Zofia,Esposito,zofia.esposito1954@proton.example,platinum,9000.0,NSW,Albury,2000,2025-08-03,False,True,2026-01-03
+1955,Khalid,Bianchi,khalid.bianchi1955@inbox.example,gold,15000.0,SA,Adelaide,5000,2025-06-27,True,True,2026-01-03
+1956,Andrea,Malik,andrea.malik1956@fastmail.example,silver,1000.0,NT,Alice Springs,0850,2025-08-19,False,True,2026-01-03
+1957,Sunil,Malik,sunil.malik1957@fastmail.example,silver,3750.0,NT,Alice Springs,0810,2024-04-22,False,True,2026-01-03
+1958,Viktor,Bergstrom,viktor.bergstrom1958@proton.example,bronze,10250.0,ACT,Tuggeranong,2617,2025-02-28,True,True,2026-01-03
+1959,Ebele,Wachowski,ebele.wachowski1959@fastmail.example,platinum,15250.0,SA,Murray Bridge,5000,2024-04-27,True,True,2026-01-03
+1960,Gabriel,Kalani,gabriel.kalani1960@mailbox.example,silver,18000.0,WA,Perth,6530,2024-10-19,False,True,2026-01-03
+1961,Chloe,Macpherson,chloe.macpherson1961@proton.example,silver,1750.0,TAS,Burnie,7320,2024-04-15,True,True,2026-01-03
+1962,Aaliyah,Delacroix,aaliyah.delacroix1962@posteo.example,gold,5750.0,QLD,Gold Coast,4870,2024-02-03,True,True,2026-01-03
+1963,Lian,Mbeki,lian.mbeki1963@posteo.example,bronze,6750.0,TAS,Launceston,7000,2024-04-16,True,True,2026-01-03
+1964,Tobias,Krishnan,tobias.krishnan1964@webmail.example,bronze,8000.0,SA,Adelaide,5000,2024-04-18,True,True,2026-01-03
+1965,Keanu,Ricci,keanu.ricci1965@outlook.example,silver,20000.0,WA,Albany,6230,2024-04-07,True,True,2026-01-03
+1966,Sofia,Barros,sofia.barros1966@gmx.example,bronze,1250.0,NT,Alice Springs,0870,2025-08-09,True,True,2026-01-03
+1967,Hina,Trevelyan,hina.trevelyan1967@inbox.example,gold,1500.0,SA,Port Augusta,5290,2025-04-07,True,True,2026-01-03
+1968,Nikolai,Brennan,nikolai.brennan1968@posteo.example,silver,8000.0,VIC,Melbourne,3050,2025-05-15,True,True,2026-01-03
+1969,Soren,Dubois,soren.dubois1969@posteo.example,platinum,12250.0,NSW,Albury,2060,2024-08-15,True,True,2026-01-03
+1970,Shreya,Sullivan,shreya.sullivan1970@outlook.example,bronze,11250.0,WA,Albany,6000,2025-08-22,False,True,2026-01-03
+1971,Amara,Farrell,amara.farrell1971@yahoo.example,bronze,4750.0,VIC,Mildura,3500,2024-06-26,False,True,2026-01-03
+1972,Cormac,Rossi,cormac.rossi1972@gmx.example,silver,12250.0,ACT,Belconnen,2600,2024-11-30,False,True,2026-01-03
+1973,Mira,Maguire,mira.maguire1973@outlook.example,bronze,2000.0,NT,Darwin,0810,2025-09-14,True,True,2026-01-03
+1974,Viktor,Novak,viktor.novak1974@mailbox.example,platinum,11750.0,NSW,Newcastle,2060,2024-08-25,False,True,2026-01-03
+1975,Felipe,Malik,felipe.malik1975@outlook.example,gold,15500.0,VIC,Shepparton,3121,2025-02-11,False,True,2026-01-03
+1976,Anika,Lindqvist,anika.lindqvist1976@yahoo.example,bronze,16750.0,QLD,Mackay,4870,2024-09-04,True,True,2026-01-03
+1977,Zeke,Gruber,zeke.gruber1977@proton.example,bronze,6500.0,NT,Katherine,0870,2024-01-04,True,True,2026-01-03
+1978,Zara,Torres,zara.torres1978@gmail.example,bronze,5500.0,SA,Murray Bridge,5000,2025-10-10,True,True,2026-01-03
+1979,Sunil,Lindqvist,sunil.lindqvist1979@outlook.example,bronze,3000.0,ACT,Canberra,2611,2024-09-08,True,True,2026-01-03
+1980,Theo,Kovacs,theo.kovacs1980@gmx.example,bronze,12500.0,NT,Darwin,0870,2024-06-26,True,True,2026-01-03
+1981,Amara,Varga,amara.varga1981@gmx.example,bronze,6250.0,NT,Palmerston,0810,2025-04-06,False,True,2026-01-03
+1982,Mahdi,Sokolov,mahdi.sokolov1982@proton.example,bronze,1750.0,TAS,Hobart,7320,2025-12-12,False,True,2026-01-03
+1983,Dmitri,Varga,dmitri.varga1983@posteo.example,bronze,11750.0,VIC,Warrnambool,3550,2024-10-23,False,False,2026-01-03
+1984,Manon,Kovacs,manon.kovacs1984@webmail.example,silver,8750.0,ACT,Gungahlin,2600,2025-04-16,True,True,2026-01-03
+1985,Maeve,Keating,maeve.keating1985@gmail.example,silver,10500.0,TAS,Hobart,7310,2025-07-01,False,True,2026-01-03
+1986,Diego,Pinto,diego.pinto1986@yahoo.example,bronze,4750.0,ACT,Tuggeranong,2611,2025-08-10,False,True,2026-01-03
+1987,Ivan,Marchetti,ivan.marchetti1987@yahoo.example,bronze,7750.0,NSW,Dubbo,2150,2024-02-15,False,True,2026-01-03
+1988,Chloe,Cabrera,chloe.cabrera1988@fastmail.example,bronze,5750.0,TAS,Devonport,7250,2025-08-21,False,True,2026-01-03
+1989,Diego,Macpherson,diego.macpherson1989@posteo.example,gold,13750.0,VIC,Bendigo,3500,2024-06-07,False,True,2026-01-03
+1990,Rafael,Ricci,rafael.ricci1990@inbox.example,silver,7500.0,SA,Adelaide,5600,2025-11-06,False,True,2026-01-03
+1991,Harriet,Oyelaran,harriet.oyelaran1991@gmail.example,bronze,13500.0,NT,Katherine,0810,2025-07-09,False,True,2026-01-03
+1992,Leilani,Cavanagh,leilani.cavanagh1992@webmail.example,bronze,14500.0,SA,Port Augusta,5063,2024-11-13,False,True,2026-01-03
+1993,Finn,Silva,finn.silva1993@posteo.example,silver,4250.0,WA,Kalgoorlie,6430,2024-04-08,False,True,2026-01-03
+1994,Javier,Sharma,javier.sharma1994@mailbox.example,gold,12750.0,NSW,Sydney,2500,2024-09-18,False,True,2026-01-03
+1995,Daniela,Sinclair,daniela.sinclair1995@posteo.example,silver,10000.0,ACT,Belconnen,2611,2024-07-08,True,True,2026-01-03
+1996,Ahmed,Diallo,ahmed.diallo1996@proton.example,bronze,9750.0,WA,Bunbury,6000,2025-11-24,False,True,2026-01-03
+1997,Alice,Moreau,alice.moreau1997@inbox.example,bronze,6500.0,NSW,Dubbo,2060,2024-10-23,False,True,2026-01-03
+1998,Viktor,Mikkelsen,viktor.mikkelsen1998@gmail.example,silver,4000.0,NSW,Wollongong,2500,2025-07-22,True,True,2026-01-03
+1999,Ophelia,Laurent,ophelia.laurent1999@webmail.example,bronze,9000.0,NT,Alice Springs,0870,2025-11-12,True,True,2026-01-03
+2000,Emiko,Bakker,emiko.bakker2000@fastmail.example,bronze,11000.0,SA,Murray Bridge,5000,2025-08-02,True,True,2026-01-03
+2001,Thandiwe,Zhang,thandiwe.zhang2001@fastmail.example,bronze,2750.0,QLD,Cairns,4217,2024-08-13,True,True,2026-01-03
+2002,Kai,Ghosh,kai.ghosh2002@fastmail.example,gold,9250.0,NSW,Dubbo,2060,2024-01-20,True,True,2026-01-03
+2003,Jonas,Sasaki,jonas.sasaki2003@yahoo.example,gold,8500.0,SA,Murray Bridge,5600,2025-05-28,True,True,2026-01-03
+2004,Giulia,Whitaker,giulia.whitaker2004@proton.example,platinum,9250.0,VIC,Melbourne,3220,2025-08-03,True,True,2026-01-03
+2005,Jamal,Hamilton,jamal.hamilton2005@yahoo.example,silver,1250.0,QLD,Rockhampton,4870,2025-09-29,True,True,2026-01-03
+2006,Reza,Eriksen,reza.eriksen2006@webmail.example,bronze,6500.0,VIC,Warrnambool,3550,2024-11-05,True,True,2026-01-03
+2007,Joachim,Bakker,joachim.bakker2007@gmx.example,silver,7000.0,WA,Albany,6725,2025-07-27,False,True,2026-01-03
+2008,Ravi,Park,ravi.park2008@webmail.example,bronze,11000.0,QLD,Toowoomba,4700,2024-08-13,True,True,2026-01-03
+2009,Tariq,Brennan,tariq.brennan2009@proton.example,gold,7750.0,TAS,Launceston,7310,2024-11-30,True,True,2026-01-03
+2010,Kai,Fujimoto,kai.fujimoto2010@yahoo.example,bronze,5250.0,QLD,Rockhampton,4350,2025-04-04,True,True,2026-01-03
+2011,Astrid,Baptiste,astrid.baptiste2011@webmail.example,silver,10250.0,NSW,Newcastle,2450,2025-10-22,False,True,2026-01-03
+2012,Lars,Chen,lars.chen2012@webmail.example,bronze,6500.0,QLD,Rockhampton,4350,2025-08-13,True,True,2026-01-03
+2013,Tariq,Bergstrom,tariq.bergstrom2013@webmail.example,silver,6250.0,QLD,Townsville,4870,2025-09-24,False,True,2026-01-03
+2014,Oliver,Vasquez,oliver.vasquez2014@gmail.example,bronze,20750.0,VIC,Bendigo,3000,2024-08-05,True,True,2026-01-03
+2015,Yara,Malik,yara.malik2015@posteo.example,bronze,1000.0,WA,Kalgoorlie,6430,2025-05-27,False,True,2026-01-03
+2016,Keanu,Pereira,keanu.pereira2016@inbox.example,silver,2250.0,ACT,Tuggeranong,2600,2025-01-17,True,True,2026-01-03
+2017,Yara,Diallo,yara.diallo2017@posteo.example,bronze,16500.0,NSW,Coffs Harbour,2830,2024-12-07,True,True,2026-01-03
+2018,Valentina,Hendricks,valentina.hendricks2018@proton.example,bronze,4500.0,NT,Palmerston,0850,2024-06-07,True,True,2026-01-03
+2019,Diego,Brennan,diego.brennan2019@gmx.example,silver,16500.0,WA,Perth,6725,2024-09-24,True,True,2026-01-03
+2020,Theo,Lundgren,theo.lundgren2020@gmx.example,silver,12750.0,SA,Whyalla,5700,2025-02-11,False,True,2026-01-03
+2021,Jasmin,Sinclair,jasmin.sinclair2021@gmx.example,platinum,4500.0,NT,Alice Springs,0800,2025-03-06,True,True,2026-01-03
+2022,Amelia,Grimaldi,amelia.grimaldi2022@outlook.example,bronze,13250.0,ACT,Belconnen,2600,2025-09-21,True,True,2026-01-03
+2023,Rosa,Kapoor,rosa.kapoor2023@posteo.example,bronze,7250.0,NT,Katherine,0810,2024-04-04,False,True,2026-01-03
+2024,Jasmin,Coelho,jasmin.coelho2024@posteo.example,platinum,9500.0,NT,Katherine,0850,2025-09-02,True,True,2026-01-03
+2025,Ibrahim,Halloran,ibrahim.halloran2025@yahoo.example,bronze,21000.0,SA,Port Augusta,5700,2025-12-23,False,True,2026-01-03
+2026,Aroha,Barros,aroha.barros2026@webmail.example,bronze,5750.0,SA,Adelaide,5700,2025-12-09,True,True,2026-01-03
+2027,Mohan,Mendoza,mohan.mendoza2027@yahoo.example,bronze,750.0,QLD,Cairns,4000,2024-09-28,False,True,2026-01-03
+2028,Jasmin,Dimitriou,jasmin.dimitriou2028@proton.example,bronze,12000.0,NSW,Coffs Harbour,2010,2025-03-17,True,True,2026-01-03
+2029,Shreya,Ahmadi,shreya.ahmadi2029@gmx.example,bronze,8500.0,SA,Adelaide,5063,2024-08-14,True,True,2026-01-03
+2030,Adrian,Kaminski,adrian.kaminski2030@gmail.example,silver,2500.0,WA,Albany,6430,2024-12-20,False,True,2026-01-03
+2031,Jia,Gruber,jia.gruber2031@gmail.example,gold,7250.0,VIC,Melbourne,3050,2025-06-27,False,True,2026-01-03
+2032,Caitlin,Ibrahim,caitlin.ibrahim2032@fastmail.example,silver,7250.0,TAS,Devonport,7000,2024-03-31,True,True,2026-01-03
+2033,Cormac,Sandoval,cormac.sandoval2033@mailbox.example,bronze,12750.0,ACT,Tuggeranong,2611,2025-07-12,True,True,2026-01-03
+2034,Aroha,Kalani,aroha.kalani2034@fastmail.example,silver,2750.0,NT,Darwin,0810,2025-01-06,True,True,2026-01-03
+2035,Ahmed,Mikkelsen,ahmed.mikkelsen2035@fastmail.example,silver,11250.0,QLD,Toowoomba,4700,2024-09-24,True,True,2026-01-03
+2036,Anders,Tahir,anders.tahir2036@gmx.example,bronze,10250.0,SA,Whyalla,5290,2024-07-13,False,True,2026-01-03
+2037,Hassan,Cabrera,hassan.cabrera2037@gmx.example,bronze,7750.0,TAS,Burnie,7000,2025-01-15,False,True,2026-01-03
+2038,Alejandro,Ridgeway,alejandro.ridgeway2038@yahoo.example,bronze,17000.0,NSW,Wagga Wagga,2150,2024-08-14,True,True,2026-01-03
+2039,Clara,Krishnan,clara.krishnan2039@proton.example,silver,13750.0,VIC,Bendigo,3350,2025-07-23,True,True,2026-01-03
+2040,Ingrid,Adeyemi,ingrid.adeyemi2040@inbox.example,bronze,21750.0,SA,Mount Gambier,5290,2025-11-27,False,True,2026-01-03
+2041,Micheline,Kaminski,micheline.kaminski2041@webmail.example,platinum,9500.0,TAS,Launceston,7310,2025-06-22,True,True,2026-01-03
+2042,Kai,Abbott,kai.abbott2042@mailbox.example,bronze,2750.0,ACT,Canberra,2900,2024-03-01,False,True,2026-01-03
+2043,Rhys,Jarvis,rhys.jarvis2043@fastmail.example,silver,21500.0,VIC,Bendigo,3121,2025-06-05,False,True,2026-01-03
+2044,Javier,Keating,javier.keating2044@gmx.example,silver,5250.0,QLD,Rockhampton,4000,2024-12-31,True,True,2026-01-03
+2045,Lian,Fitzgerald,lian.fitzgerald2045@gmx.example,silver,8250.0,QLD,Mackay,4810,2025-03-29,True,True,2026-01-03
+2046,Mira,Jansen,mira.jansen2046@gmx.example,gold,17000.0,QLD,Toowoomba,4350,2024-12-29,False,True,2026-01-03
+2047,Lucia,Rafferty,lucia.rafferty2047@outlook.example,bronze,10750.0,VIC,Melbourne,3220,2024-10-04,True,True,2026-01-03
+2048,Kiara,Barros,kiara.barros2048@proton.example,bronze,1750.0,NT,Darwin,0800,2024-05-03,False,True,2026-01-03
+2049,Khalid,Bergstrom,khalid.bergstrom2049@proton.example,silver,18250.0,WA,Perth,6230,2024-06-05,True,True,2026-01-03
+2050,Josephine,Eriksen,josephine.eriksen2050@webmail.example,bronze,15000.0,ACT,Tuggeranong,2600,2024-09-06,False,True,2026-01-03
+2051,Ebele,Takahashi,ebele.takahashi2051@gmx.example,bronze,12000.0,TAS,Devonport,7320,2024-04-12,True,True,2026-01-03
+2052,Rafael,Mahmood,rafael.mahmood2052@inbox.example,silver,2250.0,NT,Darwin,0850,2025-04-20,True,True,2026-01-03
+2053,Tadeo,Suzuki,tadeo.suzuki2053@gmx.example,silver,7750.0,SA,Adelaide,5700,2025-08-30,False,True,2026-01-03
+2054,Astrid,Boateng,astrid.boateng2054@webmail.example,gold,5500.0,VIC,Bendigo,3220,2024-04-14,True,True,2026-01-03
+2055,Ophelia,Quintero,ophelia.quintero2055@yahoo.example,bronze,19250.0,QLD,Cairns,4810,2025-04-26,True,True,2026-01-03
+2056,Ewan,Villanueva,ewan.villanueva2056@fastmail.example,silver,14500.0,WA,Broome,6000,2025-08-01,True,True,2026-01-03
+2057,Aisha,Holloway,aisha.holloway2057@posteo.example,silver,3250.0,TAS,Launceston,7250,2024-10-09,True,True,2026-01-03
+2058,Ruben,Reyes,ruben.reyes2058@gmail.example,platinum,14750.0,TAS,Devonport,7000,2025-07-07,True,True,2026-01-03
+2059,Wren,Lindqvist,wren.lindqvist2059@mailbox.example,silver,10500.0,TAS,Devonport,7320,2024-05-05,True,True,2026-01-03
+2060,Reza,Dabrowski,reza.dabrowski2060@proton.example,bronze,750.0,NSW,Coffs Harbour,2000,2024-12-09,True,True,2026-01-03
+2061,Mei,Kaczmarek,mei.kaczmarek2061@gmail.example,gold,5500.0,TAS,Hobart,7000,2025-10-01,True,True,2026-01-03
+2062,Mahdi,Jaganathan,mahdi.jaganathan2062@yahoo.example,silver,4250.0,WA,Fremantle,6060,2025-07-16,True,True,2026-01-03
+2063,Lars,Bergstrom,lars.bergstrom2063@outlook.example,bronze,10250.0,QLD,Cairns,4051,2025-10-05,False,True,2026-01-03
+2064,Quentin,Mbeki,quentin.mbeki2064@webmail.example,bronze,1250.0,TAS,Hobart,7250,2025-08-13,False,True,2026-01-03
+2065,Ophelia,Rossi,ophelia.rossi2065@outlook.example,silver,4000.0,ACT,Gungahlin,2600,2024-01-02,True,True,2026-01-03
+2066,Mohan,Rahman,mohan.rahman2066@fastmail.example,bronze,5250.0,NT,Palmerston,0800,2024-07-31,False,True,2026-01-03
+2067,Paloma,Tahir,paloma.tahir2067@proton.example,bronze,5500.0,QLD,Cairns,4217,2025-04-28,False,True,2026-01-03
+2068,Camila,Marchetti,camila.marchetti2068@outlook.example,silver,9750.0,NT,Palmerston,0800,2024-08-13,True,True,2026-01-03
+2069,Esther,Clarke,esther.clarke2069@proton.example,platinum,12250.0,QLD,Townsville,4810,2024-01-23,True,True,2026-01-03
+2070,Aaliyah,Macpherson,aaliyah.macpherson2070@yahoo.example,silver,8250.0,VIC,Melbourne,3220,2024-01-13,False,True,2026-01-03
+2071,Isabela,Villanueva,isabela.villanueva2071@fastmail.example,bronze,1250.0,NT,Katherine,0850,2025-05-11,True,True,2026-01-03
+2072,Tadeo,Yilmaz,tadeo.yilmaz2072@gmail.example,silver,9750.0,NSW,Coffs Harbour,2500,2024-12-26,False,True,2026-01-03
+2073,Malia,Lindqvist,malia.lindqvist2073@gmail.example,silver,13250.0,NT,Darwin,0800,2025-02-21,True,True,2026-01-03
+2074,Bianca,Brennan,bianca.brennan2074@mailbox.example,bronze,750.0,VIC,Shepparton,3550,2025-06-25,False,True,2026-01-03
+2075,Talia,Kalani,talia.kalani2075@mailbox.example,bronze,11500.0,VIC,Melbourne,3350,2024-06-29,True,True,2026-01-03
+2076,Sofia,Zielinski,sofia.zielinski2076@fastmail.example,bronze,11750.0,VIC,Ballarat,3350,2024-10-21,False,True,2026-01-03
+2077,Amelia,Beauchamp,amelia.beauchamp2077@webmail.example,bronze,500.0,NSW,Newcastle,2650,2024-04-23,False,True,2026-01-03
+2078,Jae,Sinclair,jae.sinclair2078@gmx.example,bronze,12750.0,TAS,Launceston,7250,2024-11-03,True,True,2026-01-03
+2079,Jonas,Chowdhury,jonas.chowdhury2079@gmail.example,bronze,4500.0,SA,Mount Gambier,5000,2025-05-19,True,True,2026-01-03
+2080,Eleni,Jansen,eleni.jansen2080@webmail.example,silver,15000.0,TAS,Devonport,7250,2024-04-29,True,True,2026-01-03
+2081,Yusuf,Quintero,yusuf.quintero2081@outlook.example,bronze,8500.0,QLD,Gold Coast,4051,2024-07-16,True,True,2026-01-03
+2082,Imani,Jarvis,imani.jarvis2082@mailbox.example,gold,7500.0,VIC,Ballarat,3550,2025-09-19,True,True,2026-01-03
+2083,Zofia,Thornton,zofia.thornton2083@fastmail.example,gold,1250.0,TAS,Burnie,7310,2025-07-19,False,True,2026-01-03
+2084,Manon,Bakker,manon.bakker2084@mailbox.example,bronze,7500.0,VIC,Melbourne,3550,2025-11-02,False,True,2026-01-03
+2085,Genevieve,Adeyemi,genevieve.adeyemi2085@outlook.example,bronze,12250.0,TAS,Devonport,7000,2024-05-12,False,True,2026-01-03
+2086,Mei,Cabrera,mei.cabrera2086@gmx.example,platinum,14750.0,QLD,Rockhampton,4217,2024-10-09,True,True,2026-01-03
+2087,Astrid,Laurent,astrid.laurent2087@yahoo.example,platinum,11500.0,SA,Adelaide,5000,2025-11-27,True,True,2026-01-03
+2088,Alice,Blackwood,alice.blackwood2088@fastmail.example,bronze,9000.0,QLD,Townsville,4217,2025-06-17,True,True,2026-01-03
+2089,Shreya,Zielinski,shreya.zielinski2089@outlook.example,bronze,12750.0,ACT,Tuggeranong,2600,2025-02-10,False,True,2026-01-03
+2090,Ivan,Kapoor,ivan.kapoor2090@webmail.example,bronze,16500.0,NSW,Wollongong,2450,2024-09-06,True,True,2026-01-03
+2091,Rina,Krishnan,rina.krishnan2091@outlook.example,gold,6000.0,WA,Perth,6530,2025-01-09,False,True,2026-01-03
+2092,Imani,Chakraborty,imani.chakraborty2092@gmail.example,bronze,9500.0,TAS,Burnie,7310,2025-06-19,False,True,2026-01-03
+2093,Kiara,Vasquez,kiara.vasquez2093@posteo.example,bronze,4250.0,TAS,Launceston,7250,2025-01-29,False,True,2026-01-03
+2094,Jonas,Hamilton,jonas.hamilton2094@webmail.example,bronze,3750.0,TAS,Hobart,7310,2024-01-10,True,True,2026-01-03
+2095,Arjun,Eriksen,arjun.eriksen2095@proton.example,bronze,10250.0,NSW,Orange,2830,2024-12-29,False,True,2026-01-03
+2096,Valentina,Vasquez,valentina.vasquez2096@gmx.example,bronze,6000.0,VIC,Warrnambool,3550,2024-12-26,True,True,2026-01-03
+2097,Ingrid,Silva,ingrid.silva2097@outlook.example,bronze,3750.0,ACT,Belconnen,2600,2025-05-12,True,True,2026-01-03
+2098,Ahmed,Karlsson,ahmed.karlsson2098@webmail.example,silver,9750.0,QLD,Townsville,4700,2024-09-25,True,True,2026-01-03
+2099,Khalid,Mendoza,khalid.mendoza2099@gmail.example,gold,18500.0,NT,Darwin,0800,2025-08-31,True,True,2026-01-03
+2100,Manon,Chakraborty,manon.chakraborty2100@posteo.example,bronze,11500.0,WA,Fremantle,6000,2024-01-23,False,True,2026-01-03
+2101,Laila,Vance,laila.vance2101@yahoo.example,gold,18000.0,QLD,Rockhampton,4350,2024-11-22,False,True,2026-01-03
+2102,Mohan,Papadopoulos,mohan.papadopoulos2102@webmail.example,silver,17000.0,VIC,Melbourne,3220,2024-03-15,True,True,2026-01-03
+2103,Elias,Andersen,elias.andersen2103@inbox.example,bronze,6500.0,NSW,Newcastle,2500,2025-03-26,True,True,2026-01-03
+2104,Jae,Alvarez,jae.alvarez2104@outlook.example,platinum,22750.0,NSW,Newcastle,2060,2024-06-27,True,True,2026-01-03
+2105,Mahdi,Lundgren,mahdi.lundgren2105@gmx.example,bronze,3000.0,QLD,Gold Coast,4700,2024-10-20,False,True,2026-01-03
+2106,Caitlin,Ivanov,caitlin.ivanov2106@gmx.example,bronze,500.0,SA,Port Augusta,5000,2025-10-12,False,True,2026-01-03
+2107,Lucia,Dabrowski,lucia.dabrowski2107@outlook.example,gold,18000.0,QLD,Gold Coast,4000,2025-04-26,False,True,2026-01-03
+2108,Leo,Rossi,leo.rossi2108@inbox.example,silver,5750.0,WA,Geraldton,6060,2024-12-07,True,True,2026-01-03
+2109,Priya,Chakraborty,priya.chakraborty2109@proton.example,bronze,4250.0,QLD,Mackay,4217,2024-03-20,True,True,2026-01-03
+2110,Priya,Duarte,priya.duarte2110@inbox.example,gold,15750.0,WA,Fremantle,6230,2025-05-16,True,True,2026-01-03
+2111,Chloe,Boateng,chloe.boateng2111@posteo.example,silver,18750.0,VIC,Shepparton,3500,2025-12-05,False,True,2026-01-03
+2112,Laila,Yamamoto,laila.yamamoto2112@outlook.example,gold,14000.0,NT,Katherine,0800,2024-11-19,True,True,2026-01-03
+2113,Sunil,Duarte,sunil.duarte2113@yahoo.example,bronze,16000.0,QLD,Townsville,4051,2024-07-08,True,True,2026-01-03
+2114,Alejandro,Donnelly,alejandro.donnelly2114@mailbox.example,silver,9000.0,SA,Murray Bridge,5063,2025-03-09,True,True,2026-01-03
+2115,Giulia,Davies,giulia.davies2115@outlook.example,gold,11250.0,WA,Fremantle,6000,2024-10-13,False,True,2026-01-03
+2116,Cormac,Kaur,cormac.kaur2116@fastmail.example,silver,22500.0,SA,Adelaide,5063,2025-05-14,False,True,2026-01-03
+2117,Kalinda,Takahashi,kalinda.takahashi2117@fastmail.example,gold,2500.0,TAS,Hobart,7320,2025-03-19,False,True,2026-01-03
+2118,Selin,Chowdhury,selin.chowdhury2118@mailbox.example,gold,9750.0,WA,Geraldton,6430,2024-08-15,False,True,2026-01-03
+2119,Carlos,Zhang,carlos.zhang2119@inbox.example,bronze,11500.0,TAS,Hobart,7320,2025-10-16,False,True,2026-01-03
+2120,Josephine,Quintero,josephine.quintero2120@proton.example,bronze,3750.0,TAS,Launceston,7310,2024-05-20,True,True,2026-01-03
+2121,Petra,Sokolov,petra.sokolov2121@gmx.example,silver,5000.0,NT,Katherine,0870,2025-01-30,False,True,2026-01-03
+2122,Leo,Bianchi,leo.bianchi2122@yahoo.example,platinum,7500.0,WA,Fremantle,6725,2025-11-21,True,True,2026-01-03
+2123,Finn,Bonnet,finn.bonnet2123@gmail.example,silver,13750.0,NSW,Orange,2150,2024-04-05,True,True,2026-01-03
+2124,Olamide,Rafferty,olamide.rafferty2124@mailbox.example,gold,15500.0,VIC,Bendigo,3630,2025-10-07,False,True,2026-01-03
+2125,Paloma,Maguire,paloma.maguire2125@gmail.example,silver,16750.0,WA,Geraldton,6530,2025-06-16,False,True,2026-01-03
+2126,Ochieng,Zielinski,ochieng.zielinski2126@mailbox.example,platinum,11750.0,TAS,Launceston,7310,2025-12-26,True,True,2026-01-03
+2127,Tamar,Pahlavi,tamar.pahlavi2127@gmx.example,silver,14500.0,TAS,Launceston,7000,2024-10-27,False,True,2026-01-03
+2128,Theo,Schneider,theo.schneider2128@inbox.example,gold,11250.0,QLD,Townsville,4810,2025-10-27,True,True,2026-01-03
+2129,Carlos,Garcia,carlos.garcia2129@yahoo.example,gold,7500.0,WA,Perth,6160,2025-08-28,True,True,2026-01-03
+2130,Anika,Leclerc,anika.leclerc2130@posteo.example,bronze,13000.0,ACT,Canberra,2600,2024-01-16,False,True,2026-01-03
+2131,Dechen,Kaczmarek,dechen.kaczmarek2131@mailbox.example,bronze,2250.0,SA,Mount Gambier,5290,2024-05-10,False,True,2026-01-03
+2132,Ochieng,Kovacs,ochieng.kovacs2132@gmx.example,platinum,2750.0,TAS,Launceston,7250,2025-07-12,False,True,2026-01-03
+2133,Laila,Nguyen,laila.nguyen2133@gmail.example,gold,7500.0,ACT,Canberra,2617,2024-03-03,True,True,2026-01-03
+2134,Maeve,Beauchamp,maeve.beauchamp2134@webmail.example,bronze,8750.0,TAS,Launceston,7000,2025-07-04,False,True,2026-01-03
+2135,Andrea,Mahmood,andrea.mahmood2135@gmail.example,bronze,3250.0,TAS,Hobart,7310,2025-12-06,True,True,2026-01-03
+2136,Aroha,Nakamura,aroha.nakamura2136@yahoo.example,platinum,21000.0,TAS,Launceston,7000,2024-10-19,False,True,2026-01-03
+2137,Dmitri,Chowdhury,dmitri.chowdhury2137@posteo.example,silver,12000.0,VIC,Geelong,3050,2025-05-04,True,True,2026-01-03
+2138,Amelia,Ghosh,amelia.ghosh2138@fastmail.example,gold,8750.0,WA,Broome,6000,2024-10-21,False,True,2026-01-03
+2139,Lucia,Bergstrom,lucia.bergstrom2139@inbox.example,bronze,7750.0,QLD,Mackay,4217,2024-12-03,False,True,2026-01-03
+2140,Tadeo,Diallo,tadeo.diallo2140@inbox.example,bronze,9750.0,NT,Darwin,0870,2025-06-16,True,True,2026-01-03
+2141,Anders,Fennimore,anders.fennimore2141@fastmail.example,silver,2750.0,SA,Mount Gambier,5063,2024-05-17,True,True,2026-01-03
+2142,Noor,Gilmore,noor.gilmore2142@inbox.example,gold,1250.0,TAS,Hobart,7320,2024-11-08,False,True,2026-01-03
+2143,Kofi,Bakker,kofi.bakker2143@posteo.example,bronze,8250.0,VIC,Geelong,3630,2024-01-12,True,True,2026-01-03
+2144,Mira,Tanaka,mira.tanaka2144@posteo.example,bronze,14750.0,NSW,Albury,2150,2024-05-21,False,True,2026-01-03
+2145,Giulia,Schneider,giulia.schneider2145@proton.example,platinum,11250.0,VIC,Ballarat,3050,2025-10-12,True,True,2026-01-03
+2146,Mateo,Wickramasinghe,mateo.wickramasinghe2146@yahoo.example,silver,17250.0,TAS,Hobart,7320,2025-07-01,True,True,2026-01-03
+2147,Jasmin,Leclerc,jasmin.leclerc2147@gmx.example,bronze,2000.0,TAS,Launceston,7310,2025-05-27,True,True,2026-01-03
+2148,Uma,Holloway,uma.holloway2148@fastmail.example,bronze,14000.0,VIC,Ballarat,3350,2025-01-11,False,True,2026-01-03
+2149,Noor,Mikkelsen,noor.mikkelsen2149@webmail.example,silver,20500.0,WA,Bunbury,6160,2025-06-25,False,True,2026-01-03
+2150,Jia,Bianchi,jia.bianchi2150@outlook.example,silver,19750.0,QLD,Mackay,4217,2025-06-04,False,True,2026-01-03
+2151,Rina,Sasaki,rina.sasaki2151@inbox.example,gold,21750.0,QLD,Townsville,4051,2024-08-19,True,True,2026-01-03
+2152,Tadeo,Walsh,tadeo.walsh2152@outlook.example,bronze,8750.0,WA,Perth,6230,2024-12-22,True,True,2026-01-03
+2153,Quentin,Pereira,quentin.pereira2153@gmail.example,bronze,9750.0,QLD,Mackay,4700,2025-09-15,True,True,2026-01-03
+2154,Khalid,Andersen,khalid.andersen2154@gmail.example,bronze,2250.0,ACT,Belconnen,2617,2025-01-23,False,True,2026-01-03
+2155,Clara,Fitzgerald,clara.fitzgerald2155@inbox.example,silver,14000.0,WA,Broome,6060,2025-02-12,True,True,2026-01-03
+2156,Ramona,Vasquez,ramona.vasquez2156@gmx.example,bronze,14750.0,ACT,Tuggeranong,2611,2025-10-13,False,True,2026-01-03
+2157,Ochieng,Davies,ochieng.davies2157@proton.example,gold,1750.0,QLD,Gold Coast,4700,2025-12-26,True,True,2026-01-03
+2158,Keanu,Cabrera,keanu.cabrera2158@proton.example,bronze,2000.0,VIC,Bendigo,3630,2025-04-20,False,True,2026-01-03
+2159,Cheng,Nakamura,cheng.nakamura2159@mailbox.example,bronze,21750.0,NSW,Wollongong,2300,2025-11-14,True,True,2026-01-03
+2160,Thandiwe,Mahmood,thandiwe.mahmood2160@outlook.example,bronze,1500.0,VIC,Melbourne,3630,2024-04-25,False,True,2026-01-03
+2161,Antonio,Macpherson,antonio.macpherson2161@mailbox.example,silver,14750.0,TAS,Hobart,7000,2025-11-29,True,True,2026-01-03
+2162,Oliver,Hoffman,oliver.hoffman2162@mailbox.example,silver,2500.0,NSW,Orange,2000,2025-04-28,False,True,2026-01-03
+2163,Ahmed,Fujimoto,ahmed.fujimoto2163@mailbox.example,bronze,7250.0,QLD,Townsville,4051,2024-05-01,True,True,2026-01-03
+2164,Quentin,Mikkelsen,quentin.mikkelsen2164@posteo.example,gold,13000.0,QLD,Toowoomba,4051,2025-11-04,True,True,2026-01-03
+2165,Petra,Malik,petra.malik2165@webmail.example,silver,24250.0,QLD,Townsville,4700,2024-09-07,False,True,2026-01-03
+2166,Hassan,Gallagher,hassan.gallagher2166@mailbox.example,bronze,15000.0,ACT,Canberra,2611,2025-03-27,False,True,2026-01-03
+2167,Tane,Wojcik,tane.wojcik2167@gmx.example,bronze,11750.0,QLD,Rockhampton,4870,2024-10-11,True,True,2026-01-03
+2168,Oliver,Arnold,oliver.arnold2168@fastmail.example,bronze,4750.0,NT,Darwin,0800,2024-02-11,False,True,2026-01-03
+2169,Javier,Sullivan,javier.sullivan2169@yahoo.example,bronze,1250.0,SA,Adelaide,5600,2025-08-16,True,True,2026-01-03
+2170,Genevieve,Pinto,genevieve.pinto2170@inbox.example,bronze,15500.0,TAS,Hobart,7250,2024-02-21,False,True,2026-01-03
+2171,Ewan,Macpherson,ewan.macpherson2171@proton.example,bronze,18000.0,QLD,Brisbane,4350,2025-12-02,False,True,2026-01-03
+2172,Ingrid,Garcia,ingrid.garcia2172@gmx.example,platinum,10750.0,VIC,Ballarat,3500,2024-09-02,True,True,2026-01-03
+2173,Freya,Zielinski,freya.zielinski2173@posteo.example,bronze,8750.0,TAS,Hobart,7250,2024-02-10,False,True,2026-01-03
+2174,Hassan,Cavanagh,hassan.cavanagh2174@yahoo.example,gold,5500.0,NSW,Albury,2150,2024-08-24,True,False,2026-01-03
+2175,Emeka,Mbeki,emeka.mbeki2175@gmx.example,gold,8000.0,VIC,Melbourne,3000,2024-12-23,True,True,2026-01-03
+2176,Caitlin,Cabrera,caitlin.cabrera2176@gmx.example,platinum,23750.0,SA,Mount Gambier,5700,2025-11-27,True,True,2026-01-03
+2177,Jia,Villanueva,jia.villanueva2177@posteo.example,gold,2750.0,ACT,Canberra,2617,2025-12-02,True,True,2026-01-03
+2178,Arjun,Keating,arjun.keating2178@fastmail.example,silver,13250.0,NT,Alice Springs,0870,2024-04-07,False,True,2026-01-03
+2179,Andrea,Bonnet,andrea.bonnet2179@webmail.example,gold,9750.0,ACT,Tuggeranong,2617,2024-01-27,True,True,2026-01-03
+2180,Mohan,Sharma,mohan.sharma2180@mailbox.example,bronze,4250.0,TAS,Hobart,7320,2025-08-12,False,True,2026-01-03
+2181,Nuala,Kovacs,nuala.kovacs2181@fastmail.example,bronze,6250.0,ACT,Tuggeranong,2900,2025-05-10,True,True,2026-01-03
+2182,Daniela,Cabrera,daniela.cabrera2182@gmail.example,gold,8000.0,SA,Whyalla,5700,2024-06-04,True,True,2026-01-03
+2183,Caitlin,Macpherson,caitlin.macpherson2183@gmx.example,bronze,10250.0,NT,Darwin,0850,2024-06-05,False,True,2026-01-03
+2184,Diego,Bergstrom,diego.bergstrom2184@fastmail.example,bronze,5000.0,VIC,Shepparton,3121,2025-07-13,True,True,2026-01-03
+2185,Anders,Blackwood,anders.blackwood2185@yahoo.example,silver,7750.0,WA,Perth,6530,2025-10-11,False,True,2026-01-03
+2186,Lucia,Petrov,lucia.petrov2186@gmail.example,bronze,2750.0,SA,Mount Gambier,5600,2025-11-12,True,True,2026-01-03
+2187,Ludwig,Kaminski,ludwig.kaminski2187@fastmail.example,silver,19000.0,NT,Palmerston,0850,2024-10-29,True,True,2026-01-03
+2188,Tane,Hasegawa,tane.hasegawa2188@fastmail.example,silver,11750.0,VIC,Mildura,3500,2025-03-22,False,True,2026-01-03
+2189,Kiara,Silva,kiara.silva2189@proton.example,bronze,1500.0,VIC,Ballarat,3630,2025-10-13,True,True,2026-01-03
+2190,Andrea,Beauchamp,andrea.beauchamp2190@gmx.example,bronze,13000.0,NT,Katherine,0850,2025-08-08,True,True,2026-01-03
+2191,Hina,Kimura,hina.kimura2191@gmx.example,bronze,6500.0,ACT,Tuggeranong,2611,2025-01-09,False,True,2026-01-03
+2192,Sofia,Beauchamp,sofia.beauchamp2192@gmx.example,bronze,5750.0,QLD,Cairns,4700,2024-12-30,True,True,2026-01-03
+2193,Ewan,Mbeki,ewan.mbeki2193@webmail.example,silver,7500.0,QLD,Rockhampton,4051,2024-01-31,False,True,2026-01-03
+2194,Marcus,Zielinski,marcus.zielinski2194@outlook.example,bronze,8000.0,VIC,Ballarat,3350,2024-07-12,True,True,2026-01-03
+2195,Jonas,Sinclair,jonas.sinclair2195@webmail.example,bronze,2250.0,ACT,Belconnen,2617,2024-08-15,False,True,2026-01-03
+2196,Rohan,Farrell,rohan.farrell2196@outlook.example,bronze,2500.0,WA,Albany,6060,2024-06-06,True,True,2026-01-03
+2197,Esther,Papadopoulos,esther.papadopoulos2197@gmail.example,gold,14000.0,SA,Mount Gambier,5063,2025-09-24,False,True,2026-01-03
+2198,Xiulan,Rasmussen,xiulan.rasmussen2198@mailbox.example,gold,8500.0,NT,Palmerston,0800,2024-10-17,False,True,2026-01-03
+2199,Ruben,Halloran,ruben.halloran2199@gmx.example,gold,7750.0,TAS,Devonport,7000,2024-11-04,True,True,2026-01-03
+2200,Hassan,Chen,hassan.chen2200@gmx.example,bronze,14250.0,QLD,Brisbane,4700,2024-10-05,True,True,2026-01-03

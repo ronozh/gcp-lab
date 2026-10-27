@@ -2,11 +2,10 @@
 # Bootstrap enabled the ones Terraform itself needs (iam, storage, ...).
 locals {
   apis = [
-    "compute.googleapis.com",            # default network used by Serverless Spark
     "dataproc.googleapis.com",           # Serverless Spark
-    "bigquery.googleapis.com",           # warehouse + Iceberg catalog
+    "bigquery.googleapis.com",           # warehouse + the Iceberg catalog Spark uses (BigQuery metastore)
     "bigqueryconnection.googleapis.com", # connection BigQuery uses to write Iceberg files to GCS
-    "biglake.googleapis.com",            # BigLake metastore
+    "biglake.googleapis.com",            # BigLake (managed Iceberg tables)
     "datacatalog.googleapis.com",        # policy tags (phase 4)
     "bigquerydatapolicy.googleapis.com", # data masking (phase 4)
   ]
