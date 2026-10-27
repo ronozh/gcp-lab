@@ -1,12 +1,13 @@
 # Fine-grained access on gold (≈ Lake Formation LF-tags + data filters).
 #
-#   taxonomy "pii" ── policy tag "high"   → customer_email                      ── masking: SHA256
-#                  └─ policy tag "medium" → customer_first_name, customer_last_name ── masking: ALWAYS_NULL
+#   taxonomy "pii" ── policy tag "high"   → customer_email
+#                  └─ policy tag "medium" → customer_first_name, customer_last_name
 #
 # Who sees what on a tagged column:
-#   fine-grained reader (lab-admin)        → clear value
-#   masked reader       (lab-analyst*)     → masked value
-#   anyone else (even the project owner)   → "Access Denied" when selecting the column
+#   fine-grained reader (lab-admin)                    → the value
+#   anyone else (analysts, even the project owner)     → "Access Denied" when selecting the column
+# Masking (hash/NULL instead of denied) needs data policies, which need a GCP Organization:
+# not available on a personal (gmail) account.
 # dbt attaches the tags to columns (gold.yml) and creates the row access policies (post-hooks).
 
 resource "google_data_catalog_taxonomy" "pii" {
@@ -20,20 +21,6 @@ resource "google_data_catalog_policy_tag" "pii" {
   for_each     = toset(["high", "medium"])
   taxonomy     = google_data_catalog_taxonomy.pii.id
   display_name = each.key
-}
-
-resource "google_bigquery_datapolicy_data_policy" "mask" {
-  for_each = {
-    high   = "SHA256"      # email -> hash: still joinable/countable, not readable
-    medium = "ALWAYS_NULL" # names -> NULL
-  }
-  location         = var.region
-  data_policy_id   = "pii_${each.key}_mask"
-  policy_tag       = google_data_catalog_policy_tag.pii[each.key].name
-  data_policy_type = "DATA_MASKING_POLICY"
-  data_masking_policy {
-    predefined_expression = each.value
-  }
 }
 
 # Test identities. You impersonate them to see what each one gets.
@@ -76,16 +63,4 @@ resource "google_data_catalog_policy_tag_iam_member" "admin_fine_grained" {
   policy_tag = each.value.name
   role       = "roles/datacatalog.categoryFineGrainedReader"
   member     = "serviceAccount:${google_service_account.test["lab-admin"].email}"
-}
-
-# lab-analyst, lab-analyst-nsw: masked values.
-resource "google_bigquery_datapolicy_data_policy_iam_member" "analyst_masked" {
-  for_each = {
-    for pair in setproduct(keys(google_bigquery_datapolicy_data_policy.mask), ["lab-analyst", "lab-analyst-nsw"]) :
-    "${pair[0]}-${pair[1]}" => { policy = pair[0], sa = pair[1] }
-  }
-  location       = var.region
-  data_policy_id = google_bigquery_datapolicy_data_policy.mask[each.value.policy].data_policy_id
-  role           = "roles/bigquerydatapolicy.maskedReader"
-  member         = "serviceAccount:${google_service_account.test[each.value.sa].email}"
 }
