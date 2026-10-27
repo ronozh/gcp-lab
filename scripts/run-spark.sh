@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
-# Submit a PySpark job to Serverless Spark and wait for it. Used by run-bronze.sh and run-gold.sh.
+# Low-level helper: submit a PySpark entry file to Serverless Spark and wait. Use run-bronze.sh / run-gold.sh.
 # Usage: scripts/run-spark.sh <entry.py> [job args...]      (--batch-id is added automatically)
 #   LOCAL=1 ...   run your local code (dev loop, no push needed); default: the code CI deployed
 set -euo pipefail
 root=$(cd "$(dirname "$0")/.." && pwd)
 source "$root/bootstrap/.env"
-entry=${1:?usage: run-spark.sh <entry.py> [args...]}; shift
+entry=${1:-}
+if [ ! -f "$root/spark/$entry" ] || [[ "$entry" != *.py ]]; then
+  echo "run-spark.sh is the low-level helper: its first argument is a Spark entry file (bronze_ingest.py, gold_features.py)." >&2
+  echo "To load a feed use: scripts/run-bronze.sh <feed> [incremental|full_refresh]" >&2
+  exit 2
+fi
+shift
 
 if [ "${LOCAL:-}" = 1 ]; then
   tmp=$(mktemp -d)
