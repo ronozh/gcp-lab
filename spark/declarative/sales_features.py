@@ -71,3 +71,9 @@ def spend_band():
 
 def build(fct_sales: DataFrame) -> DataFrame:
     return transform.run(fct_sales, keep=KEYS)
+
+
+@transform.register()
+def test_col():
+    """TEMP: schema evolution test."""
+    return F.lit("test")
