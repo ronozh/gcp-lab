@@ -27,7 +27,8 @@ echo "environment dev: deploy from main only"
 gh api -X PUT "repos/$repo/environments/dev" --silent --input - <<'JSON'
 {"deployment_branch_policy": {"protected_branches": false, "custom_branch_policies": true}}
 JSON
-if ! gh api "repos/$repo/environments/dev/deployment-branch-policies" --jq '.branch_policies[].name' | grep -qx main; then
+policies=$(gh api "repos/$repo/environments/dev/deployment-branch-policies" --jq '.branch_policies[].name')
+if ! grep -qx main <<<"$policies"; then
   gh api -X POST "repos/$repo/environments/dev/deployment-branch-policies" --silent -f name=main -f type=branch
 fi
 

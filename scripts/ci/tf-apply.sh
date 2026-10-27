@@ -10,7 +10,11 @@ log=$(mktemp)
 
 show_errors() {
   echo "::error::terraform failed"
-  grep -E -A12 '^(│ )?Error' "$log" | head -60 || tail -20 "$log"
+  if grep -qE '^(│ )?Error' "$log"; then
+    grep -E -A12 '^(│ )?Error' "$log" | head -60 || true
+  else
+    tail -20 "$log"
+  fi
 }
 
 echo "== init"
@@ -24,7 +28,7 @@ set -e
 [ $rc -eq 1 ] && { show_errors; exit 1; }
 
 # Counts per action + resource types only (addresses can contain values, e.g. emails).
-summary=$(terraform -chdir="$dir" show -json tfplan | jq -r '
+summary=$(terraform -chdir="$dir" show -json tfplan 2>>"$log" | jq -r '
   [.resource_changes[]? | select(.change.actions != ["no-op"])] as $c
   | if ($c | length) == 0 then "No changes."
     else ($c | group_by(.change.actions | join("/"))

@@ -29,6 +29,7 @@ env:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -48,6 +49,7 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     environment: dev
+    timeout-minutes: 30 # a hung apply would hold the state lock
     permissions:
       contents: read
       id-token: write # GitHub OIDC token -> GCP Workload Identity Federation
@@ -59,11 +61,14 @@ jobs:
       - name: Write config from secrets
         env:
           GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          GCP_WIF_PROVIDER: ${{ secrets.GCP_WIF_PROVIDER }}
           TF_STATE_BUCKET: ${{ secrets.TF_STATE_BUCKET }}
           TFVARS: ${{ secrets.TFVARS }}
         run: |
           # The auth action exports the project ID as env vars, which are printed in later step headers.
           echo "::add-mask::$GCP_PROJECT_ID"
+          # Project number appears in GCP errors and in Google-managed SA emails.
+          n=${GCP_WIF_PROVIDER#projects/}; echo "::add-mask::${n%%/*}"
           grep -oE '[[:alnum:]._%+-]+@[[:alnum:].-]+' <<<"$TFVARS" | while read -r e; do echo "::add-mask::$e"; done
           printf 'bucket = "%s"\n' "$TF_STATE_BUCKET" > terraform/backend.hcl
           printf '%s\n' "$TFVARS" > terraform/terraform.tfvars
