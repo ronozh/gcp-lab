@@ -44,7 +44,7 @@ Day 8 of all 4 feeds lands in `gs://<project-id>-landing/ecommerce/<feed>/2026-0
 ```bash
 scripts/run-bronze.sh transaction
 ```
-Expect `files_to_load=1` (only the new file), `validation passed`, then `loaded files=1 rows=1695`. If another batch is running, the script prints `waiting: …` and starts by itself.
+Expect `files_to_load=1` (only the new file), then `loaded files=1`. If another batch is running, the script prints `waiting: …` and starts by itself.
 
 While it runs, show Console → **Dataproc → Serverless → Batches** (logs), or talk through `spark/bronze/` (config-driven: FeedConfig + schema per feed).
 

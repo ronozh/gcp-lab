@@ -4,8 +4,6 @@ Every option has a sensible default, so a feed config only states what differs.
 New options must have defaults too, so existing configs keep working.
 """
 from dataclasses import dataclass, fields
-from typing import Optional
-
 from pyspark.sql.types import StructType
 
 
@@ -16,7 +14,6 @@ class FeedConfig:
     domain: str = "ecommerce"                   # landing prefix: <domain>/<name>/<date>/<file>
     file_glob: str = "*/*.csv"                  # under <domain>/<name>/
     business_date_regex: str = r"/(\d{4}-\d{2}-\d{2})/"   # where the business date sits in the path
-    ctrl_suffix: Optional[str] = ".ctrl"        # control file (record_count); None = no validation
 
     # Spark CSV reader options
     format: str = "csv"

@@ -51,28 +51,6 @@ def read(spark: SparkSession, cfg: FeedConfig, files: list) -> DataFrame:
                     F.monotonically_increasing_id().alias("_read_order")))
 
 
-def validate(spark: SparkSession, cfg: FeedConfig, landing: str, files: list, counts: dict) -> list:
-    """Rows per file must equal the record_count in its control file. Returns errors (empty = good)."""
-    if cfg.ctrl_suffix is None:
-        return []
-    ctrl_of = {f: f.rsplit(".", 1)[0] + cfg.ctrl_suffix for f in files}
-    ctrl_glob = cfg.file_glob.rsplit(".", 1)[0] + cfg.ctrl_suffix          # */*.csv -> */*.ctrl
-    existing = set(list_files(spark, f"{landing}/{cfg.domain}/{cfg.name}/{ctrl_glob}"))
-    expected = {}
-    if existing:
-        rows = (spark.read.option("header", True).csv(sorted(existing))
-                .select("record_count", F.col("_metadata.file_path").alias("path")).collect())
-        expected = {r["path"]: int(r["record_count"]) for r in rows}
-    errors = []
-    for f in files:
-        name = f.rsplit("/", 1)[1]
-        if ctrl_of[f] not in existing:
-            errors.append(f"{name}: missing {cfg.ctrl_suffix}")
-        elif expected.get(ctrl_of[f]) != counts.get(f, 0):
-            errors.append(f"{name}: rows {counts.get(f, 0)} != ctrl {expected.get(ctrl_of[f])}")
-    return errors
-
-
 def add_meta(df: DataFrame, cfg: FeedConfig, landing: str, batch_id: str, mode: str) -> DataFrame:
     """Provenance columns, all prefixed _meta_."""
     m = F.col("_metadata")
@@ -95,7 +73,7 @@ def add_meta(df: DataFrame, cfg: FeedConfig, landing: str, batch_id: str, mode: 
 
 
 def ingest(spark: SparkSession, cfg: FeedConfig, landing: str, batch_id: str, mode: str) -> None:
-    """Load one feed. Raises if any file fails validation; then nothing is written."""
+    """Load one feed: new files (incremental) or all files (full_refresh)."""
     start = time.time()
     table = f"{CATALOG}.{NAMESPACE}.{cfg.name}"
     replace = mode == "full_refresh" or not spark.catalog.tableExists(table)
@@ -107,20 +85,7 @@ def ingest(spark: SparkSession, cfg: FeedConfig, landing: str, batch_id: str, mo
         log.info("feed=%s nothing to do", cfg.name)
         return
 
-    df = read(spark, cfg, files)
-    counts = {r[0]: r[1] for r in df.groupBy("_metadata.file_path").count().collect()}
-    errors = validate(spark, cfg, landing, files, counts)
-    if errors:
-        for e in errors:
-            log.error("feed=%s validation failed: %s", cfg.name, e)
-        raise ValueError(f"[{cfg.name}] validation failed, nothing written: {errors}")
-    log.info("feed=%s validation passed (row counts = %s)", cfg.name, cfg.ctrl_suffix)
-    for f in files:
-        if counts.get(f, 0) == 0:
-            log.warning("feed=%s empty file %s: no rows, so it is re-read on every incremental run",
-                        cfg.name, f.rsplit("/", 1)[1])
-
-    out = add_meta(df, cfg, landing, batch_id, mode).writeTo(table)
+    out = add_meta(read(spark, cfg, files), cfg, landing, batch_id, mode).writeTo(table)
     if replace:
         # One commit: readers never see an empty table. (BigQuery time travel only reaches back to here.)
         # Explicit location: <warehouse>/bronze/<feed> (the catalog default would be <warehouse>/bronze.db/<feed>).
@@ -130,5 +95,4 @@ def ingest(spark: SparkSession, cfg: FeedConfig, landing: str, batch_id: str, mo
          .createOrReplace())
     else:
         out.append()
-    log.info("feed=%s loaded files=%d rows=%d seconds=%.1f",
-             cfg.name, len(files), sum(counts.values()), time.time() - start)
+    log.info("feed=%s loaded files=%d seconds=%.1f", cfg.name, len(files), time.time() - start)

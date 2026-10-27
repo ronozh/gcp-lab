@@ -56,8 +56,7 @@ spark/
    - `incremental`: landing files whose path isn't in bronze `_meta_file_path` yet;
    - `full_refresh`: all landing files.
 2. **Read** with the feed's CSV options and schema (`parse_mode=FAILFAST`). A malformed value fails the write: there's no commit, so the table is unchanged, though stray data files may remain.
-3. **Validate** rows per file = `record_count` in its `.ctrl` (a missing `.ctrl` is an error too). If any file fails, the job fails and **nothing is written**.
-4. **Add `_meta_*` columns:**
+3. **Add `_meta_*` columns:**
 
    | Column | From |
    |---|---|
@@ -66,7 +65,7 @@ spark/
    | `_meta_record_number` | 1..n per file, in read order. Spark has no CSV line numbers; exact when a file is read as one split (< 128 MB) |
    | `_meta_business_date` | the date folder in the path (also the partition column) |
    | `_meta_processed_ts`, `_meta_batch_id`, `_meta_load_mode` | this run |
-5. **Write:**
+4. **Write:**
    - `incremental`: `append()`;
    - `full_refresh` (or first load): `createOrReplace()`. That's one commit: readers never see an empty table. BigQuery time travel only reaches back to the latest replace.
 
@@ -92,29 +91,19 @@ bq ls bronze                                                              # EXTE
 bq query --nouse_legacy_sql --location=$REGION \
   'SELECT _meta_business_date, _meta_file_name, _meta_load_mode, COUNT(*) n, MAX(_meta_record_number) last_rec
    FROM bronze.transaction GROUP BY 1,2,3 ORDER BY 1'
-cat data/sample/ecommerce/transaction/2026-01-01/*.ctrl                    # compare record_count
 gcloud storage ls gs://$PROJECT_ID-lake/iceberg/bronze/transaction/metadata/   # Iceberg snapshots
 ```
 
 ## Try it
 - **Idempotency:** run `scripts/run-bronze.sh transaction` twice. The second run logs `files_to_load=0` and `nothing to do`.
 - **Full refresh:** run it with `full_refresh`, then query `_meta_load_mode`: every row says `full_refresh`, and the count is unchanged.
-- **Bad file:** fake a day 9 whose `.ctrl` count is wrong. The batch fails, and bronze is unchanged.
-  ```bash
-  L=gs://$PROJECT_ID-landing/ecommerce/transaction
-  gcloud storage cp $L/2026-01-08/transaction_20260108235959.csv $L/2026-01-09/transaction_20260109235959.csv
-  printf 'file_name,record_count\ntransaction_20260109235959.csv,1\n' | gcloud storage cp - $L/2026-01-09/transaction_20260109235959.ctrl
-  scripts/run-bronze.sh transaction          # ERROR bronze: ... rows 1695 != ctrl 1
-  gcloud storage rm -r $L/2026-01-09/        # clean up
-  ```
 - **Logs:** Console → Dataproc → Serverless → Batches → your batch → Output.
 
 ## Logs (Cloud Logging ≈ CloudWatch Logs)
 The job logs with Python `logging`: logger `bronze`, to stdout. Serverless Spark ships driver output to **Cloud Logging**; nothing is written to local files (the VMs are deleted after each batch).
 ```
 2026-10-27 10:16:09 INFO bronze: feed=campaign files_to_load=8
-2026-10-27 10:16:21 INFO bronze: feed=campaign validation passed (row counts = .ctrl)
-2026-10-27 10:16:36 INFO bronze: feed=campaign loaded files=8 rows=144 seconds=31.3
+2026-10-27 10:16:36 INFO bronze: feed=campaign loaded files=8 seconds=31.3
 ```
 | Where | How |
 |---|---|
@@ -122,7 +111,7 @@ The job logs with Python `logging`: logger `bronze`, to stdout. Serverless Spark
 | Console → **Logs Explorer** | Query: `resource.type="cloud_dataproc_batch" "bronze:"` |
 | CLI | `gcloud logging read 'resource.type="cloud_dataproc_batch" AND resource.labels.batch_id="<batch>" AND "bronze:"' --order=asc --format='value(jsonPayload.message)'` |
 
-Search for text such as `validation failed`. Python log levels are **not** mapped to Cloud Logging severity, so `severity>=ERROR` finds nothing.
+Search for text such as `feed=transaction`. Python log levels are **not** mapped to Cloud Logging severity, so `severity>=ERROR` finds nothing.
 
 ## Why a batch takes ~3 minutes for 3 MB
 - **~75 s:** Google provisions the VMs.
@@ -134,7 +123,7 @@ Serverless suits scheduled jobs, not a tight dev loop.
 ## Gotchas
 - **Quota:** a new batch fails with `CPUS_ALL_REGIONS … available 0` until the previous one has released its machines.
 - **Timestamps:** the files have local times with no zone, so `event_ts` is `TimestampNTZType` → Iceberg `timestamp` → BigQuery **DATETIME** (as snowflake-lab's TIMESTAMP_NTZ). A plain `TimestampType` would treat them as UTC.
-- **Empty file:** a 0-row file passes validation but adds no rows, so it is re-read on every incremental run (logged as a warning).
+- **Empty file:** a 0-row file adds no rows, so it is re-read on every incremental run.
 - **Time travel:** `SELECT … FROM bronze.<feed> FOR SYSTEM_TIME AS OF <timestamp>` works from BigQuery, but only back to the last `full_refresh` ("no snapshot active at requested read time" before that).
 - **Reserved names:** BigQuery rejects columns starting `_FILE_`, `_TABLE_` or `_PARTITION`; `_meta_file_name` is fine because it starts with `_meta`.
 - **Catalog keys:** the runtime's bundled catalog reads `gcp_project` / `gcp_location`. Upstream Iceberg docs say `gcp.bigquery.project-id`, which doesn't work here.
