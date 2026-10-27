@@ -21,11 +21,11 @@ models:
     columns:
       # Policy tags (column-level security): only fine-grained readers (lab-admin) may select these.
       - name: customer_email
-        policy_tags: ["{{ env_var('PII_HIGH_TAG') }}"]
+        policy_tags: ["{{ env_var('PII_TAG') }}"]
       - name: customer_first_name
-        policy_tags: ["{{ env_var('PII_MEDIUM_TAG') }}"]
+        policy_tags: ["{{ env_var('PII_TAG') }}"]
       - name: customer_last_name
-        policy_tags: ["{{ env_var('PII_MEDIUM_TAG') }}"]
+        policy_tags: ["{{ env_var('PII_TAG') }}"]
       - name: transaction_id
         data_tests: [unique, not_null]
       - name: customer_state

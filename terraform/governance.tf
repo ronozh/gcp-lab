@@ -1,7 +1,6 @@
 # Fine-grained access on gold (≈ Lake Formation LF-tags + data filters).
 #
-#   taxonomy "pii" ── policy tag "high"   → customer_email
-#                  └─ policy tag "medium" → customer_first_name, customer_last_name
+#   taxonomy "classification" ── policy tag "pii" → customer_email, customer_first_name, customer_last_name
 #
 # Who sees what on a tagged column:
 #   fine-grained reader (lab-admin)                    → the value
@@ -11,16 +10,21 @@
 # dbt attaches the tags to columns (gold.yml) and creates the row access policies (post-hooks).
 
 resource "google_data_catalog_taxonomy" "pii" {
-  display_name           = "pii"
+  display_name           = "classification"
   region                 = var.region
   activated_policy_types = ["FINE_GRAINED_ACCESS_CONTROL"]
   depends_on             = [google_project_service.api]
 }
 
 resource "google_data_catalog_policy_tag" "pii" {
-  for_each     = toset(["high", "medium"])
   taxonomy     = google_data_catalog_taxonomy.pii.id
-  display_name = each.key
+  display_name = "pii"
+}
+
+# Was two tags (high, medium): keep "high" as the single tag, drop "medium".
+moved {
+  from = google_data_catalog_policy_tag.pii["high"]
+  to   = google_data_catalog_policy_tag.pii
 }
 
 # Test identities. You impersonate them to see what each one gets.
@@ -57,10 +61,14 @@ resource "google_service_account_iam_member" "owner_impersonates_test" {
   member             = "user:${var.owner_email}"
 }
 
-# lab-admin: clear values on both tags.
+# lab-admin: may read pii columns.
+moved {
+  from = google_data_catalog_policy_tag_iam_member.admin_fine_grained["high"]
+  to   = google_data_catalog_policy_tag_iam_member.admin_fine_grained
+}
+
 resource "google_data_catalog_policy_tag_iam_member" "admin_fine_grained" {
-  for_each   = google_data_catalog_policy_tag.pii
-  policy_tag = each.value.name
+  policy_tag = google_data_catalog_policy_tag.pii.name
   role       = "roles/datacatalog.categoryFineGrainedReader"
   member     = "serviceAccount:${google_service_account.test["lab-admin"].email}"
 }

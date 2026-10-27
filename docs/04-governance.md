@@ -8,15 +8,15 @@
 
 ```
                  gold.fct_sales
- columns:  customer_email ── policy tag pii/high ─┐   only "fine-grained readers" of the tag
-           customer_first/last_name ── pii/medium ┘   may SELECT these columns (others: Access Denied)
+ columns:  customer_email, customer_first_name, customer_last_name ── policy tag classification/pii
+           only "fine-grained readers" of the tag may SELECT these columns (others: Access Denied)
  rows:     row access policy nsw_only → lab-analyst-nsw sees customer_state = 'NSW'
            row access policy all_rows → you, lab-admin, lab-analyst see everything
 ```
 
 | GCP | Lake Formation ≈ | Note |
 |---|---|---|
-| **Taxonomy** `pii` + **policy tags** `high`, `medium` | LF-tag `pii` with values | Created by Terraform; attached to columns by dbt |
+| **Taxonomy** `classification` + **policy tag** `pii` | LF-tag `classification=pii` | Created by Terraform; attached to columns by dbt. One tag protects every column it's attached to, in any table |
 | **Fine-grained reader** role on a tag | LF-tag grant (SELECT on tagged columns) | Without it, selecting the column fails, **even for the project owner** (a guardrail: the owner can grant it to themselves; see Try it) |
 | **Row access policy** (`FILTER USING …`, `GRANT TO …`) | Data filter (row filter) | Once a table has *any* policy, a user in **no** policy sees **0 rows** |
 | Data masking policy (hash / NULL) | Cell-level masking | **Not used:** needs a GCP **Organization**, which a personal gmail project has none of |
@@ -40,7 +40,7 @@ Analysts query PII-free columns normally: `SELECT * EXCEPT (customer_email, cust
 | Taxonomy, policy tags, test SAs, IAM (tag reader, dataset viewer, job user, you may impersonate them) | `terraform/governance.tf` |
 | Tags on columns | `dbt/models/gold/gold.yml` (`policy_tags`) + `+persist_docs: {columns: true}` |
 | Row access policies | `dbt/models/gold/gold.yml` → `fct_sales` `post_hook` |
-| Tag IDs (contain the project id, so not in git) | looked up by `scripts/run-dbt.sh` → `PII_HIGH_TAG`, `PII_MEDIUM_TAG` |
+| Tag ID (contains the project id, so not in git) | looked up by `scripts/run-dbt.sh` → `PII_TAG`, used in `gold.yml` |
 
 ## Commands
 
@@ -67,7 +67,7 @@ gcloud data-catalog taxonomies list --location=$REGION                          
 Console: BigQuery → `gold.fct_sales` → **Schema** (policy tag icon) · BigQuery → **Policy tags** (taxonomy, who can read).
 
 ## Try it
-- **Grant yourself PII:** Console → BigQuery → Policy tags → `pii` → `high` → Add principal → you, role **Fine-Grained Reader** (`roles/datacatalog.categoryFineGrainedReader`). After ~1 minute, `bq query --nouse_legacy_sql 'SELECT customer_email FROM gold.fct_sales LIMIT 1'` works, but `SELECT customer_first_name …` still fails (tag `medium`). Remove the grant afterwards (Remove principal).
+- **Grant yourself PII:** Console → BigQuery → Policy tags → `classification` → `pii` → Add principal → you, role **Fine-Grained Reader** (`roles/datacatalog.categoryFineGrainedReader`). After ~1 minute, `SELECT * FROM gold.fct_sales` works. Remove the grant afterwards (Remove principal).
 - **Remove a grantee:** take `lab-analyst` out of `all_rows` in `gold.yml`, then build and run the test script. It now sees **0 rows**, not an error.
 
 ## Gotchas
