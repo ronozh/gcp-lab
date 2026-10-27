@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 # Submit the bronze ingest job to Serverless Spark and wait for it.
-# Usage: scripts/run-bronze.sh [--reload '<regex>']
-#   JOB=spark/bronze_ingest.py scripts/run-bronze.sh   # run your local copy (dev loop, no push needed)
+# Usage: scripts/run-bronze.sh <feed> [incremental|full_refresh]
+#   LOCAL=1 scripts/run-bronze.sh <feed> ...   # run your local copy (dev loop, no push needed)
 set -euo pipefail
 root=$(cd "$(dirname "$0")/.." && pwd)
 source "$root/bootstrap/.env"
+feed=${1:?usage: run-bronze.sh <feed> [incremental|full_refresh]}
+mode=${2:-incremental}
 
-job=${JOB:-gs://${PROJECT_ID}-code/spark/bronze_ingest.py}   # default: the copy CI deployed
-batch="bronze-$(date +%Y%m%d-%H%M%S)"
+if [ "${LOCAL:-}" = 1 ]; then
+  tmp=$(mktemp -d)
+  (cd "$root/spark" && zip -qr "$tmp/bronze.zip" bronze -x '*__pycache__*')
+  job="$root/spark/bronze_ingest.py"; py_files="$tmp/bronze.zip"      # gcloud uploads them to --deps-bucket
+else
+  job="gs://${PROJECT_ID}-code/spark/bronze_ingest.py"; py_files="gs://${PROJECT_ID}-code/spark/bronze.zip"   # deployed by CI
+fi
+batch="bronze-${feed}-$(date +%Y%m%d-%H%M%S)"
 
 props=(
   # Smallest footprint: 4-core driver + 2 x 4-core executors = 12 vCPU (the free-trial quota).
@@ -31,5 +39,6 @@ gcloud dataproc batches submit pyspark "$job" \
   --service-account="spark-runner@${PROJECT_ID}.iam.gserviceaccount.com" \
   --subnet=default \
   --deps-bucket="gs://${PROJECT_ID}-code" \
+  --py-files="$py_files" \
   --properties="$(IFS=,; echo "${props[*]}")" \
-  -- --landing="gs://${PROJECT_ID}-landing" --batch-id="$batch" "$@"
+  -- --feed="$feed" --mode="$mode" --landing="gs://${PROJECT_ID}-landing" --batch-id="$batch"

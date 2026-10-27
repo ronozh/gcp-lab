@@ -1,50 +1,86 @@
 # 02 · Bronze: PySpark on Serverless Spark → Iceberg
 
-**What this phase does:** raw CSV files in GCS become typed Iceberg tables in `bronze`, loaded incrementally by file name and readable from BigQuery.
+**What this phase does:** one feed's raw CSV files in GCS become a typed Iceberg table in `bronze`, readable from BigQuery.
+
+## Mental model in one line
+
+```
+run-bronze.sh <feed> [incremental|full_refresh]  =  one Spark batch  =  one feed  ->  bronze.<feed>
+```
+- **incremental** (default): load the feed's files that aren't in bronze yet, and **append**.
+- **full_refresh**: load **all** the feed's files and **replace** the table in one commit.
 
 ## The flow
 
 ```
 data/sample ─ingest/upload.sh─▶ gs://<project-id>-landing/ecommerce/<feed>/<date>/<feed>_<ts>.csv + .ctrl
                                         │
-        scripts/run-bronze.sh ─▶ Serverless Spark batch (runs as spark-runner, 12 vCPU, ~2-3 min)
-                                        │  spark/bronze_ingest.py
+     scripts/run-bronze.sh <feed> ─▶ Serverless Spark batch (runs as spark-runner, 12 vCPU)
+                                        │  bronze_ingest.py + bronze.zip (config, schema, ingest)
                                         ▼
             Iceberg catalog "lake" (BigQuery metastore)
               ├─ data + metadata files ─▶ gs://<project-id>-lake/iceberg/bronze.db/<feed>/
               └─ table registered in BigQuery dataset `bronze` ─▶ SELECT from BigQuery (read-only)
 ```
 
-## Mental model (AWS ≈)
+## GCP vs AWS
 
 | GCP | AWS ≈ | Note |
 |---|---|---|
 | **Serverless Spark batch** (Dataproc Serverless) | EMR Serverless job / Glue job | No cluster. You submit a job; Google starts the machines, runs it, removes them. Billed per use |
-| **Runtime version** `2.3` | EMR release label | Spark 3.5, Scala 2.13, Java 17. **Already includes Iceberg + the BigQuery metastore catalog** |
+| **Runtime version** `2.3` | EMR release label | Spark 3.5, Scala 2.13, Java 17, Python 3.11. **Already includes Iceberg + the BigQuery metastore catalog** |
 | **BigQuery metastore catalog** | Glue Data Catalog as Iceberg catalog | Iceberg namespace = BigQuery dataset. Spark writes; BigQuery sees the table |
 | **Iceberg table** | Iceberg on S3 | Data files (Parquet) + metadata (snapshots) in the bucket |
 | `spark-runner` SA | EMR job execution role | What the job is allowed to touch |
 
 **One writer per table:** Spark owns bronze. BigQuery can only *read* these tables, using **your** credentials (they are plain external tables: no connection, so no row/column security). Gold, written by BigQuery, is where governance lives.
 
-## What the job does (`spark/bronze_ingest.py`)
-1. **Config-driven:** `FEEDS` holds the column names and types for each feed. One job handles all 4 feeds.
-2. **Incremental by file name:** it lists `landing/ecommerce/<feed>/*/*.csv`, removes paths already in bronze `_src_file`, and loads the rest.
-3. **Validates:** row count per file = `record_count` in its `.ctrl`. A mismatched file is skipped and reported, and the job exits 1.
-4. **Adds provenance:** `_src_file` (path in landing), `_business_date` (from the folder), `_loaded_at`, `_batch_id`.
-5. **Writes:** creates the table on the first run (partitioned by `_business_date`), then appends. Each feed is **one commit** (all or nothing).
-6. **`--reload '<regex>'`:** *known issue: currently fails (see Gotchas); being fixed in the refactor.*
+## Code layout: configuration-driven
+
+```
+spark/
+  bronze_ingest.py          entry point: --feed, --mode
+  bronze/
+    config/feed.py          FeedConfig dataclass: every option + a sensible default
+    config/<feed>.py        CONFIG = FeedConfig.from_dict({"name": …, "schema": <feed>.SCHEMA, …overrides})
+    config/__init__.py      FEEDS registry: feed name -> config
+    schema/<feed>.py        SCHEMA = StructType([...])
+    ingest.py               common logic for every feed
+```
+- **Add a feed:** add `schema/<feed>.py` + `config/<feed>.py`, and list it in `config/__init__.py`. No ingest code changes.
+- **Override an option:** add a key to the dict, e.g. `"delimiter": "|"`. Unknown keys raise an error, so typos are caught. Read options as attributes: `CONFIG.header`, `CONFIG.schema`.
+- **Add a config option:** a new `FeedConfig` field *with a default*, so existing configs keep working.
+
+## What `ingest.py` does
+1. **Pick files:**
+   - `incremental`: landing files whose path isn't in bronze `_meta_file_path` yet;
+   - `full_refresh`: all landing files.
+2. **Read** with the feed's CSV options and schema (`FAILFAST`: a malformed row fails the job).
+3. **Validate** rows per file = `record_count` in its `.ctrl`. If any file fails, the job fails and **nothing is written**.
+4. **Add `_meta_*` columns:**
+
+   | Column | From |
+   |---|---|
+   | `_meta_file_path` | landing path (no bucket, so no project ID in the data) |
+   | `_meta_file_name`, `_meta_file_size`, `_meta_file_modified_ts` | Spark's hidden `_metadata` struct |
+   | `_meta_record_number` | 1..n per file, in read order (best effort; Spark has no CSV line numbers; exact for small files) |
+   | `_meta_business_date` | the date folder in the path (also the partition column) |
+   | `_meta_processed_ts`, `_meta_batch_id`, `_meta_load_mode` | this run |
+5. **Write:**
+   - `incremental`: `append()`;
+   - `full_refresh` (or first load): `createOrReplace()`. That's one commit, and the previous snapshots are kept, so you can still time-travel back.
 
 ## Commands
 
 ```bash
 ingest/upload.sh 2026-01-01                    # one day (all 4 feeds) -> landing
 ingest/upload.sh 2026-01-02 2026-01-08         # a range
-scripts/run-bronze.sh                          # run the job CI deployed to gs://<project-id>-code
-JOB=spark/bronze_ingest.py scripts/run-bronze.sh                      # run your local copy (dev loop)
-scripts/run-bronze.sh --reload 'transaction/2026-01-03/'              # replace one file's rows
+scripts/run-bronze.sh transaction              # incremental (code deployed by CI)
+scripts/run-bronze.sh transaction full_refresh
+LOCAL=1 scripts/run-bronze.sh transaction      # run your local code (dev loop, no push needed)
+for f in campaign customer product transaction; do scripts/run-bronze.sh $f; done   # all feeds, one after another
 ```
-CI deploys the job: push a change under `spark/`, and Terraform uploads the new file.
+CI deploys the code: push a change under `spark/`, and Terraform uploads `bronze_ingest.py` + `bronze.zip`.
 
 ## Verify it yourself
 
@@ -52,21 +88,43 @@ CI deploys the job: push a change under `spark/`, and Terraform uploads the new 
 source bootstrap/.env
 gcloud storage ls -r gs://$PROJECT_ID-landing/ecommerce/transaction/       # landed files
 gcloud dataproc batches list --region=$REGION --limit=5                   # batch history + state
-bq ls bronze                                                              # 4 EXTERNAL tables
+bq ls bronze                                                              # EXTERNAL tables
 bq query --nouse_legacy_sql --location=$REGION \
-  'SELECT _business_date, COUNT(*) n FROM bronze.transaction GROUP BY 1 ORDER BY 1'
+  'SELECT _meta_business_date, _meta_file_name, _meta_load_mode, COUNT(*) n, MAX(_meta_record_number) last_rec
+   FROM bronze.transaction GROUP BY 1,2,3 ORDER BY 1'
 cat data/sample/ecommerce/transaction/2026-01-01/*.ctrl                    # compare record_count
 gcloud storage ls gs://$PROJECT_ID-lake/iceberg/bronze.db/transaction/metadata/   # Iceberg snapshots
 ```
 
 ## Try it
-- **Idempotency:** run `scripts/run-bronze.sh` twice. The second run prints `0 to load`.
-- **Bad file:** edit a `.ctrl` count, upload a new day, run. That file is skipped and the batch fails, while the other feeds still load.
-- **Logs:** Console → Dataproc → Serverless → Batches → your batch → Output. Or `gcloud dataproc batches describe <batch> --region=$REGION`.
+- **Idempotency:** run `scripts/run-bronze.sh transaction` twice. The second run prints `0 files to load`.
+- **Full refresh:** run it with `full_refresh`, then query `_meta_load_mode`: every row says `full_refresh`, and the count is unchanged.
+- **Bad file:** edit a `.ctrl` count, upload a new day, run. The batch fails, and bronze is unchanged.
+- **Logs:** Console → Dataproc → Serverless → Batches → your batch → Output.
+
+## Logs (Cloud Logging ≈ CloudWatch Logs)
+The job logs with Python `logging`: logger `bronze`, to stdout. Serverless Spark ships driver output to **Cloud Logging**; nothing is written to local files (the VMs are deleted after each batch).
+```
+2026-10-27 10:16:09 INFO bronze: feed=campaign files_to_load=8
+2026-10-27 10:16:21 INFO bronze: feed=campaign validation passed (row counts = .ctrl)
+2026-10-27 10:16:36 INFO bronze: feed=campaign loaded files=8 rows=144 seconds=31.3
+```
+| Where | How |
+|---|---|
+| Console → Dataproc → Serverless → Batches → *batch* → **Output** | Full driver output for one batch |
+| Console → **Logs Explorer** | Query: `resource.type="cloud_dataproc_batch" "bronze:"` |
+| CLI | `gcloud logging read 'resource.type="cloud_dataproc_batch" AND resource.labels.batch_id="<batch>" AND "bronze:"' --order=asc --format='value(textPayload)'` |
+
+## Why a batch takes ~3 minutes for 3 MB
+- **~75 s:** Google provisions the VMs.
+- **~40–80 s:** Spark/JVM startup + catalog calls; the data work itself takes seconds.
+- **~1–2 min before the next batch can start:** the trial's 12 vCPU quota fits exactly one batch, and 12 vCPU (4-core driver + 2 × 4-core executors) is also Serverless Spark's **minimum** batch size, so batches can't run side by side.
+
+Serverless suits scheduled jobs, not a tight dev loop.
 
 ## Gotchas
-- **Quota:** the free trial allows 12 vCPU, exactly one batch. A new batch fails with `CPUS_ALL_REGIONS … available 0` until the previous one has released its machines (~2 min).
-- **Reserved names:** BigQuery rejects columns starting `_FILE_`, `_TABLE_` or `_PARTITION`, hence `_business_date`, not `_file_date`.
+- **Quota:** a new batch fails with `CPUS_ALL_REGIONS … available 0` until the previous one has released its machines.
+- **Reserved names:** BigQuery rejects columns starting `_FILE_`, `_TABLE_` or `_PARTITION`; `_meta_file_name` is fine because it starts with `_meta`.
 - **Catalog keys:** the runtime's bundled catalog reads `gcp_project` / `gcp_location`. Upstream Iceberg docs say `gcp.bigquery.project-id`, which doesn't work here.
 - **No extra jars:** adding upstream Iceberg jars is unnecessary, and the `_2.12` ones are the wrong Scala version for runtime 2.3.
-- **Reload by filter fails:** Iceberg's `overwrite(filter)` deletes whole data files, and string stats are truncated, so it can't prove a file matches `_src_file = …`. Fix (refactor): partition by source file and replace partitions.
+- **Changing partition columns:** `createOrReplace` fails if the old partition column no longer exists. Drop the table (`bq rm`) and its files, then reload.

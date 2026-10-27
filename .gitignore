@@ -33,3 +33,4 @@ dbt/.user.yml
 .venv/
 __pycache__/
 .DS_Store
+terraform/.build/
