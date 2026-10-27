@@ -12,4 +12,4 @@ CSV files ─▶ GCS landing ─Spark─▶ bronze (Iceberg) ─dbt/BigQuery─�
 | [01-infra-ci](01-infra-ci.md) | Terraform via GitHub Actions; what each resource is for |
 | [02-bronze-spark](02-bronze-spark.md) | PySpark on Serverless Spark → Iceberg; incremental loads |
 | [03-dbt](03-dbt.md) | dbt + BigQuery: silver tables, gold Iceberg |
-| 04-governance *(coming)* | Policy tags, masking, row access (≈ Lake Formation) |
+| [04-governance](04-governance.md) | Policy tags (column security), row access policies (≈ Lake Formation) |
