@@ -42,6 +42,13 @@ def test_window_rule(spark):
     assert sorted((r.g, r.group_sum) for r in rows) == [("x", 3), ("x", 3), ("y", 5)]
 
 
+def test_duplicate_seq_rejected():
+    t = Transform()
+    t.register(seq=1)(lambda: F.lit(1))
+    with pytest.raises(ValueError, match="seq 1 already used"):
+        t.register(seq=1, col_name="other")(lambda: F.lit(2))
+
+
 def test_sales_features_rules(spark):
     cols = ("transaction_id string, event_ts timestamp, order_date date, customer_id int, status string, "
             "net_amount double, margin_amount double, discount_pct double")
