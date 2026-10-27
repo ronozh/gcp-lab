@@ -82,6 +82,17 @@ ORDER BY layer;
 ```
 Expect 11614 rows in each, last day 2026-01-08.
 
+**Time travel: bronze before vs after today's load:**
+```sql
+SELECT 'now' AS version, COUNT(*) AS row_count, MAX(_meta_business_date) AS last_day
+FROM bronze.transaction
+UNION ALL
+SELECT 'before the load', COUNT(*), MAX(_meta_business_date)
+FROM bronze.transaction
+  FOR SYSTEM_TIME AS OF TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 10 MINUTE);
+```
+Expect now 11614 / 2026-01-08, and before the load 9919 / 2026-01-07. Each incremental load is a new Iceberg snapshot. Set `INTERVAL` to a moment between the reset and step 2. Fallback: the same query on `silver.transaction`.
+
 **Provenance: which file and batch each row came from:**
 ```sql
 SELECT
