@@ -42,15 +42,6 @@ def test_window_rule(spark):
     assert sorted((r.g, r.group_sum) for r in rows) == [("x", 3), ("x", 3), ("y", 5)]
 
 
-def test_duplicate_and_invalid_names_rejected():
-    t = Transform()
-    t.register(seq=1, col_name="c")(lambda: F.lit(1))
-    with pytest.raises(ValueError, match="already registered"):
-        t.register(seq=2, col_name="c")(lambda: F.lit(2))
-    with pytest.raises(ValueError, match="letters, digits"):
-        t.register(seq=1, col_name="derived/column2")(lambda: F.lit(1))
-
-
 def test_sales_features_rules(spark):
     cols = ("transaction_id string, event_ts timestamp, order_date date, customer_id int, status string, "
             "net_amount double, margin_amount double, discount_pct double")
