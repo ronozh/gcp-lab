@@ -58,9 +58,12 @@ jobs:
 
       - name: Write config from secrets
         env:
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
           TF_STATE_BUCKET: ${{ secrets.TF_STATE_BUCKET }}
           TFVARS: ${{ secrets.TFVARS }}
         run: |
+          # The auth action exports the project ID as env vars, which are printed in later step headers.
+          echo "::add-mask::$GCP_PROJECT_ID"
           grep -oE '[[:alnum:]._%+-]+@[[:alnum:].-]+' <<<"$TFVARS" | while read -r e; do echo "::add-mask::$e"; done
           printf 'bucket = "%s"\n' "$TF_STATE_BUCKET" > terraform/backend.hcl
           printf '%s\n' "$TFVARS" > terraform/terraform.tfvars
