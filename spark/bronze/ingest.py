@@ -123,7 +123,11 @@ def ingest(spark: SparkSession, cfg: FeedConfig, landing: str, batch_id: str, mo
     out = add_meta(df, cfg, landing, batch_id, mode).writeTo(table)
     if replace:
         # One commit. Old snapshots stay, so time travel to the previous version still works.
-        out.using("iceberg").partitionedBy(F.col("_meta_business_date")).createOrReplace()
+        # Explicit location: <warehouse>/bronze/<feed> (the catalog default would be <warehouse>/bronze.db/<feed>).
+        warehouse = spark.conf.get(f"spark.sql.catalog.{CATALOG}.warehouse").rstrip("/")
+        (out.using("iceberg").partitionedBy(F.col("_meta_business_date"))
+         .tableProperty("location", f"{warehouse}/{NAMESPACE}/{cfg.name}")
+         .createOrReplace())
     else:
         out.append()
     log.info("feed=%s loaded files=%d rows=%d seconds=%.1f",

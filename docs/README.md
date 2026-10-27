@@ -3,7 +3,7 @@
 A lakehouse on GCP, built from code. Each doc explains one part: how it works, the commands, and how to test it. Read them in order.
 
 ```
-CSV files ─▶ GCS landing ─Spark─▶ bronze (Iceberg) ─dbt/BigQuery─▶ silver (tables) ─▶ gold (Iceberg)
+CSV files ─▶ GCS landing ─Spark─▶ bronze ─dbt/BigQuery─▶ silver ─▶ gold      (all Iceberg in gs://<lake>/iceberg/<layer>/)
 ```
 
 | Doc | Topic |
@@ -11,5 +11,5 @@ CSV files ─▶ GCS landing ─Spark─▶ bronze (Iceberg) ─dbt/BigQuery─�
 | [00-bootstrap](00-bootstrap.md) | Owner setup once; GitHub → GCP without keys (WIF) |
 | [01-infra-ci](01-infra-ci.md) | Terraform via GitHub Actions; what each resource is for |
 | [02-bronze-spark](02-bronze-spark.md) | PySpark on Serverless Spark → Iceberg; incremental loads |
-| [03-dbt](03-dbt.md) | dbt + BigQuery: silver tables, gold Iceberg |
+| [03-dbt](03-dbt.md) | dbt + BigQuery: silver + gold as BigQuery-managed Iceberg |
 | [04-governance](04-governance.md) | Policy tags (column security), row access policies (≈ Lake Formation) |

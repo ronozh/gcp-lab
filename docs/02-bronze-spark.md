@@ -19,7 +19,7 @@ data/sample ─ingest/upload.sh─▶ gs://<project-id>-landing/ecommerce/<feed>
                                         │  bronze_ingest.py + bronze.zip (config, schema, ingest)
                                         ▼
             Iceberg catalog "lake" (BigQuery metastore)
-              ├─ data + metadata files ─▶ gs://<project-id>-lake/iceberg/bronze.db/<feed>/
+              ├─ data + metadata files ─▶ gs://<project-id>-lake/iceberg/bronze/<feed>/
               └─ table registered in BigQuery dataset `bronze` ─▶ SELECT from BigQuery (read-only)
 ```
 
@@ -93,7 +93,7 @@ bq query --nouse_legacy_sql --location=$REGION \
   'SELECT _meta_business_date, _meta_file_name, _meta_load_mode, COUNT(*) n, MAX(_meta_record_number) last_rec
    FROM bronze.transaction GROUP BY 1,2,3 ORDER BY 1'
 cat data/sample/ecommerce/transaction/2026-01-01/*.ctrl                    # compare record_count
-gcloud storage ls gs://$PROJECT_ID-lake/iceberg/bronze.db/transaction/metadata/   # Iceberg snapshots
+gcloud storage ls gs://$PROJECT_ID-lake/iceberg/bronze/transaction/metadata/   # Iceberg snapshots
 ```
 
 ## Try it
@@ -138,8 +138,9 @@ Serverless suits scheduled jobs, not a tight dev loop.
 - **Reserved names:** BigQuery rejects columns starting `_FILE_`, `_TABLE_` or `_PARTITION`; `_meta_file_name` is fine because it starts with `_meta`.
 - **Catalog keys:** the runtime's bundled catalog reads `gcp_project` / `gcp_location`. Upstream Iceberg docs say `gcp.bigquery.project-id`, which doesn't work here.
 - **No extra jars:** adding upstream Iceberg jars is unnecessary, and the `_2.12` ones are the wrong Scala version for runtime 2.3.
+- **No `.db` suffix:** the catalog's default layout is Hive-style `<warehouse>/bronze.db/<feed>`. The job sets each table's `location` to `<warehouse>/bronze/<feed>`, so all layers look alike: `iceberg/bronze|silver|gold/<table>/`.
 - **Schema changes `full_refresh` can't do:** changing a column's **type** (BigQuery: `Field … has changed type`) or removing a **partition column**. Drop and reload instead:
   ```bash
-  bq rm -f -t bronze.<feed> && gcloud storage rm -r gs://$PROJECT_ID-lake/iceberg/bronze.db/<feed>
+  bq rm -f -t bronze.<feed> && gcloud storage rm -r gs://$PROJECT_ID-lake/iceberg/bronze/<feed>
   scripts/run-bronze.sh <feed>               # first load creates the table
   ```

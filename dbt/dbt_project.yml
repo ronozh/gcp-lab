@@ -6,12 +6,15 @@ models:
   gcp_lab:
     silver:
       +schema: silver               # BigQuery dataset `silver`
-      +materialized: table          # native BigQuery tables
+      +materialized: table
+      +catalog_name: lake_iceberg   # catalogs.yml -> BigQuery-managed Iceberg
+      +base_location_root: iceberg  # files in gs://<lake>/iceberg/silver/<model>/
+      # BigQuery keeps Iceberg metadata internally; export it so other engines (Spark, Trino) can read the table.
+      +post-hook: "EXPORT TABLE METADATA FROM {{ this }}"
     gold:
       +schema: gold                 # BigQuery dataset `gold`
       +materialized: table
       +catalog_name: lake_iceberg   # catalogs.yml -> BigQuery-managed Iceberg
-      +base_location_root: iceberg  # files in gs://<lake>/iceberg/gold/<model>/ (next to bronze.db/)
+      +base_location_root: iceberg  # files in gs://<lake>/iceberg/gold/<model>/
       +persist_docs: {columns: true}   # applies column policy_tags from gold.yml after each build
-      # BigQuery keeps Iceberg metadata internally; export it so other engines (Spark, Trino) can read the table.
       +post-hook: "EXPORT TABLE METADATA FROM {{ this }}"

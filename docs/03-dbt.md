@@ -8,11 +8,11 @@
 bronze.<feed>  (Iceberg, written by Spark; BigQuery reads)
      │  dbt (runs on your laptop; BigQuery does the work)
      ▼
-silver.campaign / customer / product   native BigQuery tables: current state (latest file)
-silver.transaction                     native BigQuery table: all days (latest file per day)
-     │
-     ▼
-gold.fct_sales                         BigQuery-managed Iceberg table → files in gs://<project-id>-lake/iceberg/gold/
+silver.campaign / customer / product   current state (latest file)        ─┐ BigQuery-managed Iceberg
+silver.transaction                     all days (latest file per day)      │ → gs://<project-id>-lake/iceberg/silver/<table>/
+     │                                                                     │
+     ▼                                                                     │
+gold.fct_sales                         transactions + customer/product/... ─┘ → gs://<project-id>-lake/iceberg/gold/fct_sales/
 ```
 
 ## GCP vs AWS
@@ -21,16 +21,15 @@ gold.fct_sales                         BigQuery-managed Iceberg table → files 
 |---|---|---|
 | **BigQuery** | Redshift Serverless / Athena | Serverless SQL engine and warehouse. You pay per TB scanned (on-demand) |
 | **Dataset** (`silver`, `gold`) | Schema / Glue database | Where tables live; has a location (`australia-southeast1`) |
-| **Native table** | Redshift table | BigQuery's own storage format |
 | **BigQuery-managed Iceberg table** | Iceberg table written by Athena | BigQuery writes Parquet to **your** bucket via the `lake` connection, but keeps the Iceberg metadata **inside BigQuery**. `EXPORT TABLE METADATA` writes it to the bucket so other engines can read it (Athena + Glue can read immediately; here you must export) |
 | **ADC** (`gcloud auth application-default login`) | `aws sso login` credentials file | What dbt, Terraform and SDKs use locally |
 
-**Three table types in this lab:**
+**Every layer is Iceberg in the same bucket; only the writer differs:**
 
 | Table | Written by | Stored | Read by |
 |---|---|---|---|
-| bronze | Spark | Iceberg in `gs://…-lake/iceberg/` | BigQuery (read-only) |
-| silver | BigQuery (dbt) | BigQuery native storage | BigQuery |
+| bronze | Spark | Iceberg in `gs://…-lake/iceberg/bronze/` | BigQuery (read-only) |
+| silver | BigQuery (dbt) | Iceberg in `gs://…-lake/iceberg/silver/` | BigQuery; other engines after `EXPORT TABLE METADATA` (dbt post-hook) |
 | gold | BigQuery (dbt) | Iceberg in `gs://…-lake/iceberg/gold/` | BigQuery; other engines after `EXPORT TABLE METADATA` (a dbt post-hook runs it on every build) |
 
 ## The models
@@ -50,7 +49,7 @@ gold.fct_sales                         BigQuery-managed Iceberg table → files 
 
 ```
 dbt/
-  dbt_project.yml       silver → +schema silver, table · gold → +schema gold, table, +catalog_name lake_iceberg,
+  dbt_project.yml       silver/gold → +schema silver|gold, table, +catalog_name lake_iceberg,
                         +base_location_root iceberg, +post-hook EXPORT TABLE METADATA
   profiles.yml          BigQuery, method oauth (your ADC); project/region from env (bootstrap/.env)
   catalogs.yml          lake_iceberg = biglake_metastore, Iceberg/Parquet in gs://<project-id>-lake
@@ -75,14 +74,15 @@ scripts/run-dbt.sh docs generate && scripts/run-dbt.sh docs serve   # lineage gr
 
 ```bash
 source bootstrap/.env
-bq ls silver; bq ls gold                                   # gold.fct_sales Type = TABLE
+bq ls silver; bq ls gold                                   # Type = TABLE (managed Iceberg looks like a normal table)
+gcloud storage ls gs://$PROJECT_ID-lake/iceberg/            # bronze/ silver/ gold/
 bq show --format=prettyjson gold.fct_sales | jq '.biglakeConfiguration'   # Iceberg: storageUri, PARQUET
 gcloud storage ls -r gs://$PROJECT_ID-lake/iceberg/gold/fct_sales/        # data/*.parquet + exported metadata/ (v<n>.metadata.json, manifests)
 bq query --nouse_legacy_sql --location=$REGION \
   'SELECT order_date, COUNT(*) n, ROUND(SUM(net_amount),2) net FROM gold.fct_sales GROUP BY 1 ORDER BY 1'
 bq query --nouse_legacy_sql --dry_run \
-  'SELECT * FROM silver.transaction'                       # bytes it would scan (cost check), no charge
-                                                           # (Iceberg tables report a 0-byte lower bound)
+  'SELECT * FROM silver.transaction'                       # cost check, no charge. Iceberg tables report a
+                                                           # 0-byte lower bound; billing uses the bytes actually read
 ```
 
 ## Try it

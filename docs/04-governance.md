@@ -2,7 +2,7 @@
 
 **What this phase does:** on `gold.fct_sales`, PII columns can be read only by a privileged identity, and one analyst sees only NSW rows. You test it by **impersonating** test identities.
 
-**Only gold is governed.** bronze and silver hold the same PII untagged, protected only by dataset IAM (the test identities have no access to them).
+**Only gold is governed.** bronze and silver hold the same PII untagged, protected only by dataset IAM and bucket IAM (the test identities have neither).
 
 ## Mental model
 
@@ -72,7 +72,7 @@ Console: BigQuery → `gold.fct_sales` → **Schema** (policy tag icon) · BigQu
 
 ## Gotchas
 - **Rebuild window:** each dbt build is `CREATE OR REPLACE`, so for a few seconds the table has no tags or policies, until `persist_docs` and the post-hooks re-apply them. That's fine for a lab, not for production (use incremental models or swap tables).
-- **BigQuery-only:** the Iceberg Parquet files in `gs://<project-id>-lake/iceberg/gold/` hold clear PII. Anyone who can read them (you, the CI SA, `spark-runner`), or any engine reading the exported Iceberg metadata, bypasses all of this, just as Lake Formation doesn't protect raw S3. The test identities have no bucket access.
+- **BigQuery-only:** the Iceberg Parquet files in `gs://<project-id>-lake/iceberg/{bronze,silver,gold}/` hold clear PII. Anyone who can read them (you, the CI SA, `spark-runner`), or any engine reading the exported Iceberg metadata, bypasses all of this, just as Lake Formation doesn't protect raw S3. The test identities have no bucket access.
 - **Failed build = open PII:** tags are applied *after* the table is replaced. If a gold build fails midway, rebuild, then run `scripts/test-governance.sh`.
 - **No masking:** data policies (`SHA256`, `ALWAYS_NULL`) need an Organization. So we deny the column instead of masking it.
 - **dbt tests:** no tests on tagged columns, because you, the dbt runner, have no fine-grained reader role. The dbt runner must be in `all_rows`; otherwise tests see 0 rows and pass silently.

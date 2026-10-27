@@ -3,7 +3,7 @@
 A medallion lakehouse on GCP, built from code. Sibling of [snowflake-lab](https://github.com/ronozh/snowflake-lab), using the same 4 feeds.
 
 ```
-CSV ─▶ GCS landing ─PySpark (Serverless Spark)─▶ bronze (Iceberg) ─dbt + BigQuery─▶ silver (views) ─▶ gold (Iceberg)
+CSV ─▶ GCS landing ─PySpark (Serverless Spark)─▶ bronze ─dbt + BigQuery─▶ silver ─▶ gold   (all Iceberg)
 Terraform ◀─ GitHub Actions (Workload Identity Federation, no keys)
 ```
 
