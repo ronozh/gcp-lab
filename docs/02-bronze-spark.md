@@ -16,7 +16,7 @@ run-bronze.sh <feed> [incremental|full_refresh]  =  one Spark batch  =  one feed
 data/sample ─ingest/upload.sh─▶ gs://<project-id>-landing/ecommerce/<feed>/<date>/<feed>_<ts>.csv + .ctrl
                                         │
      scripts/run-bronze.sh <feed> ─▶ Serverless Spark batch (runs as spark-runner, 12 vCPU)
-                                        │  bronze_ingest.py + bronze.zip (config, schema, ingest)
+                                        │  bronze_ingest.py + lib.zip (bronze/: config, schema, ingest)
                                         ▼
             Iceberg catalog "lake" (BigQuery metastore)
               ├─ data + metadata files ─▶ gs://<project-id>-lake/iceberg/bronze/<feed>/
@@ -80,7 +80,7 @@ scripts/run-bronze.sh transaction full_refresh
 LOCAL=1 scripts/run-bronze.sh transaction      # run your local code (dev loop, no push needed)
 for f in campaign customer product transaction; do scripts/run-bronze.sh $f; done   # all feeds, one after another
 ```
-CI deploys the code: push a change under `spark/`, and Terraform uploads `bronze_ingest.py` + `bronze.zip`.
+CI deploys the code: push a change under `spark/`, and Terraform uploads the entry files + `lib.zip` (packages `bronze/`, `declarative/`). `run-bronze.sh` and `run-gold.sh` both call `scripts/run-spark.sh` (shared Spark settings).
 
 ## Verify it yourself
 

@@ -13,3 +13,4 @@ CSV files ─▶ GCS landing ─Spark─▶ bronze ─dbt/BigQuery─▶ silver 
 | [02-bronze-spark](02-bronze-spark.md) | PySpark on Serverless Spark → Iceberg; incremental loads |
 | [03-dbt](03-dbt.md) | dbt + BigQuery: silver + gold as BigQuery-managed Iceberg |
 | [04-governance](04-governance.md) | Policy tags (column security), row access policies (≈ Lake Formation) |
+| [05-declarative](05-declarative.md) | Declarative business rules in PySpark: one rule = one function = one column |
