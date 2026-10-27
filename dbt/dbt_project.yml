@@ -12,3 +12,5 @@ models:
       +materialized: table
       +catalog_name: lake_iceberg   # catalogs.yml -> BigQuery-managed Iceberg
       +base_location_root: iceberg  # files in gs://<lake>/iceberg/gold/<model>/ (next to bronze.db/)
+      # BigQuery keeps Iceberg metadata internally; export it so other engines (Spark, Trino) can read the table.
+      +post-hook: "EXPORT TABLE METADATA FROM {{ this }}"

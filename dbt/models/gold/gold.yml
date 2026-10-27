@@ -6,6 +6,8 @@ models:
     columns:
       - name: transaction_id
         data_tests: [unique, not_null]
+      - name: customer_state
+        data_tests: [not_null]   # phase 4 row access policy filters on it
       - name: customer_id
         data_tests:
           - relationships: {arguments: {to: ref('customer'), field: customer_id}}

@@ -5,5 +5,6 @@ set -euo pipefail
 root=$(cd "$(dirname "$0")/.." && pwd)
 set -a; source "$root/bootstrap/.env"; set +a   # PROJECT_ID, REGION -> env_var() in profiles/catalogs
 cd "$root/dbt"
-[ -x .venv/bin/dbt ] || { uv venv .venv --python 3.13 -q && uv pip install -q -p .venv -r requirements.txt; }
+[ -d .venv ] || uv venv .venv --python 3.13 -q        # needs uv: brew install uv
+uv pip install -q -p .venv -r requirements.txt          # no-op unless requirements.txt changed
 exec .venv/bin/dbt "$@" --profiles-dir .

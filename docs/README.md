@@ -3,7 +3,7 @@
 A lakehouse on GCP, built from code. Each doc explains one part: how it works, the commands, and how to test it. Read them in order.
 
 ```
-CSV files ─▶ GCS landing ─Spark─▶ bronze (Iceberg) ─dbt/BigQuery─▶ silver (views) ─▶ gold (Iceberg)
+CSV files ─▶ GCS landing ─Spark─▶ bronze (Iceberg) ─dbt/BigQuery─▶ silver (tables) ─▶ gold (Iceberg)
 ```
 
 | Doc | Topic |
