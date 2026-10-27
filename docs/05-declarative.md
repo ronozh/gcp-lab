@@ -59,4 +59,6 @@ bq query --nouse_legacy_sql \
 Add a rule to `sales_features.py`, e.g. `is_weekend` = `F.dayofweek("order_date").isin(1, 7)` (stage 1, no argument needed), run `scripts/test-spark.sh`, then `scripts/run-spark-declarative.sh`. No other code changes.
 
 ## Gotchas
+- **Schema changes (tested):** adding or removing a rule adds or removes the column on the next run, through CI → deployed job. A *type* change needs `bq rm -f -t gold.sales_features`, then a rerun (the table is fully derived, so nothing is lost).
+- **No BigQuery time travel across runs:** each run is `createOrReplace`, so `FOR SYSTEM_TIME AS OF` before the last run gives "no snapshot active". Schema history lives in the Iceberg metadata files.
 - Dataproc runs Spark **3.5.3**; a newer local 3.5.x can have extra functions. `F.nullif` worked locally but failed on Dataproc, so keep rules to well-established functions.
