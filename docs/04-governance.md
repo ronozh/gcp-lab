@@ -74,5 +74,6 @@ Console: BigQuery → `gold.fct_sales` → **Schema** (policy tag icon) · BigQu
 - **Rebuild window:** each dbt build is `CREATE OR REPLACE`, so for a few seconds the table has no tags or policies, until `persist_docs` and the post-hooks re-apply them. That's fine for a lab, not for production (use incremental models or swap tables).
 - **BigQuery-only:** the Iceberg Parquet files in `gs://<project-id>-lake/iceberg/{bronze,silver,gold}/` hold clear PII. Anyone who can read them (you, the CI SA, `spark-runner`), or any engine reading the exported Iceberg metadata, bypasses all of this, just as Lake Formation doesn't protect raw S3. The test identities have no bucket access.
 - **Failed build = open PII:** tags are applied *after* the table is replaced. If a gold build fails midway, rebuild, then run `scripts/test-governance.sh`.
+- **No time travel on gold:** BigQuery forbids `FOR SYSTEM_TIME AS OF` on a table that has (or had) row access policies, so old versions can't bypass the row filter.
 - **No masking:** data policies (`SHA256`, `ALWAYS_NULL`) need an Organization. So we deny the column instead of masking it.
 - **dbt tests:** no tests on tagged columns, because you, the dbt runner, have no fine-grained reader role. The dbt runner must be in `all_rows`; otherwise tests see 0 rows and pass silently.

@@ -89,6 +89,15 @@ bq query --nouse_legacy_sql --dry_run \
 - **Change the logic:** add `t.unit_cost` to `fct_sales.sql`, run `scripts/run-dbt.sh build -s fct_sales`, and query it.
 - **Break a test:** add `- name: campaign_id\n        data_tests: [not_null]` to `gold.yml` (most sales have no campaign), build, and watch it fail. Then revert.
 
+## Time travel
+Silver supports BigQuery time travel (7 days by default), even across dbt's `CREATE OR REPLACE`:
+```sql
+SELECT COUNT(*) AS row_count
+FROM silver.transaction
+  FOR SYSTEM_TIME AS OF TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR);
+```
+Gold doesn't: tables with row access policies forbid time travel (see 04).
+
 ## Gotchas
 - dbt always creates Iceberg tables `WITH CONNECTION DEFAULT`, so Terraform sets `lake` as the project's default connection.
 - Each build is `CREATE OR REPLACE`. Old Parquet files of a replaced managed-Iceberg table may stay in the bucket (Google doesn't garbage-collect them); clean with `gcloud storage rm` if they pile up.

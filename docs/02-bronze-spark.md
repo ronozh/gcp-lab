@@ -8,7 +8,7 @@
 run-bronze.sh <feed> [incremental|full_refresh]  =  one Spark batch  =  one feed  ->  bronze.<feed>
 ```
 - **incremental** (default): load the feed's files that aren't in bronze yet, and **append**.
-- **full_refresh**: load **all** the feed's files and **replace** the table in one commit.
+- **full_refresh**: load **all** the feed's files and **replace** the table in one commit (BigQuery time travel then starts from this point).
 
 ## The flow
 
@@ -68,7 +68,7 @@ spark/
    | `_meta_processed_ts`, `_meta_batch_id`, `_meta_load_mode` | this run |
 5. **Write:**
    - `incremental`: `append()`;
-   - `full_refresh` (or first load): `createOrReplace()`. That's one commit, and the previous snapshots are kept, so you can still time-travel back.
+   - `full_refresh` (or first load): `createOrReplace()`. That's one commit: readers never see an empty table. BigQuery time travel only reaches back to the latest replace.
 
 ## Commands
 
@@ -135,6 +135,7 @@ Serverless suits scheduled jobs, not a tight dev loop.
 - **Quota:** a new batch fails with `CPUS_ALL_REGIONS … available 0` until the previous one has released its machines.
 - **Timestamps:** the files have local times with no zone, so `event_ts` is `TimestampNTZType` → Iceberg `timestamp` → BigQuery **DATETIME** (as snowflake-lab's TIMESTAMP_NTZ). A plain `TimestampType` would treat them as UTC.
 - **Empty file:** a 0-row file passes validation but adds no rows, so it is re-read on every incremental run (logged as a warning).
+- **Time travel:** `SELECT … FROM bronze.<feed> FOR SYSTEM_TIME AS OF <timestamp>` works from BigQuery, but only back to the last `full_refresh` ("no snapshot active at requested read time" before that).
 - **Reserved names:** BigQuery rejects columns starting `_FILE_`, `_TABLE_` or `_PARTITION`; `_meta_file_name` is fine because it starts with `_meta`.
 - **Catalog keys:** the runtime's bundled catalog reads `gcp_project` / `gcp_location`. Upstream Iceberg docs say `gcp.bigquery.project-id`, which doesn't work here.
 - **No extra jars:** adding upstream Iceberg jars is unnecessary, and the `_2.12` ones are the wrong Scala version for runtime 2.3.
