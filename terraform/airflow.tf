@@ -12,8 +12,8 @@ locals {
   airflow_image = "docker.io/apache/airflow:3.3.2-python3.12" # scripts/airflow-render.sh checks DAGs with it too
   airflow_start = join(" && ", [
     "airflow db migrate",
-    # 1 slot: the free trial's 12 vCPU quota fits one Spark batch. Deferred (waiting) tasks hold their slot.
-    "airflow pools set spark 1 'Serverless Spark: one batch at a time' --include-deferred",
+    # 1 slot: the free trial's 12 vCPU quota fits one Spark batch.
+    "airflow pools set spark 1 'Serverless Spark: one batch at a time'",
     "exec airflow standalone",
   ])
 }

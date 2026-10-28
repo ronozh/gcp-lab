@@ -17,7 +17,7 @@ BATCH_ID = "bronze-" + FEED + "-{{ dag_run.run_after.strftime('%Y%m%d-%H%M%S-%f'
 
 class SparkBatch(DataprocCreateBatchOperator):
     """Submit only when the vCPU quota is free: a finished batch releases its 12 vCPUs ~1 min after
-    Airflow sees it succeed. The task holds the `spark` pool slot while it waits."""
+    Airflow sees it succeed. The task holds the `spark` pool slot while it waits, then while the batch runs."""
 
     def execute(self, context):
         for _ in range(40):  # up to 10 min, then submit anyway (Dataproc gives a clear quota error)
@@ -45,7 +45,8 @@ with DAG(
         pool="spark",  # 1 slot: the trial's 12 vCPU quota fits one Spark batch at a time
         retries=2,
         retry_delay=timedelta(minutes=2),
-        deferrable=True,  # waits in the triggerer, not in a worker slot
+        # Not deferrable: with one pool slot only one batch runs anyway, so the task simply holds the slot
+        # from submit to finish (no "deferred" state, no wait for a slot to resume).
         project_id=PROJECT,
         region=REGION,
         batch_id=BATCH_ID,
