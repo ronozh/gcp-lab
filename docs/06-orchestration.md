@@ -1,6 +1,6 @@
 # 06 · Event-driven, config-driven orchestration (Airflow 3 on Cloud Run)
 
-**What this phase does:** a file landing in GCS starts its feed's bronze load, with no manual step. Airflow orchestrates; each DAG is a small YAML file.
+**What this phase does:** a file landing in GCS starts its feed's bronze load; an updated bronze table starts dbt; a cron rebuilds the features. No manual step. Airflow orchestrates; each DAG is a small YAML file.
 
 ## Mental model
 
@@ -13,11 +13,13 @@ EVENT    ingest/upload.sh ─▶ gs://<project>-landing/ecommerce/<feed>/<date>/
          Airflow 3 (Cloud Run) ─ DAG bronze_<feed> ─▶ Serverless Spark: bronze_ingest.py --feed <feed> --mode incremental
                                                                                        ▼
                                                                                  bronze.<feed>
-CONFIG   airflow/dags/bronze_<feed>.yml ─push─▶ GitHub Action: render .py + import check ─▶ gs://<project>-airflow/dags
+ASSET    bronze.transaction updated ─▶ DAG gold_fct_sales: dbt build +fct_sales (silver + gold)
+CRON     every 30 min 20:50–23:50 ─▶ DAG gold_sales_features: Spark gold_features.py → gold.sales_features
+CONFIG   airflow/dags/*.yml ─push─▶ GitHub Action: render .py + import check ─▶ gs://<project>-airflow/dags
 ```
 
 Three rules:
-- **Per feed, one run at a time.** Each DAG has `max_active_runs=1`, so a file that lands during a run queues the next run.
+- **Per DAG, one run at a time.** Every DAG has `max_active_runs=1`, so a file that lands during a run queues the next run.
 - **Across feeds, one Spark batch at a time.** Pool `spark` has 1 slot, because the trial's 12 vCPU quota fits one batch. Other feeds' runs start, but their task waits as `scheduled` for the slot. A batch frees its vCPUs ~1 min after it ends, so the next task holds the slot and waits until the quota reads 0 before it submits. Its log shows `waiting: vCPU quota still in use`.
 - **A missed event loses nothing.** An incremental run loads *every* file not yet in bronze. If Airflow is down when a file lands, the next run picks the file up. That's why the function has no retries.
 
@@ -53,18 +55,47 @@ Three rules:
 
 ```
 airflow/
-  dags/bronze_<feed>.yml           the DAG: one file each; DAG id = file name
-  templates/bronze_ingest.py.j2    Python template for type: bronze_ingest
-  render.py                        YAML → build/dags/*.py (+ --check: import every DAG)
+  dags/<dag_id>.yml          one file per DAG; DAG id = file name
+  templates/_base.py.j2      what every DAG shares: schedule, max_active_runs=1, retries
+  templates/_spark.py.j2     the Spark batch helper (pool, quota wait, lab Spark settings)
+  templates/<type>.py.j2     one per DAG type, extends _base
+  render.py                  YAML → build/dags/*.py (+ --check: import every DAG)
 ```
+
+| YAML key | Meaning | Default |
+|---|---|---|
+| `type` | `bronze_ingest`, `dbt_build` or `spark_job` | required |
+| `description` | shown in the UI | required |
+| `cron: [...]` | run on these crons, **Sydney time** | none |
+| `after: <layer.table>` | run when that table is updated (an Airflow **Asset**) | none |
+| neither | run only when triggered: by the event function or by hand | |
+| `retries`, `retry_delay_minutes` | per task | 3, 10 |
+| *(always)* | `max_active_runs=1`: one run at a time, later runs wait in the queue | |
+
+| Type | Own keys | Runs |
+|---|---|---|
+| `bronze_ingest` | `feed` | Spark `bronze_ingest.py --feed … --mode {incremental, full_refresh}`. Marks `bronze.<feed>` as updated |
+| `dbt_build` | `select` | `dbt build --select …` inside the Airflow container (BigQuery does the work) |
+| `spark_job` | `entry`, `args` | Spark `spark/<entry>`; `${PROJECT}` in args becomes the project id |
+
+The 6 DAGs:
+
+| DAG | Type | Trigger |
+|---|---|---|
+| `bronze_<feed>` × 4 | bronze_ingest | a `.csv` lands (event), or by hand |
+| `gold_fct_sales` | dbt_build `+fct_sales` (silver + gold + tests) | `after: bronze.transaction` |
+| `gold_sales_features` | spark_job `gold_features.py` (overwrites) | `cron: ["50 20 * * *", "20,50 21-23 * * *"]` = every 30 min, 20:50–23:50 |
+
 ```yaml
-type: bronze_ingest              # which template
-description: Load new transaction files from landing into bronze.transaction
-feed: transaction
-schedule: null                   # event only; "0 2 * * *" adds a cron timer
+type: dbt_build
+description: dbt build +fct_sales (silver + gold) after bronze.transaction is updated
+select: +fct_sales
+after: bronze.transaction
 ```
+- **Assets ≈ data-aware scheduling.** The bronze task declares `outlets=[Asset("bronze.transaction")]`. When it succeeds, Airflow starts every DAG with `after: bronze.transaction`. It fires even when the run found `nothing to do`; dbt is idempotent, so that's harmless.
+- **dbt in the cloud.** CI syncs `dbt/` to `gs://<project>-airflow/dbt`. The first dbt task in a new container installs dbt into its own venv (~10 s), apart from Airflow's packages. It runs as the `airflow` SA, which is in the `all_rows` row policy so tests see every row.
 - **Rendered in CI, never edited.** The `.py` files are build output (gitignored). Each one starts with `# GENERATED … do not edit`.
-- **Checked before deploy.** CI renders and imports every DAG inside the **same Airflow image** the server runs. A bad YAML or a DAG that won't import stops the workflow before it touches GCP.
+- **Checked before deploy.** CI renders and imports every DAG inside the **same Airflow image** the server runs. A bad YAML (unknown key, missing key, `cron` + `after` together) or a DAG that won't import stops the workflow before it touches GCP.
 - **Deploy = mirror.** `gcloud storage rsync --delete-unmatched-destination-objects` copies the files: delete a YAML and its DAG disappears. Airflow picks up changes within ~30 s.
 - **Two kinds of template:** `[[ feed ]]` is filled at render time from the YAML. `{{ params.mode }}` stays in the file and is Airflow's own template, filled at run time.
 

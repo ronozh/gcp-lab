@@ -66,10 +66,11 @@ resource "google_storage_bucket_iam_member" "airflow_reads_lake" {
 }
 
 # Silver/gold are BigQuery-managed Iceberg tables created WITH CONNECTION DEFAULT (= lake).
+# Creating a table that writes through a connection needs bigquery.connections.delegate: only in connectionAdmin.
 resource "google_bigquery_connection_iam_member" "airflow_uses_lake" {
   connection_id = google_bigquery_connection.lake.connection_id
   location      = var.region
-  role          = "roles/bigquery.connectionUser"
+  role          = "roles/bigquery.connectionAdmin"
   member        = "serviceAccount:${google_service_account.airflow.email}"
 }
 
