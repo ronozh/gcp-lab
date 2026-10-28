@@ -37,6 +37,7 @@ resource "google_project_iam_member" "airflow" {
   for_each = toset([
     "roles/dataproc.editor", # submit + watch Serverless Spark batches
     "roles/cloudsql.client", # connect to the metadata DB
+    "roles/compute.viewer",  # read the vCPU quota before submitting (free-trial quota fits one batch)
   ])
   project = var.project_id
   role    = each.key
