@@ -7,6 +7,7 @@ on:
     paths:
       - "airflow/**"
       - "scripts/airflow-render.sh"
+      - "terraform/airflow.tf" # the Airflow image the DAGs are checked against
       - ".github/workflows/airflow-dags.yml"
   workflow_dispatch:
 

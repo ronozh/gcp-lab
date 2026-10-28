@@ -25,13 +25,14 @@ terraform init -backend-config=backend.hcl && terraform plan
 
 | File | Resource | GCP name | Why |
 |---|---|---|---|
-| `apis.tf` | `google_project_service` × 6 | dataproc, bigquery, bigqueryconnection, biglake, datacatalog, bigquerydatapolicy | Turn on the services the lab uses |
+| `apis.tf` | `google_project_service` × 14 | dataproc, bigquery, bigqueryconnection, biglake, datacatalog, bigquerydatapolicy; phase 6: run, sqladmin, secretmanager, cloudfunctions, cloudbuild, artifactregistry, eventarc, pubsub | Turn on the services the lab uses |
 | `storage.tf` | 3 buckets | `<project-id>-landing` (versioned), `-lake`, `-code` | Raw files / Iceberg files / Spark code |
 | `bigquery.tf` | 3 datasets | `bronze`, `silver`, `gold` | One per layer |
 | `bigquery.tf` | connection `lake` + bucket IAM | `bqcx-…` Google-managed SA | Lets BigQuery write gold Iceberg files to `lake` |
 | `bigquery.tf` | `google_bigquery_job` | `ALTER PROJECT … default_cloud_resource_connection_id='lake'` | dbt always uses the *default* connection |
 | `iam.tf` | SA `spark-runner` + roles | `dataproc.worker` (project), `bigquery.dataEditor` (bronze) | Identity of Spark jobs (≈ EMR job role). `dataproc.worker` also gives read/write on all project buckets |
 | `spark.tf` | bucket object | `gs://<project-id>-code/spark/bronze_ingest.py` | CI deploys the Spark job (phase 2) |
+| `airflow.tf`, `trigger.tf` | Airflow on Cloud Run + Cloud SQL; function + Eventarc trigger | — | Orchestration (phase 6): see [06-orchestration](06-orchestration.md) |
 | `network.tf` | `removed {}` | — | Hands the subnet back to bootstrap without deleting it |
 
 ## Key ideas

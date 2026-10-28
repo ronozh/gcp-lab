@@ -58,23 +58,30 @@ resource "google_storage_bucket_iam_member" "airflow_reads_dags" {
 }
 
 # --- Metadata DB: Cloud SQL Postgres (≈ RDS) --------------------------------------------------------
+# A deleted instance's name stays reserved for up to a week: a random suffix lets destroy + apply recreate at once.
+resource "random_id" "sql" {
+  byte_length = 2
+}
+
 resource "google_sql_database_instance" "airflow" {
-  name                = "airflow"
+  name                = "airflow-${random_id.sql.hex}" # scripts find it as airflow-*
   database_version    = "POSTGRES_17"
   region              = var.region
   deletion_protection = false # recreate freely: losing run history is fine in this lab
 
   settings {
-    edition           = "ENTERPRISE"
-    tier              = "db-f1-micro" # smallest (shared core)
-    availability_type = "ZONAL"
-    disk_type         = "PD_HDD"
-    disk_size         = 10
-    activation_policy = "ALWAYS" # scripts/airflow.sh down sets NEVER (= stopped)
+    edition               = "ENTERPRISE"
+    tier                  = "db-f1-micro" # smallest (shared core)
+    availability_type     = "ZONAL"
+    disk_type             = "PD_HDD"
+    disk_size             = 10
+    activation_policy     = "ALWAYS" # scripts/airflow.sh down sets NEVER (= stopped)
+    connector_enforcement = "REQUIRED"
 
-    # Public IP but no authorized networks: only the Cloud SQL connector (IAM) can reach it.
+    # Public IP but no authorized networks: only the Cloud SQL connector (IAM-checked, encrypted) can reach it.
     ip_configuration {
       ipv4_enabled = true
+      ssl_mode     = "ENCRYPTED_ONLY"
     }
     backup_configuration {
       enabled = false
@@ -101,6 +108,8 @@ resource "google_sql_user" "airflow" {
   name     = "airflow"
   instance = google_sql_database_instance.airflow.name
   password = random_password.airflow_db.result
+  # Postgres can't drop a user that owns Airflow's tables; deleting the instance removes it anyway.
+  deletion_policy = "ABANDON"
 }
 
 # Connection URL (contains the password) → Secret Manager (≈ Secrets Manager) → env var in the container.

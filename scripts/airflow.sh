@@ -11,6 +11,7 @@ export CLOUDSDK_CORE_PROJECT="$PROJECT_ID"
 where=(--region="$REGION" --quiet)
 
 url() { gcloud run services describe airflow "${where[@]}" --format='value(status.url)'; }
+sql() { gcloud sql instances list --filter='name~^airflow-' --format='value(name)' --limit=1; }   # airflow-<suffix>
 call() { # METHOD PATH [JSON]: the Google token goes in X-Serverless-Authorization (Cloud Run IAM)
   curl -sS -X "$1" "$(url)$2" -H "X-Serverless-Authorization: Bearer $(gcloud auth print-identity-token)" \
     -H 'content-type: application/json' ${3:+-d "$3"}
@@ -18,20 +19,25 @@ call() { # METHOD PATH [JSON]: the Google token goes in X-Serverless-Authorizati
 
 case ${1:-} in
   up)
-    gcloud sql instances patch airflow --activation-policy=ALWAYS --quiet
+    gcloud sql instances patch "$(sql)" --activation-policy=ALWAYS --quiet
     gcloud run services update airflow --scaling=1 "${where[@]}"
-    echo "waiting for Airflow to be healthy (~1-2 min)..."
-    until call GET /api/v2/monitor/health 2>/dev/null | grep -q '"scheduler":{"status":"healthy"'; do sleep 10; done
-    echo "up. UI: scripts/airflow.sh ui"
+    echo "waiting for Airflow to be healthy (~2-3 min)..."
+    for i in $(seq 60); do
+      call GET /api/v2/monitor/health 2>/dev/null | grep -q '"scheduler":{"status":"healthy"' &&
+        { echo "up. UI: scripts/airflow.sh ui"; exit 0; }
+      sleep 10
+    done
+    echo "not healthy after 10 min: check Console → Cloud Run → airflow → Logs" >&2; exit 1
     ;;
   down)
     gcloud run services update airflow --scaling=0 "${where[@]}"
-    gcloud sql instances patch airflow --activation-policy=NEVER --quiet
+    gcloud sql instances patch "$(sql)" --activation-policy=NEVER --quiet
     echo "down. Files that land meanwhile load on the next run of their DAG."
     ;;
   status)
-    echo "cloud sql: $(gcloud sql instances describe airflow --format='value(state,settings.activationPolicy)')"
-    echo "cloud run instances: $(gcloud run services describe airflow "${where[@]}" --format='value(scaling.manualInstanceCount)')"
+    echo "cloud sql $(sql): $(gcloud sql instances describe "$(sql)" --format='value(settings.activationPolicy)')"
+    echo "cloud run instances: $(gcloud run services describe airflow "${where[@]}" \
+      --format="value(metadata.annotations['run.googleapis.com/manualInstanceCount'])")"
     ;;
   ui)
     echo "Airflow UI: http://localhost:8090"

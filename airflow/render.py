@@ -34,6 +34,9 @@ def render():
             sys.exit(f"{path.name}: type must be one of {sorted(KEYS)}")
         if set(cfg) != KEYS[kind]:
             sys.exit(f"{path.name}: keys must be type + {sorted(KEYS[kind])}, got {sorted(cfg)}")
+        # The event function triggers bronze_<feed>, taken from the file's path.
+        if kind == "bronze_ingest" and path.stem != f"bronze_{cfg['feed']}":
+            sys.exit(f"{path.name}: must be named bronze_{cfg['feed']}.yml (events trigger DAG bronze_<feed>)")
         code = env.get_template(f"{kind}.py.j2").render(dag_id=path.stem, source=f"airflow/dags/{path.name}", **cfg)
         (OUT / f"{path.stem}.py").write_text(code)
         print(f"rendered {path.stem}")
