@@ -14,5 +14,6 @@ CSV files ─▶ GCS landing ─Spark─▶ bronze ─dbt/BigQuery─▶ silver 
 | [03-dbt](03-dbt.md) | dbt + BigQuery: silver + gold as BigQuery-managed Iceberg |
 | [04-governance](04-governance.md) | Policy tags (column security), row access policies (≈ Lake Formation) |
 | [05-declarative](05-declarative.md) | Declarative business rules in PySpark: one rule = one function = one column |
+| [06-orchestration](06-orchestration.md) | Event-driven, config-driven Airflow 3 on Cloud Run: a file lands → its bronze DAG runs |
 
 **Live demo:** [demo.md](demo.md): a new file flows landing → bronze → silver → gold.

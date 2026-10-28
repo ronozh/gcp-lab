@@ -35,6 +35,15 @@ resource "google_cloud_run_v2_service_iam_member" "trigger_calls_function" {
 
 data "google_storage_project_service_account" "gcs" {}
 
+# Eventarc's own Google-managed identity validates the bucket when the trigger is created.
+# Its role is normally granted when the API is enabled, but not reliably on first use: grant it explicitly.
+resource "google_project_iam_member" "eventarc_agent" {
+  project    = var.project_id
+  role       = "roles/eventarc.serviceAgent"
+  member     = "serviceAccount:service-${data.google_project.this.number}@gcp-sa-eventarc.iam.gserviceaccount.com"
+  depends_on = [google_project_service.api]
+}
+
 resource "google_project_iam_member" "gcs_publishes_events" {
   project = var.project_id
   role    = "roles/pubsub.publisher"
@@ -107,5 +116,6 @@ resource "google_cloudfunctions2_function" "on_file_landed" {
     google_project_iam_member.builder,
     google_project_iam_member.gcs_publishes_events,
     google_project_iam_member.trigger_event_receiver,
+    google_project_iam_member.eventarc_agent,
   ]
 }

@@ -2,7 +2,7 @@
 # Airflow on Cloud Run: start, stop, open the UI, trigger a DAG.
 # Usage: scripts/airflow.sh up | down | status | ui | run <feed> [incremental|full_refresh]
 #   up/down   start/stop the metadata DB (Cloud SQL) and the container (Cloud Run instances 1/0)
-#   ui        http://localhost:8080 via an authenticated local proxy (Ctrl-C to stop)
+#   ui        http://localhost:8090 via an authenticated local proxy (Ctrl-C to stop)
 #   run       trigger bronze_<feed> through the REST API, as the event function does
 set -euo pipefail
 root=$(cd "$(dirname "$0")/.." && pwd)
@@ -34,8 +34,8 @@ case ${1:-} in
     echo "cloud run instances: $(gcloud run services describe airflow "${where[@]}" --format='value(scaling.manualInstanceCount)')"
     ;;
   ui)
-    echo "Airflow UI: http://localhost:8080"
-    exec gcloud run services proxy airflow "${where[@]}" --port=8080
+    echo "Airflow UI: http://localhost:8090"
+    exec gcloud run services proxy airflow "${where[@]}" --port=8090
     ;;
   run)
     feed=${2:?usage: airflow.sh run <feed> [incremental|full_refresh]}; mode=${3:-incremental}
