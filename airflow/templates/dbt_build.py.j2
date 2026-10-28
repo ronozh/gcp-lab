@@ -1,0 +1,18 @@
+[% extends "_base.py.j2" %]
+[% block tasks %]
+    # dbt runs inside the Airflow container, as the `airflow` service account (BigQuery does the work).
+    # The project is synced by CI to the DAG bucket (read-only), so target/ and logs go to /tmp.
+    # First run in a new container installs dbt into its own venv (~30 s), apart from Airflow's packages.
+    BashOperator(
+        task_id="dbt_build",
+        bash_command="""
+            set -euo pipefail
+            venv=/tmp/dbt-venv
+            [ -x $venv/bin/dbt ] || { uv venv -q $venv --python python3 &&
+              uv pip install -q -p $venv -r /opt/airflow/gcs/dbt/requirements.txt; }
+            cd /opt/airflow/gcs/dbt
+            $venv/bin/dbt build --select [[ select ]] --profiles-dir . \\
+              --target-path /tmp/dbt/target --log-path /tmp/dbt/logs
+        """,
+    )
+[% endblock %]

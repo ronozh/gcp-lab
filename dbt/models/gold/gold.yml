@@ -7,7 +7,7 @@ models:
       post_hook:
         # Row access policies (≈ Lake Formation data filters). CREATE OR REPLACE TABLE drops them, so recreate
         # each build. Once a table has any policy, a user in no policy sees 0 rows: hence `all_rows`.
-        # The dbt runner (you) must be in all_rows, or tests would silently pass on 0 rows.
+        # The dbt runners (you locally, `airflow` in the cloud) must be in all_rows, or tests would silently pass on 0 rows.
         - >
           CREATE OR REPLACE ROW ACCESS POLICY nsw_only ON {{ this }}
           GRANT TO ("serviceAccount:lab-analyst-nsw@{{ env_var('PROJECT_ID') }}.iam.gserviceaccount.com")
@@ -16,7 +16,8 @@ models:
           CREATE OR REPLACE ROW ACCESS POLICY all_rows ON {{ this }}
           GRANT TO ("user:{{ env_var('OWNER_EMAIL') }}",
                     "serviceAccount:lab-admin@{{ env_var('PROJECT_ID') }}.iam.gserviceaccount.com",
-                    "serviceAccount:lab-analyst@{{ env_var('PROJECT_ID') }}.iam.gserviceaccount.com")
+                    "serviceAccount:lab-analyst@{{ env_var('PROJECT_ID') }}.iam.gserviceaccount.com",
+                    "serviceAccount:airflow@{{ env_var('PROJECT_ID') }}.iam.gserviceaccount.com")
           FILTER USING (TRUE)
     columns:
       # Policy tags (column-level security): only fine-grained readers (lab-admin) may select these.

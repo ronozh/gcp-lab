@@ -35,13 +35,42 @@ resource "google_service_account" "airflow" {
 
 resource "google_project_iam_member" "airflow" {
   for_each = toset([
-    "roles/dataproc.editor", # submit + watch Serverless Spark batches
-    "roles/cloudsql.client", # connect to the metadata DB
-    "roles/compute.viewer",  # read the vCPU quota before submitting (free-trial quota fits one batch)
+    "roles/dataproc.editor",    # submit + watch Serverless Spark batches
+    "roles/cloudsql.client",    # connect to the metadata DB
+    "roles/compute.viewer",     # read the vCPU quota before submitting (free-trial quota fits one batch)
+    "roles/bigquery.jobUser",   # dbt: run queries
+    "roles/datacatalog.viewer", # dbt: attach the pii policy tag to gold columns
   ])
   project = var.project_id
   role    = each.key
   member  = "serviceAccount:${google_service_account.airflow.email}"
+}
+
+# dbt (DAG gold_fct_sales) runs as this SA: read bronze, own silver + gold (tables, row access policies).
+resource "google_bigquery_dataset_iam_member" "airflow_dbt" {
+  for_each = {
+    bronze = "roles/bigquery.dataViewer"
+    silver = "roles/bigquery.dataOwner"
+    gold   = "roles/bigquery.dataOwner"
+  }
+  dataset_id = google_bigquery_dataset.layer[each.key].dataset_id
+  role       = each.value
+  member     = "serviceAccount:${google_service_account.airflow.email}"
+}
+
+# Bronze tables are Spark-written Iceberg files that BigQuery reads with the caller's own access.
+resource "google_storage_bucket_iam_member" "airflow_reads_lake" {
+  bucket = google_storage_bucket.lake.name
+  role   = "roles/storage.objectViewer"
+  member = "serviceAccount:${google_service_account.airflow.email}"
+}
+
+# Silver/gold are BigQuery-managed Iceberg tables created WITH CONNECTION DEFAULT (= lake).
+resource "google_bigquery_connection_iam_member" "airflow_uses_lake" {
+  connection_id = google_bigquery_connection.lake.connection_id
+  location      = var.region
+  role          = "roles/bigquery.connectionUser"
+  member        = "serviceAccount:${google_service_account.airflow.email}"
 }
 
 # Submit batches that run as spark-runner (≈ iam:PassRole).
@@ -182,6 +211,12 @@ resource "google_cloud_run_v2_service" "airflow" {
           AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT             = "google-cloud-platform://" # = the service account
           GOOGLE_CLOUD_PROJECT                          = var.project_id             # read by the DAGs
           GOOGLE_CLOUD_REGION                           = var.region
+          # dbt's env_var()s (profiles.yml, catalogs.yml, gold.yml), as scripts/run-dbt.sh sets them locally.
+          PROJECT_ID                     = var.project_id
+          REGION                         = var.region
+          OWNER_EMAIL                    = var.owner_email
+          PII_TAG                        = google_data_catalog_policy_tag.pii.name
+          DBT_SEND_ANONYMOUS_USAGE_STATS = "False"
         }
         content {
           name  = env.key
@@ -225,7 +260,8 @@ resource "google_cloud_run_v2_service" "airflow" {
   }
 
   lifecycle {
-    ignore_changes = [scaling[0].manual_instance_count] # owned by scripts/airflow.sh up|down
+    # Owned by scripts/airflow.sh up|down (gcloud also stamps client/client_version).
+    ignore_changes = [scaling[0].manual_instance_count, client, client_version]
   }
   depends_on = [
     google_project_service.api,

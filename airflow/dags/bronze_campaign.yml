@@ -1,5 +1,4 @@
-# Landing CSV files -> bronze.campaign (Serverless Spark). The DAG id is the file name.
+# Landing CSV files -> bronze.campaign (Serverless Spark). Triggered by a file landing (event) or by hand.
 type: bronze_ingest
 description: Load new campaign files from landing into bronze.campaign
 feed: campaign
-schedule: null   # event only (a file lands). A cron string, e.g. "0 2 * * *", adds a timer.

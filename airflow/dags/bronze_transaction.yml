@@ -1,5 +1,4 @@
-# Landing CSV files -> bronze.transaction (Serverless Spark). The DAG id is the file name.
+# Landing CSV files -> bronze.transaction (Serverless Spark). Triggered by a file landing (event) or by hand.
 type: bronze_ingest
 description: Load new transaction files from landing into bronze.transaction
 feed: transaction
-schedule: null   # event only (a file lands). A cron string, e.g. "0 2 * * *", adds a timer.

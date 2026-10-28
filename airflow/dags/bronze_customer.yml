@@ -1,5 +1,4 @@
-# Landing CSV files -> bronze.customer (Serverless Spark). The DAG id is the file name.
+# Landing CSV files -> bronze.customer (Serverless Spark). Triggered by a file landing (event) or by hand.
 type: bronze_ingest
 description: Load new customer files from landing into bronze.customer
 feed: customer
-schedule: null   # event only (a file lands). A cron string, e.g. "0 2 * * *", adds a timer.

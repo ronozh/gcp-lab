@@ -1,0 +1,9 @@
+[% extends "_base.py.j2" %]
+[% block helpers %][% include "_spark.py.j2" %][% endblock %]
+[% block tasks %]
+    spark_batch(
+        [[ (entry | replace(".py", "") | replace("_", "-")) | py ]],
+        [[ entry | py ]],
+        [a.replace("${PROJECT}", PROJECT) for a in [[ args | py ]]],
+    )
+[% endblock %]

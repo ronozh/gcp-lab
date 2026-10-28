@@ -19,7 +19,9 @@ call() { # METHOD PATH [JSON]: the Google token goes in X-Serverless-Authorizati
 
 case ${1:-} in
   up)
-    gcloud sql instances patch "$(sql)" --activation-policy=ALWAYS --quiet
+    # Starting the smallest tier can take ~10 min: wait on the operation without gcloud's 10 min limit.
+    op=$(gcloud sql instances patch "$(sql)" --activation-policy=ALWAYS --async --quiet --format='value(name)')
+    gcloud sql operations wait "$op" --timeout=unlimited --quiet >/dev/null
     gcloud run services update airflow --scaling=1 "${where[@]}"
     echo "waiting for Airflow to be healthy (~2-3 min)..."
     for i in $(seq 60); do

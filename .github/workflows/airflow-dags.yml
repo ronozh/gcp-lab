@@ -1,11 +1,13 @@
 name: airflow-dags
 
 # airflow/dags/*.yml → rendered DAG files → gs://<project>-airflow/dags (mounted into Airflow; picked up in ~30 s).
+# dbt/ → gs://<project>-airflow/dbt (the dbt project that DAG type dbt_build runs).
 on:
   push:
     branches: [main]
     paths:
       - "airflow/**"
+      - "dbt/**"
       - "scripts/airflow-render.sh"
       - "terraform/airflow.tf" # the Airflow image the DAGs are checked against
       - ".github/workflows/airflow-dags.yml"
@@ -59,4 +61,6 @@ jobs:
         run: |
           gcloud storage rsync airflow/build/dags "gs://${GCP_PROJECT_ID}-airflow/dags" \
             --recursive --delete-unmatched-destination-objects --quiet
+          gcloud storage rsync dbt "gs://${GCP_PROJECT_ID}-airflow/dbt" --recursive --delete-unmatched-destination-objects \
+            --exclude='^(target|logs|\.venv|dbt_packages)/|\.user\.yml$' --quiet
           ls airflow/build/dags

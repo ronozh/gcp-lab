@@ -1,0 +1,5 @@
+# silver (all upstream models) + gold.fct_sales + their tests, whenever bronze.transaction is updated.
+type: dbt_build
+description: dbt build +fct_sales (silver + gold) after bronze.transaction is updated
+select: +fct_sales
+after: bronze.transaction
