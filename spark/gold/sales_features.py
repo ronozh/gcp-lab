@@ -5,8 +5,9 @@ To change a rule, change its function. To add one, add a function. Nothing else 
 """
 from pyspark.sql import DataFrame, Window, functions as F
 
-from declarative.transform import Transform
+from gold.declarative import Transform
 
+SOURCE = "fct_sales"   # input: gold.<SOURCE>; output: gold.<this module's name>
 KEYS = ("transaction_id", "order_date", "customer_id")
 
 transform = Transform()

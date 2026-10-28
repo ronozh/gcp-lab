@@ -1,8 +1,9 @@
-from bronze.config.feed import FeedConfig
-from bronze.schema import campaign
+from bronze.base import FeedConfig
+from bronze.ecommerce.campaign import schema
 
 CONFIG = FeedConfig.from_dict({
+    "source": "ecommerce",
     "name": "campaign",
-    "schema": campaign.SCHEMA,
+    "schema": schema.SCHEMA,
     # Any other FeedConfig field overrides its default, e.g. "delimiter": "|", "header": False.
 })

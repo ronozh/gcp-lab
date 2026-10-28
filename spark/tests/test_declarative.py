@@ -4,8 +4,9 @@ from datetime import date, datetime
 import pytest
 from pyspark.sql import SparkSession, Window, functions as F
 
-from declarative import sales_features
-from declarative.transform import Transform
+from bronze.base import FeedConfig
+from gold import sales_features
+from gold.declarative import Transform
 
 
 @pytest.fixture(scope="session")
@@ -13,6 +14,14 @@ def spark():
     s = SparkSession.builder.master("local[1]").config("spark.ui.enabled", "false").getOrCreate()
     yield s
     s.stop()
+
+
+def test_every_feed_config_loads():
+    for feed in ("campaign", "customer", "product", "transaction"):
+        cfg = FeedConfig.load("ecommerce", feed)
+        assert (cfg.source, cfg.name) == ("ecommerce", feed) and cfg.schema.fields
+    with pytest.raises(ValueError, match="no feed config"):
+        FeedConfig.load("ecommerce", "nope")
 
 
 def test_default_name_explicit_name_and_stage_chaining(spark):

@@ -10,11 +10,11 @@ EVENT    ingest/upload.sh ─▶ gs://<project>-landing/ecommerce/<feed>/<date>/
                                ▼ Eventarc
          function on-file-landed: *.csv only → POST /api/v2/dags/bronze_<feed>/dagRuns
                                ▼
-         Airflow 3 (Cloud Run) ─ DAG bronze_<feed> ─▶ Serverless Spark: bronze_ingest.py --feed <feed> --mode incremental
+         Airflow 3 (Cloud Run) ─ DAG bronze_<feed> ─▶ Serverless Spark: bronze_transform.py --source ecommerce --feed <feed>
                                                                                        ▼
                                                                                  bronze.<feed>
 ASSET    bronze.transaction updated ─▶ DAG gold_fct_sales: dbt build +fct_sales (silver + gold)
-CRON     every 30 min 20:50–23:50 ─▶ DAG gold_sales_features: Spark gold_features.py → gold.sales_features
+CRON     every 30 min 20:50–23:50 ─▶ DAG gold_sales_features: Spark gold_transform.py --model sales_features
 CONFIG   airflow/dags/*.yml ─push─▶ GitHub Action: render .py + import check ─▶ gs://<project>-airflow/dags
 ```
 
@@ -74,7 +74,7 @@ airflow/
 
 | Type | Own keys | Runs |
 |---|---|---|
-| `bronze_ingest` | `feed` | Spark `bronze_ingest.py --feed … --mode {incremental, full_refresh}`. Marks `bronze.<feed>` as updated |
+| `bronze_ingest` | `source`, `feed` | Spark `bronze_transform.py --source … --feed … --mode {incremental, full_refresh}`. Marks `bronze.<feed>` as updated |
 | `dbt_build` | `select` | `dbt build --select …` inside the Airflow container (BigQuery does the work) |
 | `spark_job` | `entry`, `args` | Spark `spark/<entry>`; `${PROJECT}` in args becomes the project id |
 
@@ -84,7 +84,7 @@ The 6 DAGs:
 |---|---|---|
 | `bronze_<feed>` × 4 | bronze_ingest | a `.csv` lands (event), or by hand |
 | `gold_fct_sales` | dbt_build `+fct_sales` (silver + gold + tests) | `after: bronze.transaction` |
-| `gold_sales_features` | spark_job `gold_features.py` (overwrites) | `cron: ["50 20 * * *", "20,50 21-23 * * *"]` = every 30 min, 20:50–23:50 |
+| `gold_sales_features` | spark_job `gold_transform.py --model sales_features` (overwrites) | `cron: ["50 20 * * *", "20,50 21-23 * * *"]` = every 30 min, 20:50–23:50 |
 
 ```yaml
 type: dbt_build

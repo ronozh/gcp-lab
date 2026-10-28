@@ -1,8 +1,8 @@
 # Declarative business rules: gold.fct_sales -> gold.sales_features (Spark overwrites the table each run).
 type: spark_job
 description: Rebuild gold.sales_features every 30 min, 20:50-23:50 Sydney time
-entry: gold_features.py
-args: ["--lake=gs://${PROJECT}-lake"]
+entry: gold_transform.py
+args: ["--model=sales_features", "--lake=gs://${PROJECT}-lake"]
 cron: ["50 20 * * *", "20,50 21-23 * * *"]   # 20:50, then every 30 min to 23:50 (one cron can't say this)
 retries: 3
 retry_delay_minutes: 10

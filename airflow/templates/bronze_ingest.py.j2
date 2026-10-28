@@ -4,8 +4,9 @@
 [% block tasks %]
     spark_batch(
         "bronze-" + [[ feed | py ]],
-        "bronze_ingest.py",
-        ["--feed=" + [[ feed | py ]], "--mode={{ params.mode }}", f"--landing=gs://{PROJECT}-landing"],
+        "bronze_transform.py",
+        ["--source=" + [[ source | py ]], "--feed=" + [[ feed | py ]], "--mode={{ params.mode }}",
+         f"--landing=gs://{PROJECT}-landing"],
         outlets=[Asset("bronze." + [[ feed | py ]])],  # DAGs with `after: bronze.<feed>` run when this succeeds
     )
 [% endblock %]

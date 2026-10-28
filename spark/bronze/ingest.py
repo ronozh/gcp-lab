@@ -9,9 +9,9 @@ import time
 
 from pyspark.sql import DataFrame, SparkSession, Window, functions as F
 
-from bronze.config.feed import FeedConfig
+from bronze.base import FeedConfig
 
-CATALOG = "lake"       # Iceberg catalog backed by BigQuery metastore (scripts/run-bronze.sh)
+CATALOG = "lake"       # Iceberg catalog backed by BigQuery metastore (scripts/run-spark.sh)
 NAMESPACE = "bronze"   # = BigQuery dataset
 MODES = ("incremental", "full_refresh")
 
@@ -35,7 +35,7 @@ def relative(path: str, landing: str) -> str:
 
 
 def files_to_load(spark: SparkSession, cfg: FeedConfig, landing: str, table: str, replace: bool) -> list:
-    files = list_files(spark, f"{landing}/{cfg.domain}/{cfg.name}/{cfg.file_glob}")
+    files = list_files(spark, f"{landing}/{cfg.source}/{cfg.name}/{cfg.file_glob}")
     if replace:
         return files
     loaded = {r[0] for r in spark.table(table).select("_meta_file_path").distinct().collect()}

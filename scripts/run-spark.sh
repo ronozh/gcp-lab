@@ -7,7 +7,7 @@ root=$(cd "$(dirname "$0")/.." && pwd)
 source "$root/bootstrap/.env"
 entry=${1:-}
 if [ ! -f "$root/spark/$entry" ] || [[ "$entry" != *.py ]]; then
-  echo "run-spark.sh is the low-level helper: its first argument is a Spark entry file (bronze_ingest.py, gold_features.py)." >&2
+  echo "run-spark.sh is the low-level helper: its first argument is a Spark entry file (bronze_transform.py, gold_transform.py)." >&2
   echo "To load a feed use: scripts/run-bronze.sh <feed> [incremental|full_refresh]" >&2
   exit 2
 fi
@@ -15,7 +15,7 @@ shift
 
 if [ "${LOCAL:-}" = 1 ]; then
   tmp=$(mktemp -d)
-  (cd "$root/spark" && zip -qr "$tmp/lib.zip" bronze declarative -x '*__pycache__*')
+  (cd "$root/spark" && zip -qr "$tmp/lib.zip" bronze gold -x '*__pycache__*')
   job="$root/spark/$entry"; py_files="$tmp/lib.zip"                   # gcloud uploads them to --deps-bucket
 else
   job="gs://${PROJECT_ID}-code/spark/$entry"; py_files="gs://${PROJECT_ID}-code/spark/lib.zip"   # deployed by CI

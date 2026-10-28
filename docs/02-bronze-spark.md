@@ -16,7 +16,7 @@ run-bronze.sh <feed> [incremental|full_refresh]  =  one Spark batch  =  one feed
 data/sample ─ingest/upload.sh─▶ gs://<project-id>-landing/ecommerce/<feed>/<date>/<feed>_<ts>.csv + .ctrl
                                         │
      scripts/run-bronze.sh <feed> ─▶ Serverless Spark batch (runs as spark-runner, 12 vCPU)
-                                        │  bronze_ingest.py + lib.zip (bronze/: config, schema, ingest)
+                                        │  bronze_transform.py + lib.zip (bronze/: base, ingest, <source>/<feed>/)
                                         ▼
             Iceberg catalog "lake" (BigQuery metastore)
               ├─ data + metadata files ─▶ gs://<project-id>-lake/iceberg/bronze/<feed>/
@@ -37,17 +37,21 @@ data/sample ─ingest/upload.sh─▶ gs://<project-id>-landing/ecommerce/<feed>
 
 ## Code layout: configuration-driven
 
+Organised like dbt models: layer → source → feed. Each layer folder holds everything it needs.
 ```
 spark/
-  bronze_ingest.py          entry point: --feed, --mode
+  bronze_transform.py       entry point: --source, --feed, --mode
   bronze/
-    config/feed.py          FeedConfig dataclass: every option + a sensible default
-    config/<feed>.py        CONFIG = FeedConfig.from_dict({"name": …, "schema": <feed>.SCHEMA, …overrides})
-    config/__init__.py      FEEDS registry: feed name -> config
-    schema/<feed>.py        SCHEMA = StructType([...])
+    base.py                 FeedConfig dataclass: every option + a sensible default; load(source, feed)
     ingest.py               common logic for every feed
+    ecommerce/              one folder per source (= landing prefix ecommerce/)
+      transaction/          one folder per feed (= bronze table name)
+        config.py           CONFIG = FeedConfig.from_dict({"source": …, "name": …, "schema": schema.SCHEMA, …overrides})
+        schema.py           SCHEMA = StructType([...])
+      campaign/ customer/ product/   same two files
 ```
-- **Add a feed:** add `schema/<feed>.py` + `config/<feed>.py`, and list it in `config/__init__.py`. No ingest code changes.
+- **Add a feed:** a new folder `bronze/<source>/<feed>/` with `config.py` + `schema.py`. No registry, no ingest code changes: `--source`/`--feed` find the folder. `source` and `name` in `config.py` must match the folder (checked, to catch a copy-paste).
+- **Add a source:** a new folder `bronze/<source>/` (landing files under `<source>/<feed>/<date>/`). Bronze tables stay `bronze.<feed>`, so feed names must be unique across sources.
 - **Override an option:** add a key to the dict, e.g. `"delimiter": "|"`. Unknown keys raise an error, so typos are caught. Read options as attributes: `CONFIG.header`, `CONFIG.schema`.
 - **Add a config option:** a new `FeedConfig` field *with a default*, so existing configs keep working.
 
@@ -79,7 +83,7 @@ scripts/run-bronze.sh transaction full_refresh
 LOCAL=1 scripts/run-bronze.sh transaction      # run your local code (dev loop, no push needed)
 for f in campaign customer product transaction; do scripts/run-bronze.sh $f; done   # all feeds, one after another
 ```
-CI deploys the code: push a change under `spark/`, and Terraform uploads the entry files + `lib.zip` (packages `bronze/`, `declarative/`). `run-bronze.sh` and `run-spark-declarative.sh` both call `scripts/run-spark.sh` (shared Spark settings).
+CI deploys the code: push a change under `spark/`, and Terraform uploads the entry files + `lib.zip` (packages `bronze/`, `gold/`). `run-bronze.sh` and `run-spark-declarative.sh` both call `scripts/run-spark.sh` (shared Spark settings).
 
 ## Verify it yourself
 

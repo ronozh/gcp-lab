@@ -1,4 +1,5 @@
 # Landing CSV files -> bronze.transaction (Serverless Spark). Triggered by a file landing (event) or by hand.
 type: bronze_ingest
 description: Load new transaction files from landing into bronze.transaction
+source: ecommerce
 feed: transaction

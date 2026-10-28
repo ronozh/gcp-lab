@@ -41,9 +41,9 @@ gold.fct_sales (BigQuery/dbt, Iceberg) ──Spark reads exported metadata──
 
 | File | What |
 |---|---|
-| `spark/declarative/transform.py` | The framework (~30 lines) |
-| `spark/declarative/sales_features.py` | 8 rules: stage 1 row-level (4), stage 2 window (2), stage 3 built on stage 2 (2) |
-| `spark/gold_features.py` | Job: read `fct_sales` → rules → write `gold.sales_features` |
+| `spark/gold/declarative.py` | The framework (~30 lines) |
+| `spark/gold/sales_features.py` | One gold model: `SOURCE = "fct_sales"` + 8 rules: stage 1 row-level (4), stage 2 window (2), stage 3 built on stage 2 (2) |
+| `spark/gold_transform.py` | Job: `--model sales_features` → read `gold.<SOURCE>` → rules → write `gold.<model>`. A new model = a new `gold/<model>.py` |
 | `spark/tests/test_transform.py` | Tests on tiny in-memory data, no GCP |
 
 ## Commands

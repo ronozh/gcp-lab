@@ -1,4 +1,5 @@
 # Landing CSV files -> bronze.campaign (Serverless Spark). Triggered by a file landing (event) or by hand.
 type: bronze_ingest
 description: Load new campaign files from landing into bronze.campaign
+source: ecommerce
 feed: campaign

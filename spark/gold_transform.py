@@ -1,19 +1,19 @@
-"""Entry point: gold.fct_sales -> declarative business rules -> gold.sales_features (Iceberg, written by Spark).
+"""Entry point: one gold model = gold/<model>.py: gold.<SOURCE> -> its declarative rules -> gold.<model> (Iceberg).
 
+  --model <name>           e.g. sales_features (gold/sales_features.py: SOURCE, build(df))
   --lake gs://<bucket>     lake bucket (Iceberg warehouse root: <lake>/iceberg)
   --batch-id <id>          for the log
 
-gold.fct_sales is written by BigQuery (dbt). Spark reads it from its exported Iceberg metadata,
-and is the single writer of gold.sales_features.
+The source (e.g. gold.fct_sales) is written by BigQuery (dbt). Spark reads it from its exported Iceberg metadata,
+and is the single writer of gold.<model>. Each run replaces the table.
 """
 import argparse
+import importlib
 import logging
 import re
 import sys
 
 from pyspark.sql import SparkSession
-
-from declarative import sales_features
 
 CATALOG = "lake"
 log = logging.getLogger("gold")
@@ -31,24 +31,27 @@ def latest_metadata(spark: SparkSession, table_dir: str) -> str:
 
 def main():
     p = argparse.ArgumentParser()
+    p.add_argument("--model", required=True)
     p.add_argument("--lake", required=True)
     p.add_argument("--batch-id", required=True)
     a = p.parse_args()
     logging.basicConfig(level=logging.INFO, stream=sys.stdout,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
-    spark = SparkSession.builder.appName("gold_features").getOrCreate()
-    warehouse = f"{a.lake.rstrip('/')}/iceberg"
-    source = latest_metadata(spark, f"{warehouse}/gold/fct_sales")
-    log.info("batch=%s source=%s", a.batch_id, source.rsplit("/", 1)[1])
-    log.info("rules:\n%s", sales_features.transform.lineage())
+    model = importlib.import_module(f"gold.{a.model}")
+    target = f"{CATALOG}.gold.{a.model}"
 
-    out = sales_features.build(spark.read.format("iceberg").load(source))
-    (out.writeTo(f"{CATALOG}.gold.sales_features").using("iceberg")
-     .tableProperty("location", f"{warehouse}/gold/sales_features")
+    spark = SparkSession.builder.appName(f"gold_{a.model}").getOrCreate()
+    warehouse = f"{a.lake.rstrip('/')}/iceberg"
+    source = latest_metadata(spark, f"{warehouse}/gold/{model.SOURCE}")
+    log.info("batch=%s model=%s source=gold.%s/%s", a.batch_id, a.model, model.SOURCE, source.rsplit("/", 1)[1])
+    log.info("rules:\n%s", model.transform.lineage())
+
+    out = model.build(spark.read.format("iceberg").load(source))
+    (out.writeTo(target).using("iceberg")
+     .tableProperty("location", f"{warehouse}/gold/{a.model}")
      .createOrReplace())
-    log.info("wrote gold.sales_features rows=%d columns=%d", spark.table(f"{CATALOG}.gold.sales_features").count(),
-             len(out.columns))
+    log.info("wrote gold.%s rows=%d columns=%d", a.model, spark.table(target).count(), len(out.columns))
     spark.stop()
 
 

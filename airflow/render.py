@@ -24,7 +24,7 @@ TIMEZONE = "Australia/Sydney"
 COMMON = {"description": None, "cron": None, "after": None, "retries": 3, "retry_delay_minutes": 10}
 # type -> its own keys (None = required)
 TYPES = {
-    "bronze_ingest": {"feed": None},
+    "bronze_ingest": {"source": None, "feed": None},
     "dbt_build": {"select": None},
     "spark_job": {"entry": None, "args": []},
 }
@@ -72,7 +72,7 @@ def render():
         old.unlink()
     for path in sorted((HERE / "dags").glob("*.yml")):
         kind, cfg = load(path)
-        code = env.get_template(f"{kind}.py.j2").render(dag_id=path.stem, source=f"airflow/dags/{path.name}", **cfg)
+        code = env.get_template(f"{kind}.py.j2").render(dag_id=path.stem, config_path=f"airflow/dags/{path.name}", **cfg)
         (OUT / f"{path.stem}.py").write_text(code)
         print(f"rendered {path.stem} ({kind})")
 

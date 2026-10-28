@@ -5,4 +5,4 @@
 set -euo pipefail
 root=$(cd "$(dirname "$0")/.." && pwd)
 source "$root/bootstrap/.env"
-exec "$root/scripts/run-spark.sh" gold_features.py --lake="gs://${PROJECT_ID}-lake"
+exec "$root/scripts/run-spark.sh" gold_transform.py --model=sales_features --lake="gs://${PROJECT_ID}-lake"

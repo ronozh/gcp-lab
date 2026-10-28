@@ -1,4 +1,5 @@
 # Landing CSV files -> bronze.product (Serverless Spark). Triggered by a file landing (event) or by hand.
 type: bronze_ingest
 description: Load new product files from landing into bronze.product
+source: ecommerce
 feed: product
