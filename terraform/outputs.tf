@@ -13,3 +13,7 @@ output "code_bucket" {
 output "spark_sa" {
   value = google_service_account.spark.email
 }
+
+output "airflow_bucket" {
+  value = google_storage_bucket.airflow.name
+}

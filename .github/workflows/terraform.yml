@@ -7,6 +7,7 @@ on:
       - "terraform/**"
       - "spark/**"
       - "scripts/ci/**"
+      - "functions/**"
       - ".github/workflows/terraform.yml"
   workflow_dispatch:
 # No pull_request trigger: solo repo, so fork PRs trigger nothing.

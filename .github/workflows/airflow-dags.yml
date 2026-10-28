@@ -1,0 +1,61 @@
+name: airflow-dags
+
+# airflow/dags/*.yml → rendered DAG files → gs://<project>-airflow/dags (mounted into Airflow; picked up in ~30 s).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "airflow/**"
+      - "scripts/airflow-render.sh"
+      - ".github/workflows/airflow-dags.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: airflow-dags
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: dev
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write # GitHub OIDC token -> GCP Workload Identity Federation
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Before any credentials exist: a bad YAML or a DAG that fails to import stops here.
+      - name: render + import check (in the Airflow image)
+        run: scripts/airflow-render.sh
+
+      - name: mask project id
+        env:
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          GCP_WIF_PROVIDER: ${{ secrets.GCP_WIF_PROVIDER }}
+        run: |
+          echo "::add-mask::$GCP_PROJECT_ID"
+          n=${GCP_WIF_PROVIDER#projects/}; echo "::add-mask::${n%%/*}"
+
+      - uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
+          service_account: ${{ secrets.GCP_CI_SA }}
+
+      # Exact mirror: a DAG whose YAML was deleted is removed from Airflow too.
+      - name: deploy
+        env:
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+        run: |
+          gcloud storage rsync airflow/build/dags "gs://${GCP_PROJECT_ID}-airflow/dags" \
+            --recursive --delete-unmatched-destination-objects --quiet
+          ls airflow/build/dags

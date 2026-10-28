@@ -1,0 +1,5 @@
+# Landing CSV files -> bronze.product (Serverless Spark). The DAG id is the file name.
+type: bronze_ingest
+description: Load new product files from landing into bronze.product
+feed: product
+schedule: null   # event only (a file lands). A cron string, e.g. "0 2 * * *", adds a timer.
