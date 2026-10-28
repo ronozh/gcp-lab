@@ -1,6 +1,6 @@
-"""Entry point: one gold model = gold/<model>.py: gold.<SOURCE> -> its declarative rules -> gold.<model> (Iceberg).
+"""Entry point: one gold model = gold/<model>/rules.py: gold.<SOURCE> -> its declarative rules -> gold.<model> (Iceberg).
 
-  --model <name>           e.g. sales_features (gold/sales_features.py: SOURCE, build(df))
+  --model <name>           e.g. sales_features (gold/sales_features/rules.py: SOURCE, transform, build(df))
   --lake gs://<bucket>     lake bucket (Iceberg warehouse root: <lake>/iceberg)
   --batch-id <id>          for the log
 
@@ -38,7 +38,7 @@ def main():
     logging.basicConfig(level=logging.INFO, stream=sys.stdout,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
-    model = importlib.import_module(f"gold.{a.model}")
+    model = importlib.import_module(f"gold.{a.model}.rules")
     target = f"{CATALOG}.gold.{a.model}"
 
     spark = SparkSession.builder.appName(f"gold_{a.model}").getOrCreate()

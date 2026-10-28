@@ -42,8 +42,8 @@ gold.fct_sales (BigQuery/dbt, Iceberg) ──Spark reads exported metadata──
 | File | What |
 |---|---|
 | `spark/gold/declarative.py` | The framework (~30 lines) |
-| `spark/gold/sales_features.py` | One gold model: `SOURCE = "fct_sales"` + 8 rules: stage 1 row-level (4), stage 2 window (2), stage 3 built on stage 2 (2) |
-| `spark/gold_transform.py` | Job: `--model sales_features` → read `gold.<SOURCE>` → rules → write `gold.<model>`. A new model = a new `gold/<model>.py` |
+| `spark/gold/sales_features/rules.py` | One gold model (a folder per use case): `SOURCE = "fct_sales"` + 8 rules: stage 1 row-level (4), stage 2 window (2), stage 3 built on stage 2 (2) |
+| `spark/gold_transform.py` | Job: `--model sales_features` → read `gold.<SOURCE>` → rules → write `gold.<model>`. A new model = a new folder `gold/<model>/rules.py` |
 | `spark/tests/test_transform.py` | Tests on tiny in-memory data, no GCP |
 
 ## Commands
@@ -56,7 +56,7 @@ bq query --nouse_legacy_sql \
 ```
 
 ## Try it
-Add a rule to `sales_features.py`, e.g. `is_weekend` = `F.dayofweek("order_date").isin(1, 7)` (stage 1, no argument needed), run `scripts/test-spark.sh`, then `scripts/run-spark-declarative.sh`. No other code changes.
+Add a rule to `gold/sales_features/rules.py`, e.g. `is_weekend` = `F.dayofweek("order_date").isin(1, 7)` (stage 1, no argument needed), run `scripts/test-spark.sh`, then `scripts/run-spark-declarative.sh`. No other code changes.
 
 ## Gotchas
 - **Schema changes (tested):** adding or removing a rule adds or removes the column on the next run, through CI → deployed job. A *type* change needs `bq rm -f -t gold.sales_features`, then a rerun (the table is fully derived, so nothing is lost).

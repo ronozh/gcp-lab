@@ -5,7 +5,7 @@ import pytest
 from pyspark.sql import SparkSession, Window, functions as F
 
 from bronze.base import FeedConfig
-from gold import sales_features
+from gold.sales_features import rules as sales_features
 from gold.declarative import Transform
 
 
