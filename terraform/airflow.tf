@@ -97,6 +97,8 @@ resource "google_sql_database_instance" "airflow" {
 resource "google_sql_database" "airflow" {
   name     = "airflow"
   instance = google_sql_database_instance.airflow.name
+  # Can't drop a database Airflow is connected to; deleting the instance removes it anyway.
+  deletion_policy = "ABANDON"
 }
 
 resource "random_password" "airflow_db" {
