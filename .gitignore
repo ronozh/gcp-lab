@@ -34,6 +34,7 @@ dbt/.user.yml
 __pycache__/
 .DS_Store
 terraform/.build/
+aws/terraform/.build/
 .pytest_cache/
 
 # Airflow: DAG files rendered from airflow/dags/*.yml
