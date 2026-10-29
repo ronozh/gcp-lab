@@ -15,6 +15,7 @@ A medallion lakehouse on GCP, built from code. Sibling of `../snowflake-lab` (sa
 
 ## Stack
 GCS landing → Serverless Spark (PySpark) → bronze Iceberg → dbt + BigQuery → silver tables → gold Iceberg. Terraform applied by GitHub Actions (Workload Identity Federation, no keys). Region `australia-southeast1`.
+Migration demo (docs/07): `aws/terraform` (applied locally, SSO) = S3 raw/processed + SNS/SQS + Lambda + Storage Transfer bridge → GCS; recon_campaign DAG → BigQuery `recon.<feed>`.
 Orchestration: GCS event → Eventarc → function → Airflow 3 (Cloud Run + Cloud SQL) → DAG `bronze_<feed>` (rendered from `airflow/dags/*.yml` by CI).
 
 ## Layers

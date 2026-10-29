@@ -76,15 +76,16 @@ airflow/
 |---|---|---|
 | `bronze_ingest` | `source`, `feed` | Spark `bronze_transform.py --source … --feed … --mode {incremental, full_refresh}`. Marks `bronze.<feed>` as updated |
 | `dbt_build` | `select` | `dbt build --select …` inside the Airflow container (BigQuery does the work) |
-| `spark_job` | `entry`, `args` | Spark `spark/<entry>`; `${PROJECT}` in args becomes the project id |
+| `spark_job` | `entry`, `args`, `params` (optional) | Spark `spark/<entry>`; `${PROJECT}` in args becomes the project id. `params: {date: null}` asks for `date` at trigger time (`null` = required); args use it as `{{ params.date }}` |
 
-The 6 DAGs:
+The 7 DAGs:
 
 | DAG | Type | Trigger |
 |---|---|---|
 | `bronze_<feed>` × 4 | bronze_ingest | a `.csv` lands (event), or by hand |
 | `gold_fct_sales` | dbt_build `+fct_sales` (silver + gold + tests) | `after: bronze.transaction` |
 | `gold_sales_features` | spark_job `gold_transform.py --model sales_features` (overwrites) | `cron: ["50 20 * * *", "20,50 21-23 * * *"]` = every 30 min, 20:50–23:50 |
+| `recon_campaign` | spark_job `recon_transform.py`, param `date` ([07](07-migration.md)) | by hand, with `{"date": "yyyy-mm-dd"}` |
 
 ```yaml
 type: dbt_build

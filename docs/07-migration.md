@@ -5,7 +5,7 @@
 Built in three steps:
 1. **AWS side** (done): raw bucket, events, and a Lambda as the "legacy pipeline".
 2. **Integration** (done): Storage Transfer Service copies raw and processed files to GCS, event-driven and keyless.
-3. **End to end + recon**: GCP's bronze vs AWS's Parquet, cell by cell.
+3. **Recon** (done): GCP's bronze vs AWS's Parquet, cell by cell, for one business date, triggered by hand.
 
 ## Mental model
 
@@ -91,6 +91,97 @@ Tested:
 - The landed CSV triggered `bronze_campaign` like any other file: it recreated `bronze.campaign` (18 rows, 1 file).
 - All queues and dead-letter queues were empty afterwards.
 
+## Recon: cell by cell (`spark/recon/compare.py`, `recon_transform.py`)
+
+```
+gs://<project>-processed/ecommerce/campaign/*/*.parquet  (AWS)  ─┐  filter: business date in the file name
+lake.bronze.campaign                                     (GCP)  ─┤  = --date
+                                                                 ▼
+             FULL OUTER JOIN on campaign_id + _meta_file_name
+                                                                 ▼
+             BigQuery native recon.campaign, partitioned by business_date
+```
+
+Output: one row per key, with three columns per business column:
+
+| Column | Meaning |
+|---|---|
+| `business_date`, `campaign_id`, `_meta_file_name` | the join key |
+| `_row_status` | `both`, `aws_only` or `gcp_only` |
+| `_all_eq` | the row is on both sides and every cell is equal |
+| `<col>_aws`, `<col>_gcp`, `<col>_is_eq` | for each of the 8 business columns. Null-safe (`<=>`): null = null is equal. False when the row is on one side only |
+| `_recon_batch_id`, `_recon_ts` | which run wrote it |
+
+Design:
+- **Generic.** Columns come from the feed's `schema.py`; keys from `--keys`. Another feed needs only a new YAML.
+- **Business date from the file name** (`campaign_20260101235959.csv`) on both sides, so folders can differ between clouds.
+- **Fails loudly** if a key isn't unique on either side, or if neither side has rows for the date.
+- **Re-runnable.** Each run replaces only its date's partition (`recon.campaign$20260101`), so dates can be reconciled in any order.
+- **BigQuery native** (Spark BigQuery connector, indirect write: Parquet staged in the code bucket, then a load job). A native table gets BigQuery's governance and is cheap to query.
+
+Run it from the Airflow UI (Trigger → `date`), or:
+
+```bash
+scripts/airflow.sh ui
+```
+
+Then in the UI, trigger `recon_campaign` with `date` = `2026-01-01`. Without a date, Airflow rejects the trigger (`Invalid input for param date`).
+
+Check in BigQuery:
+
+```sql
+SELECT
+  business_date,
+  _row_status,
+  _all_eq,
+  COUNT(*) AS n_rows
+FROM recon.campaign
+GROUP BY business_date, _row_status, _all_eq
+ORDER BY business_date, _row_status;
+```
+
+Expect, for 2026-01-01: `both`, `true`, 18.
+
+```sql
+SELECT
+  business_date,
+  COUNTIF(NOT campaign_code_is_eq) AS campaign_code,
+  COUNTIF(NOT campaign_name_is_eq) AS campaign_name,
+  COUNTIF(NOT channel_is_eq) AS channel,
+  COUNTIF(NOT budget_aud_is_eq) AS budget_aud,
+  COUNTIF(NOT discount_pct_is_eq) AS discount_pct,
+  COUNTIF(NOT start_date_is_eq) AS start_date,
+  COUNTIF(NOT is_running_is_eq) AS is_running,
+  COUNTIF(NOT snapshot_date_is_eq) AS snapshot_date
+FROM recon.campaign
+GROUP BY business_date
+ORDER BY business_date;
+```
+
+This counts unequal cells per column; all 0 means the two outputs are identical.
+
+```sql
+SELECT
+  business_date,
+  campaign_id,
+  _row_status,
+  budget_aud_aws,
+  budget_aud_gcp
+FROM recon.campaign
+WHERE NOT _all_eq
+ORDER BY business_date, campaign_id;
+```
+
+This lists the rows that differ (none expected yet). To see the recon catch a difference, apply with `legacy_quirk = true`:
+
+```bash
+scripts/aws.sh apply -var=legacy_quirk=true
+```
+
+Files uploaded after that get a rounded `budget_aud` on the AWS side. Their recon shows `budget_aud_is_eq = false`.
+
+Tested (2026-01-01, via Airflow and directly): 18 rows `both`, all equal; a re-run replaced the partition (still 18 rows, one batch id).
+
 Check the Lambda:
 
 ```bash
@@ -102,6 +193,7 @@ Expect `wrote s3://processed-<acct>/ecommerce/campaign/2026-01-01/campaign_20260
 Tear down: `scripts/aws.sh destroy` (buckets are `force_destroy`).
 
 ## Gotchas
+- **Spark BigQuery connector, partitioned writes.** The direct write ignores `partitionField` (the table is created unpartitioned). `partitionOverwriteMode=dynamic` fails once the table exists ("Incompatible table partitioning specification"). What works: indirect write + `datePartition=<yyyymmdd>` + overwrite.
 - **Event-driven STS only sees new events.** Objects already in S3 before the job existed need a one-off batch run.
 - **S3 sends `s3:TestEvent`** to a target when its notification is configured. Consumers must skip messages without `Records`.
 - **Reading an SQS message counts as a receive.** Peeking at a queue three times sends its messages to the DLQ (`maxReceiveCount = 3`). Use `ApproximateNumberOfMessages`, or purge after testing.
