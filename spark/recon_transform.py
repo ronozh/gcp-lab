@@ -1,7 +1,7 @@
 """Entry point: cell-to-cell recon of one feed for one business date, AWS output vs GCP bronze -> recon.<feed>.
 
   --source / --feed <name>   e.g. ecommerce / campaign (columns from bronze/<source>/<feed>/schema.py)
-  --keys <col,...>           business key(s); _meta_file_name is always added
+  --keys <col,...>           business key(s), joined <key>_aws = <key>_gcp; the same _meta_file_name is always required
   --date <yyyy-mm-dd>        business date, taken from the file name on both sides
   --processed gs://<bucket>  AWS output copied by Storage Transfer: <bucket>/<source>/<feed>/<date>/*.parquet
   --temp-bucket <bucket>     staging for the BigQuery load (the connector's indirect write)
@@ -49,7 +49,7 @@ def main():
 
     summary = out.groupBy("_row_status", "_all_eq").count().collect()
     log.info("rows: %s", sorted((r._row_status, r._all_eq, r["count"]) for r in summary))
-    diffs = out.select([F.sum((~F.col(f"{c}_is_eq")).cast("int")).alias(c) for c in columns]).first().asDict()
+    diffs = out.select([F.sum((~F.col(f"{c}_is_eq")).cast("int")).alias(c) for c in [*keys, *columns]]).first().asDict()
     log.info("unequal cells per column: %s", {c: n for c, n in diffs.items() if n})
 
     (out.coalesce(1).write.format("bigquery")   # one feed-day is small: one writer, not one per shuffle partition

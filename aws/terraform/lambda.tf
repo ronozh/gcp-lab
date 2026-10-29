@@ -69,7 +69,6 @@ resource "aws_lambda_function" "csv_to_parquet" {
   environment {
     variables = {
       OUTPUT_BUCKET = aws_s3_bucket.this["processed"].id
-      LEGACY_QUIRK  = tostring(var.legacy_quirk)
     }
   }
   depends_on = [aws_cloudwatch_log_group.lambda, aws_iam_role_policy.lambda]

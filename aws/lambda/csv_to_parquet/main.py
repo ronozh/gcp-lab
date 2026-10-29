@@ -2,6 +2,7 @@
 
 raw-<acct>/ecommerce/<feed>/<date>/<name>.csv -> processed-<acct>/ecommerce/<feed>/<date>/<name>.parquet
 Typed columns + _meta_file_name (the recon joins on business key + file name).
+LEGACY: where this pipeline differs from GCP bronze on purpose, so the recon has something to find.
 Triggered by SQS raw-to-lambda (S3 event JSON, raw SNS delivery). pandas + pyarrow come from the AWS layer.
 """
 import io
@@ -19,7 +20,7 @@ log = logging.getLogger()
 log.setLevel(logging.INFO)
 s3 = boto3.client("s3")
 
-# Column order = CSV header order. Same types as GCP bronze (spark/bronze/<source>/<feed>/schema.py).
+# Column order = CSV header order. Parsed with the same types as GCP bronze (spark/bronze/<source>/<feed>/schema.py).
 SCHEMAS = {
     "campaign": pa.schema([
         ("campaign_id", pa.int32()),
@@ -32,6 +33,17 @@ SCHEMAS = {
         ("is_running", pa.bool_()),
         ("snapshot_date", pa.date32()),
     ]),
+}
+
+# feed -> (change to the parsed rows, output types that change)
+LEGACY = {
+    "campaign": (
+        lambda df: df.assign(
+            is_running=df["is_running"].astype("Int32"),   # 1/0 instead of true/false
+            discount_pct=df["discount_pct"] * 100,          # a percentage (26.0) instead of a fraction (0.26)
+        ),
+        {"is_running": pa.int32()},
+    ),
 }
 
 
@@ -50,8 +62,6 @@ def convert(body: bytes, schema: pa.Schema) -> pd.DataFrame:
             df[f.name] = pd.to_datetime(col, format="%Y-%m-%d").dt.date
         elif pa.types.is_boolean(f.type):
             df[f.name] = col.str.lower().map({"true": True, "false": False}).astype("boolean")
-    if os.environ.get("LEGACY_QUIRK") == "true" and "budget_aud" in df:
-        df["budget_aud"] = df["budget_aud"].round(-3)
     return df
 
 
@@ -61,8 +71,11 @@ def process(bucket: str, key: str) -> None:
         log.info("skip %s: no schema for feed %s", key, feed)
         return
     df = convert(s3.get_object(Bucket=bucket, Key=key)["Body"].read(), SCHEMAS[feed])
+    change, types = LEGACY.get(feed, (lambda d: d, {}))
+    df = change(df)
     df["_meta_file_name"] = key.rsplit("/", 1)[1]
-    schema = SCHEMAS[feed].append(pa.field("_meta_file_name", pa.string()))
+    schema = pa.schema([pa.field(f.name, types.get(f.name, f.type)) for f in SCHEMAS[feed]]
+                       + [pa.field("_meta_file_name", pa.string())])
     out = io.BytesIO()
     pq.write_table(pa.Table.from_pandas(df, schema=schema, preserve_index=False), out)
     out_key = key.removesuffix(".csv") + ".parquet"

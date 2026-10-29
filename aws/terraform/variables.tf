@@ -9,12 +9,6 @@ variable "pandas_layer_version" {
   default     = "3.9.1"
 }
 
-variable "legacy_quirk" {
-  description = "Demo: the Lambda rounds budget_aud to the nearest 1000, a logic difference the recon should catch."
-  type        = bool
-  default     = false
-}
-
 variable "project_id" {
   description = "GCP project. scripts/aws.sh reads it from terraform/terraform.tfvars (gitignored)."
   type        = string

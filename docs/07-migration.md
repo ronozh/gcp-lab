@@ -40,7 +40,9 @@ Why SNS for raw but not for processed:
 The Lambda is written separately from the Spark code, like a real legacy system:
 - Same types as GCP bronze.
 - Only an empty field is null, as in Spark. pandas would also null `NA` and `null`.
-- `legacy_quirk = true` (Terraform variable) rounds `budget_aud` to the nearest 1000: a planted logic difference for the recon to find.
+- Two **planted legacy differences** (`LEGACY` in the Lambda), for the recon to find:
+  - `is_running` is `1`/`0` (int), not `true`/`false`.
+  - `discount_pct` is a percentage (`26.0`), not a fraction (`0.26`).
 - Failed messages are retried, then go to the dead-letter queue (`ReportBatchItemFailures`).
 
 Applied **locally** with your SSO login, not by CI: in a real migration, this side belongs to ANZ. Its state is in the GCP state bucket, under prefix `aws`.
@@ -97,7 +99,7 @@ Tested:
 gs://<project>-processed/ecommerce/campaign/*/*.parquet  (AWS)  ─┐  filter: business date in the file name
 lake.bronze.campaign                                     (GCP)  ─┤  = --date
                                                                  ▼
-             FULL OUTER JOIN on campaign_id + _meta_file_name
+   FULL OUTER JOIN on campaign_id_aws = campaign_id_gcp, same _meta_file_name
                                                                  ▼
              BigQuery native recon.campaign, partitioned by business_date
 ```
@@ -106,26 +108,35 @@ Output: one row per key, with three columns per business column:
 
 | Column | Meaning |
 |---|---|
-| `business_date`, `campaign_id`, `_meta_file_name` | the join key |
+| `business_date`, `_meta_file_name` | the file, and its date |
 | `_row_status` | `both`, `aws_only` or `gcp_only` |
 | `_all_eq` | the row is on both sides and every cell is equal |
-| `<col>_aws`, `<col>_gcp`, `<col>_is_eq` | for each of the 8 business columns. Null-safe (`<=>`): null = null is equal. False when the row is on one side only |
+| `<col>_aws`, `<col>_gcp`, `<col>_is_eq` | for each of the 9 columns, the key `campaign_id` included. Null-safe (`<=>`): null = null is equal. False when the row is on one side only |
 | `_recon_batch_id`, `_recon_ts` | which run wrote it |
 
 Design:
 - **Generic.** Columns come from the feed's `schema.py`; keys from `--keys`. Another feed needs only a new YAML.
+- **Strict when types differ.** If a column's type differs between the sides, the values are compared as text: `1` vs `true` is unequal. Spark alone would convert the boolean to a number and call them equal.
 - **Business date from the file name** (`campaign_20260101235959.csv`) on both sides, so folders can differ between clouds.
 - **Fails loudly** if a key isn't unique on either side, or if neither side has rows for the date.
 - **Re-runnable.** Each run replaces only its date's partition (`recon.campaign$20260101`), so dates can be reconciled in any order.
 - **BigQuery native** (Spark BigQuery connector, indirect write: Parquet staged in the code bucket, then a load job). A native table gets BigQuery's governance and is cheap to query.
 
-Run it from the Airflow UI (Trigger → `date`), or:
+Run it from your terminal (the Spark batch runs in GCP, ~3 min):
+
+```bash
+scripts/run-recon.sh campaign 2026-01-02
+```
+
+`LOCAL=1` in front runs your local, unpushed code. Optional third argument: keys (default `<feed>_id`).
+
+Or from the Airflow UI:
 
 ```bash
 scripts/airflow.sh ui
 ```
 
-Then in the UI, trigger `recon_campaign` with `date` = `2026-01-01`. Without a date, Airflow rejects the trigger (`Invalid input for param date`).
+Then trigger `recon_campaign` with `date` = `2026-01-02`. Without a date, Airflow rejects the trigger (`Invalid input for param date`).
 
 Check in BigQuery:
 
@@ -140,11 +151,12 @@ GROUP BY business_date, _row_status, _all_eq
 ORDER BY business_date, _row_status;
 ```
 
-Expect, for 2026-01-01: `both`, `true`, 18.
+Expect, for 2026-01-01: `both`, `false`, 18 (every row has the two planted differences).
 
 ```sql
 SELECT
   business_date,
+  COUNTIF(NOT campaign_id_is_eq) AS campaign_id,
   COUNTIF(NOT campaign_code_is_eq) AS campaign_code,
   COUNTIF(NOT campaign_name_is_eq) AS campaign_name,
   COUNTIF(NOT channel_is_eq) AS channel,
@@ -158,29 +170,28 @@ GROUP BY business_date
 ORDER BY business_date;
 ```
 
-This counts unequal cells per column; all 0 means the two outputs are identical.
+This counts unequal cells per column. Expect 18 for `discount_pct` and `is_running`, 0 for the others.
 
 ```sql
 SELECT
   business_date,
-  campaign_id,
+  campaign_id_aws,
+  campaign_id_gcp,
   _row_status,
-  budget_aud_aws,
-  budget_aud_gcp
+  is_running_aws,
+  is_running_gcp,
+  discount_pct_aws,
+  discount_pct_gcp
 FROM recon.campaign
 WHERE NOT _all_eq
-ORDER BY business_date, campaign_id;
+ORDER BY business_date, campaign_id_aws;
 ```
 
-This lists the rows that differ (none expected yet). To see the recon catch a difference, apply with `legacy_quirk = true`:
+This lists the rows that differ, side by side: `0` vs `false`, `26.0` vs `0.26`.
 
-```bash
-scripts/aws.sh apply -var=legacy_quirk=true
-```
-
-Files uploaded after that get a rounded `budget_aud` on the AWS side. Their recon shows `budget_aud_is_eq = false`.
-
-Tested (2026-01-01, via Airflow and directly): 18 rows `both`, all equal; a re-run replaced the partition (still 18 rows, one batch id).
+Tested (2026-01-01):
+- Identical logic on both sides: 18 rows `both`, all equal. A re-run replaced the partition (still 18 rows, one batch id).
+- With the legacy differences: 18 rows, `_all_eq = false`; unequal cells only in `discount_pct` (18) and `is_running` (18).
 
 Check the Lambda:
 
@@ -193,6 +204,7 @@ Expect `wrote s3://processed-<acct>/ecommerce/campaign/2026-01-01/campaign_20260
 Tear down: `scripts/aws.sh destroy` (buckets are `force_destroy`).
 
 ## Gotchas
+- **A recon schema change needs the table dropped** (`bq rm -t recon.campaign`): a partition overwrite can't change column types.
 - **Spark BigQuery connector, partitioned writes.** The direct write ignores `partitionField` (the table is created unpartitioned). `partitionOverwriteMode=dynamic` fails once the table exists ("Incompatible table partitioning specification"). What works: indirect write + `datePartition=<yyyymmdd>` + overwrite.
 - **Event-driven STS only sees new events.** Objects already in S3 before the job existed need a one-off batch run.
 - **S3 sends `s3:TestEvent`** to a target when its notification is configured. Consumers must skip messages without `Records`.
