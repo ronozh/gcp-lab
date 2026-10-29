@@ -4,10 +4,12 @@
   --keys <col,...>           business key(s); _meta_file_name is always added
   --date <yyyy-mm-dd>        business date, taken from the file name on both sides
   --processed gs://<bucket>  AWS output copied by Storage Transfer: <bucket>/<source>/<feed>/<date>/*.parquet
+  --temp-bucket <bucket>     staging for the BigQuery load (the connector's indirect write)
   --batch-id <id>            for the log and the output
 
 GCP side: lake.bronze.<feed> (Iceberg). Output: BigQuery native table recon.<feed>, partitioned by
-business_date; a rerun replaces only that date's partition.
+business_date; a rerun replaces only that date's partition. Indirect write (Parquet in GCS, then a load
+job): the connector's direct write can't create a partitioned table.
 """
 import argparse
 import logging
@@ -23,7 +25,7 @@ log = logging.getLogger("recon")
 
 def main():
     p = argparse.ArgumentParser()
-    for arg in ("--source", "--feed", "--keys", "--date", "--processed", "--batch-id"):
+    for arg in ("--source", "--feed", "--keys", "--date", "--processed", "--temp-bucket", "--batch-id"):
         p.add_argument(arg, required=True)
     a = p.parse_args()
     logging.basicConfig(level=logging.INFO, stream=sys.stdout,
@@ -52,7 +54,7 @@ def main():
     log.info("unequal cells per column: %s", {c: n for c, n in diffs.items() if n})
 
     (out.coalesce(1).write.format("bigquery")   # one feed-day is small: one writer, not one per shuffle partition
-     .option("writeMethod", "direct")
+     .option("writeMethod", "indirect").option("temporaryGcsBucket", a.temp_bucket)
      .option("partitionField", "business_date").option("partitionType", "DAY")
      .mode("overwrite")                       # dynamic: only this date's partition
      .save(f"recon.{a.feed}"))
