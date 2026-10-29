@@ -35,8 +35,7 @@ def main():
     keys = a.keys.split(",")
     columns = [c for c in cfg.schema.fieldNames() if c not in keys]
 
-    spark = (SparkSession.builder.appName(f"recon_{a.feed}")
-             .config("spark.sql.sources.partitionOverwriteMode", "dynamic").getOrCreate())
+    spark = SparkSession.builder.appName(f"recon_{a.feed}").getOrCreate()
     on_date = business_date(F.col(FILE_KEY)) == F.lit(a.date).cast("date")   # columns need the session
     aws = spark.read.parquet(f"{a.processed.rstrip('/')}/{a.source}/{a.feed}/*/*.parquet").filter(on_date)
     gcp = spark.table(f"lake.bronze.{a.feed}").filter(on_date)
@@ -56,7 +55,8 @@ def main():
     (out.coalesce(1).write.format("bigquery")   # one feed-day is small: one writer, not one per shuffle partition
      .option("writeMethod", "indirect").option("temporaryGcsBucket", a.temp_bucket)
      .option("partitionField", "business_date").option("partitionType", "DAY")
-     .mode("overwrite")                       # dynamic: only this date's partition
+     .option("datePartition", a.date.replace("-", ""))   # overwrite = replace recon.<feed>$<yyyymmdd> only
+     .mode("overwrite")
      .save(f"recon.{a.feed}"))
     log.info("wrote recon.%s date=%s rows=%d", a.feed, a.date, out.count())
     spark.stop()
