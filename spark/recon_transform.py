@@ -32,10 +32,10 @@ def main():
     cfg = FeedConfig.load(a.source, a.feed)
     keys = a.keys.split(",")
     columns = [c for c in cfg.schema.fieldNames() if c not in keys]
-    on_date = business_date(F.col(FILE_KEY)) == F.lit(a.date).cast("date")
 
     spark = (SparkSession.builder.appName(f"recon_{a.feed}")
              .config("spark.sql.sources.partitionOverwriteMode", "dynamic").getOrCreate())
+    on_date = business_date(F.col(FILE_KEY)) == F.lit(a.date).cast("date")   # columns need the session
     aws = spark.read.parquet(f"{a.processed.rstrip('/')}/{a.source}/{a.feed}/*/*.parquet").filter(on_date)
     gcp = spark.table(f"lake.bronze.{a.feed}").filter(on_date)
     log.info("batch=%s feed=%s date=%s keys=%s columns=%d", a.batch_id, a.feed, a.date, keys, len(columns))
@@ -51,7 +51,7 @@ def main():
     diffs = out.select([F.sum((~F.col(f"{c}_is_eq")).cast("int")).alias(c) for c in columns]).first().asDict()
     log.info("unequal cells per column: %s", {c: n for c, n in diffs.items() if n})
 
-    (out.write.format("bigquery")
+    (out.coalesce(1).write.format("bigquery")   # one feed-day is small: one writer, not one per shuffle partition
      .option("writeMethod", "direct")
      .option("partitionField", "business_date").option("partitionType", "DAY")
      .mode("overwrite")                       # dynamic: only this date's partition
