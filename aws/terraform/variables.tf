@@ -14,3 +14,13 @@ variable "legacy_quirk" {
   type        = bool
   default     = false
 }
+
+variable "project_id" {
+  description = "GCP project. scripts/aws.sh reads it from terraform/terraform.tfvars (gitignored)."
+  type        = string
+}
+
+variable "gcp_region" {
+  type    = string
+  default = "australia-southeast1"
+}

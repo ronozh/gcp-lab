@@ -3,10 +3,11 @@
 #   scripts/aws.sh apply | destroy | plan
 #   scripts/aws.sh upload <feed> [day]    sample file(s) -> s3://raw-<acct>/ecommerce/<feed>/...  (no day = all days)
 #   scripts/aws.sh ls                     list raw + processed
-# Login first: aws sso login --profile dpivoted
+# Login first: aws sso login --profile dpivoted (and gcloud auth application-default login for the bridge)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 export AWS_PROFILE=${AWS_PROFILE:-dpivoted}
+TF_VAR_project_id=$(sed -n 's/^project_id *= *"\(.*\)"/\1/p' terraform/terraform.tfvars); export TF_VAR_project_id
 tf() { terraform -chdir=aws/terraform "$@"; }
 acct() { aws sts get-caller-identity --query Account --output text; }
 
