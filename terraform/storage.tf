@@ -21,6 +21,15 @@ resource "google_storage_bucket" "lake" {
   force_destroy               = true
 }
 
+# processed: the AWS pipeline's output, copied from s3://processed-<acct> by Storage Transfer (docs/07).
+resource "google_storage_bucket" "processed" {
+  name                        = "${var.project_id}-processed"
+  location                    = var.region
+  uniform_bucket_level_access = true
+  public_access_prevention    = "enforced"
+  force_destroy               = true
+}
+
 # code: PySpark job files (deployed by CI) and Spark staging files (--deps-bucket).
 resource "google_storage_bucket" "code" {
   name                        = "${var.project_id}-code"

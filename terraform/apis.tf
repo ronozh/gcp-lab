@@ -16,6 +16,7 @@ locals {
     "artifactregistry.googleapis.com",   # stores that container
     "eventarc.googleapis.com",           # GCS event → function
     "pubsub.googleapis.com",             # Eventarc's transport for GCS events
+    "storagetransfer.googleapis.com",    # S3 -> GCS copies (phase 7, jobs in aws/terraform)
   ]
 }
 
