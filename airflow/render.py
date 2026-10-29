@@ -26,7 +26,7 @@ COMMON = {"description": None, "cron": None, "after": None, "retries": 3, "retry
 TYPES = {
     "bronze_ingest": {"source": None, "feed": None},
     "dbt_build": {"select": None},
-    "spark_job": {"entry": None, "args": []},
+    "spark_job": {"entry": None, "args": [], "params": {}},   # params: {name: default}; null = required at trigger
 }
 
 

@@ -1,0 +1,9 @@
+# Migration recon: AWS output (Lambda Parquet, copied by Storage Transfer) vs GCP bronze, cell by cell, one business date.
+# Manual: trigger with {"date": "yyyy-mm-dd"}. Writes BigQuery native recon.campaign (that date's partition).
+type: spark_job
+description: Cell-to-cell recon of campaign for one business date, AWS vs GCP -> recon.campaign
+entry: recon_transform.py
+args: ["--source=ecommerce", "--feed=campaign", "--keys=campaign_id", "--date={{ params.date }}",
+       "--processed=gs://${PROJECT}-processed"]
+params: {date: null}
+retries: 0

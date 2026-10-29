@@ -1,5 +1,7 @@
 [% extends "_base.py.j2" %]
 [% block helpers %][% include "_spark.py.j2" %][% endblock %]
+[# Each YAML param -> an Airflow Param, used in args as {{ params.<name> }}. null default = must be given at trigger. #]
+[% block params %][% for name, default in params.items() %][[ name | py ]]: Param([% if default is none %]type="string"[% else %][[ default | py ]][% endif %]), [% endfor %][% endblock %]
 [% block tasks %]
     spark_batch(
         [[ (entry | replace(".py", "") | replace("_", "-")) | py ]],

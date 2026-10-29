@@ -15,7 +15,7 @@ shift
 
 if [ "${LOCAL:-}" = 1 ]; then
   tmp=$(mktemp -d)
-  (cd "$root/spark" && zip -qr "$tmp/lib.zip" bronze gold -x '*__pycache__*')
+  (cd "$root/spark" && zip -qr "$tmp/lib.zip" bronze gold recon -x '*__pycache__*')
   job="$root/spark/$entry"; py_files="$tmp/lib.zip"                   # gcloud uploads them to --deps-bucket
 else
   job="gs://${PROJECT_ID}-code/spark/$entry"; py_files="gs://${PROJECT_ID}-code/spark/lib.zip"   # deployed by CI

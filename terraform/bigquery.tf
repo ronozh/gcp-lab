@@ -7,6 +7,14 @@ resource "google_bigquery_dataset" "layer" {
   depends_on                 = [google_project_service.api]
 }
 
+# recon: migration reconciliation (AWS vs GCP), BigQuery native tables written by Spark (docs/07).
+resource "google_bigquery_dataset" "recon" {
+  dataset_id                 = "recon"
+  location                   = var.region
+  delete_contents_on_destroy = true
+  depends_on                 = [google_project_service.api]
+}
+
 # Connection = a Google-managed SA that BigQuery uses to read/write files in GCS (gold Iceberg).
 resource "google_bigquery_connection" "lake" {
   connection_id = "lake"

@@ -23,3 +23,17 @@ resource "google_bigquery_dataset_iam_member" "spark_gold" {
   role       = "roles/bigquery.dataEditor"
   member     = "serviceAccount:${google_service_account.spark.email}"
 }
+
+# recon.*: native tables written through the Spark BigQuery connector. Replacing a partition
+# runs a BigQuery job (temp table, then replace), hence jobUser.
+resource "google_bigquery_dataset_iam_member" "spark_recon" {
+  dataset_id = google_bigquery_dataset.recon.dataset_id
+  role       = "roles/bigquery.dataEditor"
+  member     = "serviceAccount:${google_service_account.spark.email}"
+}
+
+resource "google_project_iam_member" "spark_job_user" {
+  project = var.project_id
+  role    = "roles/bigquery.jobUser"
+  member  = "serviceAccount:${google_service_account.spark.email}"
+}
